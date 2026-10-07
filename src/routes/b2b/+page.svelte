@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import PageHeader from '#lib/components/PageHeader.svelte';
 	import BusinessHaccp from '#lib/components/BusinessHaccp.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
@@ -22,6 +23,14 @@
 </svelte:head>
 
 <div class="b2b-page">
+	<PageHeader
+		badge={b2b.badge}
+		title={b2b.title}
+		subtitle={b2b.subtitle}
+		crumbs={[{ label: currentContent.nav.b2b }]}
+		imageSrc={asset('images/b2b-haccp-audit.jpg')}
+	/>
+
 	<BusinessHaccp />
 
 	<!-- Industry segments section -->

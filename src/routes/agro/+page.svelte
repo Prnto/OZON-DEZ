@@ -31,7 +31,7 @@
 			? 'Надійний захист врожаю, зерносховищ та елеваторів від шкідників запасів за експортними та фітосанітарними вимогами України.'
 			: 'Надежная защита урожая, зернохранилищ и элеваторов от вредителей запасов по экспортным и фитосанитарным стандартам.'}
 		crumbs={[{ label: currentContent.nav.agro }]}
-		imageSrc="/images/agro-fumigation.jpg"
+		imageSrc={asset('images/agro-fumigation.jpg')}
 	/>
 
 	<section class="section agro-showcase-section">

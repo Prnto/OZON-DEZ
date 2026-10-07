@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { asset, resolve } from '$app/paths';
+	import { asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -10,94 +10,65 @@
 
 <section id="b2b" class="section b2b-section">
 	<div class="container">
-		<div class="b2b-hero-banner">
-			<!-- Background Image: authentic HACCP restaurant kitchen audit -->
-			<div class="b2b-banner-bg">
-				<img
-					src={asset('images/b2b-haccp-audit.jpg')}
-					alt="Санітарний аудит ресторанів та підприємств за нормами HACCP"
-					class="b2b-bg-image"
-					loading="eager"
-				/>
-				<!-- Semi-matte frosted overlay with dark gradient and backdrop-blur -->
-				<div class="b2b-matte-overlay"></div>
+		<!-- Section Header -->
+		<div class="b2b-intro-block">
+			<div class="section-badge dark-accent">
+				{#if langState.current === 'ua'}Регламент НАССР & Пест-Контроль{:else}Регламент НАССР & Пест-Контроль{/if}
+			</div>
+			<h2 class="b2b-section-heading">
+				{#if langState.current === 'ua'}
+					Комплексна програма санітарного аудиту та захисту підприємств
+				{:else}
+					Комплексная программа санитарного аудита и защиты предприятий
+				{/if}
+			</h2>
+			<div class="b2b-paragraphs">
+				<p>{b2b.content1}</p>
+				<p>{b2b.content2}</p>
+			</div>
+		</div>
+
+		<!-- 4 Key HACCP Standards Cards -->
+		<div class="points-grid">
+			{#each b2b.points as pt}
+				<div class="point-item glass-card">
+					<div class="point-icon-box">📋</div>
+					<div class="point-content">
+						<h3 class="point-title">{pt.title}</h3>
+						<p class="point-desc">{pt.desc}</p>
+					</div>
+				</div>
+			{/each}
+		</div>
+
+		<!-- Trust, Stats & Direct Call to Action Bar -->
+		<div class="b2b-cta-bar glass-card-dark">
+			<div class="b2b-stats-cluster">
+				<div class="b2b-stat-pill">
+					<span class="stat-num">{b2b.stats.stat1Val}</span>
+					<span class="stat-lbl">{b2b.stats.stat1Text}</span>
+				</div>
+				<div class="b2b-stat-pill">
+					<span class="stat-num">{b2b.stats.stat2Val}</span>
+					<span class="stat-lbl">{b2b.stats.stat2Text}</span>
+				</div>
 			</div>
 
-			<!-- Content on top of background -->
-			<div class="b2b-banner-content">
-				<!-- Breadcrumbs -->
-				<nav class="breadcrumbs" aria-label="Хлібні крихти">
-					<a href={resolve('/')} class="crumb-link">
-						{#if langState.current === 'ua'}Головна{:else}Главная{/if}
-					</a>
-					<span class="crumb-sep">/</span>
-					<span class="crumb-current">{currentContent.nav.b2b}</span>
-				</nav>
-
-				<!-- Header Group -->
-				<div class="b2b-header-group">
-					<div class="badge-row">
-						<span class="section-badge dark">{b2b.badge}</span>
-						<span class="haccp-compliance-tag">
-							<span class="tag-dot"></span>
-							{b2b.floatingTag.badge} • {b2b.floatingTag.text}
-						</span>
-					</div>
-					<h1 class="b2b-main-title">{b2b.title}</h1>
-					<p class="b2b-intro-text">{b2b.subtitle}</p>
-				</div>
-
-				<!-- Semi-Matte Card with Description & Key Points -->
-				<div class="b2b-matte-card">
-					<div class="b2b-paragraphs">
-						<p>{b2b.content1}</p>
-						<p>{b2b.content2}</p>
-					</div>
-
-					<!-- 4 Key Points Grid -->
-					<div class="points-grid">
-						{#each b2b.points as pt}
-							<div class="point-item">
-								<div class="point-icon">📋</div>
-								<div class="point-text">
-									<h3 class="point-title">{pt.title}</h3>
-									<p class="point-desc">{pt.desc}</p>
-								</div>
-							</div>
-						{/each}
-					</div>
-
-					<!-- Bottom Row: Stats & Action Buttons -->
-					<div class="b2b-bottom-row">
-						<div class="b2b-stats-bar">
-							<div class="b2b-stat">
-								<div class="stat-num">{b2b.stats.stat1Val}</div>
-								<div class="stat-lbl">{b2b.stats.stat1Text}</div>
-							</div>
-							<div class="b2b-stat">
-								<div class="stat-num">{b2b.stats.stat2Val}</div>
-								<div class="stat-lbl">{b2b.stats.stat2Text}</div>
-							</div>
-						</div>
-
-						<div class="b2b-actions">
-							<button
-								type="button"
-								class="btn btn-primary btn-lg"
-								onclick={() =>
-									orderModal.open({
-										serviceTitle: b2b.cta,
-										serviceCategory: 'HoReCa & HACCP'
-									})}
-							>
-								<span>📁 {b2b.cta}</span>
-							</button>
-							<a href="tel:{currentContent.phones.mobile}" class="btn btn-outline-white btn-lg">
-								<span>📞 {b2b.consultBtn}</span>
-							</a>
-						</div>
-					</div>
-				</div>
+			<div class="b2b-cta-actions">
+				<button
+					type="button"
+					class="btn btn-primary btn-lg"
+					onclick={() =>
+						orderModal.open({
+							serviceTitle: b2b.cta,
+							serviceCategory: 'HoReCa & HACCP'
+						})}
+				>
+					<span>📁 {b2b.cta}</span>
+				</button>
+				<a href="tel:{currentContent.phones.mobile}" class="btn btn-outline-white btn-lg">
+					<span>📞 {b2b.consultBtn}</span>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -105,243 +76,134 @@
 
 <style>
 	.b2b-section {
-		padding: 2.5rem 0 3.5rem;
-		background: #f8fafc;
+		background: #ffffff;
+		border-top: 1px solid var(--border-light);
+		padding: 4.5rem 0;
 	}
 
-	.b2b-hero-banner {
-		position: relative;
-		border-radius: var(--radius-xl);
-		overflow: hidden;
-		padding: clamp(2rem, 4.5vw, 3.8rem);
+	.b2b-intro-block {
+		max-width: 860px;
+		margin-bottom: 3rem;
+	}
+
+	.dark-accent {
+		background: rgba(0, 212, 170, 0.12);
+		color: #00876c;
 		border: 1px solid rgba(0, 212, 170, 0.35);
-		box-shadow: 0 25px 60px rgba(5, 17, 36, 0.35);
-		background: #061730;
 	}
 
-	.b2b-banner-bg {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-	}
-
-	.b2b-bg-image {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center 30%;
-		display: block;
-	}
-
-	/* Semi-matte frosted overlay: dark navy gradient + soft matte blur */
-	.b2b-matte-overlay {
-		position: absolute;
-		inset: 0;
-		background:
-			linear-gradient(
-				135deg,
-				rgba(5, 18, 38, 0.91) 0%,
-				rgba(8, 28, 60, 0.84) 45%,
-				rgba(4, 15, 32, 0.93) 100%
-			),
-			radial-gradient(circle at 85% 15%, rgba(0, 212, 170, 0.18) 0%, transparent 60%);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-	}
-
-	.b2b-banner-content {
-		position: relative;
-		z-index: 1;
-		color: #ffffff;
-		display: flex;
-		flex-direction: column;
-		gap: 1.8rem;
-	}
-
-	/* Breadcrumbs */
-	.breadcrumbs {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 0.84rem;
-		font-weight: 600;
-		color: #94a3b8;
-		flex-wrap: wrap;
-	}
-
-	.crumb-link {
-		color: #cbd5e1;
-		transition: color var(--transition-fast);
-		text-decoration: none;
-	}
-
-	.crumb-link:hover {
-		color: var(--accent-teal);
-	}
-
-	.crumb-sep {
-		color: rgba(255, 255, 255, 0.3);
-	}
-
-	.crumb-current {
-		color: var(--accent-teal);
-	}
-
-	/* Header group */
-	.b2b-header-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.85rem;
-		max-width: 960px;
-	}
-
-	.badge-row {
-		display: flex;
-		align-items: center;
-		gap: 0.8rem;
-		flex-wrap: wrap;
-	}
-
-	.haccp-compliance-tag {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.45rem;
-		padding: 0.35rem 0.85rem;
-		border-radius: var(--radius-full);
-		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.18);
-		font-size: 0.78rem;
-		font-weight: 700;
-		color: #ffffff;
-		backdrop-filter: blur(8px);
-	}
-
-	.tag-dot {
-		width: 7px;
-		height: 7px;
-		border-radius: 50%;
-		background: var(--accent-teal);
-		box-shadow: 0 0 8px rgba(0, 212, 170, 0.8);
-	}
-
-	.b2b-main-title {
-		font-size: clamp(2rem, 3.8vw, 3rem);
+	.b2b-section-heading {
+		font-size: clamp(1.85rem, 3.2vw, 2.6rem);
 		font-weight: 800;
-		color: #ffffff;
-		line-height: 1.2;
+		color: var(--primary-950);
+		line-height: 1.25;
+		margin: 0.8rem 0 1.2rem;
 		letter-spacing: -0.02em;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-	}
-
-	.b2b-intro-text {
-		font-size: clamp(1.05rem, 1.8vw, 1.22rem);
-		font-weight: 600;
-		color: #a5f3fc;
-		line-height: 1.55;
-		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-	}
-
-	/* Frosted semi-matte inner card */
-	.b2b-matte-card {
-		background: rgba(8, 26, 54, 0.72);
-		backdrop-filter: blur(14px);
-		-webkit-backdrop-filter: blur(14px);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		border-radius: var(--radius-lg);
-		padding: clamp(1.4rem, 3vw, 2.4rem);
-		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-		display: flex;
-		flex-direction: column;
-		gap: 1.8rem;
 	}
 
 	.b2b-paragraphs {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
-		font-size: 0.98rem;
+		gap: 0.85rem;
+		font-size: 1.05rem;
 		line-height: 1.65;
-		color: #cbd5e1;
-		max-width: 900px;
+		color: #475569;
 	}
 
 	/* 4 Points Grid */
 	.points-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.1rem;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.4rem;
+		margin-bottom: 3.5rem;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
+		.points-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 600px) {
 		.points-grid {
 			grid-template-columns: 1fr;
 		}
 	}
 
 	.point-item {
+		padding: 2rem 1.6rem;
+		border: 1.5px solid var(--border-light);
+		border-radius: var(--radius-lg);
+		background: #ffffff;
 		display: flex;
-		align-items: flex-start;
-		gap: 0.85rem;
-		padding: 1.1rem 1.25rem;
-		border-radius: var(--radius-md);
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		transition: all var(--transition-fast);
+		flex-direction: column;
+		transition: all var(--transition-norm);
 	}
 
 	.point-item:hover {
-		background: rgba(255, 255, 255, 0.09);
-		border-color: rgba(0, 212, 170, 0.4);
-		transform: translateY(-2px);
+		transform: translateY(-4px);
+		border-color: var(--primary-600);
+		box-shadow: var(--shadow-lg);
 	}
 
-	.point-icon {
-		font-size: 1.35rem;
-		flex-shrink: 0;
-		margin-top: 2px;
+	.point-icon-box {
+		font-size: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.point-title {
-		font-size: 0.98rem;
-		font-weight: 700;
-		color: #ffffff;
-		margin-bottom: 0.3rem;
+		font-size: 1.15rem;
+		font-weight: 800;
+		color: var(--primary-950);
+		margin-bottom: 0.5rem;
+		line-height: 1.3;
 	}
 
 	.point-desc {
-		font-size: 0.85rem;
-		color: #94a3b8;
-		line-height: 1.45;
+		font-size: 0.88rem;
+		color: var(--text-muted);
+		line-height: 1.55;
 	}
 
-	/* Bottom row */
-	.b2b-bottom-row {
+	/* CTA Bar */
+	.b2b-cta-bar {
+		padding: 2.5rem 3rem;
+		border-radius: var(--radius-xl);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		gap: 2.5rem;
+		background: linear-gradient(135deg, #071933 0%, #0d2e5a 100%);
+		border: 1px solid rgba(0, 212, 170, 0.35);
+		box-shadow: 0 20px 45px rgba(5, 17, 36, 0.25);
 	}
 
-	.b2b-stats-bar {
+	@media (max-width: 960px) {
+		.b2b-cta-bar {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 2rem 1.6rem;
+		}
+	}
+
+	.b2b-stats-cluster {
 		display: flex;
-		gap: 1rem;
+		align-items: center;
+		gap: 1.5rem;
 		flex-wrap: wrap;
 	}
 
-	.b2b-stat {
+	.b2b-stat-pill {
 		display: flex;
 		align-items: center;
 		gap: 0.85rem;
-		padding: 0.75rem 1.2rem;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		padding: 0.75rem 1.25rem;
 		border-radius: var(--radius-md);
-		background: rgba(0, 212, 170, 0.08);
-		border: 1px solid rgba(0, 212, 170, 0.25);
 	}
 
-	.b2b-stat .stat-num {
+	.b2b-stat-pill .stat-num {
 		font-family: var(--font-heading);
 		font-size: 1.85rem;
 		font-weight: 800;
@@ -349,53 +211,32 @@
 		line-height: 1;
 	}
 
-	.b2b-stat .stat-lbl {
-		font-size: 0.78rem;
-		color: #e2e8f0;
-		line-height: 1.35;
+	.b2b-stat-pill .stat-lbl {
+		font-size: 0.82rem;
+		color: #cbd5e1;
 		font-weight: 600;
 		max-width: 170px;
+		line-height: 1.35;
 	}
 
-	.b2b-actions {
+	.b2b-cta-actions {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
 		flex-wrap: wrap;
 	}
 
-	@media (max-width: 900px) {
-		.b2b-bottom-row {
+	@media (max-width: 600px) {
+		.b2b-stats-cluster {
+			width: 100%;
 			flex-direction: column;
 			align-items: stretch;
 		}
-		.b2b-stats-bar {
+		.b2b-cta-actions {
 			width: 100%;
-		}
-		.b2b-stat {
-			flex: 1;
-			min-width: 220px;
-		}
-		.b2b-actions {
-			width: 100%;
-		}
-		.b2b-actions .btn {
-			flex: 1;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.b2b-hero-banner {
-			padding: 1.5rem 1.15rem;
-			border-radius: var(--radius-lg);
-		}
-		.b2b-matte-card {
-			padding: 1.25rem 1rem;
-		}
-		.b2b-actions {
 			flex-direction: column;
 		}
-		.b2b-actions .btn {
+		.b2b-cta-actions .btn {
 			width: 100%;
 		}
 	}

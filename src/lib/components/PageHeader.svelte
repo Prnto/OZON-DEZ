@@ -61,8 +61,10 @@
 	}
 
 	.page-header-banner.has-bg {
-		padding: 5rem 0 4rem;
-		min-height: 280px;
+		padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(3.5rem, 6vh, 4.5rem);
+		min-height: clamp(320px, 42vh, 440px);
+		display: flex;
+		align-items: center;
 	}
 
 	.header-bg-image {
@@ -84,8 +86,8 @@
 		inset: 0;
 		z-index: 1;
 		background:
-			linear-gradient(135deg, rgba(7, 25, 51, 0.88) 0%, rgba(13, 46, 90, 0.72) 50%, rgba(7, 25, 51, 0.85) 100%),
-			linear-gradient(to top, rgba(7, 25, 51, 0.95) 0%, transparent 40%);
+			linear-gradient(90deg, rgba(5, 18, 38, 0.92) 0%, rgba(7, 24, 52, 0.78) 45%, rgba(7, 24, 52, 0.40) 80%, rgba(5, 18, 38, 0.55) 100%),
+			linear-gradient(to top, rgba(5, 18, 38, 0.90) 0%, transparent 35%);
 	}
 
 	.header-glow {
