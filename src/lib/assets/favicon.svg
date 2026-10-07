@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F4C81"/>
+      <stop offset="100%" stop-color="#022B42"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E5B9"/>
+      <stop offset="100%" stop-color="#00B4D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#shieldGrad)"/>
+  <path d="M32 10C24 10 16 14 16 14V34C16 46 26 53 32 55C38 53 48 46 48 34V14C48 14 40 10 32 10Z" fill="url(#shieldGrad)" stroke="url(#tealGrad)" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="32" cy="28" r="9" stroke="url(#tealGrad)" stroke-width="3" fill="none"/>
+  <path d="M43 38C44.5 38 46 39.5 46 41C46 42.5 44.5 43.5 43 43.5C41.5 43.5 40.5 42.5 40.5 41" stroke="#00E5B9" stroke-width="2" stroke-linecap="round"/>
+  <path d="M41 41H45.5" stroke="#00E5B9" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="21" cy="24" r="3" fill="#00E5B9"/>
+  <circle cx="43" cy="24" r="3" fill="#00E5B9"/>
+  <path d="M23 25L28 27" stroke="#00E5B9" stroke-width="1.5"/>
+  <path d="M41 25L36 27" stroke="#00E5B9" stroke-width="1.5"/>
+</svg>
