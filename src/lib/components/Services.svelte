@@ -214,7 +214,7 @@
 	}
 
 	.category-header-bar {
-		padding: 1.1rem 1.6rem;
+		padding: 1.1rem clamp(1rem, 2vw, 1.6rem);
 		border-radius: var(--radius-lg);
 		display: flex;
 		align-items: center;
@@ -222,6 +222,14 @@
 		border-left: 5px solid;
 		background: #ffffff;
 		box-shadow: var(--shadow-sm);
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 640px) {
+		.category-header-bar {
+			padding: 0.9rem 1.1rem;
+		}
 	}
 
 	.category-header-bar.color-blue {
@@ -279,13 +287,14 @@
 
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-		gap: 1.6rem;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 310px), 1fr));
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 640px) {
 		.services-grid {
 			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 	}
 

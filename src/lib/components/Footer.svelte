@@ -139,8 +139,14 @@
 	.footer {
 		background: #051326;
 		color: #94a3b8;
-		padding: 5rem 0 2rem;
+		padding: 5rem 0 calc(2rem + env(safe-area-inset-bottom, 0));
 		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	@media (max-width: 600px) {
+		.footer {
+			padding: 3.5rem 0 calc(1.5rem + env(safe-area-inset-bottom, 0));
+		}
 	}
 
 	.footer-grid {
@@ -258,6 +264,14 @@
 		flex-wrap: wrap;
 		gap: 1rem;
 		font-size: 0.82rem;
+	}
+
+	@media (max-width: 600px) {
+		.footer-bottom {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.8rem;
+		}
 	}
 
 	.copyright {

@@ -287,6 +287,12 @@
 		border: 1px solid var(--border-light);
 	}
 
+	@media (max-width: 480px) {
+		.info-card {
+			padding: 1.25rem 1rem;
+		}
+	}
+
 	.info-card-header {
 		display: flex;
 		align-items: center;
@@ -418,6 +424,7 @@
 	.mess-buttons {
 		display: flex;
 		gap: 0.75rem;
+		flex-wrap: wrap;
 	}
 
 	.mess-btn {
@@ -573,6 +580,12 @@
 		}
 	}
 
+	@media (max-width: 480px) {
+		.form-card {
+			padding: 1.25rem 1rem;
+		}
+	}
+
 	.form-card-header {
 		margin-bottom: 1.8rem;
 	}
@@ -615,7 +628,7 @@
 		border: 1.5px solid var(--border-light);
 		background: #ffffff;
 		color: var(--text-title);
-		font-size: 0.92rem;
+		font-size: 16px;
 		outline: none;
 		transition: border-color var(--transition-fast);
 	}

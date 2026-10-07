@@ -149,4 +149,26 @@
 	.is-light .brand-sub {
 		color: rgba(255, 255, 255, 0.65);
 	}
+
+	@media (max-width: 1360px) and (min-width: 1240px) {
+		.brand-sub {
+			display: none;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.logo-wrapper {
+			gap: 0.6rem;
+		}
+		.logo-icon {
+			width: 36px;
+			height: 36px;
+		}
+		.brand-name {
+			font-size: 1.25rem;
+		}
+		.brand-sub {
+			display: none;
+		}
+	}
 </style>

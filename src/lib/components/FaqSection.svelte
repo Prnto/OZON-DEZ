@@ -130,4 +130,16 @@
 		line-height: 1.65;
 		color: #475569;
 	}
+
+	@media (max-width: 480px) {
+		.faq-question-btn {
+			padding: 1.15rem 1.1rem;
+		}
+		.q-text {
+			font-size: 0.98rem;
+		}
+		.faq-answer {
+			padding: 0 1.1rem 1.2rem;
+		}
+	}
 </style>

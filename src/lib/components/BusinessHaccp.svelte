@@ -245,4 +245,14 @@
 		flex-wrap: wrap;
 		gap: 1rem;
 	}
+
+	@media (max-width: 480px) {
+		.b2b-actions {
+			width: 100%;
+			flex-direction: column;
+		}
+		.b2b-actions .btn {
+			width: 100%;
+		}
+	}
 </style>

@@ -224,6 +224,15 @@
 		}
 	}
 
+	@media (max-width: 480px) {
+		.requisites-card {
+			padding: 1.25rem 0.95rem;
+		}
+		.geo-city-card {
+			padding: 1.4rem 1.15rem;
+		}
+	}
+
 	.req-table-grid {
 		display: flex;
 		flex-direction: column;
@@ -260,6 +269,7 @@
 		font-size: 0.95rem;
 		color: var(--primary-950);
 		line-height: 1.5;
+		word-break: break-word;
 	}
 
 	.req-mono {

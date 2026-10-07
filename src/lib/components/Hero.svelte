@@ -128,10 +128,10 @@
 <style>
 	.hero-section {
 		position: relative;
-		padding: 5rem 0 6rem;
+		padding: clamp(3rem, 5vh, 4.5rem) 0 clamp(3rem, 6vh, 5rem);
 		background: #061730;
 		overflow: hidden;
-		min-height: 860px;
+		min-height: clamp(560px, 78vh, 800px);
 		display: flex;
 		align-items: center;
 	}
@@ -389,24 +389,42 @@
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.2rem;
-		margin-bottom: 2.8rem;
+		gap: 1rem;
+		margin-bottom: 2.2rem;
+	}
+
+	@media (max-width: 480px) {
+		.hero-actions {
+			flex-direction: column;
+			width: 100%;
+		}
+		.hero-actions .btn {
+			width: 100%;
+			justify-content: center;
+		}
 	}
 
 	/* Triggers Grid */
 	.triggers-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.4rem;
-		padding-top: 2rem;
+		gap: 1.2rem;
+		padding-top: 1.8rem;
 		border-top: 1px solid rgba(255, 255, 255, 0.12);
 		max-width: 860px;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 860px) {
+		.triggers-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.85rem;
+		}
+	}
+
+	@media (max-width: 560px) {
 		.triggers-grid {
 			grid-template-columns: 1fr;
-			gap: 1rem;
+			gap: 0.75rem;
 		}
 	}
 

@@ -63,6 +63,9 @@ html {
 	scroll-padding-top: 85px;
 	font-size: 16px;
 	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+	overflow-x: clip;
 }
 
 body {
@@ -70,8 +73,10 @@ body {
 	background-color: var(--bg-page);
 	color: var(--text-body);
 	line-height: 1.6;
-	overflow-x: hidden;
+	overflow-x: clip;
+	min-width: 320px;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body.modal-open {
@@ -95,6 +100,11 @@ button, input, select, textarea {
 	font-size: 1rem;
 }
 
+/* Prevent auto-zoom on iOS Safari when tapping inputs */
+input, select, textarea {
+	font-size: 16px !important;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -106,7 +116,7 @@ img {
 	width: 100%;
 	max-width: var(--container-width);
 	margin: 0 auto;
-	padding: 0 1.5rem;
+	padding: 0 clamp(1rem, 3vw, 1.5rem);
 }
 
 .section {
@@ -117,6 +127,12 @@ img {
 @media (max-width: 768px) {
 	.section {
 		padding: 3.5rem 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.section {
+		padding: 2.75rem 0;
 	}
 }
 

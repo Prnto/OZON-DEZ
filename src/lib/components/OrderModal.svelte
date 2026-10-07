@@ -204,6 +204,15 @@
 		animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 		max-height: 90vh;
 		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	@media (max-width: 480px) {
+		.modal-dialog {
+			padding: 1.5rem 1.15rem;
+			border-radius: var(--radius-lg);
+			max-height: 92vh;
+		}
 	}
 
 	@keyframes popIn {
@@ -294,7 +303,7 @@
 		border-radius: var(--radius-sm);
 		border: 1.5px solid var(--border-light);
 		background: #ffffff;
-		font-size: 0.92rem;
+		font-size: 16px;
 		color: var(--text-title);
 		outline: none;
 		transition: border-color var(--transition-fast);

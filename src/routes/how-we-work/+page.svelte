@@ -191,6 +191,12 @@
 		transition: all var(--transition-fast);
 	}
 
+	@media (max-width: 480px) {
+		.prep-card {
+			padding: 1.4rem 1.15rem;
+		}
+	}
+
 	.prep-card:hover {
 		transform: translateY(-4px);
 		border-color: var(--primary-600);
@@ -231,6 +237,15 @@
 			flex-direction: column;
 			align-items: flex-start;
 			padding: 2rem 1.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.prep-action-banner {
+			padding: 1.6rem 1.15rem;
+		}
+		.prep-action-banner .btn {
+			width: 100%;
 		}
 	}
 

@@ -121,7 +121,8 @@
 					class="btn btn-primary btn-sm main-cta-btn"
 					onclick={() => orderModal.open({ serviceTitle: currentContent.nav.callBtn })}
 				>
-					<span>⚡ {currentContent.nav.callBtn}</span>
+					<span class="cta-full-label">⚡ {currentContent.nav.callBtn}</span>
+					<span class="cta-short-label">⚡ {#if langState.current === 'ua'}Замовити{:else}Заказать{/if}</span>
 				</button>
 
 				<!-- Mobile Hamburger Toggle -->
@@ -234,6 +235,7 @@
 		background: #ffffff;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 		transition: all var(--transition-norm);
+		padding-top: env(safe-area-inset-top, 0);
 	}
 
 	.header-wrapper.scrolled {
@@ -251,7 +253,7 @@
 	.top-bar-container {
 		max-width: var(--container-width);
 		margin: 0 auto;
-		padding: 0.4rem 1.5rem;
+		padding: 0.4rem clamp(0.75rem, 2vw, 1.5rem);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -271,6 +273,20 @@
 		}
 		.top-bar-container {
 			justify-content: flex-end;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.top-bar-container {
+			padding: 0.3rem 0.75rem;
+			gap: 0.5rem;
+		}
+		.top-phone-link {
+			font-size: 0.76rem;
+			gap: 0.25rem;
+		}
+		.top-bar-right {
+			gap: 0.5rem;
 		}
 	}
 
@@ -373,11 +389,11 @@
 	.main-bar-container {
 		max-width: var(--container-width);
 		margin: 0 auto;
-		padding: 0.75rem 1.5rem;
+		padding: 0.65rem clamp(0.75rem, 2vw, 1.5rem);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.2rem;
+		gap: clamp(0.5rem, 1vw, 1.2rem);
 	}
 
 	.logo-box {
@@ -388,25 +404,26 @@
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: clamp(0.4rem, 0.9vw, 1.1rem);
+		gap: clamp(0.15rem, 0.5vw, 0.75rem);
 		flex: 1;
 		justify-content: center;
+		min-width: 0;
 	}
 
-	/* Switch to mobile drawer at 1160px so links NEVER collide */
-	@media (max-width: 1160px) {
+	/* Switch to mobile drawer at 1240px so links NEVER collide or overflow on laptops */
+	@media (max-width: 1240px) {
 		.nav-links {
 			display: none;
 		}
 	}
 
 	.nav-link {
-		font-size: 0.88rem;
+		font-size: clamp(0.78rem, 0.85vw, 0.86rem);
 		font-weight: 600;
 		color: var(--text-title);
 		white-space: nowrap;
 		flex-shrink: 0;
-		padding: 0.4rem 0.6rem;
+		padding: 0.35rem clamp(0.32rem, 0.45vw, 0.55rem);
 		border-radius: var(--radius-sm);
 		transition: all var(--transition-fast);
 		text-decoration: none;
@@ -432,15 +449,28 @@
 	.main-bar-actions {
 		display: flex;
 		align-items: center;
-		gap: 0.85rem;
+		gap: 0.75rem;
 		flex-shrink: 0;
 	}
 
 	.main-cta-btn {
 		white-space: nowrap;
 		box-shadow: 0 4px 14px rgba(0, 212, 170, 0.3);
-		padding: 0.6rem 1.25rem;
-		font-size: 0.88rem;
+		padding: 0.5rem clamp(0.75rem, 1vw, 1.25rem);
+		font-size: 0.84rem;
+	}
+
+	.cta-short-label {
+		display: none;
+	}
+
+	@media (max-width: 1400px) {
+		.cta-full-label {
+			display: none;
+		}
+		.cta-short-label {
+			display: inline;
+		}
 	}
 
 	@media (max-width: 640px) {
@@ -454,21 +484,22 @@
 		display: none;
 		flex-direction: column;
 		justify-content: space-around;
-		width: 36px;
-		height: 36px;
+		width: 40px;
+		height: 40px;
 		background: #f1f5f9;
 		border: 1px solid var(--border-light);
 		border-radius: var(--radius-sm);
 		cursor: pointer;
-		padding: 7px;
+		padding: 8px;
 		transition: background var(--transition-fast);
+		touch-action: manipulation;
 	}
 
 	.burger-btn:hover {
 		background: #e2e8f0;
 	}
 
-	@media (max-width: 1160px) {
+	@media (max-width: 1240px) {
 		.burger-btn {
 			display: flex;
 		}
@@ -476,14 +507,14 @@
 
 	.burger-btn span {
 		width: 100%;
-		height: 2px;
+		height: 2.2px;
 		background-color: var(--primary-900);
 		border-radius: 2px;
 		transition: all 0.3s ease;
 	}
 
 	.burger-btn.open span:nth-child(1) {
-		transform: translateY(6px) rotate(45deg);
+		transform: translateY(7px) rotate(45deg);
 	}
 
 	.burger-btn.open span:nth-child(2) {
@@ -491,15 +522,16 @@
 	}
 
 	.burger-btn.open span:nth-child(3) {
-		transform: translateY(-6px) rotate(-45deg);
+		transform: translateY(-7px) rotate(-45deg);
 	}
 
 	/* Mobile Drawer */
 	.mobile-backdrop {
 		position: fixed;
 		inset: 0;
-		background: rgba(4, 13, 26, 0.5);
+		background: rgba(4, 13, 26, 0.55);
 		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
 		z-index: 98;
 	}
 
@@ -511,11 +543,12 @@
 		background: #ffffff;
 		border-bottom: 2px solid var(--border-light);
 		box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
-		padding: 1.5rem;
+		padding: 1.25rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0));
 		animation: slideDown 0.25s ease-out;
 		z-index: 99;
-		max-height: calc(100vh - 100px);
+		max-height: calc(100vh - 85px);
 		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	@keyframes slideDown {

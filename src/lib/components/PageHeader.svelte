@@ -160,4 +160,14 @@
 			min-height: 220px;
 		}
 	}
+
+	@media (max-width: 480px) {
+		.page-header-banner {
+			padding: 2.5rem 0 2rem;
+		}
+		.page-header-banner.has-bg {
+			padding: 2.8rem 0 2.2rem;
+			min-height: 190px;
+		}
+	}
 </style>

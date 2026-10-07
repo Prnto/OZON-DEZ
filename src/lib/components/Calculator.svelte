@@ -308,6 +308,12 @@
 		}
 	}
 
+	@media (max-width: 480px) {
+		.calc-card {
+			padding: 1.25rem 0.95rem;
+		}
+	}
+
 	.step-group {
 		display: flex;
 		flex-direction: column;
@@ -347,6 +353,12 @@
 	@media (max-width: 600px) {
 		.obj-buttons-grid {
 			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 380px) {
+		.obj-buttons-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 
@@ -579,6 +591,12 @@
 		}
 	}
 
+	@media (max-width: 480px) {
+		.calc-result-card {
+			padding: 1.25rem 0.95rem;
+		}
+	}
+
 	.result-badge {
 		display: inline-block;
 		font-size: 0.75rem;
@@ -609,7 +627,7 @@
 	}
 
 	.price-amount {
-		font-size: 3.2rem;
+		font-size: clamp(2.3rem, 7vw, 3.2rem);
 		font-weight: 800;
 		color: #ffffff;
 		line-height: 1;
@@ -679,7 +697,7 @@
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		background: rgba(255, 255, 255, 0.08);
 		color: #ffffff;
-		font-size: 0.9rem;
+		font-size: 16px;
 		outline: none;
 		transition: border-color var(--transition-fast);
 	}

@@ -81,6 +81,15 @@
 		}
 	}
 
+	@media (max-width: 480px) {
+		.water-card {
+			padding: 1.5rem 1.15rem;
+		}
+		.water-action .btn {
+			width: 100%;
+		}
+	}
+
 	.water-grid {
 		display: grid;
 		grid-template-columns: 1.15fr 0.85fr;

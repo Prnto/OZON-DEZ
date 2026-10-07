@@ -136,7 +136,7 @@
 
 	.industries-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
 		gap: 1.6rem;
 		margin-bottom: 3.5rem;
 	}
@@ -147,6 +147,12 @@
 		display: flex;
 		flex-direction: column;
 		transition: all var(--transition-fast);
+	}
+
+	@media (max-width: 480px) {
+		.ind-card {
+			padding: 1.4rem 1.15rem;
+		}
 	}
 
 	.ind-card:hover {
@@ -208,6 +214,15 @@
 			flex-direction: column;
 			align-items: flex-start;
 			padding: 2rem 1.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.b2b-doc-banner {
+			padding: 1.6rem 1.15rem;
+		}
+		.b2b-doc-banner .btn {
+			width: 100%;
 		}
 	}
 

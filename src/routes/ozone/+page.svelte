@@ -327,13 +327,17 @@
 
 	.ozone-services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-		gap: 1.8rem;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 310px), 1fr));
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 640px) {
 		.ozone-services-grid {
 			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+		.ozone-srv-card {
+			padding: 1.4rem 1.15rem;
 		}
 	}
 

@@ -159,6 +159,12 @@
 		transition: all var(--transition-fast);
 	}
 
+	@media (max-width: 480px) {
+		.t-card {
+			padding: 1.4rem 1.15rem;
+		}
+	}
+
 	.t-card:hover {
 		transform: translateY(-4px);
 		border-color: var(--primary-600);

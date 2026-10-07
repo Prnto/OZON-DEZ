@@ -260,6 +260,20 @@
 		}
 	}
 
+	@media (max-width: 480px) {
+		.agro-srv-item {
+			padding: 1.35rem 1rem;
+		}
+		.srv-bottom-action {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.85rem;
+		}
+		.srv-bottom-action .btn {
+			width: 100%;
+		}
+	}
+
 	.srv-header-row {
 		display: flex;
 		gap: 0.6rem;
