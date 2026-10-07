@@ -120,7 +120,7 @@
 					</div>
 				</div>
 
-				<!-- Chornomorsk Map Info Card -->
+				<!-- Chornomorsk Map Info Card & Office Location -->
 				<div class="map-card glass-card">
 					<div class="map-preview-header">
 						<div>
@@ -136,8 +136,25 @@
 							{contacts.map.btn}
 						</a>
 					</div>
-					<div class="map-route-visual">
-						<div class="route-city-tag">{contacts.map.routeCities}</div>
+					<div class="map-photo-visual">
+						<img
+							src="/images/port-chornomorsk-office.jpg"
+							alt="Вид на місто Чорноморськ та морський порт — локація офісу ТОВ ОЗОН-ДЕЗ"
+							class="map-port-photo"
+							loading="lazy"
+						/>
+						<div class="map-photo-overlay">
+							<div class="office-location-badge">
+								<span class="badge-pulse-dot"></span>
+								<div>
+									<strong>{currentContent.address.actual}</strong>
+									<div class="location-sub-text">м. Чорноморськ (Іллічівськ) • Виїзд на об'єкт від 30 хв</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="map-route-tags-bar">
+						<span class="route-city-tag">⚓ {contacts.map.routeCities}</span>
 					</div>
 				</div>
 			</div>
@@ -460,16 +477,84 @@
 		color: var(--text-muted);
 	}
 
-	.map-route-visual {
-		background: #f1f5f9;
-		border-radius: var(--radius-sm);
-		padding: 1rem;
-		text-align: center;
-		border: 1px dashed var(--border-light);
+	.map-photo-visual {
+		position: relative;
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		aspect-ratio: 16/9;
+		margin-bottom: 0.85rem;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
+	.map-port-photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+		transition: transform var(--transition-norm);
+	}
+
+	.map-card:hover .map-port-photo {
+		transform: scale(1.03);
+	}
+
+	.map-photo-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to top,
+			rgba(7, 25, 51, 0.85) 0%,
+			rgba(7, 25, 51, 0.25) 55%,
+			transparent 100%
+		);
+		display: flex;
+		align-items: flex-end;
+		padding: 0.85rem;
+	}
+
+	.office-location-badge {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(10px);
+		padding: 0.55rem 0.85rem;
+		border-radius: var(--radius-md);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.badge-pulse-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #00d4aa;
+		box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.35);
+		flex-shrink: 0;
+	}
+
+	.office-location-badge strong {
+		font-size: 0.84rem;
+		color: var(--primary-950);
+		display: block;
+		line-height: 1.2;
+	}
+
+	.location-sub-text {
+		font-size: 0.72rem;
+		color: #475569;
+		font-weight: 600;
+	}
+
+	.map-route-tags-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 	.route-city-tag {
-		font-size: 0.86rem;
+		font-size: 0.82rem;
 		font-weight: 700;
 		color: var(--primary-800);
 	}
