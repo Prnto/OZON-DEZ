@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import HowWeWork from '#lib/components/HowWeWork.svelte';
 	import KvedSection from '#lib/components/KvedSection.svelte';
@@ -28,7 +29,7 @@
 		title={work.title}
 		subtitle={work.subtitle}
 		crumbs={[{ label: currentContent.nav.howWeWork }]}
-		imageSrc="/images/how-we-work-bg.jpg"
+		imageSrc={asset('images/how-we-work-bg.jpg')}
 	/>
 
 	<!-- Main How We Work component -->

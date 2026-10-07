@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
@@ -32,7 +33,7 @@
 			? 'Глибоке знезараження повітря та матеріалів газом озоном. Знищує 99.9% бактерій, спор грибка та вірусів без токсичної хімії.'
 			: 'Глубокое обеззараживание воздуха и материалов газом озоном. Убивает 99.9% патогенов, спор плесени и вирусов без токсичной химии.'}
 		crumbs={[{ label: currentContent.nav.ozone }]}
-		imageSrc="/images/ozone-bg.jpg"
+		imageSrc={asset('images/ozone-bg.jpg')}
 	/>
 
 	<!-- Hero Feature Section -->

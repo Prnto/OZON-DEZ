@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Logo from './Logo.svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
@@ -35,14 +36,14 @@
 			<div class="footer-col">
 				<h4 class="footer-heading">{ftr.navTitle}</h4>
 				<ul class="footer-links">
-					<li><a href="/services">{currentContent.nav.services}</a></li>
-					<li><a href="/ozone">{currentContent.nav.ozone}</a></li>
-					<li><a href="/b2b">{currentContent.nav.b2b}</a></li>
-					<li><a href="/agro">{currentContent.nav.agro}</a></li>
-					<li><a href="/water">{currentContent.nav.water}</a></li>
-					<li><a href="/how-we-work">{currentContent.nav.howWeWork}</a></li>
-					<li><a href="/calculator">{currentContent.nav.calculator}</a></li>
-					<li><a href="/contacts">{currentContent.nav.contacts}</a></li>
+					<li><a href={resolve('/services')}>{currentContent.nav.services}</a></li>
+					<li><a href={resolve('/ozone')}>{currentContent.nav.ozone}</a></li>
+					<li><a href={resolve('/b2b')}>{currentContent.nav.b2b}</a></li>
+					<li><a href={resolve('/agro')}>{currentContent.nav.agro}</a></li>
+					<li><a href={resolve('/water')}>{currentContent.nav.water}</a></li>
+					<li><a href={resolve('/how-we-work')}>{currentContent.nav.howWeWork}</a></li>
+					<li><a href={resolve('/calculator')}>{currentContent.nav.calculator}</a></li>
+					<li><a href={resolve('/contacts')}>{currentContent.nav.contacts}</a></li>
 				</ul>
 			</div>
 
@@ -51,42 +52,42 @@
 				<h4 class="footer-heading">{ftr.servicesTitle}</h4>
 				<ul class="footer-links">
 					<li>
-						<a href="/services#cat-dez">
+						<a href={resolve('/services') + '#cat-dez'}>
 							{#if langState.current === 'ua'}Дезінсекція та дезінфекція{:else}Дезинсекция и дезинфекция{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/ozone">
+						<a href={resolve('/ozone')}>
 							{#if langState.current === 'ua'}Озонування приміщень O₃{:else}Озонирование помещений O₃{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/ozone#odor">
+						<a href={resolve('/ozone') + '#odor'}>
 							{#if langState.current === 'ua'}Усунення стійких запахів{:else}Устранение стойких запахов{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/ozone#mold">
+						<a href={resolve('/ozone') + '#mold'}>
 							{#if langState.current === 'ua'}Видалення грибка і плісняви{:else}Удаление грибка и плесени{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/ozone#demercurization">
+						<a href={resolve('/ozone') + '#demercurization'}>
 							{#if langState.current === 'ua'}Демеркуризація (пари ртуті){:else}Демеркуризация (пары ртути){/if}
 						</a>
 					</li>
 					<li>
-						<a href="/agro">
+						<a href={resolve('/agro')}>
 							{#if langState.current === 'ua'}Фумігація зерна й елеваторів{:else}Фумигация зерна и элеваторов{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/water">
+						<a href={resolve('/water')}>
 							{#if langState.current === 'ua'}Очищення та дезінфекція води{:else}Очистка и дезинфекция воды{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/b2b">
+						<a href={resolve('/b2b')}>
 							{#if langState.current === 'ua'}Пест-контроль для HoReCa (HACCP){:else}Пест-контроль для HoReCa (HACCP){/if}
 						</a>
 					</li>
@@ -114,7 +115,7 @@
 						<span>{currentContent.workingHours.days}: {currentContent.workingHours.hours}</span>
 					</div>
 					<div class="fc-item fc-action-item">
-						<a href="/contacts" class="btn btn-secondary btn-sm" style="margin-top: 0.5rem; text-align: center;">
+						<a href={resolve('/contacts')} class="btn btn-secondary btn-sm" style="margin-top: 0.5rem; text-align: center;">
 							📍 {#if langState.current === 'ua'}Контакти та локація офісу →{:else}Контакты и локация офиса →{/if}
 						</a>
 					</div>

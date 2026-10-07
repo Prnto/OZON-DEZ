@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 
 	interface Props {
@@ -24,7 +25,7 @@
 		<!-- Breadcrumbs -->
 		{#if crumbs.length > 0}
 			<nav class="breadcrumbs" aria-label="Хлібні крихти">
-				<a href="/" class="crumb-link">
+				<a href={resolve('/')} class="crumb-link">
 					{#if langState.current === 'ua'}Головна{:else}Главная{/if}
 				</a>
 				{#each crumbs as crumb, i}

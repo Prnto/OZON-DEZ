@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import Calculator from '#lib/components/Calculator.svelte';
 	import FaqSection from '#lib/components/FaqSection.svelte';
@@ -27,7 +28,7 @@
 		title={calc.title}
 		subtitle={calc.subtitle}
 		crumbs={[{ label: currentContent.nav.calculator }]}
-		imageSrc="/images/calculator-bg.jpg"
+		imageSrc={asset('images/calculator-bg.jpg')}
 	/>
 
 	<!-- Full interactive calculator -->

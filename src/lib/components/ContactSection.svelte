@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -138,7 +139,7 @@
 					</div>
 					<div class="map-photo-visual">
 						<img
-							src="/images/port-chornomorsk-office.jpg"
+							src={asset('images/port-chornomorsk-office.jpg')}
 							alt="Вид на місто Чорноморськ та морський порт — локація офісу ТОВ ОЗОН-ДЕЗ"
 							class="map-port-photo"
 							loading="lazy"

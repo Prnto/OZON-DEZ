@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Logo from './Logo.svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
@@ -10,6 +11,13 @@
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let currentPath = $derived(page.url.pathname);
+
+	function isActive(route: string) {
+		if (route === '/') {
+			return currentPath === '/' || currentPath === '' || currentPath.endsWith('/OZON-DEZ/') || currentPath.endsWith('/OZON-DEZ');
+		}
+		return currentPath.includes(route);
+	}
 
 	function handleScroll() {
 		isScrolled = window.scrollY > 20;
@@ -79,28 +87,28 @@
 
 			<!-- Desktop Navigation Links to Separate Pages -->
 			<nav class="nav-links">
-				<a href="/services" class="nav-link" class:active={currentPath === '/services'}>
+				<a href={resolve('/services')} class="nav-link" class:active={isActive('/services')}>
 					{currentContent.nav.services}
 				</a>
-				<a href="/ozone" class="nav-link" class:active={currentPath === '/ozone'}>
+				<a href={resolve('/ozone')} class="nav-link" class:active={isActive('/ozone')}>
 					{currentContent.nav.ozone}
 				</a>
-				<a href="/b2b" class="nav-link" class:active={currentPath === '/b2b'}>
+				<a href={resolve('/b2b')} class="nav-link" class:active={isActive('/b2b')}>
 					{currentContent.nav.b2b}
 				</a>
-				<a href="/agro" class="nav-link" class:active={currentPath === '/agro'}>
+				<a href={resolve('/agro')} class="nav-link" class:active={isActive('/agro')}>
 					{currentContent.nav.agro}
 				</a>
-				<a href="/water" class="nav-link" class:active={currentPath === '/water'}>
+				<a href={resolve('/water')} class="nav-link" class:active={isActive('/water')}>
 					{currentContent.nav.water}
 				</a>
-				<a href="/how-we-work" class="nav-link" class:active={currentPath === '/how-we-work'}>
+				<a href={resolve('/how-we-work')} class="nav-link" class:active={isActive('/how-we-work')}>
 					{currentContent.nav.howWeWork}
 				</a>
-				<a href="/calculator" class="nav-link" class:active={currentPath === '/calculator'}>
+				<a href={resolve('/calculator')} class="nav-link" class:active={isActive('/calculator')}>
 					{currentContent.nav.calculator}
 				</a>
-				<a href="/contacts" class="nav-link" class:active={currentPath === '/contacts'}>
+				<a href={resolve('/contacts')} class="nav-link" class:active={isActive('/contacts')}>
 					{currentContent.nav.contacts}
 				</a>
 			</nav>
@@ -150,39 +158,39 @@
 					</button>
 				</div>
 
-				<a href="/" class="mobile-nav-link" class:active={currentPath === '/'} onclick={closeMobileMenu}>
+				<a href={resolve('/')} class="mobile-nav-link" class:active={isActive('/')} onclick={closeMobileMenu}>
 					<span class="m-icon">🏠</span>
 					<span>{#if langState.current === 'ua'}Головна{:else}Главная{/if}</span>
 				</a>
-				<a href="/services" class="mobile-nav-link" class:active={currentPath === '/services'} onclick={closeMobileMenu}>
+				<a href={resolve('/services')} class="mobile-nav-link" class:active={isActive('/services')} onclick={closeMobileMenu}>
 					<span class="m-icon">🧹</span>
 					<span>{currentContent.nav.services}</span>
 				</a>
-				<a href="/ozone" class="mobile-nav-link" class:active={currentPath === '/ozone'} onclick={closeMobileMenu}>
+				<a href={resolve('/ozone')} class="mobile-nav-link" class:active={isActive('/ozone')} onclick={closeMobileMenu}>
 					<span class="m-icon">💨</span>
 					<span>{currentContent.nav.ozone}</span>
 				</a>
-				<a href="/b2b" class="mobile-nav-link" class:active={currentPath === '/b2b'} onclick={closeMobileMenu}>
+				<a href={resolve('/b2b')} class="mobile-nav-link" class:active={isActive('/b2b')} onclick={closeMobileMenu}>
 					<span class="m-icon">🏢</span>
 					<span>{currentContent.nav.b2b}</span>
 				</a>
-				<a href="/agro" class="mobile-nav-link" class:active={currentPath === '/agro'} onclick={closeMobileMenu}>
+				<a href={resolve('/agro')} class="mobile-nav-link" class:active={isActive('/agro')} onclick={closeMobileMenu}>
 					<span class="m-icon">🌾</span>
 					<span>{currentContent.nav.agro}</span>
 				</a>
-				<a href="/water" class="mobile-nav-link" class:active={currentPath === '/water'} onclick={closeMobileMenu}>
+				<a href={resolve('/water')} class="mobile-nav-link" class:active={isActive('/water')} onclick={closeMobileMenu}>
 					<span class="m-icon">💧</span>
 					<span>{currentContent.nav.water}</span>
 				</a>
-				<a href="/how-we-work" class="mobile-nav-link" class:active={currentPath === '/how-we-work'} onclick={closeMobileMenu}>
+				<a href={resolve('/how-we-work')} class="mobile-nav-link" class:active={isActive('/how-we-work')} onclick={closeMobileMenu}>
 					<span class="m-icon">⚙️</span>
 					<span>{currentContent.nav.howWeWork}</span>
 				</a>
-				<a href="/calculator" class="mobile-nav-link" class:active={currentPath === '/calculator'} onclick={closeMobileMenu}>
+				<a href={resolve('/calculator')} class="mobile-nav-link" class:active={isActive('/calculator')} onclick={closeMobileMenu}>
 					<span class="m-icon">🧮</span>
 					<span>{currentContent.nav.calculator}</span>
 				</a>
-				<a href="/contacts" class="mobile-nav-link" class:active={currentPath === '/contacts'} onclick={closeMobileMenu}>
+				<a href={resolve('/contacts')} class="mobile-nav-link" class:active={isActive('/contacts')} onclick={closeMobileMenu}>
 					<span class="m-icon">📍</span>
 					<span>{currentContent.nav.contacts}</span>
 				</a>

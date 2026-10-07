@@ -12,7 +12,6 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<title>{currentContent.companyName} — {currentContent.hero.titleMain}</title>
 </svelte:head>
 

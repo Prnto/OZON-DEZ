@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import BusinessHaccp from '#lib/components/BusinessHaccp.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -27,7 +28,7 @@
 		title={b2b.title}
 		subtitle={b2b.subtitle}
 		crumbs={[{ label: currentContent.nav.b2b }]}
-		imageSrc="/images/b2b-bg.jpg"
+		imageSrc={asset('images/b2b-bg.jpg')}
 	/>
 
 	<BusinessHaccp />

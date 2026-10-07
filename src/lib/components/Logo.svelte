@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -11,7 +12,7 @@
 	let currentContent = $derived(contentMap[langState.current]);
 </script>
 
-<a href="/" class="logo-wrapper" class:is-light={variant === 'light'}>
+<a href={resolve('/')} class="logo-wrapper" class:is-light={variant === 'light'}>
 	<div class="logo-icon">
 		<svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<rect width="44" height="44" rx="12" fill="url(#shieldGrad)" />

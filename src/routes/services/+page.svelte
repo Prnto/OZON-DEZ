@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import Services from '#lib/components/Services.svelte';
 	import FaqSection from '#lib/components/FaqSection.svelte';
@@ -26,7 +27,7 @@
 		title={currentContent.servicesSection.title}
 		subtitle={currentContent.servicesSection.subtitle}
 		crumbs={[{ label: currentContent.nav.services }]}
-		imageSrc="/images/services-bg.jpg"
+		imageSrc={asset('images/services-bg.jpg')}
 	/>
 
 	<Services />

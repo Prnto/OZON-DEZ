@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import ContactSection from '#lib/components/ContactSection.svelte';
 	import KvedSection from '#lib/components/KvedSection.svelte';
@@ -27,7 +28,7 @@
 		title={c.title}
 		subtitle={c.subtitle}
 		crumbs={[{ label: currentContent.nav.contacts }]}
-		imageSrc="/images/contacts-bg.jpg"
+		imageSrc={asset('images/contacts-bg.jpg')}
 	/>
 
 	<!-- Main Contact Section (Addresses, Phones, Schedule, Messengers & Direct Form) -->

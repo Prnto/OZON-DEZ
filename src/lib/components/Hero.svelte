@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve, asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -14,7 +15,7 @@
 	<!-- Fullscreen Doctor Background Image -->
 	<div class="hero-bg-media" aria-hidden="true">
 		<img
-			src="/images/hero-doctor.jpg"
+			src={asset('images/hero-doctor.jpg')}
 			alt="Санітарний лікар дезінфекції ТОВ ОЗОН-ДЕЗ"
 			class="hero-bg-photo"
 			loading="eager"
@@ -88,7 +89,7 @@
 
 			<!-- CTAs -->
 			<div class="hero-actions">
-				<a href="/calculator" class="btn btn-primary btn-lg">
+				<a href={resolve('/calculator')} class="btn btn-primary btn-lg">
 					<span>🧮 {currentContent.hero.ctaPrimary}</span>
 				</a>
 				<button

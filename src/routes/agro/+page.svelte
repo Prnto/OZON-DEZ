@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
@@ -39,7 +40,7 @@
 				<div class="agro-media-col">
 					<div class="agro-image-wrap glass-card">
 						<img
-							src="/images/agro-fumigation.jpg"
+							src={asset('images/agro-fumigation.jpg')}
 							alt="Фумігація елеватора та зерносховища ОЗОН-ДЕЗ"
 							class="agro-photo"
 							loading="lazy"

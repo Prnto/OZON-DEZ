@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -14,7 +15,7 @@
 			<div class="b2b-visual">
 				<div class="b2b-image-frame glass-card">
 					<img
-						src="/images/agro-fumigation.jpg"
+						src={asset('images/agro-fumigation.jpg')}
 						alt="Санітарний контроль та фумігація зерносховищ HACCP"
 						class="b2b-img"
 						loading="lazy"

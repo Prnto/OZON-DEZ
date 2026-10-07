@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import process from 'node:process';
 
 export default defineConfig({
 	plugins: [
@@ -17,8 +18,7 @@ export default defineConfig({
 				strict: true
 			}),
 			paths: {
-				base: process.env.BASE_PATH || '',
-				relative: false
+				relative: true
 			}
 		})
 	]

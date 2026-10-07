@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve, asset } from '$app/paths';
 	import Hero from '#lib/components/Hero.svelte';
 	import KvedSection from '#lib/components/KvedSection.svelte';
 	import { langState } from '../lib/state/language.svelte';
@@ -64,7 +65,7 @@
 						<li>✓ Гарантійний договір до 12 міс.</li>
 					</ul>
 					<div class="dir-card-footer">
-						<a href="/services" class="btn btn-outline dir-btn">
+						<a href={resolve('/services')} class="btn btn-outline dir-btn">
 							{#if langState.current === 'ua'}Каталог послуг →{:else}Каталог услуг →{/if}
 						</a>
 						<button
@@ -100,7 +101,7 @@
 						<li>✓ Свіжість гірського повітря</li>
 					</ul>
 					<div class="dir-card-footer">
-						<a href="/ozone" class="btn btn-outline dir-btn">
+						<a href={resolve('/ozone')} class="btn btn-outline dir-btn">
 							{#if langState.current === 'ua'}Про озонування →{:else}Об озонировании →{/if}
 						</a>
 						<button
@@ -136,7 +137,7 @@
 						<li>✓ Контрольні карти точок песту</li>
 					</ul>
 					<div class="dir-card-footer">
-						<a href="/b2b" class="btn btn-outline dir-btn">
+						<a href={resolve('/b2b')} class="btn btn-outline dir-btn">
 							{#if langState.current === 'ua'}Для бізнесу →{:else}Для бизнеса →{/if}
 						</a>
 						<button
@@ -172,7 +173,7 @@
 						<li>✓ Обробка великих кубатур</li>
 					</ul>
 					<div class="dir-card-footer">
-						<a href="/agro" class="btn btn-outline dir-btn">
+						<a href={resolve('/agro')} class="btn btn-outline dir-btn">
 							{#if langState.current === 'ua'}Про агросектор →{:else}Об агросекторе →{/if}
 						</a>
 						<button
@@ -208,7 +209,7 @@
 						<li>✓ Паспорт санітарної обробки</li>
 					</ul>
 					<div class="dir-card-footer">
-						<a href="/water" class="btn btn-outline dir-btn">
+						<a href={resolve('/water')} class="btn btn-outline dir-btn">
 							{#if langState.current === 'ua'}Про очистку води →{:else}Об очистке воды →{/if}
 						</a>
 						<button
@@ -247,10 +248,10 @@
 						{/if}
 					</p>
 					<div class="teaser-actions">
-						<a href="/calculator" class="btn btn-primary btn-lg">
+						<a href={resolve('/calculator')} class="btn btn-primary btn-lg">
 							<span>🧮 {#if langState.current === 'ua'}Відкрити онлайн-калькулятор{:else}Открыть онлайн-калькулятор{/if}</span>
 						</a>
-						<a href="/how-we-work" class="btn btn-secondary btn-lg">
+						<a href={resolve('/how-we-work')} class="btn btn-secondary btn-lg">
 							<span>⚙️ {#if langState.current === 'ua'}Як ми працюємо{:else}Как мы работаем{/if}</span>
 						</a>
 					</div>
@@ -308,7 +309,7 @@
 			<div class="brand-visual-showcase glass-card-dark">
 				<div class="brand-photo-wrap">
 					<img
-						src="/images/ozon-dez-brand-doctor.jpg"
+						src={asset('images/ozon-dez-brand-doctor.jpg')}
 						alt="Офіційний представник та санітарний лікар ТОВ ОЗОН-ДЕЗ"
 						class="brand-showcase-img"
 						loading="lazy"
@@ -397,10 +398,10 @@
 					</p>
 				</div>
 				<div class="preview-buttons">
-					<a href="/how-we-work" class="btn btn-primary">
+					<a href={resolve('/how-we-work')} class="btn btn-primary">
 						{#if langState.current === 'ua'}Читати розділ «Як ми працюємо» →{:else}Читать раздел «Как мы работаем» →{/if}
 					</a>
-					<a href="/contacts" class="btn btn-secondary">
+					<a href={resolve('/contacts')} class="btn btn-secondary">
 						{#if langState.current === 'ua'}Контакти та реквізити{:else}Контакты и реквизиты{/if}
 					</a>
 				</div>

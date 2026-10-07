@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import WaterSection from '#lib/components/WaterSection.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -27,7 +28,7 @@
 		title={water.title}
 		subtitle={water.subtitle}
 		crumbs={[{ label: currentContent.nav.water }]}
-		imageSrc="/images/water-purification.jpg"
+		imageSrc={asset('images/water-purification.jpg')}
 	/>
 
 	<WaterSection />

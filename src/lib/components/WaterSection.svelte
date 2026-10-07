@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -46,7 +47,7 @@
 				<div class="water-media">
 					<div class="media-frame">
 						<img
-							src="/images/water-purification.jpg"
+							src={asset('images/water-purification.jpg')}
 							alt="Дезінфекція систем водопостачання та очищення води ОЗОН-ДЕЗ"
 							class="water-img"
 							loading="lazy"
