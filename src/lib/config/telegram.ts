@@ -12,12 +12,12 @@
  */
 
 export const TELEGRAM_CONFIG = {
-	// Paste your bot token here (e.g. '1234567890:ABCdefGhIJKlmNoPQRsTuVwXyZ')
-	botToken: '',
+	// Telegram bot token from @BotFather
+	botToken: '8923577626:AAHEp-z-pDGHaPf1x4fzi_-gpJTPx3kMl5I',
 
-	// Paste your chat ID or group chat ID here (e.g. '987654321' or '-1001234567890')
-	chatId: '',
+	// Telegram Chat ID from @userinfobot
+	chatId: '341806822',
 
 	// Turn on when token and chatId are set
-	enabled: false
+	enabled: true
 };
