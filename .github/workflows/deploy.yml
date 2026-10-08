@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -40,14 +40,29 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
 
+      - name: Ensure .nojekyll exists
+        run: touch build/.nojekyll
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          keep_files: false
+          force_orphan: true
+
       - name: Setup Pages
+        id: pages_setup
+        continue-on-error: true
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        if: steps.pages_setup.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'build/'
 
       - name: Deploy to GitHub Pages
+        if: steps.pages_setup.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
