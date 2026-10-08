@@ -144,7 +144,7 @@
 
 <style>
 	.services-section {
-		background: var(--color-void);
+		background: transparent;
 	}
 
 	.category-tabs {

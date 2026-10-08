@@ -301,7 +301,7 @@
 
 <style>
 	.calc-section {
-		background: var(--color-void);
+		background: transparent;
 	}
 
 	.calc-grid {

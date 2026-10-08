@@ -270,7 +270,7 @@
 
 <style>
 	.contacts-section {
-		background: var(--color-void);
+		background: transparent;
 		border-top: 1px solid var(--border-subtle);
 		padding: var(--space-3xl) 0;
 	}

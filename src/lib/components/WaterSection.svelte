@@ -65,7 +65,7 @@
 
 <style>
 	.water-section {
-		background: var(--color-void);
+		background: transparent;
 		padding: var(--space-3xl) 0;
 	}
 

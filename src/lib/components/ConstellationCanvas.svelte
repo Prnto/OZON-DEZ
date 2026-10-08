@@ -69,8 +69,8 @@
 		let isMouseOver = false;
 
 		const count = mode === 'fullpage'
-			? (width < 768 ? 70 : 130)
-			: (width < 768 ? 50 : 90);
+			? (width < 768 ? 95 : 170)
+			: (width < 768 ? 55 : 100);
 
 		const particles: Particle[] = [];
 
@@ -80,10 +80,10 @@
 				y: Math.random() * height,
 				vx: (Math.random() - 0.5) * 0.45,
 				vy: (Math.random() - 0.5) * 0.45,
-				size: Math.random() < 0.35 ? Math.random() * 3 + 2 : Math.random() * 2 + 1,
+				size: Math.random() < 0.35 ? Math.random() * 3.5 + 2.5 : Math.random() * 2 + 1.2,
 				colorIndex: Math.floor(Math.random() * darkColors.length),
-				alpha: Math.random() * 0.5 + 0.25,
-				shape: Math.random() < 0.6 ? 'triangle' : 'circle',
+				alpha: Math.random() * 0.5 + 0.35,
+				shape: Math.random() < 0.65 ? 'triangle' : 'circle',
 				angle: Math.random() * Math.PI * 2,
 				spin: (Math.random() - 0.5) * 0.02
 			});
@@ -99,6 +99,9 @@
 			context.lineTo(-size * 0.866, size * 0.5);
 			context.closePath();
 			context.stroke();
+			// Fill small inner point or faint wash
+			context.globalAlpha *= 0.18;
+			context.fill();
 			context.restore();
 		}
 
@@ -108,17 +111,17 @@
 
 			const isDark = themeState.current === 'dark';
 			const currentPalette = isDark ? darkColors : lightColors;
-			const maxDist = width < 768 ? 60 : 85;
+			const maxDist = width < 768 ? 85 : 120;
 
 			// Connect nearby constellation points with soft lines
-			ctx.lineWidth = 0.65;
+			ctx.lineWidth = 0.8;
 			for (let i = 0; i < particles.length; i++) {
 				for (let j = i + 1; j < particles.length; j++) {
 					const dx = particles[i].x - particles[j].x;
 					const dy = particles[i].y - particles[j].y;
 					const dist = Math.hypot(dx, dy);
 					if (dist < maxDist) {
-						const lineAlpha = (1 - dist / maxDist) * (isDark ? 0.16 : 0.09);
+						const lineAlpha = (1 - dist / maxDist) * (isDark ? 0.3 : 0.16);
 						ctx.strokeStyle = isDark
 							? `rgba(128, 82, 255, ${lineAlpha})`
 							: `rgba(109, 62, 247, ${lineAlpha})`;
@@ -208,6 +211,7 @@
 <div class="constellation-wrapper {mode}" aria-hidden="true">
 	<canvas bind:this={canvas} class="constellation-canvas"></canvas>
 	<div class="constellation-ambient-glow"></div>
+	<div class="constellation-ambient-glow-2"></div>
 </div>
 
 <style>
@@ -245,16 +249,35 @@
 		right: 10%;
 		width: 50vw;
 		height: 50vw;
-		max-width: 600px;
-		max-height: 600px;
+		max-width: 650px;
+		max-height: 650px;
 		border-radius: 50%;
-		background: radial-gradient(circle, rgba(128, 82, 255, 0.08) 0%, rgba(21, 132, 110, 0.04) 50%, transparent 70%);
+		background: radial-gradient(circle, rgba(128, 82, 255, 0.12) 0%, rgba(21, 132, 110, 0.05) 50%, transparent 70%);
 		pointer-events: none;
 		z-index: -1;
-		filter: blur(60px);
+		filter: blur(65px);
+	}
+
+	.constellation-ambient-glow-2 {
+		position: absolute;
+		bottom: 10%;
+		left: 8%;
+		width: 45vw;
+		height: 45vw;
+		max-width: 550px;
+		max-height: 550px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255, 184, 41, 0.09) 0%, rgba(128, 82, 255, 0.06) 50%, transparent 70%);
+		pointer-events: none;
+		z-index: -1;
+		filter: blur(65px);
 	}
 
 	:global(html[data-theme="light"]) .constellation-ambient-glow {
-		background: radial-gradient(circle, rgba(109, 62, 247, 0.05) 0%, rgba(13, 148, 136, 0.03) 50%, transparent 70%);
+		background: radial-gradient(circle, rgba(109, 62, 247, 0.06) 0%, rgba(13, 148, 136, 0.03) 50%, transparent 70%);
+	}
+
+	:global(html[data-theme="light"]) .constellation-ambient-glow-2 {
+		background: radial-gradient(circle, rgba(217, 119, 6, 0.05) 0%, rgba(109, 62, 247, 0.03) 50%, transparent 70%);
 	}
 </style>

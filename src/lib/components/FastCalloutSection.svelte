@@ -168,7 +168,7 @@
 <style>
 	.fast-callout-section {
 		padding: clamp(3rem, 6vw, 4.5rem) 0;
-		background: var(--color-void);
+		background: transparent;
 		border-top: 1px solid var(--color-void-border);
 	}
 

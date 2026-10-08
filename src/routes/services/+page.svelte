@@ -356,7 +356,9 @@
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		background: var(--color-surface);
+		background: rgba(10, 10, 14, 0.8);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 		border: 1px solid var(--color-void-border);
 		border-radius: var(--radius-cards);
 		overflow: hidden;
@@ -368,6 +370,12 @@
 		transform: translateY(-4px);
 		border-color: rgba(128, 82, 255, 0.45);
 		box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.35);
+	}
+
+	:global(html[data-theme="light"]) .dir-card {
+		background: rgba(255, 255, 255, 0.88);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 	}
 
 	:global(html[data-theme="light"]) .dir-card:hover {
