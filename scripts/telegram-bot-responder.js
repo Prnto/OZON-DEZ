@@ -2,12 +2,13 @@
  * Telegram Interactive Assistant & Autoresponder for OZON-DEZ
  * 
  * Features:
- * - Clean, user-friendly interactive menu
- * - Catalog split into: Дезінфекція, Дезінсекція, Дератизація, Озонування
- * - Interactive in-chat calculator with instant price estimates
- * - Quick order submission with contact capture
- * - Direct click-to-call button temporarily bound to +380508797335
- * - Instant lead forwarding to owner
+ * - Direct one-tap phone call via native Telegram Contact Card (sendContact)
+ * - Rate-limiting and flood protection per user
+ * - XSS / HTML injection sanitization for parse_mode HTML
+ * - Private chat isolation (rejects group chats)
+ * - Interactive service catalog: Дезінфекція, Дезінсекція, Дератизація, Озонування
+ * - In-chat step-by-step calculator
+ * - Instant lead notification to owner
  */
 
 const _k1 = 'ODkyMzU3NzYy';
@@ -23,6 +24,17 @@ const TEMP_PHONE_DISPLAY = '+38 (050) 879-73-35';
 
 let lastUpdateId = 0;
 const sessions = new Map();
+const userRateLimits = new Map();
+
+function isRateLimited(userId) {
+	const now = Date.now();
+	const last = userRateLimits.get(userId) || 0;
+	if (now - last < 600) {
+		return true; // Ignore rapid flood
+	}
+	userRateLimits.set(userId, now);
+	return false;
+}
 
 function getSession(chatId) {
 	if (!sessions.has(chatId)) {
@@ -35,7 +47,9 @@ function escapeHtml(text) {
 	return (text || '')
 		.replace(/&/g, '&amp;')
 		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;');
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
 }
 
 async function api(method, body = {}) {
@@ -72,10 +86,10 @@ async function sendMainMenu(chatId, isEdit = false, messageId = null) {
 				{ text: '🧮 Калькулятор у чаті', callback_data: 'calc_start' }
 			],
 			[
-				{ text: `📞 Зателефонувати (${TEMP_PHONE_DISPLAY})`, callback_data: 'call_doctor' }
+				{ text: `📞 Здійснити виклик лікаря`, callback_data: 'call_doctor' }
 			],
 			[
-				{ text: '🌐 Відкрити повний сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
+				{ text: '🌐 Відкрити сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
 				{ text: '📍 Наш офіс на карті', url: 'https://maps.google.com/?q=г.+Черноморск,+проспект+Мира,+8А' }
 			]
 		]
@@ -140,7 +154,7 @@ async function sendServiceDetail(chatId, messageId, srvKey) {
 
 	switch (srvKey) {
 		case 'disinfection':
-			serviceName = 'Дезінфекція приміщень';
+			serviceName = 'Дезінфекція';
 			orderKey = 'order_disinfection';
 			text = `🦠 <b>Дезінфекція (санація приміщень)</b>\n\n` +
 				`Професійне знищення вірусів, небезпечних бактерій, плісняви та збудників інфекцій.\n\n` +
@@ -152,7 +166,7 @@ async function sendServiceDetail(chatId, messageId, srvKey) {
 			break;
 
 		case 'disinsection':
-			serviceName = 'Дезінсекція (комахи)';
+			serviceName = 'Дезінсекція';
 			orderKey = 'order_disinsection';
 			text = `🪳 <b>Дезінсекція (знищення комах)</b>\n\n` +
 				`100% знищення тарганів, постільних клопів, бліх, мурах, молі та кліщів.\n\n` +
@@ -164,7 +178,7 @@ async function sendServiceDetail(chatId, messageId, srvKey) {
 			break;
 
 		case 'deratization':
-			serviceName = 'Дератизація (гризуни)';
+			serviceName = 'Дератизація';
 			orderKey = 'order_deratization';
 			text = `🐀 <b>Дератизація (знищення гризунів)</b>\n\n` +
 				`Ефективна боротьба з мишами та щурами в будинках, ресторанах, магазинах та складах.\n\n` +
@@ -176,7 +190,7 @@ async function sendServiceDetail(chatId, messageId, srvKey) {
 			break;
 
 		case 'ozone':
-			serviceName = 'Озонування газом O3';
+			serviceName = 'Озонування';
 			orderKey = 'order_ozone';
 			text = `💨 <b>Озонування газом O₃ (видалення запахів)</b>\n\n` +
 				`Потужна екологічна стерилізація приміщень та салонів авто генератором озону.\n\n` +
@@ -367,7 +381,7 @@ async function sendCalcResult(chatId, messageId, sqMeters, areaLabel) {
 				{ text: '🔄 Перерахувати заново', callback_data: 'calc_start' }
 			],
 			[
-				{ text: `📞 Швидкий дзвінок лікарю`, callback_data: 'call_doctor' },
+				{ text: `📞 Здійснити виклик лікаря`, callback_data: 'call_doctor' },
 				{ text: '🏠 Меню', callback_data: 'menu_main' }
 			]
 		]
@@ -396,7 +410,7 @@ async function startOrderFlow(chatId, serviceTitle = null, calculatedDetails = n
 		text += `Послуга: <b>${serviceTitle}</b>\n\n`;
 	}
 
-	text += `📞 <b>Будь ласка, вкажіть ваш номер телефону</b> (напишіть повідомленням або надішліть кнопку нижче):\n` +
+	text += `📞 <b>Будь ласка, вкажіть ваш номер телефону</b> (напишіть повідомленням або натисніть велику кнопку знизу екрана):\n` +
 		`Черговий лікар зателефонує вам протягом 2-5 хвилин для узгодження часу прибуття.`;
 
 	return await api('sendMessage', {
@@ -414,38 +428,34 @@ async function startOrderFlow(chatId, serviceTitle = null, calculatedDetails = n
 	});
 }
 
-// 6. Direct Call Modal
+// 6. Direct Calling: Native Contact Card (sendContact) + Dialing instructions
 async function sendDoctorCallCard(chatId, messageId = null) {
+	// Send native contact card with direct Call / Позвонить button in Telegram
+	await api('sendContact', {
+		chat_id: chatId,
+		phone_number: TEMP_PHONE,
+		first_name: 'ТОВ «ОЗОН-ДЕЗ»',
+		last_name: 'Черговий Лікар (24/7)'
+	});
+
 	const text = `👨‍⚕️ <b>Черговий лікар-дезінфектолог ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
-		`📞 Прямий мобільний номер:\n` +
-		`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>\n\n` +
-		`☎️ Міський офіс у Чорноморську:\n` +
-		`👉 <b><a href="tel:+380486850308">(04868) 5-03-08</a></b>\n\n` +
+		`📞 Натисніть на картку вище (кнопка <b>«Позвонить»</b>) або наберіть номер напряму:\n\n` +
+		`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>\n` +
+		`👉 <b>${TEMP_PHONE}</b>\n\n` +
+		`☎️ Міський офіс: <b>(04868) 5-03-08</b>\n` +
 		`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8А</b>\n` +
-		`🕒 Графік виїздів: <b>Цілодобово 24/7</b>\n\n` +
-		`<i>Натисніть на номер або скористайтеся кнопками нижче:</i>`;
+		`🕒 Виїзди: <b>Цілодобово 24/7</b>`;
 
 	const keyboard = {
 		inline_keyboard: [
 			[
-				{ text: `📞 Зателефонувати: ${TEMP_PHONE_DISPLAY}`, url: `https://t.me/+380508797335` }
+				{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_emergency' }
 			],
 			[
-				{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_emergency' },
-				{ text: '🏠 Меню', callback_data: 'menu_main' }
+				{ text: '🏠 Повернутися до меню', callback_data: 'menu_main' }
 			]
 		]
 	};
-
-	if (messageId) {
-		return await api('editMessageText', {
-			chat_id: chatId,
-			message_id: messageId,
-			text,
-			parse_mode: 'HTML',
-			reply_markup: keyboard
-		});
-	}
 
 	return await api('sendMessage', {
 		chat_id: chatId,
@@ -481,7 +491,7 @@ async function finalizeOrder(fromUser, userPhone, chatId, additionalComment = ''
 		reply_markup: { remove_keyboard: true }
 	});
 
-	// Re-show main menu after 1 second
+	// Re-show main menu after 1.2s
 	setTimeout(() => sendMainMenu(chatId), 1200);
 
 	// 2. Forward lead to owner/admin
@@ -501,7 +511,7 @@ async function finalizeOrder(fromUser, userPhone, chatId, additionalComment = ''
 		leadAlert += `💰 <b>Розрахункова сума:</b> <b>${calc.price} грн</b>\n`;
 	}
 	if (additionalComment) {
-		leadAlert += `💬 <b>Коментар/Адреса:</b> <i>${escapeHtml(additionalComment)}</i>\n`;
+		leadAlert += `💬 <b>Коментар/Адреса:</b> <i>${escapeHtml(additionalComment.slice(0, 500))}</i>\n`;
 	}
 
 	leadAlert += `━━━━━━━━━━━━━━━━━━━━━\n` +
@@ -534,6 +544,12 @@ async function pollUpdates() {
 					const chatId = cb.message.chat.id;
 					const messageId = cb.message.message_id;
 					const data = cb.data;
+					const fromId = cb.from ? cb.from.id : chatId;
+
+					if (isRateLimited(fromId)) {
+						await api('answerCallbackQuery', { callback_query_id: cb.id, text: 'Будь ласка, зачекайте...' });
+						continue;
+					}
 
 					await api('answerCallbackQuery', { callback_query_id: cb.id });
 
@@ -568,10 +584,11 @@ async function pollUpdates() {
 						if (data === 'order_deratization') srvTitle = 'Дератизація гризунів';
 						if (data === 'order_ozone') srvTitle = 'Озонування газом O3';
 						if (data === 'order_emergency') srvTitle = 'Екстрений виїзд фахівця';
-						if (data === 'order_calculated') srvTitle = null; // uses session.calc
+						if (data === 'order_calculated') srvTitle = null;
 
 						await startOrderFlow(chatId, srvTitle, data === 'order_calculated' ? getSession(chatId).calc : null);
 					} else if (data === 'calc_start') {
+						currentSession.state = 'idle';
 						await sendCalcStep1(chatId, messageId);
 					} else if (data.startsWith('calc_obj_')) {
 						let obj = 'Квартира';
@@ -600,17 +617,26 @@ async function pollUpdates() {
 					continue;
 				}
 
-				// Handle Messages
+				// Handle Messages (ignore group chats for strict privacy)
 				if (update.message && update.message.chat) {
 					const msg = update.message;
-					const chatId = msg.chat.id;
-					const text = (msg.text || '').trim();
-					const from = msg.from || {};
-					const session = getSession(chatId);
+					if (msg.chat.type !== 'private') {
+						continue; // Strictly reject group messages
+					}
 
+					const chatId = msg.chat.id;
+					const text = (msg.text || '').trim().slice(0, 1000);
+					const from = msg.from || {};
+					const fromId = from.id || chatId;
+
+					if (isRateLimited(fromId)) {
+						continue; // Flood protection
+					}
+
+					const session = getSession(chatId);
 					console.log(`[Message] ${from.first_name || chatId}: "${text}" (state: ${session.state})`);
 
-					// Skip updates without text and without contact
+					// Skip empty non-contact messages
 					if (!text && !msg.contact) {
 						continue;
 					}
@@ -707,5 +733,5 @@ async function pollUpdates() {
 	setTimeout(pollUpdates, 1000);
 }
 
-console.log('🤖 OZON-DEZ Interactive Telegram Assistant running...');
+console.log('🛡️ OZON-DEZ Secure Telegram Assistant running...');
 pollUpdates();
