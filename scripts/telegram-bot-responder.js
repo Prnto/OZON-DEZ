@@ -344,26 +344,33 @@ async function sendCalcStep3(chatId, messageId, srvName, srvType) {
 }
 
 function calculatePrice(objType, srvType, sqMeters) {
+	const obj = objType || 'Квартира';
+	const srv = srvType || 'disin';
 	let rate = 16;
-	if (srvType === 'ozone') rate = 22;
-	if (srvType === 'derat') rate = 15;
-	if (srvType === 'disinf') rate = 14;
+	if (srv === 'ozone') rate = 22;
+	if (srv === 'derat') rate = 15;
+	if (srv === 'disinf') rate = 14;
 
 	let multiplier = 1.0;
-	if (objType.includes('Будинок')) multiplier = 1.15;
-	if (objType.includes('Ресторан')) multiplier = 1.25;
-	if (objType.includes('Склад')) multiplier = 0.9;
+	if (obj.includes('Будинок')) multiplier = 1.15;
+	if (obj.includes('Ресторан')) multiplier = 1.25;
+	if (obj.includes('Склад')) multiplier = 0.9;
 
-	let total = Math.round(sqMeters * rate * multiplier);
-	if (srvType === 'ozone') return Math.max(1200, total);
+	let total = Math.round((sqMeters || 50) * rate * multiplier);
+	if (srv === 'ozone') return Math.max(1200, total);
 	return Math.max(850, total);
 }
 
 async function sendCalcResult(chatId, messageId, sqMeters, areaLabel) {
 	const session = getSession(chatId);
+	session.calc = session.calc || {};
+	session.calc.objName = session.calc.objName || 'Квартира';
+	session.calc.srvName = session.calc.srvName || 'Дезінсекція';
+	session.calc.srvType = session.calc.srvType || 'disin';
+
 	const price = calculatePrice(session.calc.objName, session.calc.srvType, sqMeters);
 
-	session.calc.areaLabel = areaLabel;
+	session.calc.areaLabel = areaLabel || `${sqMeters} м²`;
 	session.calc.sqMeters = sqMeters;
 	session.calc.price = price;
 
