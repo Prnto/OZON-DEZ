@@ -1,8 +1,13 @@
 /**
- * Telegram Autoresponder & Interactive Assistant for OZON-DEZ
+ * Telegram Interactive Assistant & Autoresponder for OZON-DEZ
  * 
- * Handles incoming client messages, provides 24/7 instant auto-replies,
- * and forwards client questions to the owner/dispatcher.
+ * Features:
+ * - Clean, user-friendly interactive menu
+ * - Catalog split into: Дезінфекція, Дезінсекція, Дератизація, Озонування
+ * - Interactive in-chat calculator with instant price estimates
+ * - Quick order submission with contact capture
+ * - Direct click-to-call button temporarily bound to +380508797335
+ * - Instant lead forwarding to owner
  */
 
 const _k1 = 'ODkyMzU3NzYy';
@@ -13,8 +18,18 @@ const _k4 = 'Q0FKQlFMNVkyTzVDbDQ0RQ==';
 const BOT_TOKEN = Buffer.from(_k1 + _k2 + _k3 + _k4, 'base64').toString('utf8');
 const ADMIN_CHAT_ID = '341806822';
 const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
+const TEMP_PHONE = '+380508797335';
+const TEMP_PHONE_DISPLAY = '+38 (050) 879-73-35';
 
 let lastUpdateId = 0;
+const sessions = new Map();
+
+function getSession(chatId) {
+	if (!sessions.has(chatId)) {
+		sessions.set(chatId, { state: 'idle', calc: {}, pendingService: null });
+	}
+	return sessions.get(chatId);
+}
 
 function escapeHtml(text) {
 	return (text || '')
@@ -37,90 +52,637 @@ async function api(method, body = {}) {
 	}
 }
 
-async function sendClientWelcome(chatId, clientName) {
-	const message = `👋 <b>Вітаємо у службі санітарної безпеки ТОВ «ОЗОН-ДЕЗ»!</b>\n\n` +
-		`Ми — атестована служба дезінфекції, дезінсекції, озонування та пест-контролю HACCP у м. Чорноморськ, Одесі та Одеській області (14 років досвіду).\n\n` +
-		`👨‍⚕️ <b>Черговий лікар-дезінфектолог на зв'язку 24/7:</b>\n` +
-		`📞 <b><a href="tel:+380682615350">+38 (068) 261-53-50</a></b> (мобільний / екстрений виїзд)\n` +
+// 1. Welcome & Main Menu
+async function sendMainMenu(chatId, isEdit = false, messageId = null) {
+	const session = getSession(chatId);
+	session.state = 'idle';
+
+	const text = `👋 <b>Вітаємо у службі санітарної безпеки ТОВ «ОЗОН-ДЕЗ»!</b>\n\n` +
+		`Ми атестована служба дезінфекції, дезінсекції, дератизації, озонування та пест-контролю HACCP у м. Чорноморськ, Одесі та Одеській області (14 років досвіду).\n\n` +
+		`👨‍⚕️ <b>Черговий лікар-дезінфектолог:</b>\n` +
+		`📞 <b>+38 (068) 261-53-50</b> (мобільний / екстрений виїзд)\n` +
 		`☎️ <b>(04868) 5-03-08</b> (міський офіс)\n` +
 		`📍 <b>Офіс:</b> м. Чорноморськ, просп. Миру, 8А\n\n` +
-		`💬 <i>Напишіть ваше питання або номер телефону прямо сюди — черговий фахівець відповість протягом 2-5 хвилин!</i>`;
+		`Оберіть потрібний розділ або дію:`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: '📋 Послуги компанії', callback_data: 'menu_services' },
+				{ text: '🧮 Калькулятор у чаті', callback_data: 'calc_start' }
+			],
+			[
+				{ text: `📞 Зателефонувати (${TEMP_PHONE_DISPLAY})`, callback_data: 'call_doctor' }
+			],
+			[
+				{ text: '🌐 Відкрити повний сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
+				{ text: '📍 Наш офіс на карті', url: 'https://maps.google.com/?q=г.+Черноморск,+проспект+Мира,+8А' }
+			]
+		]
+	};
+
+	if (isEdit && messageId) {
+		return await api('editMessageText', {
+			chat_id: chatId,
+			message_id: messageId,
+			text,
+			parse_mode: 'HTML',
+			reply_markup: keyboard
+		});
+	}
 
 	return await api('sendMessage', {
 		chat_id: chatId,
-		text: message,
+		text,
 		parse_mode: 'HTML',
-		disable_web_page_preview: true,
-		reply_markup: {
-			inline_keyboard: [
-				[
-					{ text: '🌐 Відкрити сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
-					{ text: '🧮 Онлайн-калькулятор', web_app: { url: 'https://prnto.github.io/OZON-DEZ/calculator' } }
-				],
-				[
-					{ text: '📞 Зателефонувати лікарю (24/7)', url: 'https://t.me/Mr_Pronto' },
-					{ text: '📍 Наш офіс на карті', url: 'https://maps.google.com/?q=г.+Черноморск,+проспект+Мира,+8А' }
-				]
+		reply_markup: keyboard
+	});
+}
+
+// 2. Services Menu
+async function sendServicesMenu(chatId, messageId = null) {
+	const text = `📋 <b>Оберіть необхідний напрямок санітарної обробки:</b>\n\n` +
+		`• 🦠 <b>Дезінфекція</b> — знищення вірусів, бактерій та плісняви\n` +
+		`• 🪳 <b>Дезінсекція</b> — знищення тарганів, клопів, бліх, кліщів\n` +
+		`• 🐀 <b>Дератизація</b> — знищення мишей та щурів\n` +
+		`• 💨 <b>Озонування</b> — видалення важких запахів та стерилізація O₃`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: '🦠 Дезінфекція', callback_data: 'srv_disinfection' },
+				{ text: '🪳 Дезінсекція', callback_data: 'srv_disinsection' }
+			],
+			[
+				{ text: '🐀 Дератизація', callback_data: 'srv_deratization' },
+				{ text: '💨 Озонування', callback_data: 'srv_ozone' }
+			],
+			[
+				{ text: '🔙 Головне меню', callback_data: 'menu_main' }
 			]
+		]
+	};
+
+	return await api('editMessageText', {
+		chat_id: chatId,
+		message_id: messageId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+// 3. Service Detail Screens
+async function sendServiceDetail(chatId, messageId, srvKey) {
+	let text = '';
+	let serviceName = '';
+	let orderKey = '';
+
+	switch (srvKey) {
+		case 'disinfection':
+			serviceName = 'Дезінфекція приміщень';
+			orderKey = 'order_disinfection';
+			text = `🦠 <b>Дезінфекція (санація приміщень)</b>\n\n` +
+				`Професійне знищення вірусів, небезпечних бактерій, плісняви та збудників інфекцій.\n\n` +
+				`• Сертифіковані препарати МОЗ 4-го класу безпеки (малотоксичні)\n` +
+				`• Безпечно для дітей, людей похилого віку та домашніх тварин\n` +
+				`• Обробка квартир, офісів, салонів краси, складів, транспорту\n` +
+				`• Офіційний акт виконаних робіт\n\n` +
+				`💵 <b>Вартість: від 850 грн</b> (залежно від площі)`;
+			break;
+
+		case 'disinsection':
+			serviceName = 'Дезінсекція (комахи)';
+			orderKey = 'order_disinsection';
+			text = `🪳 <b>Дезінсекція (знищення комах)</b>\n\n` +
+				`100% знищення тарганів, постільних клопів, бліх, мурах, молі та кліщів.\n\n` +
+				`• Обробка дрібнодисперсним холодним туманом ULV\n` +
+				`• Проникнення препарату в усі мікрощілини та повітропроводи\n` +
+				`• Препарати контактно-кишкової та бар'єрної дії без їдкого запаху\n` +
+				`• Гарантія за договором до 12 місяців\n\n` +
+				`💵 <b>Вартість: від 850 грн</b>`;
+			break;
+
+		case 'deratization':
+			serviceName = 'Дератизація (гризуни)';
+			orderKey = 'order_deratization';
+			text = `🐀 <b>Дератизація (знищення гризунів)</b>\n\n` +
+				`Ефективна боротьба з мишами та щурами в будинках, ресторанах, магазинах та складах.\n\n` +
+				`• Сертифіковані родентициди з муміфікуючим ефектом (без неприємного запаху)\n` +
+				`• Встановлення та маркування безпечних контейнерів-пасток\n` +
+				`• Повна відповідність стандартам HACCP та ISO 22000\n` +
+				`• Регулярний пест-контроль з актами та схемами точок\n\n` +
+				`💵 <b>Вартість: від 950 грн</b>`;
+			break;
+
+		case 'ozone':
+			serviceName = 'Озонування газом O3';
+			orderKey = 'order_ozone';
+			text = `💨 <b>Озонування газом O₃ (видалення запахів)</b>\n\n` +
+				`Потужна екологічна стерилізація приміщень та салонів авто генератором озону.\n\n` +
+				`• 100% видалення запаху гару після пожежі, тютюнового диму, затхлості\n` +
+				`• Знищення спор грибка та плісняви на молекулярному рівні\n` +
+				`• Демеркуризація (нейтралізація небезпечних випарів розбитого ртутного термометра)\n` +
+				`• 0% хімічних залишків: озон розпадається на чистий кисень O₂\n\n` +
+				`💵 <b>Вартість: від 1 200 грн</b>`;
+			break;
+	}
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: `📝 Замовити ${serviceName}`, callback_data: orderKey }
+			],
+			[
+				{ text: '🧮 Порахувати у калькуляторі', callback_data: 'calc_start' }
+			],
+			[
+				{ text: '🔙 Назад до послуг', callback_data: 'menu_services' },
+				{ text: '🏠 Меню', callback_data: 'menu_main' }
+			]
+		]
+	};
+
+	return await api('editMessageText', {
+		chat_id: chatId,
+		message_id: messageId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+// 4. In-Chat Calculator Workflow
+async function sendCalcStep1(chatId, messageId = null) {
+	const session = getSession(chatId);
+	session.calc = {};
+
+	const text = `🧮 <b>Калькулятор вартості (Крок 1 з 3)</b>\n\n` +
+		`Оберіть тип вашого приміщення/об'єкта:`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: '🏢 Квартира', callback_data: 'calc_obj_apt' },
+				{ text: '🏡 Будинок / Котедж', callback_data: 'calc_obj_house' }
+			],
+			[
+				{ text: '🍽️ Ресторан / HoReCa', callback_data: 'calc_obj_horeca' },
+				{ text: '🏭 Склад / Офіс', callback_data: 'calc_obj_comm' }
+			],
+			[
+				{ text: '🔙 Головне меню', callback_data: 'menu_main' }
+			]
+		]
+	};
+
+	if (messageId) {
+		return await api('editMessageText', {
+			chat_id: chatId,
+			message_id: messageId,
+			text,
+			parse_mode: 'HTML',
+			reply_markup: keyboard
+		});
+	}
+
+	return await api('sendMessage', {
+		chat_id: chatId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+async function sendCalcStep2(chatId, messageId, objName) {
+	const session = getSession(chatId);
+	session.calc.objName = objName;
+
+	const text = `🧮 <b>Калькулятор вартості (Крок 2 з 3)</b>\n` +
+		`Об'єкт: <b>${objName}</b>\n\n` +
+		`Оберіть необхідну послугу:`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: '🪳 Дезінсекція (комахи)', callback_data: 'calc_srv_disin' },
+				{ text: '🦠 Дезінфекція (санація)', callback_data: 'calc_srv_disinf' }
+			],
+			[
+				{ text: '🐀 Дератизація (гризуни)', callback_data: 'calc_srv_derat' },
+				{ text: '💨 Озонування O₃ (запахи)', callback_data: 'calc_srv_ozone' }
+			],
+			[
+				{ text: '🔙 Змінити об\'єкт', callback_data: 'calc_start' }
+			]
+		]
+	};
+
+	return await api('editMessageText', {
+		chat_id: chatId,
+		message_id: messageId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+async function sendCalcStep3(chatId, messageId, srvName, srvType) {
+	const session = getSession(chatId);
+	session.calc.srvName = srvName;
+	session.calc.srvType = srvType;
+
+	const text = `🧮 <b>Калькулятор вартості (Крок 3 з 3)</b>\n` +
+		`Об'єкт: <b>${session.calc.objName}</b>\n` +
+		`Послуга: <b>${srvName}</b>\n\n` +
+		`Вкажіть орієнтовну площу приміщення:`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: 'До 40 м²', callback_data: 'calc_area_35' },
+				{ text: '40 - 65 м²', callback_data: 'calc_area_55' }
+			],
+			[
+				{ text: '65 - 90 м²', callback_data: 'calc_area_80' },
+				{ text: '90 - 150 м²', callback_data: 'calc_area_120' }
+			],
+			[
+				{ text: 'Понад 150 м²', callback_data: 'calc_area_200' }
+			],
+			[
+				{ text: '🔙 Змінити послугу', callback_data: 'calc_back_to_srv' }
+			]
+		]
+	};
+
+	return await api('editMessageText', {
+		chat_id: chatId,
+		message_id: messageId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+function calculatePrice(objType, srvType, sqMeters) {
+	let rate = 16;
+	if (srvType === 'ozone') rate = 22;
+	if (srvType === 'derat') rate = 15;
+	if (srvType === 'disinf') rate = 14;
+
+	let multiplier = 1.0;
+	if (objType.includes('Будинок')) multiplier = 1.15;
+	if (objType.includes('Ресторан')) multiplier = 1.25;
+	if (objType.includes('Склад')) multiplier = 0.9;
+
+	let total = Math.round(sqMeters * rate * multiplier);
+	if (srvType === 'ozone') return Math.max(1200, total);
+	return Math.max(850, total);
+}
+
+async function sendCalcResult(chatId, messageId, sqMeters, areaLabel) {
+	const session = getSession(chatId);
+	const price = calculatePrice(session.calc.objName, session.calc.srvType, sqMeters);
+
+	session.calc.areaLabel = areaLabel;
+	session.calc.sqMeters = sqMeters;
+	session.calc.price = price;
+
+	const text = `💰 <b>РЕЗУЛЬТАТ РОЗРАХУНКУ ВАРТОСТІ:</b>\n` +
+		`━━━━━━━━━━━━━━━━━━━━━\n` +
+		`🏢 <b>Об'єкт:</b> ${session.calc.objName}\n` +
+		`🧪 <b>Послуга:</b> ${session.calc.srvName}\n` +
+		`📐 <b>Площа:</b> ${areaLabel}\n` +
+		`━━━━━━━━━━━━━━━━━━━━━\n` +
+		`💵 <b>Орієнтовна вартість: ${price} грн</b>\n\n` +
+		`✅ <i>У вартість включено: виїзд фахівця, сертифіковані препарати МОЗ України, робота обладнання та гарантійний договір до 12 міс.</i>`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: `📝 Замовити за ${price} грн`, callback_data: 'order_calculated' }
+			],
+			[
+				{ text: '🔄 Перерахувати заново', callback_data: 'calc_start' }
+			],
+			[
+				{ text: `📞 Швидкий дзвінок лікарю`, callback_data: 'call_doctor' },
+				{ text: '🏠 Меню', callback_data: 'menu_main' }
+			]
+		]
+	};
+
+	return await api('editMessageText', {
+		chat_id: chatId,
+		message_id: messageId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+// 5. Order Initiation & Contact Capture
+async function startOrderFlow(chatId, serviceTitle = null, calculatedDetails = null) {
+	const session = getSession(chatId);
+	session.state = 'awaiting_phone';
+	session.pendingService = serviceTitle || session.calc.srvName || 'Санітарна обробка';
+
+	let text = `📝 <b>Оформлення швидкої заявки</b>\n`;
+	if (calculatedDetails) {
+		text += `Послуга: <b>${calculatedDetails.srvName}</b> (${calculatedDetails.objName}, ${calculatedDetails.areaLabel})\n`;
+		text += `Сума розрахунку: <b>${calculatedDetails.price} грн</b>\n\n`;
+	} else if (serviceTitle) {
+		text += `Послуга: <b>${serviceTitle}</b>\n\n`;
+	}
+
+	text += `📞 <b>Будь ласка, вкажіть ваш номер телефону</b> (напишіть повідомленням або надішліть кнопку нижче):\n` +
+		`Черговий лікар зателефонує вам протягом 2-5 хвилин для узгодження часу прибуття.`;
+
+	return await api('sendMessage', {
+		chat_id: chatId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: {
+			keyboard: [
+				[{ text: '📱 Поділитися номером телефону', request_contact: true }],
+				[{ text: '❌ Скасувати' }]
+			],
+			resize_keyboard: true,
+			one_time_keyboard: true
 		}
 	});
 }
 
-async function notifyAdminAboutMessage(fromUser, userMessage, chatId) {
-	if (String(chatId) === ADMIN_CHAT_ID) return; // Don't notify admin of their own messages
+// 6. Direct Call Modal
+async function sendDoctorCallCard(chatId, messageId = null) {
+	const text = `👨‍⚕️ <b>Черговий лікар-дезінфектолог ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
+		`📞 Прямий мобільний номер:\n` +
+		`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>\n\n` +
+		`☎️ Міський офіс у Чорноморську:\n` +
+		`👉 <b><a href="tel:+380486850308">(04868) 5-03-08</a></b>\n\n` +
+		`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8А</b>\n` +
+		`🕒 Графік виїздів: <b>Цілодобово 24/7</b>\n\n` +
+		`<i>Натисніть на номер або скористайтеся кнопками нижче:</i>`;
+
+	const keyboard = {
+		inline_keyboard: [
+			[
+				{ text: `📞 Зателефонувати: ${TEMP_PHONE_DISPLAY}`, url: `https://t.me/+380508797335` }
+			],
+			[
+				{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_emergency' },
+				{ text: '🏠 Меню', callback_data: 'menu_main' }
+			]
+		]
+	};
+
+	if (messageId) {
+		return await api('editMessageText', {
+			chat_id: chatId,
+			message_id: messageId,
+			text,
+			parse_mode: 'HTML',
+			reply_markup: keyboard
+		});
+	}
+
+	return await api('sendMessage', {
+		chat_id: chatId,
+		text,
+		parse_mode: 'HTML',
+		reply_markup: keyboard
+	});
+}
+
+// 7. Handle Order Submission and Lead Notification
+async function finalizeOrder(fromUser, userPhone, chatId, additionalComment = '') {
+	const session = getSession(chatId);
+	const serviceName = session.pendingService || 'Санітарна обробка';
+	const calc = session.calc || {};
 
 	const sender = [fromUser.first_name, fromUser.last_name].filter(Boolean).join(' ') || 'Клієнт';
 	const usernameStr = fromUser.username ? `@${fromUser.username}` : 'без юзернейму';
 
-	const adminAlert = `💬 <b>НОВЕ ПОВІДОМЛЕННЯ В БОТІ ВІД КЛІЄНТА!</b>\n` +
+	// Reset session
+	session.state = 'idle';
+	session.pendingService = null;
+	session.calc = {};
+
+	// 1. Send confirmation to user with remove keyboard
+	await api('sendMessage', {
+		chat_id: chatId,
+		text: `✅ <b>Дякуємо! Вашу заявку успішно прийнято.</b>\n\n` +
+			`Послуга: <b>${escapeHtml(serviceName)}</b>\n` +
+			`Номер зв'язку: <code>${escapeHtml(userPhone)}</code>\n\n` +
+			`Черговий фахівець уже обробляє запит і зателефонує вам найближчим часом.\n\n` +
+			`📞 Якщо вам потрібен терміновий виїзд або є запитання, дзвоніть черговому: <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>.`,
+		parse_mode: 'HTML',
+		reply_markup: { remove_keyboard: true }
+	});
+
+	// Re-show main menu after 1 second
+	setTimeout(() => sendMainMenu(chatId), 1200);
+
+	// 2. Forward lead to owner/admin
+	let leadAlert = `🚨 <b>НОВА ЗАЯВКА З ТЕЛЕГРАМ-БОТА!</b> 🚨\n` +
 		`━━━━━━━━━━━━━━━━━━━━━\n` +
+		`📞 <b>Телефон клієнта:</b> <code>${escapeHtml(userPhone)}</code>\n` +
 		`👤 <b>Клієнт:</b> ${escapeHtml(sender)} (${usernameStr})\n` +
-		`🆔 <b>ID користувача:</b> <code>${chatId}</code>\n` +
-		`📝 <b>Текст повідомлення:</b>\n` +
-		`<i>«${escapeHtml(userMessage)}»</i>\n` +
-		`━━━━━━━━━━━━━━━━━━━━━\n` +
+		`🧪 <b>Послуга:</b> ${escapeHtml(serviceName)}\n`;
+
+	if (calc.objName) {
+		leadAlert += `🏢 <b>Об'єкт:</b> ${escapeHtml(calc.objName)}\n`;
+	}
+	if (calc.areaLabel) {
+		leadAlert += `📐 <b>Площа:</b> ${escapeHtml(calc.areaLabel)}\n`;
+	}
+	if (calc.price) {
+		leadAlert += `💰 <b>Розрахункова сума:</b> <b>${calc.price} грн</b>\n`;
+	}
+	if (additionalComment) {
+		leadAlert += `💬 <b>Коментар/Адреса:</b> <i>${escapeHtml(additionalComment)}</i>\n`;
+	}
+
+	leadAlert += `━━━━━━━━━━━━━━━━━━━━━\n` +
 		`🕒 <b>Час:</b> ${new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })}\n` +
-		`👉 <i>Ви можете відповісти користувачу прямо в Telegram: ${usernameStr !== 'без юзернейму' ? usernameStr : 'натисніть на профіль'}</i>`;
+		`👉 <i>Натисніть на номер телефону клієнта вище, щоб зателефонувати в один дотик.</i>`;
 
 	await api('sendMessage', {
 		chat_id: ADMIN_CHAT_ID,
-		text: adminAlert,
+		text: leadAlert,
 		parse_mode: 'HTML'
 	});
 }
 
+// 8. Main Polling Dispatcher
 async function pollUpdates() {
 	try {
 		const res = await api('getUpdates', {
 			offset: lastUpdateId + 1,
 			timeout: 25,
-			allowed_updates: ['message']
+			allowed_updates: ['message', 'callback_query']
 		});
 
 		if (res.ok && Array.isArray(res.result)) {
 			for (const update of res.result) {
 				lastUpdateId = update.update_id;
 
+				// Handle Inline Button Clicks
+				if (update.callback_query) {
+					const cb = update.callback_query;
+					const chatId = cb.message.chat.id;
+					const messageId = cb.message.message_id;
+					const data = cb.data;
+
+					await api('answerCallbackQuery', { callback_query_id: cb.id });
+
+					console.log(`[Callback] ${data} from ${chatId}`);
+
+					if (data === 'menu_main') {
+						await sendMainMenu(chatId, true, messageId);
+					} else if (data === 'menu_services') {
+						await sendServicesMenu(chatId, messageId);
+					} else if (data === 'call_doctor') {
+						await sendDoctorCallCard(chatId, messageId);
+					} else if (data === 'srv_disinfection') {
+						await sendServiceDetail(chatId, messageId, 'disinfection');
+					} else if (data === 'srv_disinsection') {
+						await sendServiceDetail(chatId, messageId, 'disinsection');
+					} else if (data === 'srv_deratization') {
+						await sendServiceDetail(chatId, messageId, 'deratization');
+					} else if (data === 'srv_ozone') {
+						await sendServiceDetail(chatId, messageId, 'ozone');
+					} else if (data.startsWith('order_')) {
+						let srvTitle = null;
+						if (data === 'order_disinfection') srvTitle = 'Дезінфекція приміщень';
+						if (data === 'order_disinsection') srvTitle = 'Дезінсекція комах';
+						if (data === 'order_deratization') srvTitle = 'Дератизація гризунів';
+						if (data === 'order_ozone') srvTitle = 'Озонування газом O3';
+						if (data === 'order_emergency') srvTitle = 'Екстрений виїзд фахівця';
+						if (data === 'order_calculated') srvTitle = null; // uses session.calc
+
+						await startOrderFlow(chatId, srvTitle, data === 'order_calculated' ? getSession(chatId).calc : null);
+					} else if (data === 'calc_start') {
+						await sendCalcStep1(chatId, messageId);
+					} else if (data.startsWith('calc_obj_')) {
+						let obj = 'Квартира';
+						if (data === 'calc_obj_house') obj = 'Будинок / Котедж';
+						if (data === 'calc_obj_horeca') obj = 'Ресторан / HoReCa';
+						if (data === 'calc_obj_comm') obj = 'Склад / Офіс';
+						await sendCalcStep2(chatId, messageId, obj);
+					} else if (data.startsWith('calc_srv_')) {
+						let srvName = 'Дезінсекція';
+						let srvType = 'disin';
+						if (data === 'calc_srv_disinf') { srvName = 'Дезінфекція'; srvType = 'disinf'; }
+						if (data === 'calc_srv_derat') { srvName = 'Дератизація'; srvType = 'derat'; }
+						if (data === 'calc_srv_ozone') { srvName = 'Озонування O3'; srvType = 'ozone'; }
+						await sendCalcStep3(chatId, messageId, srvName, srvType);
+					} else if (data === 'calc_back_to_srv') {
+						const session = getSession(chatId);
+						await sendCalcStep2(chatId, messageId, session.calc.objName || 'Квартира');
+					} else if (data.startsWith('calc_area_')) {
+						let sq = 35; let lbl = 'До 40 м²';
+						if (data === 'calc_area_55') { sq = 55; lbl = '40 - 65 м²'; }
+						if (data === 'calc_area_80') { sq = 80; lbl = '65 - 90 м²'; }
+						if (data === 'calc_area_120') { sq = 120; lbl = '90 - 150 м²'; }
+						if (data === 'calc_area_200') { sq = 200; lbl = 'Понад 150 м²'; }
+						await sendCalcResult(chatId, messageId, sq, lbl);
+					}
+					continue;
+				}
+
+				// Handle Messages
 				if (update.message && update.message.chat) {
 					const msg = update.message;
 					const chatId = msg.chat.id;
-					const text = msg.text || '';
+					const text = (msg.text || '').trim();
 					const from = msg.from || {};
+					const session = getSession(chatId);
 
-					console.log(`[Message received] from: ${from.first_name || chatId}, text: "${text}"`);
+					console.log(`[Message] ${from.first_name || chatId}: "${text}" (state: ${session.state})`);
 
-					if (text === '/start') {
-						await sendClientWelcome(chatId, from.first_name);
-					} else if (text) {
-						// Auto-reply to client
+					// Shared Contact
+					if (msg.contact && msg.contact.phone_number) {
+						await finalizeOrder(from, msg.contact.phone_number, chatId);
+						continue;
+					}
+
+					// User cancel
+					if (text === '❌ Скасувати' || text === '/cancel') {
+						session.state = 'idle';
 						await api('sendMessage', {
 							chat_id: chatId,
-							text: `✅ <b>Дякуємо за повідомлення!</b>\n\nВаше запитання передано черговому лікарю-дезінфектологу ТОВ «ОЗОН-ДЕЗ».\nМи зв'яжемося з вами найближчим часом.\n\n📞 Для екстреного виклику або консультації: <b>+38 (068) 261-53-50</b> (цілодобово 24/7).`,
+							text: 'Операцію скасовано.',
+							reply_markup: { remove_keyboard: true }
+						});
+						await sendMainMenu(chatId);
+						continue;
+					}
+
+					// Commands
+					if (text === '/start' || text.toLowerCase() === 'старт' || text.toLowerCase() === 'меню') {
+						await sendMainMenu(chatId);
+						continue;
+					}
+
+					if (text === '/calc' || text.toLowerCase() === 'калькулятор') {
+						await sendCalcStep1(chatId);
+						continue;
+					}
+
+					if (text === '/services' || text.toLowerCase() === 'послуги') {
+						await sendServicesMenu(chatId);
+						continue;
+					}
+
+					// Awaiting phone state
+					if (session.state === 'awaiting_phone') {
+						const phoneClean = text.replace(/[^\d+]/g, '');
+						if (phoneClean.length >= 7) {
+							await finalizeOrder(from, text, chatId);
+						} else {
+							await finalizeOrder(from, 'Номер вказано в тексті', chatId, text);
+						}
+						continue;
+					}
+
+					// Regular incoming text (question or potential phone number)
+					const phoneMatch = text.match(/(?:\+?38)?(?:\(?0\d{2}\)?|\d{3})[- ]?\d{3}[- ]?\d{2}[- ]?\d{2}/);
+					if (phoneMatch) {
+						await finalizeOrder(from, phoneMatch[0], chatId, text);
+						continue;
+					}
+
+					// General auto-reply & forward to admin
+					await api('sendMessage', {
+						chat_id: chatId,
+						text: `✅ <b>Дякуємо за повідомлення!</b>\n\n` +
+							`Ваше запитання передано черговому лікарю-дезінфектологу ТОВ «ОЗОН-ДЕЗ».\n` +
+							`Ми зв'яжемося з вами найближчим часом.\n\n` +
+							`📞 Для термінового виклику або консультації телефонуйте:\n` +
+							`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b> (цілодобово 24/7).`,
+						parse_mode: 'HTML'
+					});
+
+					// Forward to owner if not sent by owner
+					if (String(chatId) !== ADMIN_CHAT_ID) {
+						const sender = [from.first_name, from.last_name].filter(Boolean).join(' ') || 'Клієнт';
+						const usernameStr = from.username ? `@${from.username}` : 'без юзернейму';
+
+						await api('sendMessage', {
+							chat_id: ADMIN_CHAT_ID,
+							text: `💬 <b>НОВЕ ПОВІДОМЛЕННЯ В БОТІ ВІД КЛІЄНТА!</b>\n` +
+								`━━━━━━━━━━━━━━━━━━━━━\n` +
+								`👤 <b>Клієнт:</b> ${escapeHtml(sender)} (${usernameStr})\n` +
+								`🆔 <b>ID користувача:</b> <code>${chatId}</code>\n` +
+								`📝 <b>Текст повідомлення:</b>\n` +
+								`<i>«${escapeHtml(text)}»</i>\n` +
+								`━━━━━━━━━━━━━━━━━━━━━\n` +
+								`🕒 <b>Час:</b> ${new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })}\n` +
+								`👉 <i>Відповісти: ${usernameStr !== 'без юзернейму' ? usernameStr : 'натисніть на профіль'}</i>`,
 							parse_mode: 'HTML'
 						});
-
-						// Forward to admin
-						await notifyAdminAboutMessage(from, text, chatId);
 					}
 				}
 			}
@@ -132,5 +694,5 @@ async function pollUpdates() {
 	setTimeout(pollUpdates, 1000);
 }
 
-console.log('🤖 OZON-DEZ Telegram Autoresponder running...');
+console.log('🤖 OZON-DEZ Interactive Telegram Assistant running...');
 pollUpdates();
