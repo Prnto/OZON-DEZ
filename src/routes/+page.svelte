@@ -324,30 +324,6 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- Additional Direction Strip: Water Sanitization -->
-			<div class="water-extra-strip">
-				<div class="water-strip-left">
-					<div class="water-strip-icon">💧</div>
-					<div class="water-strip-info">
-						<strong>{#if langState.current === 'ua'}Очищення та дезінфекція систем водопостачання (КВЕД 36.00){:else}Очистка и дезинфекция систем водоснабжения (КВЭД 36.00){/if}</strong>
-						<p>{#if langState.current === 'ua'}Санація резервуарів питної води, свердловин, колодязів та водогонів. Видалення біоплівки, осаду та бактерій.{:else}Санация резервуаров питьевой воды, скважин, колодцев и водопроводов. Удаление биопленки, осадка и бактерий.{/if}</p>
-					</div>
-				</div>
-				<div class="water-strip-actions">
-					<span class="water-strip-price">від 2 500 грн</span>
-					<a href={resolve('/water')} class="btn btn-outline dir-btn">
-						{#if langState.current === 'ua'}Дізнатися більше →{:else}Узнать больше →{/if}
-					</a>
-					<button
-						type="button"
-						class="btn btn-primary btn-sm"
-						onclick={() => orderModal.open({ serviceTitle: 'Дезінфекція систем водопостачання' })}
-					>
-						{#if langState.current === 'ua'}Замовити{:else}Заказать{/if}
-					</button>
-				</div>
-			</div>
 		</div>
 	</section>
 
@@ -677,81 +653,6 @@
 		color: var(--color-bone-white);
 	}
 
-	/* Water Extra Strip */
-	.water-extra-strip {
-		margin-top: 2rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-void-border);
-		border-radius: var(--radius-cards);
-		padding: 1.4rem 2rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1.5rem;
-		flex-wrap: wrap;
-		transition: border-color var(--transition-fast);
-	}
-
-	.water-extra-strip:hover {
-		border-color: rgba(45, 212, 191, 0.4);
-	}
-
-	.water-strip-left {
-		display: flex;
-		align-items: center;
-		gap: 1.2rem;
-		flex: 1;
-		min-width: 280px;
-	}
-
-	.water-strip-icon {
-		font-size: 2.2rem;
-		line-height: 1;
-		flex-shrink: 0;
-	}
-
-	.water-strip-info strong {
-		display: block;
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-bone-white);
-		margin-bottom: 0.25rem;
-	}
-
-	.water-strip-info p {
-		font-size: 0.85rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
-		margin: 0;
-		line-height: 1.45;
-	}
-
-	.water-strip-actions {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	.water-strip-price {
-		font-family: var(--font-heading);
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--color-saffron-spark);
-	}
-
-	@media (max-width: 768px) {
-		.water-extra-strip {
-			padding: 1.25rem 1.2rem;
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-		.water-strip-actions {
-			width: 100%;
-			justify-content: space-between;
-		}
-	}
 
 	/* Calc Teaser */
 	.calc-teaser-section {

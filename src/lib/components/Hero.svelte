@@ -57,13 +57,12 @@
 						<span>{currentContent.hero.ctaPrimary}</span>
 						<span class="btn-arrow-symbol">↗</span>
 					</a>
-					<button
-						type="button"
+					<a
+						href="tel:+380508797335"
 						class="btn btn-secondary btn-lg"
-						onclick={() => orderModal.open({ serviceTitle: currentContent.hero.ctaSecondary })}
 					>
-						<span>{currentContent.hero.ctaSecondary}</span>
-					</button>
+						<span>📞 {currentContent.hero.ctaSecondary}</span>
+					</a>
 				</div>
 
 				<!-- Minimalist Trust Row -->
