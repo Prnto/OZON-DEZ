@@ -306,7 +306,9 @@
 
 <style>
 	.reviews-section {
-		background: var(--color-void);
+		position: relative;
+		z-index: 1;
+		background: transparent;
 		border-top: 1px solid var(--color-void-border);
 		border-bottom: 1px solid var(--color-void-border);
 	}

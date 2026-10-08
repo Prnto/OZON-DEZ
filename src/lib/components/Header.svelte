@@ -123,11 +123,45 @@
 	<!-- Main Navigation Bar -->
 	<div class="main-bar">
 		<div class="main-bar-container">
-			<div class="logo-box">
-				<Logo variant={themeState.current === 'dark' ? 'light' : 'dark'} />
+			<!-- Row 1: Brand Logo & Actions -->
+			<div class="main-bar-top-row">
+				<div class="logo-box">
+					<Logo variant={themeState.current === 'dark' ? 'light' : 'dark'} />
+				</div>
+
+				<div class="main-bar-actions">
+					<!-- Prominent Phone link with live pulse dot -->
+					<a href="tel:+380508797335" class="header-phone-badge" title="Здійснити виклик">
+						<span class="phone-pulse-dot"></span>
+						<span class="phone-num-txt">+38 (050) 879-73-35</span>
+					</a>
+
+					<!-- Order CTA button -->
+					<button
+						type="button"
+						class="btn btn-primary btn-sm main-cta-btn"
+						onclick={() => orderModal.open({ serviceTitle: currentContent.nav.callBtn })}
+					>
+						<span class="cta-full-label">⚡ {currentContent.nav.callBtn}</span>
+						<span class="cta-short-label">⚡ {#if langState.current === 'ua'}Замовити{:else}Заказать{/if}</span>
+					</button>
+
+					<!-- Hamburger Toggle for Mobile Quick Call & Info -->
+					<button
+						type="button"
+						class="burger-btn"
+						class:open={isMobileMenuOpen}
+						onclick={toggleMobileMenu}
+						aria-label="Меню контактів"
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
 			</div>
 
-			<!-- Top Tapbar: Complete list of all 9 items with icons directly visible and tap-friendly -->
+			<!-- Row 2: Dedicated Navigation Tapbar spanning full width -->
 			<nav class="top-tapbar" aria-label="Головна навігація">
 				<a href={resolve('/')} class="tapbar-btn" class:active={isActive('/')}>
 					<span class="tap-icon">🏠</span>
@@ -166,32 +200,6 @@
 					<span class="tap-label">{#if langState.current === 'ua'}Контакти{:else}Контакты{/if}</span>
 				</a>
 			</nav>
-
-			<!-- Right Actions -->
-			<div class="main-bar-actions">
-				<!-- Order CTA button -->
-				<button
-					type="button"
-					class="btn btn-primary btn-sm main-cta-btn"
-					onclick={() => orderModal.open({ serviceTitle: currentContent.nav.callBtn })}
-				>
-					<span class="cta-full-label">⚡ {currentContent.nav.callBtn}</span>
-					<span class="cta-short-label">⚡ {#if langState.current === 'ua'}Замовити{:else}Заказать{/if}</span>
-				</button>
-
-				<!-- Hamburger Toggle for Mobile Quick Call & Info -->
-				<button
-					type="button"
-					class="burger-btn"
-					class:open={isMobileMenuOpen}
-					onclick={toggleMobileMenu}
-					aria-label="Меню контактів"
-				>
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-			</div>
 		</div>
 	</div>
 
@@ -599,12 +607,19 @@
 	.main-bar-container {
 		max-width: var(--container-width);
 		margin: 0 auto;
-		padding: 0.65rem clamp(0.75rem, 2vw, 1.5rem);
+		padding: 0.65rem clamp(0.75rem, 2vw, 1.5rem) 0.55rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.55rem;
+		position: relative;
+	}
+
+	.main-bar-top-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.8rem;
-		position: relative;
+		gap: 1rem;
+		width: 100%;
 	}
 
 	.logo-box {
@@ -612,19 +627,60 @@
 		z-index: 5;
 	}
 
-	/* Top Tapbar: Horizontal, Always Accessible */
+	.header-phone-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.45rem 0.95rem;
+		border-radius: var(--radius-buttons);
+		background: rgba(128, 82, 255, 0.08);
+		border: 1px solid var(--color-iris-border);
+		color: var(--color-bone-white);
+		font-weight: 600;
+		font-size: 13px;
+		text-decoration: none;
+		transition: all var(--transition-fast);
+		white-space: nowrap;
+	}
+
+	.header-phone-badge:hover {
+		background: rgba(128, 82, 255, 0.16);
+		border-color: rgba(128, 82, 255, 0.45);
+		color: #ffffff;
+		transform: translateY(-1px);
+	}
+
+	:global(html[data-theme="light"]) .header-phone-badge {
+		background: #ffffff;
+		border-color: rgba(99, 66, 232, 0.22);
+		color: #1e293b;
+		box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+	}
+
+	:global(html[data-theme="light"]) .header-phone-badge:hover {
+		background: #f1f5f9;
+		border-color: rgba(99, 66, 232, 0.4);
+		color: #0f172a;
+	}
+
+	@media (max-width: 640px) {
+		.header-phone-badge {
+			display: none;
+		}
+	}
+
+	/* Top Tapbar: Full Width Row, Never Overlaps Logo */
 	.top-tapbar {
 		display: flex;
 		align-items: center;
-		gap: 0.3rem;
-		flex: 1;
-		justify-content: center;
-		min-width: 0;
+		justify-content: space-between;
+		gap: 0.35rem;
+		width: 100%;
 		overflow-x: auto;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
 		-webkit-overflow-scrolling: touch;
-		padding: 0.25rem 0.35rem;
+		padding: 0.3rem 0.45rem;
 		border-radius: var(--radius-buttons);
 		background: rgba(255, 255, 255, 0.03);
 		border: 1px solid var(--color-void-border);
@@ -635,22 +691,24 @@
 	}
 
 	:global(html[data-theme="light"]) .top-tapbar {
-		background: rgba(15, 23, 42, 0.03);
+		background: #ffffff;
 		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 	}
 
 	.tapbar-btn {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 0.35rem;
-		padding: 0.42rem 0.7rem;
+		padding: 0.45rem clamp(0.45rem, 0.75vw, 0.85rem);
 		border-radius: var(--radius-buttons);
 		font-size: 13px;
 		font-weight: 500;
 		letter-spacing: 0.015em;
 		color: var(--color-silver-mist);
 		white-space: nowrap;
-		flex-shrink: 0;
+		flex: 1 0 auto;
 		text-decoration: none;
 		transition: all var(--transition-fast);
 		border: 1px solid transparent;
@@ -674,8 +732,8 @@
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn:hover {
-		color: #0f172a;
-		background: rgba(15, 23, 42, 0.06);
+		color: #1e293b;
+		background: #f1f5f9;
 	}
 
 	.tapbar-btn.active {
@@ -690,28 +748,7 @@
 		background: var(--color-electric-iris);
 		color: #ffffff;
 		border-color: var(--color-electric-iris);
-		box-shadow: 0 2px 8px rgba(109, 62, 247, 0.28);
-	}
-
-	/* Responsive Tapbar Flow */
-	@media (max-width: 1040px) {
-		.main-bar-container {
-			flex-wrap: wrap;
-			padding-bottom: 0.6rem;
-		}
-
-		.top-tapbar {
-			order: 3;
-			width: 100%;
-			flex: 1 1 100%;
-			margin: 0.4rem 0 0;
-			justify-content: flex-start;
-			padding: 0.35rem 0.45rem;
-		}
-
-		.burger-btn {
-			display: flex;
-		}
+		box-shadow: 0 2px 8px rgba(99, 66, 232, 0.28);
 	}
 
 	.main-bar-actions {

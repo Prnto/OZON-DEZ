@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve, asset } from '$app/paths';
 	import Hero from '#lib/components/Hero.svelte';
-	import KvedSection from '#lib/components/KvedSection.svelte';
+	import ConstellationCanvas from '#lib/components/ConstellationCanvas.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 
 	import { langState } from '../lib/state/language.svelte';
@@ -17,6 +17,9 @@
 </svelte:head>
 
 <div class="homepage">
+	<!-- Atmospheric Fullpage Constellation Animation as Main Background -->
+	<ConstellationCanvas mode="fullpage" />
+
 	<!-- Hero Section -->
 	<Hero />
 
@@ -448,11 +451,6 @@
 
 	<!-- Real Case Studies & Customer Reviews -->
 	<ReviewsSection />
-
-
-
-	<!-- Official Licenses & KVEDs -->
-	<KvedSection />
 </div>
 
 <style>
@@ -466,7 +464,9 @@
 
 	/* Directions Hub */
 	.hub-directions-section {
-		background: var(--color-void);
+		position: relative;
+		z-index: 1;
+		background: transparent;
 		border-bottom: 1px solid var(--color-void-border);
 	}
 
@@ -755,7 +755,9 @@
 
 	/* Calc Teaser */
 	.calc-teaser-section {
-		background: var(--color-void);
+		position: relative;
+		z-index: 1;
+		background: transparent;
 	}
 
 	.calc-teaser-card {
@@ -868,7 +870,9 @@
 
 	/* Preview banner */
 	.quick-work-preview-section {
-		background: var(--color-void);
+		position: relative;
+		z-index: 1;
+		background: transparent;
 		border-top: 1px solid var(--color-void-border);
 	}
 

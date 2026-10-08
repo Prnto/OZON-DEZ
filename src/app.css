@@ -57,36 +57,36 @@
 }
 
 html[data-theme="light"], html.theme-light {
-	/* Light Mode Colors (Clean Crisp Editorial) */
-	--color-void: #f8fafc;
+	/* Light Mode Colors (Soft, Soothing, High-Legibility Slate & Iris) */
+	--color-void: #f4f6f9;
 	--color-surface: #ffffff;
-	--color-surface-hover: #f1f5f9;
-	--color-bone-white: #0f172a;
-	--color-ash-gray: #64748b;
+	--color-surface-hover: #eef2f6;
+	--color-bone-white: #1e293b;
+	--color-ash-gray: #586574;
 	--color-silver-mist: #334155;
-	--color-electric-iris: #6d3ef7;
-	--color-saffron-spark: #d97706;
-	--color-deep-verdant: #0d9488;
+	--color-electric-iris: #6342e8;
+	--color-saffron-spark: #b45309;
+	--color-deep-verdant: #0f766e;
 
 	--color-void-elevated: #ffffff;
 	--color-void-card: #ffffff;
 	--color-void-border: rgba(15, 23, 42, 0.08);
-	--color-iris-border: rgba(109, 62, 247, 0.25);
-	--color-saffron-border: rgba(217, 119, 6, 0.25);
+	--color-iris-border: rgba(99, 66, 232, 0.22);
+	--color-saffron-border: rgba(180, 83, 9, 0.22);
 
 	--bg-page: var(--color-void);
 	--bg-card: var(--color-surface);
 	--bg-card-subtle: #f8fafc;
-	--bg-dark-section: #f1f5f9;
+	--bg-dark-section: #eef2f6;
 	--bg-dark-card: #ffffff;
 
-	--text-title: var(--color-bone-white);
-	--text-body: var(--color-silver-mist);
-	--text-muted: var(--color-ash-gray);
-	--text-light: #0f172a;
-	--text-white: #0f172a;
-	--text-mist: var(--color-silver-mist);
-	--text-stat: #0f172a;
+	--text-title: #1e293b;
+	--text-body: #334155;
+	--text-muted: #586574;
+	--text-light: #1e293b;
+	--text-white: #1e293b;
+	--text-mist: #334155;
+	--text-stat: #1e293b;
 
 	--border-light: rgba(15, 23, 42, 0.06);
 	--border-dark: rgba(15, 23, 42, 0.12);
@@ -454,6 +454,22 @@ img {
 .glass-card:hover,
 .glass-card-dark:hover {
 	border-color: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="light"] .surface-card,
+html[data-theme="light"] .glass-card,
+html[data-theme="light"] .glass-card-dark {
+	background-color: #ffffff;
+	border-color: rgba(15, 23, 42, 0.08);
+	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 6px 16px -4px rgba(15, 23, 42, 0.04);
+	color: #334155;
+}
+
+html[data-theme="light"] .surface-card:hover,
+html[data-theme="light"] .glass-card:hover,
+html[data-theme="light"] .glass-card-dark:hover {
+	border-color: rgba(99, 66, 232, 0.35);
+	box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06), 0 12px 24px -8px rgba(99, 66, 232, 0.08);
 }
 
 /* Recessed Surface Card */

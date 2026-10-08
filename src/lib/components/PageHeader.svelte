@@ -94,8 +94,13 @@
 
 	:global(html[data-theme="light"]) .header-bg-overlay {
 		background:
-			linear-gradient(90deg, rgba(248, 250, 252, 0.85) 0%, rgba(248, 250, 252, 0.55) 55%, rgba(248, 250, 252, 0.2) 100%),
+			linear-gradient(90deg, rgba(244, 246, 249, 0.94) 0%, rgba(244, 246, 249, 0.8) 50%, rgba(244, 246, 249, 0.35) 100%),
 			linear-gradient(to top, var(--color-void) 0%, transparent 40%);
+	}
+
+	:global(html[data-theme="light"]) .bg-img {
+		opacity: 0.92;
+		filter: contrast(1.04) saturate(1.08);
 	}
 
 	.header-glow {
