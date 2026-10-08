@@ -301,7 +301,7 @@
 
 <style>
 	.calc-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
 	}
 
 	.calc-grid {
@@ -318,13 +318,13 @@
 	}
 
 	.calc-card {
-		padding: 2.4rem;
+		padding: 2.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: 2.2rem;
-		background: var(--color-liquid-kelp);
+		background: #090909;
 		border-radius: var(--radius-cards);
-		border: 1px solid rgba(203, 255, 252, 0.09);
+		border: 1px solid var(--color-void-border);
 	}
 
 	@media (max-width: 640px) {
@@ -350,18 +350,18 @@
 		align-items: center;
 		gap: 0.65rem;
 		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		letter-spacing: -0.01em;
+		font-weight: 400;
+		color: var(--color-bone-white);
+		letter-spacing: -0.02em;
 	}
 
 	.step-num {
 		width: 26px;
 		height: 26px;
-		border-radius: var(--radius-small);
-		background: rgba(0, 130, 124, 0.35);
-		border: 1px solid rgba(203, 255, 252, 0.2);
-		color: var(--color-platinum);
+		border-radius: var(--radius-buttons);
+		background: rgba(128, 82, 255, 0.15);
+		border: 1px solid var(--color-iris-border);
+		color: #bfa6ff;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -393,23 +393,23 @@
 		display: flex;
 		align-items: center;
 		gap: 0.6rem;
-		padding: 0.75rem 0.9rem;
+		padding: 0.85rem 1rem;
 		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
+		border: 1px solid var(--color-void-border);
+		background: #0d0d0d;
 		cursor: pointer;
 		transition: all var(--transition-fast);
 		text-align: left;
 	}
 
 	.obj-btn:hover {
-		border-color: rgba(203, 255, 252, 0.3);
-		background: #004d49;
+		border-color: rgba(255, 255, 255, 0.2);
+		background: #141414;
 	}
 
 	.obj-btn.active {
-		border-color: rgba(203, 255, 252, 0.5);
-		background: rgba(0, 130, 124, 0.3);
+		border-color: var(--color-electric-iris);
+		background: rgba(128, 82, 255, 0.12);
 	}
 
 	.obj-icon {
@@ -418,8 +418,8 @@
 
 	.obj-name {
 		font-size: 0.86rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 	}
 
 	/* Service Buttons */
@@ -439,23 +439,23 @@
 		display: flex;
 		align-items: center;
 		gap: 0.65rem;
-		padding: 0.8rem 1rem;
+		padding: 0.85rem 1.1rem;
 		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
+		border: 1px solid var(--color-void-border);
+		background: #0d0d0d;
 		cursor: pointer;
 		transition: all var(--transition-fast);
 		text-align: left;
 	}
 
 	.srv-btn:hover {
-		border-color: rgba(203, 255, 252, 0.3);
-		background: #004d49;
+		border-color: rgba(255, 255, 255, 0.2);
+		background: #141414;
 	}
 
 	.srv-btn.active {
-		border-color: rgba(203, 255, 252, 0.5);
-		background: rgba(0, 130, 124, 0.3);
+		border-color: var(--color-electric-iris);
+		background: rgba(128, 82, 255, 0.12);
 	}
 
 	.srv-icon {
@@ -464,8 +464,8 @@
 
 	.srv-name {
 		font-size: 0.88rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 	}
 
 	/* Slider */
@@ -479,12 +479,12 @@
 		display: flex;
 		align-items: center;
 		gap: 0.35rem;
-		background: var(--color-liquid-deep);
-		border: 1px solid rgba(203, 255, 252, 0.15);
-		padding: 0.3rem 0.75rem;
-		border-radius: var(--radius-small);
+		background: #0d0d0d;
+		border: 1px solid var(--color-void-border);
+		padding: 0.35rem 0.85rem;
+		border-radius: var(--radius-buttons);
 		font-weight: 500;
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 	}
 
 	.area-num-input {
@@ -493,20 +493,20 @@
 		border: none;
 		font-weight: 600;
 		font-size: 1.1rem;
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		text-align: right;
 		outline: none;
 	}
 
 	.calc-range-slider {
 		width: 100%;
-		height: 8px;
-		border-radius: 4px;
-		background: var(--color-liquid-deep);
+		height: 6px;
+		border-radius: 3px;
+		background: #141414;
 		outline: none;
 		-webkit-appearance: none;
 		appearance: none;
-		accent-color: #00d4aa;
+		accent-color: var(--color-electric-iris);
 	}
 
 	.calc-range-slider::-webkit-slider-thumb {
@@ -514,9 +514,9 @@
 		width: 20px;
 		height: 20px;
 		border-radius: 50%;
-		background: #cbfffc;
+		background: var(--color-electric-iris);
 		cursor: pointer;
-		border: 2px solid #003734;
+		border: 2px solid #ffffff;
 	}
 
 	.quick-area-chips {
@@ -526,22 +526,21 @@
 	}
 
 	.preset-chip {
-		padding: 0.35rem 0.75rem;
-		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
-		font-size: 0.8rem;
-		font-weight: 500;
+		padding: 0.4rem 0.85rem;
+		border-radius: var(--radius-buttons);
+		border: 1px solid var(--color-void-border);
+		background: #0d0d0d;
+		font-size: 0.82rem;
+		font-weight: 400;
 		color: var(--color-silver-mist);
 		cursor: pointer;
 		transition: all var(--transition-fast);
 	}
 
 	.preset-chip.active, .preset-chip:hover {
-		background: var(--color-platinum);
-		color: #02201e;
-		font-weight: 600;
-		border-color: var(--color-platinum);
+		background: var(--color-electric-iris);
+		color: #ffffff;
+		border-color: var(--color-electric-iris);
 	}
 
 	/* Extras */
@@ -555,64 +554,64 @@
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		padding: 0.75rem 1rem;
+		padding: 0.85rem 1.1rem;
 		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
+		border: 1px solid var(--color-void-border);
+		background: #0d0d0d;
 		cursor: pointer;
 		text-align: left;
 		transition: all var(--transition-fast);
 	}
 
 	.extra-item.active {
-		border-color: rgba(203, 255, 252, 0.45);
-		background: rgba(0, 130, 124, 0.25);
+		border-color: var(--color-electric-iris);
+		background: rgba(128, 82, 255, 0.08);
 	}
 
 	.extra-check {
 		width: 20px;
 		height: 20px;
-		border-radius: 4px;
-		border: 1px solid rgba(203, 255, 252, 0.25);
+		border-radius: 6px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-weight: 700;
 		font-size: 0.85rem;
-		color: #cbfffc;
-		background: var(--color-liquid-deep);
+		color: #ffffff;
+		background: #090909;
 	}
 
 	.extra-item.active .extra-check {
-		background: rgba(0, 130, 124, 0.5);
-		border-color: #cbfffc;
-		color: #cbfffc;
+		background: var(--color-electric-iris);
+		border-color: var(--color-electric-iris);
+		color: #ffffff;
 	}
 
 	.extra-name {
 		font-size: 0.86rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		flex: 1;
 	}
 
 	.extra-price {
 		font-size: 0.85rem;
 		font-weight: 600;
-		color: #cbfffc;
+		color: var(--color-saffron-spark);
 	}
 
 	/* Result Card */
 	.calc-result-card {
-		padding: 2.4rem;
+		padding: 2.5rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		position: sticky;
 		top: 6rem;
-		background: var(--color-liquid-deep);
+		background: #090909;
 		border-radius: var(--radius-cards);
-		border: 1px solid rgba(203, 255, 252, 0.14);
+		border: 1px solid var(--color-void-border);
 	}
 
 	@media (max-width: 640px) {
@@ -630,22 +629,22 @@
 	.result-badge {
 		display: inline-block;
 		font-size: 0.72rem;
-		font-weight: 500;
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--color-liquid-mist);
+		letter-spacing: 0.08em;
+		color: var(--color-saffron-spark);
 		margin-bottom: 0.6rem;
 	}
 
 	.price-showcase {
 		padding-bottom: 1.5rem;
-		border-bottom: 1px solid rgba(203, 255, 252, 0.1);
+		border-bottom: 1px solid var(--color-void-border);
 		margin-bottom: 1.5rem;
 	}
 
 	.price-title {
 		font-size: 0.88rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 		margin-bottom: 0.4rem;
 	}
 
@@ -657,23 +656,23 @@
 	}
 
 	.price-amount {
-		font-size: clamp(2.4rem, 6vw, 3.4rem);
-		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		font-size: clamp(2.5rem, 6vw, 3.8rem);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		line-height: 1;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.04em;
 	}
 
 	.price-currency {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		font-weight: 500;
-		color: #cbfffc;
+		color: var(--color-saffron-spark);
 	}
 
 	.price-note {
 		margin-top: 0.6rem;
 		font-size: 0.75rem;
-		color: #8e9e9d;
+		color: var(--color-ash-gray);
 		line-height: 1.4;
 	}
 
@@ -688,25 +687,25 @@
 		display: flex;
 		justify-content: space-between;
 		font-size: 0.86rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 	}
 
 	.sum-row strong {
-		color: var(--color-platinum);
-		font-weight: 500;
+		color: var(--color-bone-white);
+		font-weight: 400;
 	}
 
 	.calc-form-box {
-		background: var(--color-liquid-kelp);
-		border: 1px solid rgba(203, 255, 252, 0.1);
-		border-radius: var(--radius-cards);
+		background: #040404;
+		border: 1px solid var(--color-void-border);
+		border-radius: var(--radius-small);
 		padding: 1.4rem;
 	}
 
 	.form-title {
 		font-size: 0.88rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		margin-bottom: 1rem;
 		text-align: center;
 	}
@@ -720,28 +719,28 @@
 
 	.calc-input {
 		width: 100%;
-		padding: 0.75rem 1rem;
+		padding: 0.85rem 1.1rem;
 		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.15);
-		background: var(--color-liquid-deep);
-		color: var(--color-platinum);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: #0d0d0d;
+		color: var(--color-bone-white);
 		font-size: 16px;
 		outline: none;
 		transition: border-color var(--transition-fast);
 	}
 
 	.calc-input::placeholder {
-		color: #6a7c7b;
+		color: #666666;
 	}
 
 	.calc-input:focus {
-		border-color: rgba(203, 255, 252, 0.5);
-		background: #002724;
+		border-color: var(--color-electric-iris);
+		background: #141414;
 	}
 
 	.privacy-note {
 		font-size: 0.72rem;
-		color: #8e9e9d;
+		color: var(--color-ash-gray);
 		text-align: center;
 		margin-top: 0.75rem;
 	}
@@ -758,9 +757,9 @@
 
 	.success-message h4 {
 		font-size: 1.2rem;
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		margin-bottom: 0.4rem;
-		font-weight: 500;
+		font-weight: 400;
 	}
 
 	.success-message p {

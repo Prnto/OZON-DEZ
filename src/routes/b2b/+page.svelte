@@ -131,8 +131,9 @@
 
 <style>
 	.industries-section {
-		background: var(--color-liquid-deep);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.industries-grid {
@@ -143,8 +144,8 @@
 	}
 
 	.ind-card {
-		padding: 1.8rem 1.6rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.2rem 1.8rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
@@ -155,31 +156,33 @@
 
 	@media (max-width: 480px) {
 		.ind-card {
-			padding: 1.4rem 1.15rem;
+			padding: 1.5rem 1.25rem;
 		}
 	}
 
 	.ind-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.ind-icon {
 		font-size: 2rem;
-		margin-bottom: 0.8rem;
+		margin-bottom: 1rem;
 	}
 
 	.ind-card h3 {
-		font-size: 1.15rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.5rem;
+		font-size: 1.2rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.6rem;
 	}
 
 	.ind-card p {
 		font-size: 0.88rem;
 		line-height: 1.6;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		margin-bottom: 1.2rem;
 		flex: 1;
 	}
@@ -188,17 +191,18 @@
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.4rem;
-		font-size: 0.82rem;
-		font-weight: 500;
-		color: var(--color-silver-mist);
-		border-top: 1px dashed rgba(203, 255, 252, 0.1);
-		padding-top: 0.8rem;
+		gap: 0.5rem;
+		font-size: 0.84rem;
+		font-weight: 300;
+		color: var(--color-ash-gray);
+		border-top: 1px dashed var(--border-subtle);
+		padding-top: 0.9rem;
 	}
 
 	.ind-list li::before {
 		content: '✔ ';
-		color: var(--color-liquid-mist);
+		color: var(--color-electric-iris);
+		font-weight: 600;
 	}
 
 	.b2b-doc-banner {
@@ -208,7 +212,7 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 2.5rem;
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
 	}
@@ -232,15 +236,17 @@
 
 	.doc-banner-content h3 {
 		font-size: 1.45rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.6rem;
 	}
 
 	.doc-banner-content p {
 		font-size: 0.9rem;
 		line-height: 1.6;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		max-width: 700px;
 	}
 </style>

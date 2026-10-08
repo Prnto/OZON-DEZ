@@ -71,14 +71,15 @@
 
 <style>
 	.water-process-section {
-		background: var(--color-liquid-deep);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.water-steps-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 1.4rem;
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 900px) {
@@ -94,8 +95,8 @@
 	}
 
 	.w-step {
-		padding: 1.8rem 1.5rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.2rem 1.8rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
@@ -106,28 +107,30 @@
 
 	.w-step:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.w-num {
 		font-family: var(--font-heading);
-		font-size: 1.5rem;
-		font-weight: 500;
-		color: var(--color-lavender-phosphor);
-		margin-bottom: 0.6rem;
+		font-size: 1.8rem;
+		font-weight: 400;
+		color: var(--color-electric-iris);
+		margin-bottom: 0.8rem;
 		letter-spacing: -0.02em;
 	}
 
 	.w-step h4 {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.4rem;
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.5rem;
 	}
 
 	.w-step p {
-		font-size: 0.85rem;
-		color: var(--color-silver-mist);
-		line-height: 1.55;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 </style>

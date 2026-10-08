@@ -270,8 +270,9 @@
 
 <style>
 	.contacts-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.contacts-grid {
@@ -295,8 +296,8 @@
 	}
 
 	.info-card {
-		padding: 2.2rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.5rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
@@ -304,7 +305,7 @@
 
 	@media (max-width: 480px) {
 		.info-card {
-			padding: 1.25rem 1rem;
+			padding: 1.5rem 1.25rem;
 		}
 	}
 
@@ -322,15 +323,16 @@
 	}
 
 	.info-company-name {
-		font-size: 1.3rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.4rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 	}
 
 	.info-company-sub {
-		font-size: 0.82rem;
-		color: var(--color-silver-mist);
-		font-weight: 500;
+		font-size: 0.85rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 
 	.details-list {
@@ -352,26 +354,26 @@
 	}
 
 	.detail-label {
-		font-size: 0.74rem;
-		color: var(--color-liquid-mist);
-		font-weight: 500;
+		font-size: 0.75rem;
+		color: var(--color-saffron-spark);
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.04em;
 		display: block;
-		margin-bottom: 0.2rem;
+		margin-bottom: 0.25rem;
 	}
 
 	.detail-val {
 		font-size: 0.95rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		line-height: 1.4;
+		font-weight: 300;
+		color: var(--color-bone-white);
+		line-height: 1.5;
 	}
 
 	.phone-links {
 		display: flex;
 		flex-direction: column;
-		gap: 0.45rem;
+		gap: 0.5rem;
 		margin-top: 0.3rem;
 	}
 
@@ -381,38 +383,39 @@
 		gap: 0.75rem;
 		font-size: 1.15rem;
 		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		color: var(--color-bone-white);
 		font-family: var(--font-heading);
 		text-decoration: none;
 		letter-spacing: -0.02em;
+		transition: color var(--transition-fast);
 	}
 
 	.contact-phone-link:hover {
-		color: var(--color-platinum);
+		color: var(--color-electric-iris);
 	}
 
 	.contact-phone-link.secondary {
 		font-size: 0.95rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 	}
 
 	.phone-badge {
 		font-size: 0.7rem;
-		background: rgba(237, 255, 254, 0.08);
-		color: var(--color-liquid-mist);
-		border: 1px solid rgba(203, 255, 252, 0.15);
-		padding: 0.15rem 0.55rem;
-		border-radius: var(--radius-small);
+		background: rgba(128, 82, 255, 0.15);
+		color: var(--color-electric-iris);
+		border: 1px solid rgba(128, 82, 255, 0.3);
+		padding: 0.2rem 0.6rem;
+		border-radius: var(--radius-pill);
 		font-weight: 600;
 		font-family: var(--font-body);
 	}
 
 	.phone-badge-sec {
 		font-size: 0.7rem;
-		background: rgba(237, 255, 254, 0.05);
-		color: var(--color-silver-mist);
-		padding: 0.15rem 0.55rem;
-		border-radius: var(--radius-small);
+		background: rgba(255, 255, 255, 0.05);
+		color: var(--color-ash-gray);
+		padding: 0.2rem 0.6rem;
+		border-radius: var(--radius-pill);
 		font-weight: 500;
 		font-family: var(--font-body);
 	}
@@ -420,8 +423,8 @@
 	.schedule-status-sub {
 		margin-top: 0.35rem;
 		font-size: 0.8rem;
-		font-weight: 500;
-		color: var(--color-liquid-mist);
+		font-weight: 400;
+		color: var(--color-saffron-spark);
 	}
 
 	.messengers-row {
@@ -432,11 +435,11 @@
 
 	.mess-title {
 		display: block;
-		font-size: 0.76rem;
+		font-size: 0.75rem;
 		font-weight: 600;
-		color: var(--color-liquid-mist);
+		color: var(--color-silver-mist);
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.04em;
 		margin-bottom: 0.75rem;
 	}
 
@@ -450,10 +453,10 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.55rem 1.1rem;
-		border-radius: var(--radius-small);
-		font-size: 0.84rem;
-		font-weight: 600;
+		padding: 0.6rem 1.25rem;
+		border-radius: var(--radius-pill);
+		font-size: 0.85rem;
+		font-weight: 500;
 		text-decoration: none;
 		transition: all var(--transition-fast);
 	}
@@ -480,8 +483,8 @@
 
 	/* Map card */
 	.map-card {
-		padding: 1.5rem;
-		background: var(--color-liquid-kelp);
+		padding: 1.75rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
@@ -491,28 +494,30 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 1rem;
+		margin-bottom: 1.2rem;
 		flex-wrap: wrap;
 		gap: 0.75rem;
 	}
 
 	.map-title {
-		font-size: 0.98rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
 	}
 
 	.map-subtitle {
-		font-size: 0.78rem;
-		color: var(--color-silver-mist);
+		font-size: 0.8rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 
 	.map-photo-visual {
 		position: relative;
-		border-radius: var(--radius-cards);
+		border-radius: 16px;
 		overflow: hidden;
 		aspect-ratio: 16/9;
-		margin-bottom: 0.85rem;
+		margin-bottom: 1rem;
 		box-shadow: none;
 		border: 1px solid var(--border-subtle);
 	}
@@ -535,24 +540,24 @@
 		inset: 0;
 		background: linear-gradient(
 			to top,
-			rgba(1, 29, 28, 0.9) 0%,
-			rgba(1, 29, 28, 0.3) 55%,
+			rgba(0, 0, 0, 0.9) 0%,
+			rgba(0, 0, 0, 0.3) 55%,
 			transparent 100%
 		);
 		display: flex;
 		align-items: flex-end;
-		padding: 0.85rem;
+		padding: 1rem;
 	}
 
 	.office-location-badge {
 		display: flex;
 		align-items: center;
 		gap: 0.65rem;
-		background: rgba(1, 29, 28, 0.92);
+		background: rgba(9, 9, 9, 0.92);
 		backdrop-filter: blur(8px);
 		padding: 0.5rem 0.85rem;
-		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.2);
+		border-radius: var(--radius-pill);
+		border: 1px solid var(--border-subtle);
 		box-shadow: none;
 	}
 
@@ -560,22 +565,23 @@
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
-		background: #cbfffc;
-		box-shadow: 0 0 0 3px rgba(203, 255, 252, 0.25);
+		background: var(--color-electric-iris);
+		box-shadow: 0 0 0 3px rgba(128, 82, 255, 0.25);
 		flex-shrink: 0;
 	}
 
 	.office-location-badge strong {
 		font-size: 0.82rem;
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		display: block;
 		line-height: 1.2;
+		font-weight: 500;
 	}
 
 	.location-sub-text {
-		font-size: 0.7rem;
-		color: var(--color-silver-mist);
-		font-weight: 500;
+		font-size: 0.72rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 
 	.map-route-tags-bar {
@@ -585,15 +591,15 @@
 	}
 
 	.route-city-tag {
-		font-size: 0.8rem;
-		font-weight: 500;
-		color: var(--color-liquid-mist);
+		font-size: 0.82rem;
+		font-weight: 300;
+		color: var(--color-silver-mist);
 	}
 
 	/* Form Column */
 	.form-card {
-		padding: 2.2rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.5rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
@@ -616,15 +622,17 @@
 	}
 
 	.form-title {
-		font-size: 1.35rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.45rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.35rem;
 	}
 
 	.form-subtitle {
-		font-size: 0.86rem;
-		color: var(--color-silver-mist);
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.5;
 	}
 
@@ -637,34 +645,35 @@
 	.input-field {
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
+		gap: 0.4rem;
 	}
 
 	.input-lbl {
 		font-size: 0.8rem;
 		font-weight: 500;
-		color: var(--color-platinum);
+		color: var(--color-silver-mist);
 	}
 
 	.styled-input {
 		width: 100%;
-		padding: 0.8rem 1rem;
-		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
-		color: var(--color-platinum);
+		padding: 0.85rem 1rem;
+		border-radius: 12px;
+		border: 1px solid var(--border-subtle);
+		background: var(--color-surface-hover);
+		color: var(--color-bone-white);
 		font-size: 15px;
+		font-family: var(--font-body);
 		outline: none;
 		transition: border-color var(--transition-fast);
 	}
 
 	.styled-input::placeholder {
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 		opacity: 0.55;
 	}
 
 	.styled-input:focus {
-		border-color: rgba(203, 255, 252, 0.4);
+		border-color: var(--color-electric-iris);
 	}
 
 	.styled-select {
@@ -677,10 +686,10 @@
 
 	.form-disclaimer {
 		font-size: 0.72rem;
-		color: var(--color-silver-mist);
-		opacity: 0.75;
+		color: var(--color-ash-gray);
 		text-align: center;
 		margin-top: 0.4rem;
+		font-weight: 300;
 	}
 
 	.contact-success-state {
@@ -692,8 +701,8 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
-		background: var(--gradient-aurora);
-		color: #02201e;
+		background: var(--color-electric-iris);
+		color: #ffffff;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -703,15 +712,17 @@
 	}
 
 	.contact-success-state h3 {
-		font-size: 1.35rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.4rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.5rem;
 	}
 
 	.contact-success-state p {
 		font-size: 0.9rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.55;
 		margin-bottom: 1.5rem;
 	}

@@ -209,9 +209,9 @@
 	.modal-dialog {
 		width: 100%;
 		max-width: 500px;
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border-radius: var(--radius-cards);
-		padding: 2.2rem;
+		padding: 2.5rem;
 		position: relative;
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
@@ -223,7 +223,7 @@
 
 	@media (max-width: 480px) {
 		.modal-dialog {
-			padding: 1.5rem 1.15rem;
+			padding: 1.5rem 1.25rem;
 			max-height: 92vh;
 		}
 	}
@@ -245,10 +245,10 @@
 		right: 1.25rem;
 		width: 32px;
 		height: 32px;
-		border-radius: var(--radius-small);
+		border-radius: 50%;
 		border: 1px solid var(--border-subtle);
-		background: var(--color-liquid-deep);
-		color: var(--color-silver-mist);
+		background: var(--color-surface-hover);
+		color: var(--color-ash-gray);
 		font-size: 0.9rem;
 		cursor: pointer;
 		display: flex;
@@ -258,8 +258,8 @@
 	}
 
 	.close-btn:hover {
-		border-color: rgba(203, 255, 252, 0.35);
-		color: var(--color-platinum);
+		border-color: var(--color-electric-iris);
+		color: var(--color-bone-white);
 	}
 
 	.modal-top-tag {
@@ -267,28 +267,30 @@
 		align-items: center;
 		gap: 0.4rem;
 		font-size: 0.72rem;
-		font-weight: 500;
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--color-liquid-mist);
-		background: rgba(237, 255, 254, 0.06);
+		letter-spacing: 0.04em;
+		color: var(--color-saffron-spark);
+		background: rgba(255, 184, 41, 0.1);
 		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
+		border-radius: var(--radius-pill);
+		border: 1px solid rgba(255, 184, 41, 0.25);
 		margin-bottom: 0.8rem;
 	}
 
 	.modal-heading {
-		font-size: 1.35rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.45rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 		line-height: 1.25;
 		margin-bottom: 0.4rem;
 	}
 
 	.modal-sub {
-		font-size: 0.86rem;
-		color: var(--color-silver-mist);
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.5;
 		margin-bottom: 1.5rem;
 	}
@@ -308,28 +310,29 @@
 	.m-lbl {
 		font-size: 0.8rem;
 		font-weight: 500;
-		color: var(--color-platinum);
+		color: var(--color-silver-mist);
 	}
 
 	.m-input {
 		width: 100%;
-		padding: 0.75rem 0.95rem;
-		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
+		padding: 0.85rem 1rem;
+		border-radius: 12px;
+		border: 1px solid var(--border-subtle);
+		background: var(--color-surface-hover);
 		font-size: 15px;
-		color: var(--color-platinum);
+		font-family: var(--font-body);
+		color: var(--color-bone-white);
 		outline: none;
 		transition: border-color var(--transition-fast);
 	}
 
 	.m-input::placeholder {
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 		opacity: 0.55;
 	}
 
 	.m-input:focus {
-		border-color: rgba(203, 255, 252, 0.4);
+		border-color: var(--color-electric-iris);
 	}
 
 	.m-textarea {
@@ -342,8 +345,8 @@
 
 	.m-privacy {
 		font-size: 0.72rem;
-		color: var(--color-silver-mist);
-		opacity: 0.75;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		text-align: center;
 		margin-top: 0.4rem;
 	}
@@ -358,8 +361,8 @@
 		width: 54px;
 		height: 54px;
 		border-radius: 50%;
-		background: var(--gradient-aurora);
-		color: #02201e;
+		background: var(--color-electric-iris);
+		color: #ffffff;
 		font-size: 1.8rem;
 		font-weight: 700;
 		display: flex;
@@ -369,25 +372,27 @@
 	}
 
 	.modal-success-title {
-		font-size: 1.4rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.45rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.5rem;
 	}
 
 	.modal-success-p {
 		font-size: 0.88rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.55;
 		margin-bottom: 1.4rem;
 	}
 
 	.direct-call-box {
-		background: var(--color-liquid-deep);
+		background: var(--color-surface-hover);
 		border: 1px solid var(--border-subtle);
-		padding: 1rem;
-		border-radius: var(--radius-cards);
+		padding: 1.2rem;
+		border-radius: 16px;
 		font-size: 0.85rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 	}
 </style>

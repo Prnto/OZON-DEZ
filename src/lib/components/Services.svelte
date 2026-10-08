@@ -144,7 +144,7 @@
 
 <style>
 	.services-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
 	}
 
 	.category-tabs {
@@ -159,45 +159,34 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.55rem 1.15rem;
-		background: var(--color-liquid-kelp);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		border-radius: var(--radius-small);
-		font-size: 0.86rem;
-		font-weight: 500;
+		padding: 0.55rem 1.25rem;
+		border-radius: var(--radius-buttons);
+		border: 1px solid var(--color-void-border);
+		background: #0d0d0d;
 		color: var(--color-silver-mist);
+		font-size: 13px;
+		font-weight: 500;
 		cursor: pointer;
 		transition: all var(--transition-fast);
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
 	}
 
 	.tab-btn:hover {
-		border-color: rgba(203, 255, 252, 0.35);
-		color: var(--color-platinum);
-		transform: translateY(-1px);
+		border-color: rgba(255, 255, 255, 0.25);
+		color: var(--color-bone-white);
+		background: #141414;
 	}
 
 	.tab-btn.active {
-		background: var(--gradient-aurora);
-		color: #02201e;
-		font-weight: 600;
-		border-color: rgba(255, 255, 255, 0.6);
+		background: var(--color-electric-iris);
+		color: #ffffff;
+		border-color: var(--color-electric-iris);
 	}
 
 	.cat-pill-num {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 20px;
-		height: 20px;
-		border-radius: 4px;
-		background: rgba(0, 0, 0, 0.15);
-		font-size: 0.72rem;
-		font-weight: 700;
-	}
-
-	.tab-btn.active .cat-pill-num {
-		background: rgba(2, 32, 30, 0.2);
-		color: #02201e;
+		font-size: 11px;
+		opacity: 0.75;
 	}
 
 	.categories-wrapper {
@@ -218,8 +207,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-kelp);
+		border: 1px solid var(--color-void-border);
+		background: #090909;
 		gap: 1rem;
 		flex-wrap: wrap;
 	}
@@ -239,13 +228,13 @@
 	.cat-num-badge {
 		font-family: var(--font-heading);
 		font-size: 1.25rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		background: rgba(0, 130, 124, 0.35);
-		border: 1px solid rgba(203, 255, 252, 0.15);
+		font-weight: 400;
+		color: #bfa6ff;
+		background: rgba(128, 82, 255, 0.15);
+		border: 1px solid var(--color-iris-border);
 		width: 44px;
 		height: 44px;
-		border-radius: var(--radius-small);
+		border-radius: var(--radius-buttons);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -253,18 +242,18 @@
 
 	.cat-bar-title {
 		font-size: 1.3rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		margin-bottom: 0.15rem;
 		letter-spacing: -0.02em;
 	}
 
 	.cat-bar-subtitle {
 		font-size: 0.82rem;
-		font-weight: 400;
+		font-weight: 500;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--color-liquid-mist);
+		letter-spacing: 0.04em;
+		color: var(--color-saffron-spark);
 	}
 
 	.services-grid {
@@ -281,19 +270,19 @@
 	}
 
 	.service-card {
-		padding: 2rem;
+		padding: 2.2rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background: var(--color-liquid-kelp);
+		background: #090909;
 		border-radius: var(--radius-cards);
-		border: 1px solid rgba(203, 255, 252, 0.09);
+		border: 1px solid var(--color-void-border);
 		transition: all var(--transition-norm);
 	}
 
 	.service-card:hover {
 		transform: translateY(-3px);
-		border-color: rgba(203, 255, 252, 0.25);
+		border-color: rgba(255, 255, 255, 0.2);
 	}
 
 	.service-badge-row {
@@ -301,53 +290,54 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 0.5rem;
-		margin-bottom: 1rem;
+		margin-bottom: 1.1rem;
 		flex-wrap: wrap;
 	}
 
 	.service-hot-badge {
-		padding: 0.2rem 0.6rem;
-		border-radius: var(--radius-small);
+		padding: 0.25rem 0.65rem;
+		border-radius: var(--radius-tags);
 		font-size: 0.72rem;
 		font-weight: 600;
-		background: rgba(245, 158, 11, 0.2);
-		border: 1px solid rgba(245, 158, 11, 0.4);
-		color: #fcd34d;
+		background: rgba(255, 184, 41, 0.12);
+		border: 1px solid var(--color-saffron-border);
+		color: var(--color-saffron-spark);
 		text-transform: uppercase;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.04em;
 	}
 
 	.service-target-tag {
 		font-size: 0.74rem;
-		color: var(--color-liquid-mist);
-		background: rgba(0, 130, 124, 0.25);
-		border: 1px solid rgba(203, 255, 252, 0.1);
-		padding: 0.2rem 0.6rem;
-		border-radius: var(--radius-small);
-		font-weight: 500;
+		color: var(--color-silver-mist);
+		background: #141414;
+		border: 1px solid var(--color-void-border);
+		padding: 0.25rem 0.65rem;
+		border-radius: var(--radius-tags);
+		font-weight: 400;
 	}
 
 	.service-name {
-		font-size: 1.25rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		letter-spacing: -0.02em;
+		font-size: 1.3rem;
+		font-weight: 400;
+		color: var(--color-bone-white);
+		letter-spacing: -0.025em;
 		margin-bottom: 0.6rem;
 	}
 
 	.service-desc {
 		font-size: 0.92rem;
-		line-height: 1.5;
-		color: var(--color-silver-mist);
+		line-height: 1.55;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		margin-bottom: 1rem;
 	}
 
 	.service-fulldesc {
 		font-size: 0.84rem;
 		line-height: 1.55;
-		color: #8e9e9d;
+		color: var(--color-silver-mist);
 		margin-bottom: 1.1rem;
-		border-top: 1px dashed rgba(203, 255, 252, 0.08);
+		border-top: 1px dashed var(--color-void-border);
 		padding-top: 0.8rem;
 	}
 
@@ -364,13 +354,13 @@
 		align-items: flex-start;
 		gap: 0.5rem;
 		font-size: 0.84rem;
-		color: var(--color-liquid-mist);
-		font-weight: 400;
+		color: var(--color-silver-mist);
+		font-weight: 300;
 	}
 
 	.check-icon {
-		color: #cbfffc;
-		font-weight: 800;
+		color: var(--color-electric-iris);
+		font-weight: 700;
 		font-size: 0.9rem;
 	}
 
@@ -379,7 +369,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding-top: 1.2rem;
-		border-top: 1px solid rgba(203, 255, 252, 0.08);
+		border-top: 1px solid var(--color-void-border);
 		gap: 0.8rem;
 	}
 
@@ -390,16 +380,16 @@
 
 	.price-label {
 		font-size: 0.7rem;
-		color: #8e9e9d;
+		color: var(--color-ash-gray);
 		text-transform: uppercase;
 		font-weight: 500;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.05em;
 	}
 
 	.price-val {
 		font-size: 1.25rem;
 		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		color: var(--color-saffron-spark);
 		font-family: var(--font-heading);
 	}
 
@@ -409,9 +399,9 @@
 		padding: 3rem;
 		position: relative;
 		overflow: hidden;
-		background: var(--color-liquid-deep);
+		background: #090909;
 		border-radius: var(--radius-cards);
-		border: 1px solid rgba(203, 255, 252, 0.15);
+		border: 1px solid var(--color-void-border);
 	}
 
 	@media (max-width: 768px) {
@@ -421,16 +411,17 @@
 	}
 
 	.ozone-title {
-		font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-		font-weight: 500;
-		letter-spacing: -0.03em;
-		color: var(--color-platinum);
+		font-size: clamp(1.8rem, 3vw, 2.5rem);
+		font-weight: 400;
+		letter-spacing: -0.035em;
+		color: var(--color-bone-white);
 		margin-bottom: 1rem;
 	}
 
 	.ozone-p {
 		font-size: 1.05rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		max-width: 800px;
 		margin-bottom: 2.2rem;
 		line-height: 1.6;
@@ -456,16 +447,16 @@
 	}
 
 	.ozone-b-item {
-		padding: 1.25rem;
-		background: var(--color-liquid-kelp);
+		padding: 1.35rem;
+		background: #0d0d0d;
 		border-radius: var(--radius-cards);
-		border: 1px solid rgba(203, 255, 252, 0.08);
+		border: 1px solid var(--color-void-border);
 		transition: transform var(--transition-fast);
 	}
 
 	.ozone-b-item:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.25);
+		border-color: rgba(255, 255, 252, 0.2);
 	}
 
 	.b-icon {
@@ -475,14 +466,15 @@
 
 	.b-title {
 		font-size: 0.98rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		margin-bottom: 0.35rem;
 	}
 
 	.b-desc {
 		font-size: 0.8rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.45;
 	}
 

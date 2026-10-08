@@ -65,12 +65,13 @@
 
 <style>
 	.water-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
+		padding: var(--space-3xl) 0;
 	}
 
 	.water-card {
-		padding: 3rem;
-		background: var(--color-liquid-deep);
+		padding: 3.5rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
@@ -106,29 +107,31 @@
 	}
 
 	.water-title {
-		font-size: clamp(1.8rem, 2.8vw, 2.4rem);
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: clamp(2rem, 3.2vw, 2.8rem);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		margin-bottom: 0.8rem;
-		line-height: 1.22;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
 	}
 
 	.water-kved-tag {
 		display: inline-block;
 		padding: 0.25rem 0.75rem;
-		background: rgba(237, 255, 254, 0.06);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		border-radius: var(--radius-small);
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-pill);
 		font-size: 0.76rem;
 		font-weight: 500;
-		color: var(--color-liquid-mist);
+		color: var(--color-silver-mist);
 		margin-bottom: 1.25rem;
 	}
 
 	.water-desc {
 		font-size: 0.95rem;
 		line-height: 1.65;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		margin-bottom: 1.6rem;
 	}
 
@@ -144,8 +147,8 @@
 		align-items: center;
 		gap: 0.75rem;
 		font-size: 0.88rem;
-		font-weight: 500;
-		color: var(--color-silver-mist);
+		font-weight: 300;
+		color: var(--color-ash-gray);
 	}
 
 	.water-dot {
@@ -172,24 +175,25 @@
 		bottom: 1rem;
 		left: 1rem;
 		right: 1rem;
-		background: rgba(1, 29, 28, 0.9);
+		background: rgba(9, 9, 9, 0.92);
 		backdrop-filter: blur(8px);
-		padding: 0.75rem 0.95rem;
-		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.2);
+		padding: 0.85rem 1.1rem;
+		border-radius: 14px;
+		border: 1px solid var(--border-subtle);
 		display: flex;
 		flex-direction: column;
-		gap: 0.2rem;
+		gap: 0.25rem;
 	}
 
 	.shield-badge {
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--color-liquid-mist);
+		color: var(--color-saffron-spark);
 	}
 
 	.clean-badge {
 		font-size: 0.74rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 </style>

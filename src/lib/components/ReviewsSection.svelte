@@ -306,19 +306,19 @@
 
 <style>
 	.reviews-section {
-		background: var(--color-liquid-abyss);
-		border-top: 1px solid var(--border-subtle);
-		border-bottom: 1px solid var(--border-subtle);
+		background: var(--color-void);
+		border-top: 1px solid var(--color-void-border);
+		border-bottom: 1px solid var(--color-void-border);
 	}
 
 	.trust-metrics-strip {
 		display: grid;
 		grid-template-columns: 1fr auto 1fr auto 1fr;
 		align-items: center;
-		padding: 1.8rem 2.5rem;
+		padding: 2rem 2.8rem;
 		border-radius: var(--radius-cards);
-		background: var(--color-liquid-deep);
-		border: 1px solid var(--border-subtle);
+		background: #090909;
+		border: 1px solid var(--color-void-border);
 		margin-bottom: 2.5rem;
 		box-shadow: none;
 	}
@@ -326,8 +326,8 @@
 	@media (max-width: 768px) {
 		.trust-metrics-strip {
 			grid-template-columns: 1fr;
-			gap: 1.2rem;
-			padding: 1.4rem 1.2rem;
+			gap: 1.4rem;
+			padding: 1.5rem 1.2rem;
 			text-align: center;
 		}
 
@@ -341,11 +341,11 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		gap: 0.3rem;
+		gap: 0.35rem;
 	}
 
 	.stars-row {
-		color: #ffd166;
+		color: var(--color-saffron-spark);
 		font-size: 1.2rem;
 		letter-spacing: 0.1em;
 	}
@@ -355,23 +355,24 @@
 	}
 
 	.metric-val {
-		font-size: 1.7rem;
-		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		font-size: 1.8rem;
+		font-weight: 400;
+		color: var(--color-bone-white);
 		font-family: var(--font-heading);
 		letter-spacing: -0.03em;
 	}
 
 	.metric-desc {
 		font-size: 0.82rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		max-width: 260px;
 	}
 
 	.metric-divider {
 		width: 1px;
 		height: 44px;
-		background: rgba(203, 255, 252, 0.1);
+		background: var(--color-void-border);
 	}
 
 	/* Tabs */
@@ -385,28 +386,30 @@
 	}
 
 	.filter-tab-btn {
-		padding: 0.55rem 1.15rem;
-		min-height: 40px;
-		border-radius: var(--radius-small);
-		border: 1px solid var(--border-subtle);
-		background: var(--color-liquid-kelp);
+		padding: 0.55rem 1.25rem;
+		min-height: 42px;
+		border-radius: var(--radius-buttons);
+		border: 1px solid var(--color-void-border);
+		background: #0d0d0d;
 		color: var(--color-silver-mist);
-		font-size: 0.86rem;
+		font-size: 13px;
 		font-weight: 500;
 		cursor: pointer;
 		transition: all var(--transition-fast);
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
 	}
 
 	.filter-tab-btn:hover {
-		border-color: rgba(203, 255, 252, 0.35);
-		color: var(--color-platinum);
+		border-color: rgba(255, 255, 255, 0.25);
+		color: var(--color-bone-white);
+		background: #141414;
 	}
 
 	.filter-tab-btn.active {
-		background: var(--gradient-aurora);
-		border-color: rgba(255, 255, 255, 0.6);
-		color: #02201e;
-		font-weight: 600;
+		background: var(--color-electric-iris);
+		border-color: var(--color-electric-iris);
+		color: #ffffff;
 		box-shadow: none;
 	}
 
@@ -431,12 +434,12 @@
 	}
 
 	.review-card {
-		padding: 1.8rem;
+		padding: 2.2rem 1.8rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-		background: var(--color-liquid-kelp);
-		border: 1px solid var(--border-subtle);
+		gap: 1.1rem;
+		background: #090909;
+		border: 1px solid var(--color-void-border);
 		border-radius: var(--radius-cards);
 		transition: transform var(--transition-fast), border-color var(--transition-fast);
 		box-shadow: none;
@@ -444,7 +447,7 @@
 
 	.review-card:hover {
 		transform: translateY(-3px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: rgba(255, 255, 255, 0.2);
 	}
 
 	.review-card-top {
@@ -465,8 +468,8 @@
 		height: 42px;
 		min-width: 42px;
 		border-radius: 50%;
-		background: var(--color-liquid-deep);
-		border: 1px solid var(--border-subtle);
+		background: #141414;
+		border: 1px solid var(--color-void-border);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -474,22 +477,23 @@
 	}
 
 	.author-name {
-		font-size: 0.98rem;
+		font-size: 1rem;
 		font-weight: 500;
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		line-height: 1.25;
 	}
 
 	.author-role {
 		font-size: 0.78rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.35;
 		margin-top: 0.15rem;
 	}
 
 	.author-city {
 		font-size: 0.74rem;
-		color: var(--color-liquid-mist);
+		color: var(--color-saffron-spark);
 		font-weight: 500;
 		margin-top: 0.2rem;
 	}
@@ -502,7 +506,7 @@
 	}
 
 	.stars {
-		color: #ffd166;
+		color: var(--color-saffron-spark);
 		font-size: 0.95rem;
 		letter-spacing: 0.08em;
 	}
@@ -510,38 +514,39 @@
 	.verified-tag {
 		font-size: 0.68rem;
 		font-weight: 600;
-		color: var(--color-liquid-mist);
-		background: rgba(0, 130, 124, 0.25);
-		border: 1px solid rgba(203, 255, 252, 0.15);
+		color: #bfa6ff;
+		background: rgba(128, 82, 255, 0.1);
+		border: 1px solid var(--color-iris-border);
 		padding: 0.15rem 0.5rem;
-		border-radius: var(--radius-small);
+		border-radius: var(--radius-tags);
 		white-space: nowrap;
 	}
 
 	.review-service-pill {
 		font-size: 0.78rem;
-		background: var(--color-liquid-deep);
-		border: 1px solid var(--border-subtle);
-		padding: 0.4rem 0.75rem;
-		border-radius: var(--radius-small);
+		background: #040404;
+		border: 1px solid var(--color-void-border);
+		padding: 0.45rem 0.8rem;
+		border-radius: var(--radius-tags);
 		color: var(--color-silver-mist);
 		line-height: 1.4;
 	}
 
 	.review-service-pill span {
-		color: var(--color-silver-mist);
-		opacity: 0.75;
+		color: var(--color-ash-gray);
 	}
 
 	.review-service-pill strong {
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
+		font-weight: 400;
 	}
 
 	.review-quote {
-		font-size: 0.9rem;
+		font-size: 0.92rem;
 		color: var(--color-silver-mist);
 		line-height: 1.6;
 		font-style: italic;
+		font-weight: 300;
 		flex: 1;
 	}
 
@@ -549,22 +554,21 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-top: 0.8rem;
-		border-top: 1px dashed rgba(203, 255, 252, 0.1);
+		padding-top: 0.85rem;
+		border-top: 1px dashed var(--color-void-border);
 		font-size: 0.76rem;
-		color: var(--color-silver-mist);
-		opacity: 0.85;
+		color: var(--color-ash-gray);
 		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 
 	.review-contract-note {
-		color: var(--color-liquid-mist);
+		color: var(--color-saffron-spark);
 		font-weight: 500;
 	}
 
 	.reviews-action-center {
 		text-align: center;
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 	}
 </style>

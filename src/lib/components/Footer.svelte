@@ -137,8 +137,8 @@
 
 <style>
 	.footer {
-		background: var(--color-liquid-deep);
-		color: var(--color-silver-mist);
+		background: var(--color-void);
+		color: var(--color-ash-gray);
 		padding: 5.5rem 0 calc(2.5rem + env(safe-area-inset-bottom, 0));
 		border-top: 1px solid var(--border-subtle);
 	}
@@ -178,7 +178,8 @@
 	.footer-about {
 		font-size: 0.88rem;
 		line-height: 1.6;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		margin: 1.2rem 0 1.5rem;
 	}
 
@@ -192,18 +193,18 @@
 		font-size: 0.72rem;
 		font-weight: 500;
 		padding: 0.25rem 0.6rem;
-		border-radius: var(--radius-small);
-		background: rgba(237, 255, 254, 0.06);
-		color: var(--color-liquid-mist);
-		border: 1px solid rgba(203, 255, 252, 0.12);
+		border-radius: var(--radius-pill);
+		background: rgba(255, 255, 255, 0.05);
+		color: var(--color-silver-mist);
+		border: 1px solid var(--border-subtle);
 	}
 
 	.footer-heading {
 		font-size: 0.85rem;
 		font-weight: 600;
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		margin-bottom: 1.25rem;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.04em;
 		text-transform: uppercase;
 	}
 
@@ -216,13 +217,14 @@
 
 	.footer-links a {
 		font-size: 0.88rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		transition: color var(--transition-fast);
 		text-decoration: none;
 	}
 
 	.footer-links a:hover {
-		color: var(--color-liquid-mist);
+		color: var(--color-electric-iris);
 	}
 
 	.footer-contacts {
@@ -240,23 +242,24 @@
 
 	.fc-lbl {
 		font-size: 0.72rem;
-		color: var(--color-liquid-mist);
+		color: var(--color-saffron-spark);
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		font-weight: 500;
+		letter-spacing: 0.04em;
+		font-weight: 600;
 	}
 
 	.fc-phone {
-		color: var(--color-lavender-phosphor);
+		color: var(--color-bone-white);
 		font-weight: 500;
 		font-family: var(--font-heading);
 		font-size: 0.98rem;
 		text-decoration: none;
 		letter-spacing: -0.02em;
+		transition: color var(--transition-fast);
 	}
 
 	.fc-phone:hover {
-		color: var(--color-platinum);
+		color: var(--color-electric-iris);
 	}
 
 	.footer-bottom {
@@ -279,16 +282,17 @@
 	}
 
 	.copyright {
-		color: var(--color-silver-mist);
-		opacity: 0.75;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		opacity: 0.8;
 	}
 
 	.back-to-top {
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		color: var(--color-silver-mist);
-		padding: 0.45rem 1rem;
-		border-radius: var(--radius-small);
+		padding: 0.45rem 1.1rem;
+		border-radius: var(--radius-pill);
 		font-size: 0.8rem;
 		font-weight: 500;
 		cursor: pointer;
@@ -296,7 +300,7 @@
 	}
 
 	.back-to-top:hover {
-		border-color: rgba(203, 255, 252, 0.35);
-		color: var(--color-platinum);
+		border-color: var(--color-electric-iris);
+		color: var(--color-bone-white);
 	}
 </style>

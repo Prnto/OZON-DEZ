@@ -38,15 +38,16 @@
 
 <style>
 	.kved-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
 		border-bottom: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.kved-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.4rem;
+		gap: 1.5rem;
 		margin-bottom: 2.5rem;
 	}
 
@@ -63,10 +64,10 @@
 	}
 
 	.kved-card {
-		padding: 1.6rem;
+		padding: 2.2rem 1.8rem;
 		display: flex;
 		flex-direction: column;
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		transition: border-color var(--transition-fast), transform var(--transition-fast);
@@ -75,50 +76,52 @@
 
 	.kved-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.kved-code-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.25rem 0.65rem;
-		background: rgba(237, 255, 254, 0.06);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		border-radius: var(--radius-small);
+		padding: 0.3rem 0.75rem;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-pill);
 		font-size: 0.76rem;
 		color: var(--color-silver-mist);
-		margin-bottom: 0.8rem;
+		margin-bottom: 1rem;
 		align-self: flex-start;
 	}
 
 	.kved-code-tag strong {
-		color: var(--color-lavender-phosphor);
+		color: var(--color-electric-iris);
 		font-family: var(--font-heading);
-		font-size: 0.92rem;
-		font-weight: 500;
+		font-size: 0.95rem;
+		font-weight: 600;
 	}
 
 	.kved-title {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.4rem;
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.5rem;
 		line-height: 1.35;
 	}
 
 	.kved-desc {
-		font-size: 0.85rem;
-		color: var(--color-silver-mist);
-		line-height: 1.5;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 
 	.legal-guarantee-bar {
 		display: flex;
 		align-items: center;
-		gap: 1.25rem;
-		padding: 1.25rem 1.8rem;
-		background: var(--color-liquid-deep);
+		gap: 1.5rem;
+		padding: 1.5rem 2rem;
+		background: var(--color-surface);
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
@@ -128,22 +131,24 @@
 		.legal-guarantee-bar {
 			flex-direction: column;
 			text-align: center;
+			padding: 1.25rem 1rem;
 		}
 	}
 
 	.guarantee-icon {
-		font-size: 1.8rem;
+		font-size: 2rem;
 		flex-shrink: 0;
 	}
 
 	.guarantee-text {
-		font-size: 0.88rem;
-		color: var(--color-silver-mist);
-		line-height: 1.5;
+		font-size: 0.9rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 
 	.guarantee-text strong {
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		font-weight: 500;
 	}
 </style>

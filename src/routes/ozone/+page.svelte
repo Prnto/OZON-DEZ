@@ -195,7 +195,8 @@
 
 <style>
 	.ozone-intro-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
+		padding: var(--space-3xl) 0;
 	}
 
 	.ozone-intro-grid {
@@ -215,14 +216,15 @@
 	.intro-p {
 		font-size: 1rem;
 		line-height: 1.65;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		margin-bottom: 2rem;
 	}
 
 	.comparison-cards {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 1.25rem;
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 600px) {
@@ -232,26 +234,25 @@
 	}
 
 	.comp-card {
-		padding: 1.4rem;
+		padding: 1.8rem;
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--border-subtle);
+		background: var(--color-surface);
 	}
 
 	.comp-card.good {
-		background: var(--color-liquid-kelp);
-		border-color: rgba(203, 255, 252, 0.2);
+		border-color: rgba(128, 82, 255, 0.3);
 	}
 
 	.comp-card.bad {
-		background: var(--color-liquid-deep);
-		border-color: rgba(244, 63, 94, 0.2);
+		border-color: rgba(244, 63, 94, 0.25);
 	}
 
 	.comp-badge {
-		font-size: 0.84rem;
+		font-size: 0.85rem;
 		font-weight: 600;
-		color: var(--color-liquid-mist);
-		margin-bottom: 0.8rem;
+		color: var(--color-saffron-spark);
+		margin-bottom: 1rem;
 	}
 
 	.bad-b {
@@ -262,70 +263,75 @@
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		font-size: 0.82rem;
-		color: var(--color-silver-mist);
+		gap: 0.6rem;
+		font-size: 0.85rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.5;
 	}
 
 	.ozone-glass-banner {
-		padding: 2.2rem 2.5rem;
+		padding: 2.5rem;
 		border-radius: var(--radius-cards);
-		background: var(--color-liquid-deep);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
 	}
 
 	.banner-o3-tag {
-		font-size: 0.72rem;
+		font-size: 0.74rem;
 		font-weight: 600;
-		letter-spacing: 0.1em;
-		color: var(--color-liquid-mist);
-		margin-bottom: 0.5rem;
+		letter-spacing: 0.04em;
+		color: var(--color-saffron-spark);
+		margin-bottom: 0.6rem;
 	}
 
 	.ozone-glass-banner h3 {
-		color: var(--color-platinum);
-		font-size: 1.35rem;
-		font-weight: 500;
-		margin-bottom: 1.6rem;
+		color: var(--color-bone-white);
+		font-size: 1.45rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		margin-bottom: 1.8rem;
 		line-height: 1.3;
 	}
 
 	.key-facts-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.2rem;
 	}
 
 	.fact-row {
 		display: flex;
 		align-items: center;
 		gap: 1.1rem;
-		padding-bottom: 0.8rem;
+		padding-bottom: 1rem;
 		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	.fact-num {
 		font-family: var(--font-heading);
-		font-size: 1.8rem;
-		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		font-size: 2rem;
+		font-weight: 400;
+		color: var(--color-electric-iris);
 		line-height: 1;
-		width: 80px;
+		width: 85px;
 		flex-shrink: 0;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.03em;
 	}
 
 	.fact-txt {
-		font-size: 0.84rem;
-		color: var(--color-silver-mist);
-		line-height: 1.4;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.5;
 	}
 
 	/* Services Grid */
 	.ozone-services-section {
-		background: var(--color-liquid-deep);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.ozone-services-grid {
@@ -340,16 +346,16 @@
 			gap: 1rem;
 		}
 		.ozone-srv-card {
-			padding: 1.4rem 1.15rem;
+			padding: 1.5rem 1.25rem;
 		}
 	}
 
 	.ozone-srv-card {
-		padding: 2rem;
+		padding: 2.2rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		transition: border-color var(--transition-fast), transform var(--transition-fast);
@@ -358,66 +364,69 @@
 
 	.ozone-srv-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.srv-top-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 1rem;
+		margin-bottom: 1.2rem;
 		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 
 	.srv-tag-badge {
 		font-size: 0.72rem;
-		font-weight: 500;
-		background: rgba(237, 255, 254, 0.08);
-		color: var(--color-liquid-mist);
-		border: 1px solid rgba(203, 255, 252, 0.15);
-		padding: 0.2rem 0.6rem;
-		border-radius: var(--radius-small);
+		font-weight: 600;
+		background: rgba(255, 184, 41, 0.1);
+		color: var(--color-saffron-spark);
+		border: 1px solid rgba(255, 184, 41, 0.25);
+		padding: 0.25rem 0.65rem;
+		border-radius: var(--radius-pill);
 	}
 
 	.srv-target-pill {
 		font-size: 0.74rem;
 		color: var(--color-silver-mist);
-		background: rgba(237, 255, 254, 0.05);
-		padding: 0.2rem 0.6rem;
-		border-radius: var(--radius-small);
+		background: rgba(255, 255, 255, 0.05);
+		padding: 0.25rem 0.65rem;
+		border-radius: var(--radius-pill);
 		font-weight: 500;
 	}
 
 	.srv-card-heading {
-		font-size: 1.25rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.5rem;
+		font-size: 1.3rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.6rem;
 	}
 
 	.srv-card-intro {
 		font-size: 0.88rem;
-		color: var(--color-silver-mist);
-		line-height: 1.5;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 		margin-bottom: 1rem;
 	}
 
 	.srv-card-desc-box {
-		font-size: 0.84rem;
+		font-size: 0.85rem;
 		line-height: 1.6;
-		color: var(--color-silver-mist);
-		padding: 0.8rem 0;
-		border-top: 1px dashed rgba(203, 255, 252, 0.1);
-		border-bottom: 1px dashed rgba(203, 255, 252, 0.1);
-		margin-bottom: 1.1rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		padding: 0.9rem 0;
+		border-top: 1px dashed var(--border-subtle);
+		border-bottom: 1px dashed var(--border-subtle);
+		margin-bottom: 1.2rem;
 	}
 
 	.srv-feats {
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.45rem;
+		gap: 0.5rem;
 		margin-bottom: 1.6rem;
 	}
 
@@ -425,13 +434,13 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 0.5rem;
-		font-size: 0.82rem;
-		color: var(--color-silver-mist);
-		font-weight: 500;
+		font-size: 0.84rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 
 	.feat-check {
-		color: var(--color-liquid-mist);
+		color: var(--color-electric-iris);
 		font-weight: 600;
 	}
 
@@ -439,7 +448,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-top: 1.1rem;
+		padding-top: 1.2rem;
 		border-top: 1px solid var(--border-subtle);
 	}
 
@@ -450,16 +459,17 @@
 
 	.price-lbl {
 		font-size: 0.72rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.04em;
+		font-weight: 500;
 	}
 
 	.price-digit {
 		font-family: var(--font-heading);
-		font-size: 1.25rem;
+		font-size: 1.3rem;
 		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		color: var(--color-saffron-spark);
 		letter-spacing: -0.02em;
 	}
 </style>

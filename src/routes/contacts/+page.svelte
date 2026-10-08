@@ -210,13 +210,14 @@
 	}
 
 	.requisites-section {
-		background: var(--color-liquid-deep);
+		background: var(--color-void);
 		border-bottom: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.requisites-card {
-		padding: 2.2rem 2.5rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.5rem 3rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
@@ -230,10 +231,10 @@
 
 	@media (max-width: 480px) {
 		.requisites-card {
-			padding: 1.25rem 0.95rem;
+			padding: 1.25rem 1rem;
 		}
 		.geo-city-card {
-			padding: 1.4rem 1.15rem;
+			padding: 1.5rem 1.25rem;
 		}
 	}
 
@@ -246,7 +247,7 @@
 	.req-row {
 		display: grid;
 		grid-template-columns: 280px 1fr;
-		padding: 0.9rem 0;
+		padding: 1.1rem 0;
 		border-bottom: 1px solid var(--border-subtle);
 		align-items: baseline;
 		gap: 1.5rem;
@@ -264,51 +265,56 @@
 	}
 
 	.req-key {
-		font-size: 0.82rem;
-		font-weight: 500;
-		color: var(--color-liquid-mist);
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--color-saffron-spark);
 		text-transform: uppercase;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.04em;
 	}
 
 	.req-val {
-		font-size: 0.92rem;
-		color: var(--color-silver-mist);
-		line-height: 1.55;
+		font-size: 0.95rem;
+		color: var(--color-bone-white);
+		font-weight: 300;
+		line-height: 1.6;
 		word-break: break-word;
 	}
 
 	.req-val strong {
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
+		font-weight: 500;
 	}
 
 	.req-mono {
 		font-family: monospace;
-		font-size: 1.1rem;
-		color: var(--color-lavender-phosphor);
+		font-size: 1.15rem;
+		color: var(--color-electric-iris);
 		letter-spacing: 0.05em;
+		font-weight: 600;
 	}
 
 	.req-link {
-		color: var(--color-lavender-phosphor);
-		font-weight: 500;
+		color: var(--color-electric-iris);
+		font-weight: 400;
 		text-decoration: none;
+		transition: color var(--transition-fast);
 	}
 
 	.req-link:hover {
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 		text-decoration: underline;
 	}
 
 	/* Geo */
 	.geo-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
+		padding: var(--space-3xl) 0;
 	}
 
 	.geo-chips-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.4rem;
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 900px) {
@@ -324,8 +330,8 @@
 	}
 
 	.geo-city-card {
-		padding: 1.6rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.2rem 1.8rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
@@ -336,24 +342,26 @@
 
 	.geo-city-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.city-icon {
-		font-size: 1.8rem;
-		margin-bottom: 0.75rem;
+		font-size: 2rem;
+		margin-bottom: 0.85rem;
 	}
 
 	.geo-city-card h4 {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.35rem;
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.45rem;
 	}
 
 	.geo-city-card p {
-		font-size: 0.84rem;
-		color: var(--color-silver-mist);
-		line-height: 1.5;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 </style>

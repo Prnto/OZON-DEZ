@@ -167,22 +167,17 @@
 
 <style>
 	.fast-callout-section {
-		padding: 3.5rem 0;
-		background: var(--color-liquid-abyss);
+		padding: clamp(3rem, 6vw, 4.5rem) 0;
+		background: var(--color-void);
+		border-top: 1px solid var(--color-void-border);
 	}
 
 	.callout-card {
 		border-radius: var(--radius-cards);
-		padding: 3rem 3.5rem;
-		background: var(--color-liquid-deep);
-		border: 1px solid var(--border-subtle);
+		padding: clamp(2rem, 5vw, 3.5rem);
+		background: #090909;
+		border: 1px solid var(--color-void-border);
 		box-shadow: none;
-	}
-
-	@media (max-width: 992px) {
-		.callout-card {
-			padding: 2.2rem 1.8rem;
-		}
 	}
 
 	.callout-grid {
@@ -200,22 +195,18 @@
 	}
 
 	.callout-title {
-		font-size: clamp(1.8rem, 2.6vw, 2.3rem);
-		font-weight: 500;
-		color: var(--color-platinum);
-		line-height: 1.22;
+		font-size: clamp(2rem, 3.2vw, 2.7rem);
+		font-weight: 400;
+		color: var(--color-bone-white);
+		letter-spacing: -0.035em;
+		line-height: 1.15;
 		margin: 0.8rem 0;
 	}
 
-	@media (max-width: 600px) {
-		.callout-title {
-			font-size: 1.6rem;
-		}
-	}
-
 	.callout-sub {
-		font-size: 0.95rem;
-		color: var(--color-silver-mist);
+		font-size: 0.98rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		line-height: 1.6;
 		margin-bottom: 1.5rem;
 	}
@@ -229,7 +220,7 @@
 
 	.bullet-item {
 		font-size: 0.88rem;
-		font-weight: 500;
+		font-weight: 400;
 		color: var(--color-silver-mist);
 		display: flex;
 		align-items: center;
@@ -237,9 +228,9 @@
 	}
 
 	.direct-phone-block {
-		background: var(--color-liquid-kelp);
-		border: 1px solid var(--border-subtle);
-		padding: 0.9rem 1.3rem;
+		background: #040404;
+		border: 1px solid var(--color-void-border);
+		padding: 1rem 1.4rem;
 		border-radius: var(--radius-small);
 		display: inline-flex;
 		flex-direction: column;
@@ -248,15 +239,15 @@
 
 	.direct-lbl {
 		font-size: 0.74rem;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.05em;
 	}
 
 	.direct-link {
 		font-size: 1.25rem;
 		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		color: var(--color-saffron-spark);
 		font-family: var(--font-heading);
 		text-decoration: none;
 		letter-spacing: -0.02em;
@@ -264,15 +255,15 @@
 	}
 
 	.direct-link:hover {
-		color: var(--color-platinum);
+		color: var(--color-bone-white);
 	}
 
 	/* Form */
 	.callout-form {
-		padding: 2.2rem 2rem;
+		padding: 2.4rem 2rem;
 		border-radius: var(--radius-cards);
-		background: var(--color-liquid-kelp);
-		border: 1px solid var(--border-subtle);
+		background: #040404;
+		border: 1px solid var(--color-void-border);
 		display: flex;
 		flex-direction: column;
 		gap: 1.1rem;
@@ -283,13 +274,13 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
-		background: rgba(237, 255, 254, 0.06);
-		color: var(--color-liquid-mist);
-		border: 1px solid rgba(203, 255, 252, 0.12);
+		background: rgba(128, 82, 255, 0.1);
+		color: #bfa6ff;
+		border: 1px solid var(--color-iris-border);
 		font-size: 0.76rem;
 		font-weight: 500;
 		padding: 0.3rem 0.75rem;
-		border-radius: var(--radius-small);
+		border-radius: var(--radius-tags);
 		align-self: flex-start;
 	}
 
@@ -297,7 +288,7 @@
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background: #cbfffc;
+		background: var(--color-electric-iris);
 	}
 
 	.form-input-group {
@@ -307,37 +298,35 @@
 	}
 
 	.f-lbl {
-		font-size: 0.8rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 0.82rem;
+		font-weight: 400;
+		color: var(--color-bone-white);
 	}
 
 	.f-input {
 		width: 100%;
-		padding: 0.8rem 1rem;
+		padding: 0.85rem 1.1rem;
 		border-radius: var(--radius-small);
-		border: 1px solid rgba(203, 255, 252, 0.12);
-		background: var(--color-liquid-deep);
-		font-size: 15px;
-		color: var(--color-platinum);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: #0d0d0d;
+		font-size: 16px;
+		color: var(--color-bone-white);
 		outline: none;
 		min-height: 44px;
 		transition: border-color var(--transition-fast);
 	}
 
 	.f-input::placeholder {
-		color: var(--color-silver-mist);
-		opacity: 0.55;
+		color: #666666;
 	}
 
 	.f-input:focus {
-		border-color: rgba(203, 255, 252, 0.4);
+		border-color: var(--color-electric-iris);
 	}
 
 	.form-security-note {
 		font-size: 0.72rem;
-		color: var(--color-silver-mist);
-		opacity: 0.75;
+		color: var(--color-ash-gray);
 		text-align: center;
 		line-height: 1.4;
 	}
@@ -346,8 +335,8 @@
 	.callout-success-box {
 		padding: 2.2rem 1.8rem;
 		text-align: center;
-		background: var(--color-liquid-kelp);
-		border: 1px solid var(--border-subtle);
+		background: #040404;
+		border: 1px solid var(--color-void-border);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
 	}
@@ -356,8 +345,8 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
-		background: var(--gradient-aurora);
-		color: #02201e;
+		background: var(--color-electric-iris);
+		color: #ffffff;
 		font-size: 1.6rem;
 		font-weight: 700;
 		display: flex;
@@ -368,8 +357,8 @@
 
 	.callout-success-box h3 {
 		font-size: 1.35rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-weight: 400;
+		color: var(--color-bone-white);
 		margin-bottom: 0.5rem;
 	}
 

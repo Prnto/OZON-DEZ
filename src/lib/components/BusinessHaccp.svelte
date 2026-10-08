@@ -76,9 +76,9 @@
 
 <style>
 	.b2b-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
-		padding: 4.5rem 0;
+		padding: var(--space-3xl) 0;
 	}
 
 	.b2b-intro-block {
@@ -87,18 +87,18 @@
 	}
 
 	.dark-accent {
-		background: rgba(237, 255, 254, 0.06);
-		color: var(--color-liquid-mist);
-		border: 1px solid rgba(203, 255, 252, 0.12);
+		background: rgba(255, 184, 41, 0.1);
+		color: var(--color-saffron-spark);
+		border: 1px solid rgba(255, 184, 41, 0.25);
 	}
 
 	.b2b-section-heading {
-		font-size: clamp(1.85rem, 3vw, 2.5rem);
-		font-weight: 500;
-		color: var(--color-platinum);
-		line-height: 1.25;
-		margin: 0.8rem 0 1.2rem;
-		letter-spacing: -0.03em;
+		font-size: clamp(2rem, 3.5vw, 2.8rem);
+		font-weight: 400;
+		color: var(--color-bone-white);
+		line-height: 1.2;
+		margin: 1rem 0 1.2rem;
+		letter-spacing: -0.04em;
 	}
 
 	.b2b-paragraphs {
@@ -107,14 +107,15 @@
 		gap: 0.85rem;
 		font-size: 1rem;
 		line-height: 1.65;
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 
 	/* 4 Points Grid */
 	.points-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 1.4rem;
+		gap: 1.5rem;
 		margin-bottom: 3rem;
 	}
 
@@ -131,8 +132,8 @@
 	}
 
 	.point-item {
-		padding: 1.8rem 1.5rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.2rem 1.8rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
@@ -143,37 +144,39 @@
 
 	.point-item:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.point-icon-box {
-		font-size: 1.8rem;
-		margin-bottom: 0.8rem;
+		font-size: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.point-title {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.4rem;
-		line-height: 1.3;
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.5rem;
+		line-height: 1.35;
 	}
 
 	.point-desc {
-		font-size: 0.85rem;
-		color: var(--color-silver-mist);
-		line-height: 1.55;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 
 	/* CTA Bar */
 	.b2b-cta-bar {
-		padding: 2.2rem 2.8rem;
+		padding: 2.5rem 3rem;
 		border-radius: var(--radius-cards);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2.5rem;
-		background: var(--color-liquid-deep);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
 	}
@@ -182,7 +185,7 @@
 		.b2b-cta-bar {
 			flex-direction: column;
 			align-items: flex-start;
-			padding: 1.8rem 1.4rem;
+			padding: 2rem 1.5rem;
 		}
 	}
 
@@ -196,26 +199,26 @@
 	.b2b-stat-pill {
 		display: flex;
 		align-items: center;
-		gap: 0.85rem;
-		background: var(--color-liquid-kelp);
+		gap: 1rem;
+		background: var(--color-surface-hover);
 		border: 1px solid var(--border-subtle);
-		padding: 0.75rem 1.2rem;
-		border-radius: var(--radius-small);
+		padding: 0.85rem 1.4rem;
+		border-radius: var(--radius-pill);
 	}
 
 	.b2b-stat-pill .stat-num {
 		font-family: var(--font-heading);
-		font-size: 1.8rem;
-		font-weight: 500;
-		color: var(--color-lavender-phosphor);
+		font-size: 2rem;
+		font-weight: 400;
+		color: var(--color-electric-iris);
 		line-height: 1;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.03em;
 	}
 
 	.b2b-stat-pill .stat-lbl {
-		font-size: 0.8rem;
-		color: var(--color-silver-mist);
-		font-weight: 500;
+		font-size: 0.82rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		max-width: 170px;
 		line-height: 1.35;
 	}

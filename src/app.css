@@ -1,80 +1,124 @@
 /**
- * OZON-DEZ — Abyssal Terminal & Bioluminescent Data Aesthetic
- * Design Reference: Referense-init/design/DESIGN.md
+ * OZON-DEZ — "Constellation Floating on Black Velvet" Aesthetic
+ * Design Reference: Referense-init/design/Design_2.md
  * 
- * Palette: Liquid Abyss (#012624) -> Liquid Deep (#011d1c) -> Liquid Kelp (#003734)
- * Typography: Medium-weight headings (-0.02 to -0.04em tracking), uppercase tracked eyebrows
- * Accent: Aurora gradient (cyan -> white -> lavender-pink), Lavender Phosphor (#fde9ff) metrics
- * Elevation: Pure surface stack, 16px card radius, 6px small element radius, ZERO drop shadows.
+ * Philosophy:
+ * - Void Canvas: Pure #000000 black canvas (not dark gray or green) as the dominant surface
+ * - Typography: Weight 400 sculptural display headings (-0.04em tracking), weight 200/300 ultra-light airy body
+ * - Primary CTA: Electric Iris (#8052ff) filled pill button, uppercase 0.025em tracking
+ * - Accents: Saffron Spark (#ffb829) highlights, Deep Verdant (#15846e) tints, Bone White (#ffffff) text
+ * - Elevation: Zero shadows. Elements float on black void with whitespace and crisp subtle 24px borders.
  */
 
 :root {
-	/* Core Design Tokens from DESIGN.md */
-	--color-liquid-abyss: #012624;
-	--color-liquid-deep: #011d1c;
-	--color-liquid-kelp: #003734;
-	--color-liquid-mist: #edfffe;
-	--color-platinum: #ffffff;
-	--color-silver-mist: #bbc7c6;
-	--color-ash: #f2f2f2;
-	--color-slate-deep: #707777;
-	--color-lavender-phosphor: #fde9ff;
+	/* Design_2.md Color Tokens */
+	--color-void: #000000;
+	--color-bone-white: #ffffff;
+	--color-ash-gray: #9a9a9a;
+	--color-silver-mist: #bdbdbd;
+	--color-electric-iris: #8052ff;
+	--color-saffron-spark: #ffb829;
+	--color-deep-verdant: #15846e;
 
-	/* Gradients */
-	--color-bioluminescent-gradient: #00827c;
-	--gradient-bioluminescent: linear-gradient(90deg, rgb(0, 130, 124) 0%, rgb(203, 255, 252) 100%);
-	--color-aurora-gradient: #cbfffc;
-	--gradient-aurora: linear-gradient(90deg, rgb(203, 255, 252) 0%, rgb(237, 255, 254) 26.25%, rgb(255, 253, 250) 47.57%, rgb(250, 209, 255) 88.96%);
+	/* Elevated Void Surfaces */
+	--color-void-elevated: #070707;
+	--color-void-card: #0d0d0d;
+	--color-void-border: rgba(255, 255, 255, 0.08);
+	--color-iris-border: rgba(128, 82, 255, 0.25);
+	--color-saffron-border: rgba(255, 184, 41, 0.3);
 
-	/* Semantic mappings for seamless component compatibility */
-	--bg-page: var(--color-liquid-abyss);
-	--bg-card: var(--color-liquid-kelp);
-	--bg-card-subtle: #012e2b;
-	--bg-dark-section: var(--color-liquid-deep);
-	--bg-dark-card: var(--color-liquid-kelp);
+	/* Semantic mappings for component compatibility */
+	--bg-page: var(--color-void);
+	--bg-card: var(--color-void-elevated);
+	--bg-card-subtle: #0a0a0a;
+	--bg-dark-section: var(--color-void);
+	--bg-dark-card: #0d0d0d;
 
-	--text-title: var(--color-platinum);
+	--text-title: var(--color-bone-white);
 	--text-body: var(--color-silver-mist);
-	--text-muted: #8e9e9d;
-	--text-light: #a4b3b2;
-	--text-white: var(--color-platinum);
-	--text-mist: var(--color-liquid-mist);
-	--text-stat: var(--color-lavender-phosphor);
+	--text-muted: var(--color-ash-gray);
+	--text-light: #e0e0e0;
+	--text-white: var(--color-bone-white);
+	--text-mist: var(--color-silver-mist);
+	--text-stat: var(--color-bone-white);
 
-	--accent-teal: #00d4aa;
-	--accent-teal-dark: #00827c;
-	--accent-cyan: #cbfffc;
-	--accent-amber: #f59e0b;
-	--accent-emerald: #00d4aa;
+	--accent-teal: var(--color-deep-verdant);
+	--accent-teal-dark: #0f5c4d;
+	--accent-cyan: #a3e7dc;
+	--accent-amber: var(--color-saffron-spark);
+	--accent-iris: var(--color-electric-iris);
+	--accent-emerald: #15846e;
 
-	--border-light: rgba(203, 255, 252, 0.08);
-	--border-dark: rgba(203, 255, 252, 0.12);
+	--border-light: rgba(255, 255, 255, 0.08);
+	--border-dark: rgba(255, 255, 255, 0.12);
 	--border-subtle: rgba(255, 255, 255, 0.06);
 
-	/* Strict Shapes from DESIGN.md */
-	--radius-cards: 16px;
-	--radius-small: 6px;
-	--radius-buttons: 6px;
-	--radius-sm: 6px;
-	--radius-md: 6px;
-	--radius-lg: 16px;
-	--radius-xl: 16px;
+	/* Shapes & Radii from Design_2.md */
+	--radius-cards: 24px;
+	--radius-buttons: 9999px; /* 24px full pill */
+	--radius-nav: 24px;
+	--radius-tags: 9999px;
+	--radius-small: 12px;
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 24px;
+	--radius-xl: 24px;
 	--radius-full: 9999px;
 
-	/* Elevation: Zero shadows according to DESIGN.md */
+	/* Zero Shadows according to Design_2.md */
 	--shadow-sm: none;
 	--shadow-md: none;
 	--shadow-lg: none;
 	--shadow-xl: none;
 	--shadow-glow: none;
 
-	/* Typography */
-	--font-heading: 'Outfit', 'Matter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	--font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	/* Typography Tokens */
+	--font-ppneuemontreal: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--font-heading: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-	/* Spacing & Layout */
-	--container-width: 1360px;
-	--section-gap: 68px;
+	/* Typography Scales */
+	--text-caption: 12px;
+	--leading-caption: 1.5;
+	--text-nav-label: 14px;
+	--leading-nav-label: 1.2;
+	--tracking-nav-label: 0.025em;
+	--text-body: 18px;
+	--leading-body: 1.55;
+	--text-heading-2xs: 24px;
+	--leading-heading-2xs: 1.25;
+	--tracking-heading-2xs: -0.48px;
+	--text-heading-xs: 27px;
+	--leading-heading-xs: 1.1;
+	--text-subheading: 36px;
+	--leading-subheading: 1.2;
+	--text-heading-sm: 42px;
+	--leading-heading-sm: 1.15;
+	--tracking-heading-sm: -1.68px;
+	--text-heading: 48px;
+	--leading-heading: 1.1;
+	--tracking-heading: -1.68px;
+	--text-heading-lg: 78px;
+	--leading-heading-lg: 1.05;
+	--tracking-heading-lg: -3.12px;
+	--text-display: 113px;
+	--leading-display: 1.05;
+	--tracking-display: -4.52px;
+
+	/* Spacing Scale (base 6px) */
+	--spacing-unit: 6px;
+	--spacing-6: 6px;
+	--spacing-12: 12px;
+	--spacing-18: 18px;
+	--spacing-24: 24px;
+	--spacing-30: 30px;
+	--spacing-36: 36px;
+	--spacing-60: 60px;
+	--spacing-96: 96px;
+	--spacing-120: 120px;
+
+	--container-width: 1280px;
+	--section-gap: 84px;
 
 	/* Transitions */
 	--transition-fast: 0.16s ease;
@@ -96,14 +140,15 @@ html {
 	text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
 	overflow-x: clip;
-	background-color: var(--color-liquid-abyss);
+	background-color: var(--color-void);
 }
 
 body {
 	font-family: var(--font-body);
-	background-color: var(--color-liquid-abyss);
+	background-color: var(--color-void);
 	color: var(--color-silver-mist);
-	line-height: 1.5;
+	font-weight: 300;
+	line-height: var(--leading-body);
 	overflow-x: clip;
 	min-width: 320px;
 	-webkit-font-smoothing: antialiased;
@@ -114,13 +159,13 @@ body.modal-open {
 	overflow: hidden;
 }
 
-/* Headings: Matter / Outfit weight 500 with tight tracking from DESIGN.md */
+/* Headings: Monolithic weight 400 with negative tracking from Design_2.md */
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-heading);
-	color: var(--color-platinum);
-	line-height: 1.15;
-	font-weight: 500;
-	letter-spacing: -0.025em;
+	color: var(--color-bone-white);
+	line-height: 1.1;
+	font-weight: 400;
+	letter-spacing: -0.04em;
 }
 
 h1 {
@@ -130,7 +175,7 @@ h1 {
 a {
 	color: inherit;
 	text-decoration: none;
-	transition: color var(--transition-fast);
+	transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 button, input, select, textarea {
@@ -138,7 +183,7 @@ button, input, select, textarea {
 	font-size: 1rem;
 }
 
-/* Zero UI bug: Prevent auto-zoom on iOS Safari */
+/* Prevent auto-zoom on iOS Safari */
 input, select, textarea {
 	font-size: 16px !important;
 }
@@ -151,7 +196,7 @@ img {
 
 /* Accessibility: WCAG 2.2 AA Focus Indicators */
 :focus-visible {
-	outline: 2px solid #cbfffc !important;
+	outline: 2px solid var(--color-electric-iris) !important;
 	outline-offset: 3px !important;
 }
 
@@ -164,23 +209,20 @@ img {
 }
 
 .section {
-	padding: 5.5rem 0;
+	padding: clamp(4rem, 8vw, 6.5rem) 0;
 	position: relative;
+	background-color: var(--color-void);
 }
 
 .section-recessed {
-	background-color: var(--color-liquid-deep);
+	background-color: var(--color-void);
+	border-top: 1px solid var(--color-void-border);
+	border-bottom: 1px solid var(--color-void-border);
 }
 
 @media (max-width: 768px) {
 	.section {
-		padding: 3.75rem 0;
-	}
-}
-
-@media (max-width: 480px) {
-	.section {
-		padding: 3rem 0;
+		padding: 3.5rem 0;
 	}
 }
 
@@ -190,58 +232,67 @@ img {
 	margin: 0 auto 3.5rem;
 }
 
-/* Uppercase Section Eyebrow Label from DESIGN.md */
+/* Saffron Spark Uppercase Kicker Badge from Design_2.md */
 .section-badge,
 .section-label-kicker {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
-	padding: 0.35rem 0.85rem;
-	border-radius: var(--radius-small);
-	font-size: 0.75rem;
-	font-weight: 500;
-	letter-spacing: 0.12em;
+	padding: 0.4rem 0.95rem;
+	border-radius: var(--radius-tags);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.025em;
 	text-transform: uppercase;
 	margin-bottom: 1.25rem;
-	background: rgba(0, 55, 52, 0.7);
-	color: var(--color-liquid-mist);
-	border: 1px solid rgba(203, 255, 252, 0.15);
+	background: rgba(255, 184, 41, 0.08);
+	color: var(--color-saffron-spark);
+	border: 1px solid var(--color-saffron-border);
 }
 
 .section-badge.dark {
-	background: var(--color-liquid-deep);
-	border-color: rgba(203, 255, 252, 0.2);
+	background: rgba(255, 184, 41, 0.05);
+	border-color: rgba(255, 184, 41, 0.2);
+}
+
+.section-badge.iris {
+	background: rgba(128, 82, 255, 0.1);
+	color: #bfa6ff;
+	border-color: var(--color-iris-border);
 }
 
 .section-title {
-	font-size: clamp(2rem, 3.8vw, 3rem);
-	color: var(--color-platinum);
-	margin-bottom: 1.1rem;
-	font-weight: 500;
-	letter-spacing: -0.035em;
-	line-height: 1.12;
+	font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+	color: var(--color-bone-white);
+	margin-bottom: 1.15rem;
+	font-weight: 400;
+	letter-spacing: -0.04em;
+	line-height: 1.08;
 }
 
 .section-subtitle {
 	font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-	color: var(--color-silver-mist);
-	line-height: 1.5;
+	color: var(--color-ash-gray);
+	font-weight: 300;
+	line-height: 1.6;
 	max-width: 680px;
 	margin: 0 auto;
 }
 
-/* Buttons from DESIGN.md */
+/* Buttons from Design_2.md */
 .btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	gap: 0.65rem;
-	padding: 0.85rem 1.75rem;
-	min-height: 44px;
+	padding: 0.85rem 1.85rem;
+	min-height: 45px;
 	min-width: 44px;
-	font-weight: 500;
-	font-size: 0.95rem;
-	border-radius: var(--radius-buttons); /* Sharp-rounded 6px */
+	font-weight: 600;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.025em;
+	border-radius: var(--radius-buttons); /* 24px / 9999px pill */
 	border: none;
 	cursor: pointer;
 	transition: all var(--transition-norm);
@@ -250,84 +301,88 @@ img {
 	touch-action: manipulation;
 }
 
-/* Signature Aurora Gradient Pill Button (Cyan -> White -> Pink) with dark text */
+/* Primary Action Button: Filled Violet Pill #8052ff from Design_2.md */
 .btn-primary,
-.btn-aurora {
-	background: var(--gradient-aurora);
-	color: #02201e;
+.btn-aurora,
+.btn-iris {
+	background: var(--color-electric-iris);
+	color: #ffffff;
 	font-weight: 600;
-	border: 1px solid rgba(255, 255, 255, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover,
-.btn-aurora:hover {
+.btn-aurora:hover,
+.btn-iris:hover {
+	background: #9569ff;
+	color: #ffffff;
 	transform: translateY(-2px);
-	filter: brightness(1.05);
-	color: #011514;
 }
 
 .btn-primary:active,
-.btn-aurora:active {
+.btn-aurora:active,
+.btn-iris:active {
 	transform: translateY(0);
 }
 
-/* Raised Liquid Kelp Button */
+/* Ghost / Secondary Button from Design_2.md */
 .btn-secondary {
-	background: var(--color-liquid-kelp);
-	color: var(--color-liquid-mist);
-	border: 1px solid rgba(203, 255, 252, 0.18);
+	background: rgba(255, 255, 255, 0.04);
+	color: var(--color-bone-white);
+	border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .btn-secondary:hover {
-	background: #004d49;
-	color: var(--color-platinum);
-	border-color: rgba(203, 255, 252, 0.35);
+	background: rgba(255, 255, 255, 0.08);
+	color: var(--color-bone-white);
+	border-color: rgba(255, 255, 255, 0.28);
 	transform: translateY(-2px);
 }
 
 .btn-outline-white {
-	background: rgba(255, 255, 255, 0.04);
-	color: var(--color-platinum);
-	border: 1px solid rgba(203, 255, 252, 0.2);
+	background: transparent;
+	color: var(--color-bone-white);
+	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .btn-outline-white:hover {
-	background: rgba(255, 255, 255, 0.1);
-	border-color: rgba(203, 255, 252, 0.4);
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.4);
 	transform: translateY(-2px);
 }
 
 .btn-dark {
-	background: var(--color-liquid-deep);
-	color: var(--color-platinum);
-	border: 1px solid rgba(203, 255, 252, 0.12);
+	background: #0d0d0d;
+	color: var(--color-bone-white);
+	border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .btn-dark:hover {
-	background: var(--color-liquid-kelp);
+	background: #171717;
+	border-color: rgba(255, 255, 255, 0.2);
 	transform: translateY(-2px);
 }
 
 .btn-sm {
-	padding: 0.55rem 1.15rem;
-	font-size: 0.85rem;
+	padding: 0.55rem 1.25rem;
+	font-size: 13px;
 	min-height: 44px;
 }
 
 .btn-lg {
-	padding: 1rem 2.2rem;
-	font-size: 1.05rem;
-	min-height: 48px;
+	padding: 1rem 2.4rem;
+	font-size: 15px;
+	min-height: 50px;
 }
 
-/* Arrow Icon Button (32x32, 6px radius, dark teal fill with ↗) from DESIGN.md */
+/* Arrow Icon Button */
 .btn-arrow {
-	width: 32px;
-	height: 32px;
-	border-radius: var(--radius-small);
-	background: rgba(0, 130, 124, 0.35);
-	border: 1px solid rgba(203, 255, 252, 0.15);
-	color: var(--color-platinum);
+	width: 34px;
+	height: 34px;
+	border-radius: var(--radius-buttons);
+	background: rgba(128, 82, 255, 0.15);
+	border: 1px solid var(--color-iris-border);
+	color: var(--color-bone-white);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -336,18 +391,19 @@ img {
 }
 
 .btn-arrow:hover {
-	background: rgba(0, 130, 124, 0.6);
-	border-color: rgba(203, 255, 252, 0.4);
+	background: var(--color-electric-iris);
+	border-color: rgba(255, 255, 255, 0.4);
+	color: #ffffff;
 	transform: translate(2px, -2px);
 }
 
-/* Cards & Surfaces from DESIGN.md: Liquid Kelp (#003734) with 16px radius, no shadows */
+/* Cards & Surfaces from Design_2.md: 24px radius, floating on void, zero shadows */
 .surface-card,
 .glass-card,
 .glass-card-dark {
-	background-color: var(--color-liquid-kelp);
+	background-color: var(--color-void-elevated);
 	border-radius: var(--radius-cards);
-	border: 1px solid rgba(203, 255, 252, 0.09);
+	border: 1px solid var(--color-void-border);
 	color: var(--color-silver-mist);
 	transition: border-color var(--transition-norm), transform var(--transition-norm);
 }
@@ -355,36 +411,36 @@ img {
 .surface-card:hover,
 .glass-card:hover,
 .glass-card-dark:hover {
-	border-color: rgba(203, 255, 252, 0.22);
+	border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Deep Recessed Surface Card from DESIGN.md */
+/* Recessed Surface Card */
 .recessed-card {
-	background-color: var(--color-liquid-deep);
+	background-color: #080808;
 	border-radius: var(--radius-cards);
-	border: 1px solid rgba(203, 255, 252, 0.06);
+	border: 1px solid var(--color-void-border);
 }
 
-/* Statistics Block Metrics in Lavender Phosphor (#fde9ff) */
+/* Statistics Block Metrics in Bone White with Saffron Spark / Iris punctuation */
 .stat-metric-number {
 	font-size: clamp(2.5rem, 5vw, 4.25rem);
-	font-weight: 500;
-	color: var(--color-lavender-phosphor);
+	font-weight: 400;
+	color: var(--color-bone-white);
 	line-height: 1;
 	letter-spacing: -0.04em;
 	font-family: var(--font-heading);
 }
 
 .stat-metric-label {
-	font-size: 0.78rem;
+	font-size: 13px;
 	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	color: var(--color-liquid-mist);
-	margin-top: 0.4rem;
+	letter-spacing: 0.025em;
+	color: var(--color-ash-gray);
+	margin-top: 0.45rem;
 	font-weight: 400;
 }
 
-/* Forms & Inputs: Dark instrument styling with 6px radius */
+/* Forms & Inputs: Sleek void styling with 12px or 24px radius */
 .styled-input,
 .m-input,
 input[type="text"],
@@ -392,11 +448,11 @@ input[type="tel"],
 input[type="email"],
 select,
 textarea {
-	background: #011d1c;
-	color: var(--color-platinum);
-	border: 1px solid rgba(203, 255, 252, 0.15);
+	background: #090909;
+	color: var(--color-bone-white);
+	border: 1px solid rgba(255, 255, 255, 0.12);
 	border-radius: var(--radius-small);
-	padding: 0.75rem 1rem;
+	padding: 0.85rem 1.15rem;
 	font-size: 16px;
 	width: 100%;
 	transition: border-color var(--transition-fast), background-color var(--transition-fast);
@@ -408,38 +464,29 @@ input:focus,
 select:focus,
 textarea:focus {
 	outline: none;
-	border-color: rgba(203, 255, 252, 0.5);
-	background: #002724;
+	border-color: var(--color-electric-iris);
+	background: #0f0f0f;
 }
 
 input::placeholder,
 textarea::placeholder {
-	color: #6a7c7b;
+	color: #666666;
 }
 
 /* Animations */
-@keyframes bioluminescentPulse {
+@keyframes constellationGlow {
 	0%, 100% {
-		opacity: 0.85;
-		transform: scale(1);
+		opacity: 0.8;
+		filter: drop-shadow(0 0 10px rgba(128, 82, 255, 0.2));
 	}
 	50% {
 		opacity: 1;
-		transform: scale(1.05);
+		filter: drop-shadow(0 0 20px rgba(128, 82, 255, 0.45));
 	}
 }
 
-@keyframes particleOrbit {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-.animate-pulse-subtle {
-	animation: bioluminescentPulse 3.5s ease-in-out infinite;
+.animate-constellation {
+	animation: constellationGlow 4s ease-in-out infinite;
 }
 
 /* Custom Scrollbar */
@@ -448,14 +495,14 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--color-liquid-deep);
+	background: var(--color-void);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #004d49;
+	background: #1c1c1c;
 	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #00736c;
+	background: #2a2a2a;
 }

@@ -129,14 +129,15 @@
 	}
 
 	.pricing-transparency-section {
-		background: var(--color-liquid-deep);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.transparency-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 1.4rem;
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 960px) {
@@ -152,8 +153,8 @@
 	}
 
 	.t-card {
-		padding: 1.8rem 1.5rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.2rem 1.8rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
@@ -164,30 +165,32 @@
 
 	@media (max-width: 480px) {
 		.t-card {
-			padding: 1.4rem 1.15rem;
+			padding: 1.5rem 1.25rem;
 		}
 	}
 
 	.t-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.t-icon {
 		font-size: 2rem;
-		margin-bottom: 0.8rem;
+		margin-bottom: 1rem;
 	}
 
 	.t-card h4 {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.4rem;
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.5rem;
 	}
 
 	.t-card p {
-		font-size: 0.85rem;
-		color: var(--color-silver-mist);
-		line-height: 1.55;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 </style>

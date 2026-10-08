@@ -60,13 +60,14 @@
 
 <style>
 	.work-section {
-		background: var(--color-liquid-abyss);
+		background: var(--color-void);
+		padding: var(--space-3xl) 0;
 	}
 
 	.steps-grid {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
-		gap: 1.2rem;
+		gap: 1.4rem;
 		margin-bottom: 3rem;
 		position: relative;
 	}
@@ -84,11 +85,11 @@
 	}
 
 	.step-card {
-		padding: 1.8rem 1.4rem;
+		padding: 2.2rem 1.6rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		position: relative;
@@ -98,59 +99,61 @@
 
 	.step-card:hover {
 		transform: translateY(-3px);
-		border-color: rgba(203, 255, 252, 0.3);
+		border-color: var(--color-electric-iris);
 	}
 
 	.step-badge-circle {
-		width: 40px;
-		height: 40px;
+		width: 42px;
+		height: 42px;
 		border-radius: 50%;
-		background: var(--color-liquid-deep);
+		background: var(--color-surface-hover);
 		border: 1px solid var(--border-subtle);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 1.2rem;
+		margin-bottom: 1.4rem;
 		transition: all var(--transition-fast);
 	}
 
 	.step-card:hover .step-badge-circle {
-		border-color: rgba(203, 255, 252, 0.4);
+		border-color: var(--color-electric-iris);
 	}
 
 	.step-index {
 		font-family: var(--font-heading);
-		font-weight: 500;
-		font-size: 1rem;
-		color: var(--color-lavender-phosphor);
+		font-weight: 600;
+		font-size: 0.95rem;
+		color: var(--color-electric-iris);
 	}
 
 	.step-icon-emoji {
-		font-size: 1.6rem;
-		margin-bottom: 0.8rem;
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
 	}
 
 	.step-card-title {
-		font-size: 1.02rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.5rem;
-		line-height: 1.3;
+		line-height: 1.35;
 	}
 
 	.step-card-desc {
-		font-size: 0.84rem;
-		line-height: 1.55;
-		color: var(--color-silver-mist);
+		font-size: 0.86rem;
+		line-height: 1.6;
+		color: var(--color-ash-gray);
+		font-weight: 300;
 	}
 
 	.prep-tips-box {
-		padding: 1.6rem 2.2rem;
+		padding: 2rem 2.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
-		background: var(--color-liquid-deep);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
@@ -167,23 +170,25 @@
 	.prep-tips-left {
 		display: flex;
 		align-items: center;
-		gap: 1.25rem;
+		gap: 1.4rem;
 	}
 
 	.prep-icon {
-		font-size: 2rem;
+		font-size: 2.2rem;
 	}
 
 	.prep-title {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
-		margin-bottom: 0.25rem;
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
+		margin-bottom: 0.35rem;
 	}
 
 	.prep-desc {
-		font-size: 0.86rem;
-		color: var(--color-silver-mist);
-		line-height: 1.45;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.55;
 	}
 </style>

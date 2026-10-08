@@ -160,14 +160,15 @@
 	}
 
 	.prep-guide-section {
-		background: var(--color-liquid-deep);
+		background: var(--color-void);
 		border-top: 1px solid var(--border-subtle);
+		padding: var(--space-3xl) 0;
 	}
 
 	.prep-cards-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 1.4rem;
+		gap: 1.5rem;
 		margin-bottom: 3rem;
 	}
 
@@ -184,8 +185,8 @@
 	}
 
 	.prep-card {
-		padding: 1.8rem 1.4rem;
-		background: var(--color-liquid-kelp);
+		padding: 2.2rem 1.8rem;
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
@@ -196,31 +197,33 @@
 
 	@media (max-width: 480px) {
 		.prep-card {
-			padding: 1.4rem 1.15rem;
+			padding: 1.5rem 1.25rem;
 		}
 	}
 
 	.prep-card:hover {
 		transform: translateY(-2px);
-		border-color: rgba(203, 255, 252, 0.28);
+		border-color: var(--color-electric-iris);
 	}
 
 	.prep-card-icon {
 		font-size: 2rem;
-		margin-bottom: 0.8rem;
+		margin-bottom: 1rem;
 	}
 
 	.prep-card h3 {
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.1rem;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.5rem;
 	}
 
 	.prep-card p {
-		font-size: 0.86rem;
-		color: var(--color-silver-mist);
-		line-height: 1.55;
+		font-size: 0.88rem;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 	}
 
 	.prep-action-banner {
@@ -230,7 +233,7 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 2.5rem;
-		background: var(--color-liquid-kelp);
+		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
 	}
@@ -256,23 +259,25 @@
 		display: inline-block;
 		font-size: 0.74rem;
 		font-weight: 600;
-		color: var(--color-liquid-mist);
+		color: var(--color-saffron-spark);
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		margin-bottom: 0.4rem;
+		letter-spacing: 0.04em;
+		margin-bottom: 0.5rem;
 	}
 
 	.prep-action-banner h3 {
-		font-size: 1.4rem;
-		font-weight: 500;
-		color: var(--color-platinum);
+		font-size: 1.45rem;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		color: var(--color-bone-white);
 		margin-bottom: 0.5rem;
 	}
 
 	.prep-action-banner p {
 		font-size: 0.9rem;
-		color: var(--color-silver-mist);
-		line-height: 1.55;
+		color: var(--color-ash-gray);
+		font-weight: 300;
+		line-height: 1.6;
 		max-width: 650px;
 	}
 </style>

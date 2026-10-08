@@ -54,8 +54,8 @@
 <style>
 	.page-header-banner {
 		position: relative;
-		padding: 3.5rem 0 3rem;
-		background: var(--color-liquid-abyss);
+		padding: 4rem 0 3.5rem;
+		background: var(--color-void);
 		overflow: hidden;
 		border-bottom: 1px solid var(--border-subtle);
 	}
@@ -79,8 +79,8 @@
 		object-fit: cover;
 		object-position: center 30%;
 		display: block;
-		opacity: 0.35;
-		filter: brightness(0.7) contrast(1.1);
+		opacity: 0.25;
+		filter: brightness(0.6) contrast(1.1);
 		mix-blend-mode: luminosity;
 	}
 
@@ -89,18 +89,18 @@
 		inset: 0;
 		z-index: 1;
 		background:
-			linear-gradient(90deg, rgba(1, 38, 36, 0.98) 0%, rgba(1, 38, 36, 0.88) 45%, rgba(1, 29, 28, 0.75) 80%, rgba(1, 29, 28, 0.9) 100%),
-			linear-gradient(to top, var(--color-liquid-abyss) 0%, transparent 40%);
+			linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.95) 100%),
+			linear-gradient(to top, var(--color-void) 0%, transparent 60%);
 	}
 
 	.header-glow {
 		position: absolute;
-		top: -100px;
-		right: 10%;
-		width: 400px;
-		height: 400px;
+		top: -120px;
+		right: 15%;
+		width: 450px;
+		height: 450px;
 		border-radius: 50%;
-		background: radial-gradient(circle, rgba(203, 255, 252, 0.12), transparent 70%);
+		background: radial-gradient(circle, rgba(128, 82, 255, 0.12), transparent 70%);
 		pointer-events: none;
 		z-index: 2;
 	}
@@ -118,42 +118,43 @@
 		align-items: center;
 		gap: 0.5rem;
 		font-size: 0.82rem;
-		font-weight: 500;
-		color: var(--color-silver-mist);
+		font-weight: 400;
+		color: var(--color-ash-gray);
 		margin-bottom: 1.25rem;
 		flex-wrap: wrap;
 	}
 
 	.crumb-link {
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
 		transition: color var(--transition-fast);
 		text-decoration: none;
 	}
 
 	.crumb-link:hover {
-		color: var(--color-liquid-mist);
+		color: var(--color-electric-iris);
 	}
 
 	.crumb-sep {
-		color: rgba(203, 255, 252, 0.25);
+		color: rgba(255, 255, 255, 0.2);
 	}
 
 	.crumb-current {
-		color: var(--color-liquid-mist);
+		color: var(--color-bone-white);
 	}
 
 	.page-title {
-		font-size: clamp(2rem, 3.5vw, 3rem);
-		color: var(--color-platinum);
-		font-weight: 500;
-		line-height: 1.18;
+		font-size: clamp(2.2rem, 4vw, 3.5rem);
+		color: var(--color-bone-white);
+		font-weight: 400;
+		line-height: 1.15;
 		margin-bottom: 0.8rem;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.04em;
 	}
 
 	.page-subtitle {
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
-		color: var(--color-silver-mist);
+		color: var(--color-ash-gray);
+		font-weight: 300;
 		max-width: 820px;
 		line-height: 1.6;
 	}
