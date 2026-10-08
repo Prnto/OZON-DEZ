@@ -18,7 +18,6 @@
 			<div class="hero-kicker">
 				<span class="kicker-spark">✦</span>
 				<span class="kicker-text">ОФІЦІЙНА СЛУЖБА • ЧОРНОМОРСЬК ТА ОДЕСА</span>
-				<span class="kicker-badge">15 РОКІВ</span>
 			</div>
 
 			<!-- Sculptural Display Headline (Weight 400, Negative Tracking) -->
@@ -130,15 +129,6 @@
 	.kicker-spark {
 		color: var(--color-saffron-spark);
 		font-size: 13px;
-	}
-
-	.kicker-badge {
-		padding: 0.15rem 0.5rem;
-		background: rgba(255, 184, 41, 0.2);
-		border-radius: var(--radius-tags);
-		color: #ffffff;
-		font-size: 11px;
-		letter-spacing: 0.05em;
 	}
 
 	.hero-title {
