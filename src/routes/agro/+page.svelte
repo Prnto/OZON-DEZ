@@ -36,25 +36,14 @@
 
 	<section class="section agro-showcase-section">
 		<div class="container">
-			<div class="agro-grid">
-				<div class="agro-media-col">
-					<div class="agro-image-wrap glass-card">
-						<img
-							src={asset('images/agro-fumigation.jpg')}
-							alt="Фумігація елеватора та зерносховища ОЗОН-ДЕЗ"
-							class="agro-photo"
-							loading="lazy"
-						/>
-						<div class="agro-kved-chips">
-							<span class="kved-chip">КВЕД 01.61 (Рослинництво)</span>
-							<span class="kved-chip">КВЕД 01.62 (Тваринництво)</span>
+			<div class="agro-showcase-box glass-card">
+				<div class="agro-showcase-header">
+					<div class="badge-row">
+						<div class="section-badge">
+							{#if langState.current === 'ua'}Елеватори та Логістика{:else}Элеваторы и Логистика{/if}
 						</div>
-					</div>
-				</div>
-
-				<div class="agro-text-col">
-					<div class="section-badge">
-						{#if langState.current === 'ua'}Елеватори та Логістика{:else}Элеваторы и Логистика{/if}
+						<span class="kved-chip">КВЕД 01.61 (Рослинництво)</span>
+						<span class="kved-chip">КВЕД 01.62 (Тваринництво)</span>
 					</div>
 					<h2 class="section-title">
 						{#if langState.current === 'ua'}
@@ -70,21 +59,28 @@
 							Амбарные вредители способны уничтожить до 25% массы зерна и привести к потере экспортной кондиции. ООО «ОЗОН-ДЕЗ» выполняет газацию силосов, дезинсекцию пустых складов и влажную обработку зернохранилищ современными препаратами.
 						{/if}
 					</p>
+				</div>
 
-					<div class="agro-highlights">
-						<div class="hl-item">
-							<span class="hl-icon">🌾</span>
-							<div>
-								<strong>100% знищення шкідників</strong>
-								<p>Препарати на основі фосфіду алюмінію діють на всі стадії комах (імаго, личинки, яйця).</p>
-							</div>
+				<div class="agro-highlights-grid">
+					<div class="hl-item glass-card-subtle">
+						<span class="hl-icon">🌾</span>
+						<div>
+							<strong>100% знищення шкідників</strong>
+							<p>Препарати на основі фосфіду алюмінію діють на всі стадії комах (імаго, личинки, яйця).</p>
 						</div>
-						<div class="hl-item">
-							<span class="hl-icon">📜</span>
-							<div>
-								<strong>Фітосанітарний допуск</strong>
-								<p>Видаємо акти газації та дегазації для отримання експортних сертифікатів.</p>
-							</div>
+					</div>
+					<div class="hl-item glass-card-subtle">
+						<span class="hl-icon">📜</span>
+						<div>
+							<strong>Фітосанітарний допуск</strong>
+							<p>Видаємо акти газації та дегазації для отримання експортних сертифікатів.</p>
+						</div>
+					</div>
+					<div class="hl-item glass-card-subtle">
+						<span class="hl-icon">⚡</span>
+						<div>
+							<strong>Швидка газація силосів</strong>
+							<p>Безперебійна робота елеваторних комплексів без зупинки приймання автопоїздів.</p>
 						</div>
 					</div>
 				</div>
@@ -146,90 +142,95 @@
 <style>
 	.agro-showcase-section {
 		background: #ffffff;
+		padding: 4.5rem 0;
 	}
 
-	.agro-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3.5rem;
-		align-items: center;
-	}
-
-	@media (max-width: 960px) {
-		.agro-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
-	}
-
-	.agro-image-wrap {
-		position: relative;
+	.agro-showcase-box {
+		padding: clamp(2rem, 4vw, 3.2rem);
+		border: 1.5px solid var(--border-light);
 		border-radius: var(--radius-xl);
-		padding: 0.5rem;
-		box-shadow: var(--shadow-lg);
+		background: #ffffff;
 	}
 
-	.agro-photo {
-		width: 100%;
-		border-radius: calc(var(--radius-xl) - 4px);
-		aspect-ratio: 16/11;
-		object-fit: cover;
+	.agro-showcase-header {
+		max-width: 900px;
+		margin-bottom: 2.5rem;
 	}
 
-	.agro-kved-chips {
-		position: absolute;
-		bottom: 1.25rem;
-		left: 1.25rem;
+	.badge-row {
 		display: flex;
+		align-items: center;
+		gap: 0.75rem;
 		flex-wrap: wrap;
-		gap: 0.5rem;
+		margin-bottom: 1rem;
 	}
 
 	.kved-chip {
-		background: rgba(8, 26, 54, 0.9);
-		backdrop-filter: blur(8px);
-		color: var(--accent-teal);
+		background: #f1f5f9;
+		color: var(--primary-900);
 		padding: 0.35rem 0.8rem;
 		border-radius: var(--radius-full);
 		font-size: 0.78rem;
 		font-weight: 700;
-		border: 1px solid rgba(0, 212, 170, 0.3);
+		border: 1px solid var(--border-light);
 	}
 
 	.agro-p {
 		font-size: 1.05rem;
 		line-height: 1.65;
 		color: #475569;
-		margin-bottom: 2rem;
+		margin-top: 1rem;
 	}
 
-	.agro-highlights {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
+	.agro-highlights-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.4rem;
+	}
+
+	@media (max-width: 900px) {
+		.agro-highlights-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+
+	.glass-card-subtle {
+		background: #f8fafc;
+		border: 1px solid var(--border-light);
+		border-radius: var(--radius-md);
 	}
 
 	.hl-item {
 		display: flex;
 		align-items: flex-start;
 		gap: 1rem;
+		padding: 1.4rem 1.25rem;
+		transition: all var(--transition-fast);
+	}
+
+	.hl-item:hover {
+		transform: translateY(-2px);
+		border-color: var(--primary-600);
+		box-shadow: var(--shadow-sm);
 	}
 
 	.hl-icon {
 		font-size: 1.8rem;
+		flex-shrink: 0;
 	}
 
 	.hl-item strong {
 		display: block;
-		font-size: 1.05rem;
+		font-size: 1.02rem;
 		color: var(--primary-950);
-		margin-bottom: 0.2rem;
+		margin-bottom: 0.3rem;
 	}
 
 	.hl-item p {
-		font-size: 0.88rem;
+		font-size: 0.86rem;
 		color: var(--text-muted);
-		line-height: 1.45;
+		line-height: 1.5;
 	}
 
 	/* Agro services list */
