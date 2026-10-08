@@ -175,7 +175,7 @@
 	.callout-card {
 		border-radius: var(--radius-cards);
 		padding: clamp(2rem, 5vw, 3.5rem);
-		background: #090909;
+		background: var(--color-surface);
 		border: 1px solid var(--color-void-border);
 		box-shadow: none;
 	}

@@ -322,7 +322,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2.2rem;
-		background: #090909;
+		background: var(--color-surface);
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--color-void-border);
 	}
@@ -396,7 +396,7 @@
 		padding: 0.85rem 1rem;
 		border-radius: var(--radius-small);
 		border: 1px solid var(--color-void-border);
-		background: #0d0d0d;
+		background: var(--color-surface);
 		cursor: pointer;
 		transition: all var(--transition-fast);
 		text-align: left;
@@ -404,7 +404,7 @@
 
 	.obj-btn:hover {
 		border-color: rgba(255, 255, 255, 0.2);
-		background: #141414;
+		background: var(--color-surface-hover);
 	}
 
 	.obj-btn.active {
@@ -442,7 +442,7 @@
 		padding: 0.85rem 1.1rem;
 		border-radius: var(--radius-small);
 		border: 1px solid var(--color-void-border);
-		background: #0d0d0d;
+		background: var(--color-surface);
 		cursor: pointer;
 		transition: all var(--transition-fast);
 		text-align: left;
@@ -450,7 +450,7 @@
 
 	.srv-btn:hover {
 		border-color: rgba(255, 255, 255, 0.2);
-		background: #141414;
+		background: var(--color-surface-hover);
 	}
 
 	.srv-btn.active {
@@ -479,7 +479,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.35rem;
-		background: #0d0d0d;
+		background: var(--color-surface-hover);
 		border: 1px solid var(--color-void-border);
 		padding: 0.35rem 0.85rem;
 		border-radius: var(--radius-buttons);
@@ -502,7 +502,7 @@
 		width: 100%;
 		height: 6px;
 		border-radius: 3px;
-		background: #141414;
+		background: var(--color-surface-hover);
 		outline: none;
 		-webkit-appearance: none;
 		appearance: none;
@@ -579,7 +579,7 @@
 		font-weight: 700;
 		font-size: 0.85rem;
 		color: #ffffff;
-		background: #090909;
+		background: var(--color-surface);
 	}
 
 	.extra-item.active .extra-check {
@@ -609,7 +609,7 @@
 		justify-content: space-between;
 		position: sticky;
 		top: 6rem;
-		background: #090909;
+		background: var(--color-surface);
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--color-void-border);
 	}
@@ -721,8 +721,8 @@
 		width: 100%;
 		padding: 0.85rem 1.1rem;
 		border-radius: var(--radius-small);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		background: #0d0d0d;
+		border: 1px solid var(--color-void-border);
+		background: var(--color-surface);
 		color: var(--color-bone-white);
 		font-size: 16px;
 		outline: none;
@@ -730,12 +730,12 @@
 	}
 
 	.calc-input::placeholder {
-		color: #666666;
+		color: var(--color-ash-gray);
 	}
 
 	.calc-input:focus {
 		border-color: var(--color-electric-iris);
-		background: #141414;
+		background: var(--color-surface-hover);
 	}
 
 	.privacy-note {

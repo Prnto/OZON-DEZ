@@ -10,9 +10,11 @@
  * - Elevation: Zero shadows. Elements float on black void with whitespace and crisp subtle 24px borders.
  */
 
-:root {
+:root, html[data-theme="dark"] {
 	/* Design_2.md Color Tokens */
 	--color-void: #000000;
+	--color-surface: #090909;
+	--color-surface-hover: #141414;
 	--color-bone-white: #ffffff;
 	--color-ash-gray: #9a9a9a;
 	--color-silver-mist: #bdbdbd;
@@ -29,10 +31,10 @@
 
 	/* Semantic mappings for component compatibility */
 	--bg-page: var(--color-void);
-	--bg-card: var(--color-void-elevated);
-	--bg-card-subtle: #0a0a0a;
+	--bg-card: var(--color-surface);
+	--bg-card-subtle: #0d0d0d;
 	--bg-dark-section: var(--color-void);
-	--bg-dark-card: #0d0d0d;
+	--bg-dark-card: #090909;
 
 	--text-title: var(--color-bone-white);
 	--text-body: var(--color-silver-mist);
@@ -51,7 +53,47 @@
 
 	--border-light: rgba(255, 255, 255, 0.08);
 	--border-dark: rgba(255, 255, 255, 0.12);
-	--border-subtle: rgba(255, 255, 255, 0.06);
+	--border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"], html.theme-light {
+	/* Light Mode Colors (Clean Crisp Editorial) */
+	--color-void: #f8fafc;
+	--color-surface: #ffffff;
+	--color-surface-hover: #f1f5f9;
+	--color-bone-white: #0f172a;
+	--color-ash-gray: #64748b;
+	--color-silver-mist: #334155;
+	--color-electric-iris: #6d3ef7;
+	--color-saffron-spark: #d97706;
+	--color-deep-verdant: #0d9488;
+
+	--color-void-elevated: #ffffff;
+	--color-void-card: #ffffff;
+	--color-void-border: rgba(15, 23, 42, 0.08);
+	--color-iris-border: rgba(109, 62, 247, 0.25);
+	--color-saffron-border: rgba(217, 119, 6, 0.25);
+
+	--bg-page: var(--color-void);
+	--bg-card: var(--color-surface);
+	--bg-card-subtle: #f8fafc;
+	--bg-dark-section: #f1f5f9;
+	--bg-dark-card: #ffffff;
+
+	--text-title: var(--color-bone-white);
+	--text-body: var(--color-silver-mist);
+	--text-muted: var(--color-ash-gray);
+	--text-light: #0f172a;
+	--text-white: #0f172a;
+	--text-mist: var(--color-silver-mist);
+	--text-stat: #0f172a;
+
+	--border-light: rgba(15, 23, 42, 0.06);
+	--border-dark: rgba(15, 23, 42, 0.12);
+	--border-subtle: rgba(15, 23, 42, 0.08);
+}
+
+:root {
 
 	/* Shapes & Radii from Design_2.md */
 	--radius-cards: 24px;
@@ -448,9 +490,9 @@ input[type="tel"],
 input[type="email"],
 select,
 textarea {
-	background: #090909;
+	background: var(--color-surface);
 	color: var(--color-bone-white);
-	border: 1px solid rgba(255, 255, 255, 0.12);
+	border: 1px solid var(--color-void-border);
 	border-radius: var(--radius-small);
 	padding: 0.85rem 1.15rem;
 	font-size: 16px;
@@ -465,12 +507,45 @@ select:focus,
 textarea:focus {
 	outline: none;
 	border-color: var(--color-electric-iris);
-	background: #0f0f0f;
+	background: var(--color-surface-hover);
 }
 
 input::placeholder,
 textarea::placeholder {
-	color: #666666;
+	color: var(--color-ash-gray);
+}
+
+/* Light Mode Element Adjustments */
+html[data-theme="light"] .btn-secondary,
+html.theme-light .btn-secondary {
+	background: rgba(15, 23, 42, 0.05);
+	color: #0f172a;
+	border: 1px solid rgba(15, 23, 42, 0.16);
+}
+
+html[data-theme="light"] .btn-secondary:hover,
+html.theme-light .btn-secondary:hover {
+	background: rgba(15, 23, 42, 0.09);
+	border-color: rgba(15, 23, 42, 0.3);
+}
+
+html[data-theme="light"] .btn-dark,
+html.theme-light .btn-dark {
+	background: #f1f5f9;
+	color: #0f172a;
+	border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .btn-outline-white,
+html.theme-light .btn-outline-white {
+	color: #0f172a;
+	border-color: rgba(15, 23, 42, 0.2);
+}
+
+html[data-theme="light"] .btn-outline-white:hover,
+html.theme-light .btn-outline-white:hover {
+	background: rgba(15, 23, 42, 0.06);
+	border-color: rgba(15, 23, 42, 0.35);
 }
 
 /* Animations */

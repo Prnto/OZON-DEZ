@@ -317,7 +317,7 @@
 		align-items: center;
 		padding: 2rem 2.8rem;
 		border-radius: var(--radius-cards);
-		background: #090909;
+		background: var(--color-surface);
 		border: 1px solid var(--color-void-border);
 		margin-bottom: 2.5rem;
 		box-shadow: none;
@@ -390,7 +390,7 @@
 		min-height: 42px;
 		border-radius: var(--radius-buttons);
 		border: 1px solid var(--color-void-border);
-		background: #0d0d0d;
+		background: var(--color-surface);
 		color: var(--color-silver-mist);
 		font-size: 13px;
 		font-weight: 500;
@@ -403,7 +403,7 @@
 	.filter-tab-btn:hover {
 		border-color: rgba(255, 255, 255, 0.25);
 		color: var(--color-bone-white);
-		background: #141414;
+		background: var(--color-surface-hover);
 	}
 
 	.filter-tab-btn.active {
@@ -438,7 +438,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.1rem;
-		background: #090909;
+		background: var(--color-surface);
 		border: 1px solid var(--color-void-border);
 		border-radius: var(--radius-cards);
 		transition: transform var(--transition-fast), border-color var(--transition-fast);
@@ -468,7 +468,7 @@
 		height: 42px;
 		min-width: 42px;
 		border-radius: 50%;
-		background: #141414;
+		background: var(--color-surface-hover);
 		border: 1px solid var(--color-void-border);
 		display: flex;
 		align-items: center;

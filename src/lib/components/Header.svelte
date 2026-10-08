@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import Logo from './Logo.svelte';
 	import { langState } from '../state/language.svelte';
+	import { themeState } from '../state/theme.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
 	import { page } from '$app/state';
@@ -63,6 +64,22 @@
 					<span>{currentContent.phones.mobileDisplay}</span>
 				</a>
 				<span class="top-bar-divider">|</span>
+				<!-- Theme Switcher (Dark / Light) -->
+				<button
+					type="button"
+					class="theme-toggle-btn"
+					onclick={() => themeState.toggle()}
+					title={themeState.current === 'dark' ? 'Увімкнути світлу тему' : 'Увімкнути темну тему'}
+				>
+					{#if themeState.current === 'dark'}
+						<span class="theme-icon">☀️</span>
+						<span class="theme-label">{#if langState.current === 'ua'}Світла{:else}Светлая{/if}</span>
+					{:else}
+						<span class="theme-icon">🌙</span>
+						<span class="theme-label">{#if langState.current === 'ua'}Темна{:else}Темная{/if}</span>
+					{/if}
+				</button>
+				<span class="top-bar-divider">|</span>
 				<!-- Language Switcher -->
 				<button
 					type="button"
@@ -88,28 +105,28 @@
 			<!-- Desktop Navigation Links to Separate Pages -->
 			<nav class="nav-links">
 				<a href={resolve('/services')} class="nav-link" class:active={isActive('/services')}>
-					{currentContent.nav.services}
+					{#if langState.current === 'ua'}Послуги{:else}Услуги{/if}
 				</a>
 				<a href={resolve('/ozone')} class="nav-link" class:active={isActive('/ozone')}>
-					{currentContent.nav.ozone}
+					{#if langState.current === 'ua'}Озонування{:else}Озонирование{/if}
 				</a>
 				<a href={resolve('/b2b')} class="nav-link" class:active={isActive('/b2b')}>
-					{currentContent.nav.b2b}
+					HACCP
 				</a>
 				<a href={resolve('/agro')} class="nav-link" class:active={isActive('/agro')}>
-					{currentContent.nav.agro}
+					{#if langState.current === 'ua'}Агро{:else}Агро{/if}
 				</a>
 				<a href={resolve('/water')} class="nav-link" class:active={isActive('/water')}>
-					{currentContent.nav.water}
+					{#if langState.current === 'ua'}Вода{:else}Вода{/if}
 				</a>
 				<a href={resolve('/how-we-work')} class="nav-link" class:active={isActive('/how-we-work')}>
-					{currentContent.nav.howWeWork}
+					{#if langState.current === 'ua'}Як працюємо{:else}Как работаем{/if}
 				</a>
 				<a href={resolve('/calculator')} class="nav-link" class:active={isActive('/calculator')}>
-					{currentContent.nav.calculator}
+					{#if langState.current === 'ua'}Калькулятор{:else}Калькулятор{/if}
 				</a>
 				<a href={resolve('/contacts')} class="nav-link" class:active={isActive('/contacts')}>
-					{currentContent.nav.contacts}
+					{#if langState.current === 'ua'}Контакти{:else}Контакты{/if}
 				</a>
 			</nav>
 
@@ -146,17 +163,34 @@
 		<div class="mobile-backdrop" onclick={closeMobileMenu} role="presentation"></div>
 		<div class="mobile-drawer">
 			<div class="mobile-nav">
-				<div class="mobile-lang-row">
-					<span class="mobile-lang-label">Мова сайту / Язык:</span>
-					<button
-						type="button"
-						class="lang-toggle-btn mobile-lang-btn"
-						onclick={() => langState.toggle()}
-					>
-						<span class="lang-opt" class:active={langState.current === 'ua'}>Українська</span>
-						<span class="lang-divider">/</span>
-						<span class="lang-opt" class:active={langState.current === 'ru'}>Русский</span>
-					</button>
+				<div class="mobile-controls-row">
+					<div class="mobile-lang-row">
+						<span class="mobile-lang-label">Мова:</span>
+						<button
+							type="button"
+							class="lang-toggle-btn mobile-lang-btn"
+							onclick={() => langState.toggle()}
+						>
+							<span class="lang-opt" class:active={langState.current === 'ua'}>UA</span>
+							<span class="lang-divider">/</span>
+							<span class="lang-opt" class:active={langState.current === 'ru'}>RU</span>
+						</button>
+					</div>
+
+					<div class="mobile-theme-row">
+						<span class="mobile-lang-label">Тема:</span>
+						<button
+							type="button"
+							class="theme-toggle-btn mobile-theme-btn"
+							onclick={() => themeState.toggle()}
+						>
+							{#if themeState.current === 'dark'}
+								<span>☀️ Світла</span>
+							{:else}
+								<span>🌙 Темна</span>
+							{/if}
+						</button>
+					</div>
 				</div>
 
 				<a href={resolve('/')} class="mobile-nav-link" class:active={isActive('/')} onclick={closeMobileMenu}>
@@ -381,6 +415,50 @@
 		font-size: 0.7rem;
 	}
 
+	/* Theme Toggle in Top Bar */
+	.theme-toggle-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.2rem 0.65rem;
+		border-radius: var(--radius-full);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		background: rgba(255, 255, 255, 0.05);
+		cursor: pointer;
+		font-size: 0.72rem;
+		font-weight: 600;
+		color: var(--color-silver-mist);
+		transition: all var(--transition-fast);
+	}
+
+	:global(html[data-theme="light"]) .theme-toggle-btn {
+		border-color: rgba(15, 23, 42, 0.12);
+		background: rgba(15, 23, 42, 0.04);
+		color: var(--color-ash-gray);
+	}
+
+	.theme-toggle-btn:hover {
+		background: rgba(255, 255, 255, 0.12);
+		color: var(--color-bone-white);
+		border-color: var(--color-electric-iris);
+	}
+
+	:global(html[data-theme="light"]) .theme-toggle-btn:hover {
+		background: rgba(15, 23, 42, 0.08);
+		color: var(--color-bone-white);
+	}
+
+	.theme-icon {
+		font-size: 0.75rem;
+		line-height: 1;
+	}
+
+	.theme-label {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
 	/* Main Navigation Bar */
 	.main-bar {
 		background: transparent;
@@ -393,24 +471,27 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: clamp(0.5rem, 1vw, 1.2rem);
+		position: relative;
 	}
 
 	.logo-box {
 		flex-shrink: 0;
+		z-index: 5;
+		margin-right: 1rem;
 	}
 
 	/* Nav Links */
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: clamp(0.2rem, 0.7vw, 1rem);
+		gap: clamp(0.2rem, 0.6vw, 0.8rem);
 		flex: 1;
-		justify-content: center;
+		justify-content: flex-end;
+		margin: 0 1rem;
 		min-width: 0;
 	}
 
-	@media (max-width: 1240px) {
+	@media (max-width: 1280px) {
 		.nav-links {
 			display: none;
 		}
@@ -456,6 +537,7 @@
 		align-items: center;
 		gap: 0.75rem;
 		flex-shrink: 0;
+		z-index: 5;
 	}
 
 	.main-cta-btn {
@@ -511,12 +593,22 @@
 		touch-action: manipulation;
 	}
 
+	:global(html[data-theme="light"]) .burger-btn {
+		background: #ffffff;
+		border-color: rgba(15, 23, 42, 0.12);
+	}
+
 	.burger-btn:hover {
 		background: #171717;
 		border-color: rgba(255, 255, 255, 0.2);
 	}
 
-	@media (max-width: 1240px) {
+	:global(html[data-theme="light"]) .burger-btn:hover {
+		background: #f1f5f9;
+		border-color: rgba(15, 23, 42, 0.25);
+	}
+
+	@media (max-width: 1280px) {
 		.burger-btn {
 			display: flex;
 		}
@@ -540,6 +632,27 @@
 
 	.burger-btn.open span:nth-child(3) {
 		transform: translateY(-7px) rotate(-45deg);
+	}
+
+	.mobile-controls-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.8rem;
+		padding-bottom: 1.2rem;
+		margin-bottom: 1.2rem;
+		border-bottom: 1px solid var(--border-subtle);
+		flex-wrap: wrap;
+	}
+
+	.mobile-theme-row, .mobile-lang-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.mobile-theme-btn {
+		padding: 0.35rem 0.85rem;
 	}
 
 	/* Mobile Drawer */

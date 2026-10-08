@@ -95,7 +95,7 @@
 	}
 
 	.brand-ozon {
-		color: #ffffff;
+		color: var(--color-bone-white);
 	}
 
 	.brand-sep {
@@ -105,6 +105,10 @@
 
 	.brand-dez {
 		color: #bfa6ff;
+	}
+
+	:global(html[data-theme="light"]) .brand-dez {
+		color: #6d3ef7;
 	}
 
 	.brand-sub {

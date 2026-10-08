@@ -175,7 +175,7 @@
 	.tab-btn:hover {
 		border-color: rgba(255, 255, 255, 0.25);
 		color: var(--color-bone-white);
-		background: #141414;
+		background: var(--color-surface-hover);
 	}
 
 	.tab-btn.active {
@@ -208,7 +208,7 @@
 		align-items: center;
 		justify-content: space-between;
 		border: 1px solid var(--color-void-border);
-		background: #090909;
+		background: var(--color-surface);
 		gap: 1rem;
 		flex-wrap: wrap;
 	}
@@ -274,7 +274,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background: #090909;
+		background: var(--color-surface);
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--color-void-border);
 		transition: all var(--transition-norm);
@@ -309,7 +309,7 @@
 	.service-target-tag {
 		font-size: 0.74rem;
 		color: var(--color-silver-mist);
-		background: #141414;
+		background: var(--color-surface-hover);
 		border: 1px solid var(--color-void-border);
 		padding: 0.25rem 0.65rem;
 		border-radius: var(--radius-tags);
@@ -399,7 +399,7 @@
 		padding: 3rem;
 		position: relative;
 		overflow: hidden;
-		background: #090909;
+		background: var(--color-surface);
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--color-void-border);
 	}
@@ -448,7 +448,7 @@
 
 	.ozone-b-item {
 		padding: 1.35rem;
-		background: #0d0d0d;
+		background: var(--color-surface-hover);
 		border-radius: var(--radius-cards);
 		border: 1px solid var(--color-void-border);
 		transition: transform var(--transition-fast);

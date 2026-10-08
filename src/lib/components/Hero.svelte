@@ -214,11 +214,11 @@
 	.pain-chip {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 0.55rem;
 		padding: 0.45rem 1rem;
 		border-radius: var(--radius-tags);
-		background: #0d0d0d;
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: var(--color-surface);
+		border: 1px solid var(--color-void-border);
 		color: var(--color-silver-mist);
 		font-size: 13px;
 		font-weight: 400;
@@ -236,7 +236,7 @@
 	.pain-chip:hover {
 		border-color: var(--color-saffron-spark);
 		color: var(--color-bone-white);
-		background: #141414;
+		background: var(--color-surface-hover);
 		transform: translateY(-1px);
 	}
 
@@ -302,7 +302,7 @@
 		width: 100%;
 		height: clamp(380px, 50vw, 540px);
 		border-radius: var(--radius-cards);
-		background: radial-gradient(circle at center, #0a0a0a 0%, #000000 70%);
+		background: radial-gradient(circle at center, var(--color-surface-hover) 0%, var(--color-surface) 70%);
 		border: 1px solid var(--color-void-border);
 		overflow: hidden;
 		display: flex;
@@ -316,10 +316,10 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.4rem 0.9rem;
-		background: rgba(10, 10, 10, 0.85);
+		background: var(--color-surface);
 		backdrop-filter: blur(12px);
 		border-radius: var(--radius-tags);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		border: 1px solid var(--color-void-border);
 		font-size: 11px;
 		font-weight: 500;
 		letter-spacing: 0.04em;
