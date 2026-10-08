@@ -15,6 +15,8 @@ const ADMIN_CHAT_ID = '341806822';
 const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const TEMP_PHONE = '+380636672653';
 const TEMP_PHONE_DISPLAY = '+38 (063) 667-26-53';
+const CALL_PHONE = '+380508797335';
+const CALL_PHONE_DISPLAY = '+38 (050) 879-73-35';
 
 function escapeHtml(text) {
 	return (text || '')
@@ -57,7 +59,7 @@ function getMainMenu() {
 					{ text: '🧮 Калькулятор у чаті', callback_data: 'calc_start' }
 				],
 				[
-					{ text: '📞 Здійснити виклик лікаря', callback_data: 'call_doctor' }
+					{ text: '📞 Здійснити виклик', callback_data: 'call_doctor' }
 				],
 				[
 					{ text: '🌐 Відкрити сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
@@ -162,7 +164,7 @@ async function sendOrderPrompt(chatId, serviceTitle = '', extraDetails = '') {
 		text += `${extraDetails}\n`;
 	}
 	text += `\n📞 <b>Натисніть кнопку внизу «📱 Поділитися номером телефону»</b> або напишіть ваш номер телефону повідомленням у чат.\n\n` +
-		`Черговий лікар зателефонує вам протягом 2-5 хвилин для узгодження виїзду.`;
+		`Наш спеціаліст зателефонує вам протягом 2-5 хвилин для узгодження виїзду.`;
 
 	await api('sendMessage', {
 		chat_id: chatId,
@@ -306,24 +308,23 @@ export default {
 				} else if (data === 'call_doctor') {
 					await api('sendContact', {
 						chat_id: chatId,
-						phone_number: TEMP_PHONE,
+						phone_number: CALL_PHONE,
 						first_name: 'ТОВ «ОЗОН-ДЕЗ»',
-						last_name: 'Черговий Лікар (24/7)'
+						last_name: 'Здійснити виклик'
 					});
 
 					await api('sendMessage', {
 						chat_id: chatId,
-						text: `👨‍⚕️ <b>Черговий лікар-дезінфектолог ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
-							`📞 Натисніть на картку вище (кнопка <b>«Позвонить»</b>) або наберіть номер напряму:\n\n` +
-							`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>\n` +
-							`👉 <b>${TEMP_PHONE}</b>\n\n` +
-							`☎️ Міський офіс: <b>(04868) 6-03-08</b>\n` +
-							`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-А</b>\n` +
-							`🕒 Виїзди: <b>Цілодобово 24/7</b>`,
+						text: `📞 <b>Здійснити виклик ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
+							`Натисніть на картку вище (кнопка <b>«Зателефонувати / Позвонить»</b>) або наберіть номер напряму:\n\n` +
+							`📱 <b><a href="tel:${CALL_PHONE}">${CALL_PHONE_DISPLAY}</a></b>\n` +
+							`📱 <b>${CALL_PHONE}</b>\n\n` +
+							`☎️ Офіс: <b>(04868) 6-03-08</b>\n` +
+							`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-А</b>`,
 						parse_mode: 'HTML',
 						reply_markup: {
 							inline_keyboard: [
-								[{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_emergency' }],
+								[{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_consult' }],
 								[{ text: '🏠 Повернутися до меню', callback_data: 'menu_main' }]
 							]
 						}
@@ -433,7 +434,7 @@ export default {
 								[{ text: `📝 Замовити за ${price} грн`, callback_data: `ord_c:${objKey}:${srvKey}:${areaKey}` }],
 								[{ text: '🔄 Перерахувати заново', callback_data: 'calc_start' }],
 								[
-									{ text: '📞 Виклик лікаря', callback_data: 'call_doctor' },
+									{ text: '📞 Здійснити виклик', callback_data: 'call_doctor' },
 									{ text: '🏠 Меню', callback_data: 'menu_main' }
 								]
 							]
@@ -451,7 +452,7 @@ export default {
 					const price = calculatePrice(objKey, srvKey, areaKey);
 					await sendOrderPrompt(chatId, srvName, `🏢 Об'єкт: <b>${objName}</b>, Площа: <b>${areaLabel}</b>\n💰 Сума: <b>${price} грн</b>`);
 				} else if (data === 'order_emergency') {
-					await sendOrderPrompt(chatId, 'Терміновий виїзд чергового лікаря');
+					await sendOrderPrompt(chatId, 'Здійснити виклик');
 				}
 
 				return new Response('OK', { status: 200 });

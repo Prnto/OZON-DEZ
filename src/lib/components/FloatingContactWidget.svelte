@@ -14,13 +14,7 @@
 		isOpen = false;
 	}
 
-	function handleEmergencyCall() {
-		closeWidget();
-		orderModal.open({
-			serviceTitle: langState.current === 'ua' ? 'Екстрений виїзд майстра 24/7' : 'Экстренный выезд мастера 24/7',
-			serviceCategory: langState.current === 'ua' ? 'Швидкий зв’язок' : 'Быстрая связь'
-		});
-	}
+
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape' && isOpen) {
@@ -107,24 +101,22 @@
 					<span class="item-arrow">→</span>
 				</a>
 
-				<!-- Order Dispatch Modal -->
-				<button
-					type="button"
-					class="menu-item emergency-action"
-					onclick={handleEmergencyCall}
+				<!-- Direct Call (+380508797335) -->
+				<a
+					href="tel:+380508797335"
+					class="menu-item call-action"
+					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap em-icon">⚡</div>
+					<div class="item-icon-wrap call-icon">📞</div>
 					<div class="item-content">
 						<span class="item-title">
-							{#if langState.current === 'ua'}Екстрений виїзд майстра{:else}Экстренный выезд мастера{/if}
+							{#if langState.current === 'ua'}Здійснити виклик{:else}Совершить вызов{/if}
 						</span>
-						<span class="item-detail">
-							{#if langState.current === 'ua'}Виїзд від 30 хвилин{:else}Выезд от 30 минут{/if}
-						</span>
+						<span class="item-detail">+38 (050) 879-73-35</span>
 					</div>
 					<span class="item-arrow">→</span>
-				</button>
+				</a>
 			</div>
 		</div>
 	{/if}
@@ -146,11 +138,7 @@
 				💬
 			{/if}
 		</span>
-		<span class="trigger-label">
-			{#if !isOpen}
-				<span class="label-badge">24/7</span>
-			{/if}
-		</span>
+		<span class="trigger-label"></span>
 	</button>
 </div>
 
@@ -253,20 +241,7 @@
 		}
 	}
 
-	.label-badge {
-		position: absolute;
-		top: -3px;
-		right: -3px;
-		background: var(--color-saffron-spark);
-		color: #000000;
-		font-size: 0.62rem;
-		font-weight: 700;
-		padding: 0.15rem 0.4rem;
-		border-radius: var(--radius-pill);
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		line-height: 1;
-		letter-spacing: 0.04em;
-	}
+
 
 	/* Menu Popup */
 	.widget-menu {
@@ -428,14 +403,18 @@
 		transform: translateX(2px);
 	}
 
-	.emergency-action {
-		border-color: rgba(255, 184, 41, 0.3);
-		background: rgba(255, 184, 41, 0.08);
+	.call-action {
+		border-color: rgba(128, 82, 255, 0.35);
+		background: rgba(128, 82, 255, 0.08);
 	}
 
-	.emergency-action:hover {
-		border-color: rgba(255, 184, 41, 0.6);
-		background: rgba(255, 184, 41, 0.14);
+	.call-action:hover {
+		border-color: rgba(128, 82, 255, 0.7);
+		background: rgba(128, 82, 255, 0.16);
+	}
+
+	.call-icon {
+		background: rgba(128, 82, 255, 0.2);
 	}
 
 	@media (max-width: 480px) {

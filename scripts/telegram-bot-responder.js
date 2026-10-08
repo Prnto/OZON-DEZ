@@ -21,6 +21,8 @@ const ADMIN_CHAT_ID = '341806822';
 const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const TEMP_PHONE = '+380636672653';
 const TEMP_PHONE_DISPLAY = '+38 (063) 667-26-53';
+const CALL_PHONE = '+380508797335';
+const CALL_PHONE_DISPLAY = '+38 (050) 879-73-35';
 
 let lastUpdateId = 0;
 const sessions = new Map();
@@ -88,7 +90,7 @@ async function sendMainMenu(chatId, isEdit = false, messageId = null) {
 				{ text: '🧮 Калькулятор у чаті', callback_data: 'calc_start' }
 			],
 			[
-				{ text: `📞 Здійснити виклик лікаря`, callback_data: 'call_doctor' }
+				{ text: `📞 Здійснити виклик`, callback_data: 'call_doctor' }
 			],
 			[
 				{ text: '🌐 Відкрити сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
@@ -383,7 +385,7 @@ async function sendCalcResult(chatId, messageId, sqMeters, areaLabel) {
 				{ text: '🔄 Перерахувати заново', callback_data: 'calc_start' }
 			],
 			[
-				{ text: `📞 Здійснити виклик лікаря`, callback_data: 'call_doctor' },
+				{ text: `📞 Здійснити виклик`, callback_data: 'call_doctor' },
 				{ text: '🏠 Меню', callback_data: 'menu_main' }
 			]
 		]
@@ -413,7 +415,7 @@ async function startOrderFlow(chatId, serviceTitle = null, calculatedDetails = n
 	}
 
 	text += `📞 <b>Будь ласка, вкажіть ваш номер телефону</b> (напишіть повідомленням або натисніть велику кнопку знизу екрана):\n` +
-		`Черговий лікар зателефонує вам протягом 2-5 хвилин для узгодження часу прибуття.`;
+		`Наш спеціаліст зателефонує вам протягом 2-5 хвилин для узгодження виїзду.`;
 
 	return await api('sendMessage', {
 		chat_id: chatId,
@@ -435,23 +437,22 @@ async function sendDoctorCallCard(chatId, messageId = null) {
 	// Send native contact card with direct Call / Позвонить button in Telegram
 	await api('sendContact', {
 		chat_id: chatId,
-		phone_number: TEMP_PHONE,
+		phone_number: CALL_PHONE,
 		first_name: 'ТОВ «ОЗОН-ДЕЗ»',
-		last_name: 'Черговий Лікар (24/7)'
+		last_name: 'Здійснити виклик'
 	});
 
-	const text = `👨‍⚕️ <b>Черговий лікар-дезінфектолог ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
-		`📞 Натисніть на картку вище (кнопка <b>«Позвонить»</b>) або наберіть номер напряму:\n\n` +
-		`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>\n` +
-		`👉 <b>${TEMP_PHONE}</b>\n\n` +
+	const text = `📞 <b>Здійснити виклик ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
+		`Натисніть на картку контакту вище (кнопка <b>«Зателефонувати / Позвонить»</b>) або наберіть номер напряму:\n\n` +
+		`📱 <b><a href="tel:${CALL_PHONE}">${CALL_PHONE_DISPLAY}</a></b>\n` +
+		`📱 <b>${CALL_PHONE}</b>\n\n` +
 		`☎️ Міський офіс: <b>(04868) 6-03-08</b>\n` +
-		`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-А</b>\n` +
-		`🕒 Виїзди: <b>Цілодобово 24/7</b>`;
+		`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-А</b>`;
 
 	const keyboard = {
 		inline_keyboard: [
 			[
-				{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_emergency' }
+				{ text: '📝 Залишити заявку на виїзд', callback_data: 'order_consult' }
 			],
 			[
 				{ text: '🏠 Повернутися до меню', callback_data: 'menu_main' }
@@ -585,7 +586,8 @@ async function pollUpdates() {
 						if (data === 'order_disinsection') srvTitle = 'Дезінсекція комах';
 						if (data === 'order_deratization') srvTitle = 'Дератизація гризунів';
 						if (data === 'order_ozone') srvTitle = 'Озонування газом O3';
-						if (data === 'order_emergency') srvTitle = 'Екстрений виїзд фахівця';
+						if (data === 'order_consult') srvTitle = 'Консультація та виклик';
+						if (data === 'order_emergency') srvTitle = 'Виклик фахівця';
 						if (data === 'order_calculated') srvTitle = null;
 
 						await startOrderFlow(chatId, srvTitle, data === 'order_calculated' ? getSession(chatId).calc : null);
@@ -699,10 +701,10 @@ async function pollUpdates() {
 					await api('sendMessage', {
 						chat_id: chatId,
 						text: `✅ <b>Дякуємо за повідомлення!</b>\n\n` +
-							`Ваше запитання передано черговому лікарю-дезінфектологу ТОВ «ОЗОН-ДЕЗ».\n` +
+							`Ваше запитання передано фахівцям ТОВ «ОЗОН-ДЕЗ».\n` +
 							`Ми зв'яжемося з вами найближчим часом.\n\n` +
-							`📞 Для термінового виклику або консультації телефонуйте:\n` +
-							`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b> (цілодобово 24/7).`,
+							`📞 Для прямого виклику телефонуйте:\n` +
+							`👉 <b><a href="tel:${CALL_PHONE}">${CALL_PHONE_DISPLAY}</a></b>.`,
 						parse_mode: 'HTML'
 					});
 
