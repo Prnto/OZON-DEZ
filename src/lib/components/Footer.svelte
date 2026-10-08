@@ -27,7 +27,7 @@
 					</span>
 					<span class="f-badge">HACCP</span>
 					<span class="f-badge">
-						{#if langState.current === 'ua'}14 років досвіду{:else}14 лет опыта{/if}
+						{#if langState.current === 'ua'}15 років досвіду{:else}15 лет опыта{/if}
 					</span>
 				</div>
 			</div>
@@ -137,15 +137,15 @@
 
 <style>
 	.footer {
-		background: #051326;
-		color: #94a3b8;
-		padding: 5rem 0 calc(2rem + env(safe-area-inset-bottom, 0));
-		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		background: var(--color-liquid-deep);
+		color: var(--color-silver-mist);
+		padding: 5.5rem 0 calc(2.5rem + env(safe-area-inset-bottom, 0));
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	@media (max-width: 600px) {
 		.footer {
-			padding: 3.5rem 0 calc(1.5rem + env(safe-area-inset-bottom, 0));
+			padding: 4rem 0 calc(1.8rem + env(safe-area-inset-bottom, 0));
 		}
 	}
 
@@ -153,7 +153,7 @@
 		display: grid;
 		grid-template-columns: 1.3fr 0.8fr 1fr 1.1fr;
 		gap: 3rem;
-		margin-bottom: 4rem;
+		margin-bottom: 3.5rem;
 	}
 
 	@media (max-width: 1024px) {
@@ -178,7 +178,7 @@
 	.footer-about {
 		font-size: 0.88rem;
 		line-height: 1.6;
-		color: #94a3b8;
+		color: var(--color-silver-mist);
 		margin: 1.2rem 0 1.5rem;
 	}
 
@@ -190,43 +190,45 @@
 
 	.f-badge {
 		font-size: 0.72rem;
+		font-weight: 500;
 		padding: 0.25rem 0.6rem;
-		border-radius: var(--radius-full);
-		background: rgba(255, 255, 255, 0.06);
-		color: #cbd5e1;
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-small);
+		background: rgba(237, 255, 254, 0.06);
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.12);
 	}
 
 	.footer-heading {
-		font-size: 1rem;
-		font-weight: 700;
-		color: #ffffff;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--color-platinum);
 		margin-bottom: 1.25rem;
-		letter-spacing: -0.01em;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 	}
 
 	.footer-links {
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: 0.65rem;
 	}
 
 	.footer-links a {
 		font-size: 0.88rem;
-		color: #94a3b8;
+		color: var(--color-silver-mist);
 		transition: color var(--transition-fast);
 		text-decoration: none;
 	}
 
 	.footer-links a:hover {
-		color: var(--accent-teal);
+		color: var(--color-liquid-mist);
 	}
 
 	.footer-contacts {
 		display: flex;
 		flex-direction: column;
-		gap: 0.8rem;
+		gap: 0.85rem;
 		font-size: 0.88rem;
 	}
 
@@ -238,26 +240,28 @@
 
 	.fc-lbl {
 		font-size: 0.72rem;
-		color: #64748b;
+		color: var(--color-liquid-mist);
 		text-transform: uppercase;
-		font-weight: 700;
+		letter-spacing: 0.08em;
+		font-weight: 500;
 	}
 
 	.fc-phone {
-		color: #ffffff;
-		font-weight: 700;
+		color: var(--color-lavender-phosphor);
+		font-weight: 500;
 		font-family: var(--font-heading);
-		font-size: 0.95rem;
+		font-size: 0.98rem;
 		text-decoration: none;
+		letter-spacing: -0.02em;
 	}
 
 	.fc-phone:hover {
-		color: var(--accent-teal);
+		color: var(--color-platinum);
 	}
 
 	.footer-bottom {
 		padding-top: 2rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		border-top: 1px solid var(--border-subtle);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -275,24 +279,24 @@
 	}
 
 	.copyright {
-		color: #64748b;
+		color: var(--color-silver-mist);
+		opacity: 0.75;
 	}
 
 	.back-to-top {
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		color: #cbd5e1;
-		padding: 0.4rem 0.9rem;
-		border-radius: var(--radius-full);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		color: var(--color-silver-mist);
+		padding: 0.45rem 1rem;
+		border-radius: var(--radius-small);
 		font-size: 0.8rem;
-		font-weight: 600;
+		font-weight: 500;
 		cursor: pointer;
 		transition: all var(--transition-fast);
 	}
 
 	.back-to-top:hover {
-		background: var(--accent-teal);
-		color: #042436;
-		border-color: var(--accent-teal);
+		border-color: rgba(203, 255, 252, 0.35);
+		color: var(--color-platinum);
 	}
 </style>

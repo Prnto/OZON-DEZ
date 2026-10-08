@@ -38,16 +38,16 @@
 
 <style>
 	.kved-section {
-		background: #ffffff;
-		border-top: 1px solid var(--border-light);
-		border-bottom: 1px solid var(--border-light);
+		background: var(--color-liquid-abyss);
+		border-top: 1px solid var(--border-subtle);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	.kved-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 1.4rem;
-		margin-bottom: 3rem;
+		margin-bottom: 2.5rem;
 	}
 
 	@media (max-width: 900px) {
@@ -66,46 +66,50 @@
 		padding: 1.6rem;
 		display: flex;
 		flex-direction: column;
-		border: 1px solid var(--border-light);
-		transition: all var(--transition-fast);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.kved-card:hover {
-		transform: translateY(-3px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.kved-code-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.3rem 0.65rem;
-		background: #f1f5f9;
-		border-radius: var(--radius-sm);
-		font-size: 0.78rem;
-		color: var(--text-muted);
+		padding: 0.25rem 0.65rem;
+		background: rgba(237, 255, 254, 0.06);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		border-radius: var(--radius-small);
+		font-size: 0.76rem;
+		color: var(--color-silver-mist);
 		margin-bottom: 0.8rem;
 		align-self: flex-start;
 	}
 
 	.kved-code-tag strong {
-		color: var(--primary-900);
+		color: var(--color-lavender-phosphor);
 		font-family: var(--font-heading);
-		font-size: 0.95rem;
+		font-size: 0.92rem;
+		font-weight: 500;
 	}
 
 	.kved-title {
 		font-size: 1.05rem;
-		font-weight: 700;
-		color: var(--primary-950);
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.4rem;
 		line-height: 1.35;
 	}
 
 	.kved-desc {
 		font-size: 0.85rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		line-height: 1.5;
 	}
 
@@ -114,9 +118,10 @@
 		align-items: center;
 		gap: 1.25rem;
 		padding: 1.25rem 1.8rem;
-		background: #f0f7ff;
-		border-radius: var(--radius-md);
-		border: 1px solid rgba(22, 66, 130, 0.15);
+		background: var(--color-liquid-deep);
+		border-radius: var(--radius-cards);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	@media (max-width: 640px) {
@@ -127,17 +132,18 @@
 	}
 
 	.guarantee-icon {
-		font-size: 2rem;
+		font-size: 1.8rem;
 		flex-shrink: 0;
 	}
 
 	.guarantee-text {
-		font-size: 0.9rem;
-		color: #1e3a5f;
+		font-size: 0.88rem;
+		color: var(--color-silver-mist);
 		line-height: 1.5;
 	}
 
 	.guarantee-text strong {
-		color: var(--primary-900);
+		color: var(--color-platinum);
+		font-weight: 500;
 	}
 </style>

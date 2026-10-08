@@ -18,7 +18,7 @@
 	</title>
 	<meta
 		name="description"
-		content="Офіційні контакти ТОВ «ОЗОН-ДЕЗ»: м. Чорноморськ, пр-т Миру 8А. Телефони: (068) 261-53-50, (04868) 5-02-02. Повні юридичні реквізити та карта обслуговування."
+		content="Офіційні контакти ТОВ «ОЗОН-ДЕЗ»: м. Чорноморськ, просп. Миру, 8-А. Телефони: +38 (063) 667-26-53, (04868) 6-03-08. Повні юридичні реквізити, карта та месенджери."
 	/>
 </svelte:head>
 
@@ -84,7 +84,7 @@
 						<span class="req-key">
 							{#if langState.current === 'ua'}Дата державної реєстрації:{:else}Дата госрегистрации:{/if}
 						</span>
-						<span class="req-val">2011 рік (понад 14 років безперервної діяльності)</span>
+						<span class="req-val">2011 рік (понад 15 років безперервної діяльності)</span>
 					</div>
 
 					<div class="req-row">
@@ -210,12 +210,16 @@
 	}
 
 	.requisites-section {
-		background: #f8fafc;
+		background: var(--color-liquid-deep);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	.requisites-card {
-		padding: 2.5rem;
-		border: 1px solid var(--border-light);
+		padding: 2.2rem 2.5rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		box-shadow: none;
 	}
 
 	@media (max-width: 640px) {
@@ -242,8 +246,8 @@
 	.req-row {
 		display: grid;
 		grid-template-columns: 280px 1fr;
-		padding: 1rem 0;
-		border-bottom: 1px solid var(--border-light);
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--border-subtle);
 		align-items: baseline;
 		gap: 1.5rem;
 	}
@@ -260,45 +264,51 @@
 	}
 
 	.req-key {
-		font-size: 0.86rem;
-		font-weight: 700;
-		color: var(--text-muted);
+		font-size: 0.82rem;
+		font-weight: 500;
+		color: var(--color-liquid-mist);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
 	}
 
 	.req-val {
-		font-size: 0.95rem;
-		color: var(--primary-950);
-		line-height: 1.5;
+		font-size: 0.92rem;
+		color: var(--color-silver-mist);
+		line-height: 1.55;
 		word-break: break-word;
+	}
+
+	.req-val strong {
+		color: var(--color-platinum);
 	}
 
 	.req-mono {
 		font-family: monospace;
-		font-size: 1.15rem;
-		color: var(--primary-800);
+		font-size: 1.1rem;
+		color: var(--color-lavender-phosphor);
 		letter-spacing: 0.05em;
 	}
 
 	.req-link {
-		color: var(--primary-700);
-		font-weight: 700;
+		color: var(--color-lavender-phosphor);
+		font-weight: 500;
 		text-decoration: none;
 	}
 
 	.req-link:hover {
-		color: var(--accent-teal-dark);
+		color: var(--color-platinum);
 		text-decoration: underline;
 	}
 
 	/* Geo */
 	.geo-section {
-		background: #ffffff;
+		background: var(--color-liquid-abyss);
 	}
 
 	.geo-chips-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.5rem;
+		gap: 1.4rem;
 	}
 
 	@media (max-width: 900px) {
@@ -314,34 +324,36 @@
 	}
 
 	.geo-city-card {
-		padding: 1.8rem;
-		border: 1px solid var(--border-light);
+		padding: 1.6rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: all var(--transition-fast);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.geo-city-card:hover {
-		transform: translateY(-3px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.city-icon {
-		font-size: 2rem;
-		margin-bottom: 0.8rem;
+		font-size: 1.8rem;
+		margin-bottom: 0.75rem;
 	}
 
 	.geo-city-card h4 {
-		font-size: 1.15rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.4rem;
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.35rem;
 	}
 
 	.geo-city-card p {
-		font-size: 0.85rem;
-		color: var(--text-muted);
+		font-size: 0.84rem;
+		color: var(--color-silver-mist);
 		line-height: 1.5;
 	}
 </style>

@@ -90,7 +90,7 @@
 
 				<!-- Viber -->
 				<a
-					href="viber://chat?number=%2B380682615350"
+					href="viber://chat?number=%2B380636672653"
 					target="_blank"
 					rel="noreferrer"
 					class="menu-item viber-action"
@@ -158,9 +158,9 @@
 	.widget-backdrop {
 		position: fixed;
 		inset: 0;
-		background: rgba(4, 13, 26, 0.4);
-		backdrop-filter: blur(3px);
-		-webkit-backdrop-filter: blur(3px);
+		background: rgba(1, 29, 28, 0.6);
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
 		z-index: 998;
 		animation: fadeIn 0.2s ease-out;
 	}
@@ -183,55 +183,54 @@
 
 	/* Toggle Button */
 	.floating-trigger-btn {
-		width: 60px;
-		height: 60px;
-		min-width: 60px;
-		min-height: 60px;
+		width: 58px;
+		height: 58px;
+		min-width: 58px;
+		min-height: 58px;
 		border-radius: 50%;
-		border: 2px solid rgba(255, 255, 255, 0.35);
-		background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
-		box-shadow: 0 10px 28px rgba(0, 212, 170, 0.42), 0 4px 12px rgba(4, 13, 26, 0.3);
+		border: 1px solid rgba(255, 255, 255, 0.4);
+		background: var(--gradient-aurora);
+		box-shadow: none;
 		cursor: pointer;
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		outline: none;
 	}
 
 	.floating-trigger-btn:hover {
-		transform: scale(1.08) translateY(-2px);
-		box-shadow: 0 14px 34px rgba(0, 212, 170, 0.55), 0 6px 16px rgba(4, 13, 26, 0.35);
+		transform: scale(1.05) translateY(-2px);
+		border-color: rgba(255, 255, 255, 0.8);
 	}
 
 	.floating-trigger-btn.active {
-		background: #081a36;
-		border-color: rgba(255, 255, 255, 0.2);
+		background: var(--color-liquid-deep);
+		border-color: rgba(203, 255, 252, 0.3);
 		transform: scale(1);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 	}
 
 	.trigger-icon {
-		font-size: 1.55rem;
+		font-size: 1.45rem;
 		line-height: 1;
 		transition: transform 0.2s ease;
-		color: #04192f;
+		color: #02201e;
 	}
 
 	.floating-trigger-btn.active .trigger-icon {
-		color: #ffffff;
-		font-size: 1.25rem;
-		font-weight: 700;
+		color: var(--color-platinum);
+		font-size: 1.15rem;
+		font-weight: 500;
 	}
 
 	.ring-pulse {
 		position: absolute;
-		inset: -5px;
+		inset: -4px;
 		border-radius: 50%;
-		border: 2px solid #00d4aa;
+		border: 1.5px solid #cbfffc;
 		opacity: 0.8;
-		animation: pulseRing 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+		animation: pulseRing 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 		pointer-events: none;
 	}
 
@@ -245,36 +244,39 @@
 			opacity: 0.9;
 		}
 		70% {
-			transform: scale(1.35);
+			transform: scale(1.3);
 			opacity: 0;
 		}
 		100% {
-			transform: scale(1.4);
+			transform: scale(1.35);
 			opacity: 0;
 		}
 	}
 
 	.label-badge {
 		position: absolute;
-		top: -4px;
-		right: -4px;
-		background: #ef4444;
+		top: -3px;
+		right: -3px;
+		background: #e11d48;
 		color: #ffffff;
-		font-size: 0.64rem;
-		font-weight: 800;
-		padding: 0.15rem 0.4rem;
-		border-radius: var(--radius-full);
-		border: 1.5px solid #ffffff;
+		font-size: 0.62rem;
+		font-weight: 700;
+		padding: 0.15rem 0.35rem;
+		border-radius: var(--radius-small);
+		border: 1px solid rgba(255, 255, 255, 0.4);
 		line-height: 1;
-		letter-spacing: 0.02em;
+		letter-spacing: 0.04em;
 	}
 
 	/* Menu Popup */
 	.widget-menu {
-		width: 320px;
+		width: 310px;
 		max-width: calc(100vw - 2rem);
 		padding: 1.2rem;
-		border-radius: var(--radius-xl);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		box-shadow: none;
 		animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 		transform-origin: bottom right;
 	}
@@ -282,7 +284,7 @@
 	@keyframes slideUp {
 		from {
 			opacity: 0;
-			transform: scale(0.9) translateY(12px);
+			transform: scale(0.95) translateY(8px);
 		}
 		to {
 			opacity: 1;
@@ -294,8 +296,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-bottom: 0.85rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		padding-bottom: 0.8rem;
+		border-bottom: 1px solid var(--border-subtle);
 		margin-bottom: 0.75rem;
 	}
 
@@ -306,11 +308,11 @@
 	}
 
 	.live-pulse {
-		width: 8px;
-		height: 8px;
+		width: 7px;
+		height: 7px;
 		border-radius: 50%;
-		background: #00d4aa;
-		box-shadow: 0 0 8px #00d4aa;
+		background: #cbfffc;
+		box-shadow: 0 0 6px #cbfffc;
 		animation: blink 1.5s infinite;
 	}
 
@@ -320,89 +322,75 @@
 	}
 
 	.status-text {
-		font-size: 0.76rem;
-		font-weight: 700;
-		color: #00d4aa;
+		font-size: 0.74rem;
+		font-weight: 500;
+		color: var(--color-liquid-mist);
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.08em;
 	}
 
 	.menu-close-btn {
 		background: transparent;
 		border: none;
-		color: #94a3b8;
-		font-size: 0.95rem;
+		color: var(--color-silver-mist);
+		font-size: 0.9rem;
 		cursor: pointer;
-		width: 28px;
-		height: 28px;
-		min-width: 28px;
-		min-height: 28px;
-		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		min-width: 26px;
+		min-height: 26px;
+		border-radius: var(--radius-small);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: background 0.15s ease, color 0.15s ease;
+		transition: all 0.15s ease;
 	}
 
 	.menu-close-btn:hover {
-		background: rgba(255, 255, 255, 0.1);
-		color: #ffffff;
+		background: rgba(237, 255, 254, 0.08);
+		color: var(--color-platinum);
 	}
 
 	.menu-items {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.45rem;
 	}
 
 	.menu-item {
 		display: flex;
 		align-items: center;
-		gap: 0.8rem;
-		padding: 0.75rem 0.9rem;
-		min-height: 48px;
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		border-radius: var(--radius-md);
-		color: #ffffff;
+		gap: 0.75rem;
+		padding: 0.7rem 0.85rem;
+		min-height: 44px;
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-small);
+		color: var(--color-platinum);
 		text-align: left;
 		cursor: pointer;
 		transition: all 0.18s ease;
 		width: 100%;
 		outline: none;
+		text-decoration: none;
 	}
 
 	.menu-item:hover {
-		background: rgba(255, 255, 255, 0.12);
-		border-color: rgba(0, 212, 170, 0.4);
-		transform: translateX(-3px);
+		border-color: rgba(203, 255, 252, 0.35);
+		transform: translateX(-2px);
 	}
 
 	.item-icon-wrap {
-		width: 38px;
-		height: 38px;
-		min-width: 38px;
-		border-radius: 50%;
+		width: 34px;
+		height: 34px;
+		min-width: 34px;
+		border-radius: var(--radius-small);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 1.15rem;
-	}
-
-	.phone-icon {
-		background: rgba(16, 185, 129, 0.2);
-	}
-
-	.tg-icon {
-		background: rgba(0, 180, 216, 0.2);
-	}
-
-	.viber-icon {
-		background: rgba(139, 92, 246, 0.2);
-	}
-
-	.em-icon {
-		background: rgba(245, 158, 11, 0.2);
+		font-size: 1.1rem;
+		background: rgba(237, 255, 254, 0.06);
+		border: 1px solid rgba(203, 255, 252, 0.1);
 	}
 
 	.item-content {
@@ -414,39 +402,39 @@
 	}
 
 	.item-title {
-		font-size: 0.86rem;
-		font-weight: 700;
-		color: #ffffff;
+		font-size: 0.84rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.2;
 	}
 
 	.item-detail {
 		font-size: 0.74rem;
-		color: #94a3b8;
+		color: var(--color-silver-mist);
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
 	.item-arrow {
-		color: #64748b;
-		font-size: 0.85rem;
+		color: var(--color-silver-mist);
+		font-size: 0.82rem;
 		transition: transform 0.15s ease, color 0.15s ease;
 	}
 
 	.menu-item:hover .item-arrow {
-		color: #00d4aa;
-		transform: translateX(3px);
+		color: var(--color-liquid-mist);
+		transform: translateX(2px);
 	}
 
 	.emergency-action {
-		border-color: rgba(245, 158, 11, 0.3);
-		background: rgba(245, 158, 11, 0.08);
+		border-color: rgba(245, 158, 11, 0.25);
+		background: rgba(245, 158, 11, 0.06);
 	}
 
 	.emergency-action:hover {
-		border-color: #f59e0b;
-		background: rgba(245, 158, 11, 0.16);
+		border-color: rgba(245, 158, 11, 0.6);
+		background: rgba(245, 158, 11, 0.12);
 	}
 
 	@media (max-width: 480px) {
@@ -456,15 +444,15 @@
 		}
 
 		.widget-menu {
-			width: 295px;
+			width: 290px;
 			padding: 1rem;
 		}
 
 		.floating-trigger-btn {
-			width: 54px;
-			height: 54px;
-			min-width: 54px;
-			min-height: 54px;
+			width: 52px;
+			height: 52px;
+			min-width: 52px;
+			min-height: 52px;
 		}
 	}
 </style>

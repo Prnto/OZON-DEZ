@@ -195,7 +195,7 @@
 
 <style>
 	.ozone-intro-section {
-		background: #f8fafc;
+		background: var(--color-liquid-abyss);
 	}
 
 	.ozone-intro-grid {
@@ -213,9 +213,9 @@
 	}
 
 	.intro-p {
-		font-size: 1.05rem;
+		font-size: 1rem;
 		line-height: 1.65;
-		color: #475569;
+		color: var(--color-silver-mist);
 		margin-bottom: 2rem;
 	}
 
@@ -233,29 +233,29 @@
 
 	.comp-card {
 		padding: 1.4rem;
-		border-radius: var(--radius-md);
-		border: 1px solid var(--border-light);
+		border-radius: var(--radius-cards);
+		border: 1px solid var(--border-subtle);
 	}
 
 	.comp-card.good {
-		background: #f0fdf9;
-		border-color: rgba(0, 212, 170, 0.4);
+		background: var(--color-liquid-kelp);
+		border-color: rgba(203, 255, 252, 0.2);
 	}
 
 	.comp-card.bad {
-		background: #fef2f2;
-		border-color: rgba(239, 68, 68, 0.2);
+		background: var(--color-liquid-deep);
+		border-color: rgba(244, 63, 94, 0.2);
 	}
 
 	.comp-badge {
-		font-size: 0.88rem;
-		font-weight: 800;
-		color: #00876c;
+		font-size: 0.84rem;
+		font-weight: 600;
+		color: var(--color-liquid-mist);
 		margin-bottom: 0.8rem;
 	}
 
 	.bad-b {
-		color: #b91c1c;
+		color: #fb7185;
 	}
 
 	.comp-card ul {
@@ -264,36 +264,37 @@
 		flex-direction: column;
 		gap: 0.5rem;
 		font-size: 0.82rem;
-		color: #334155;
+		color: var(--color-silver-mist);
 	}
 
 	.ozone-glass-banner {
-		padding: 2.5rem;
-		border-radius: var(--radius-xl);
-		background: radial-gradient(circle at 10% 20%, #0c2d58 0%, #06152b 100%);
-		border: 1px solid rgba(0, 212, 170, 0.35);
-		box-shadow: 0 20px 45px rgba(6, 21, 43, 0.35);
+		padding: 2.2rem 2.5rem;
+		border-radius: var(--radius-cards);
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	.banner-o3-tag {
 		font-size: 0.72rem;
-		font-weight: 800;
+		font-weight: 600;
 		letter-spacing: 0.1em;
-		color: var(--accent-teal);
+		color: var(--color-liquid-mist);
 		margin-bottom: 0.5rem;
 	}
 
 	.ozone-glass-banner h3 {
-		color: #ffffff;
-		font-size: 1.4rem;
-		margin-bottom: 1.8rem;
+		color: var(--color-platinum);
+		font-size: 1.35rem;
+		font-weight: 500;
+		margin-bottom: 1.6rem;
 		line-height: 1.3;
 	}
 
 	.key-facts-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1.1rem;
+		gap: 1rem;
 	}
 
 	.fact-row {
@@ -301,28 +302,30 @@
 		align-items: center;
 		gap: 1.1rem;
 		padding-bottom: 0.8rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	.fact-num {
 		font-family: var(--font-heading);
 		font-size: 1.8rem;
-		font-weight: 800;
-		color: var(--accent-teal);
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
 		line-height: 1;
 		width: 80px;
 		flex-shrink: 0;
+		letter-spacing: -0.02em;
 	}
 
 	.fact-txt {
-		font-size: 0.85rem;
-		color: #cbd5e1;
+		font-size: 0.84rem;
+		color: var(--color-silver-mist);
 		line-height: 1.4;
 	}
 
 	/* Services Grid */
 	.ozone-services-section {
-		background: #ffffff;
+		background: var(--color-liquid-deep);
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.ozone-services-grid {
@@ -346,14 +349,16 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		border: 1px solid var(--border-light);
-		transition: all var(--transition-norm);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.ozone-srv-card:hover {
-		transform: translateY(-4px);
-		box-shadow: var(--shadow-lg);
-		border-color: rgba(0, 212, 170, 0.4);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.srv-top-row {
@@ -367,43 +372,44 @@
 
 	.srv-tag-badge {
 		font-size: 0.72rem;
-		font-weight: 700;
-		background: rgba(0, 212, 170, 0.15);
-		color: #00876c;
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
+		font-weight: 500;
+		background: rgba(237, 255, 254, 0.08);
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.15);
+		padding: 0.2rem 0.6rem;
+		border-radius: var(--radius-small);
 	}
 
 	.srv-target-pill {
-		font-size: 0.76rem;
-		color: var(--text-muted);
-		background: #f1f5f9;
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
-		font-weight: 600;
+		font-size: 0.74rem;
+		color: var(--color-silver-mist);
+		background: rgba(237, 255, 254, 0.05);
+		padding: 0.2rem 0.6rem;
+		border-radius: var(--radius-small);
+		font-weight: 500;
 	}
 
 	.srv-card-heading {
-		font-size: 1.35rem;
-		font-weight: 800;
-		color: var(--primary-950);
+		font-size: 1.25rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.5rem;
 	}
 
 	.srv-card-intro {
-		font-size: 0.92rem;
-		color: var(--text-body);
+		font-size: 0.88rem;
+		color: var(--color-silver-mist);
 		line-height: 1.5;
 		margin-bottom: 1rem;
 	}
 
 	.srv-card-desc-box {
-		font-size: 0.85rem;
+		font-size: 0.84rem;
 		line-height: 1.6;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		padding: 0.8rem 0;
-		border-top: 1px dashed var(--border-light);
-		border-bottom: 1px dashed var(--border-light);
+		border-top: 1px dashed rgba(203, 255, 252, 0.1);
+		border-bottom: 1px dashed rgba(203, 255, 252, 0.1);
 		margin-bottom: 1.1rem;
 	}
 
@@ -411,7 +417,7 @@
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.45rem;
 		margin-bottom: 1.6rem;
 	}
 
@@ -419,22 +425,22 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 0.5rem;
-		font-size: 0.84rem;
-		color: #1e293b;
-		font-weight: 600;
+		font-size: 0.82rem;
+		color: var(--color-silver-mist);
+		font-weight: 500;
 	}
 
 	.feat-check {
-		color: #00a886;
-		font-weight: 800;
+		color: var(--color-liquid-mist);
+		font-weight: 600;
 	}
 
 	.srv-card-footer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-top: 1.2rem;
-		border-top: 1px solid var(--border-light);
+		padding-top: 1.1rem;
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.srv-card-price {
@@ -444,15 +450,16 @@
 
 	.price-lbl {
 		font-size: 0.72rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		text-transform: uppercase;
-		font-weight: 700;
+		letter-spacing: 0.08em;
 	}
 
 	.price-digit {
 		font-family: var(--font-heading);
 		font-size: 1.25rem;
-		font-weight: 800;
-		color: var(--primary-900);
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
+		letter-spacing: -0.02em;
 	}
 </style>

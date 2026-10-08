@@ -65,14 +65,15 @@
 
 <style>
 	.water-section {
-		background: #f8fafc;
+		background: var(--color-liquid-abyss);
 	}
 
 	.water-card {
-		padding: 3.5rem;
-		background: linear-gradient(135deg, #071933 0%, #0d2e5a 100%);
-		border: 1px solid rgba(0, 180, 216, 0.35);
-		box-shadow: 0 24px 50px rgba(7, 25, 51, 0.35);
+		padding: 3rem;
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		box-shadow: none;
 	}
 
 	@media (max-width: 900px) {
@@ -105,28 +106,29 @@
 	}
 
 	.water-title {
-		font-size: clamp(1.8rem, 3vw, 2.4rem);
-		color: #ffffff;
+		font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.8rem;
-		line-height: 1.2;
+		line-height: 1.22;
 	}
 
 	.water-kved-tag {
 		display: inline-block;
-		padding: 0.3rem 0.8rem;
-		background: rgba(0, 212, 170, 0.15);
-		border: 1px solid rgba(0, 212, 170, 0.4);
-		border-radius: var(--radius-full);
-		font-size: 0.8rem;
-		font-weight: 700;
-		color: var(--accent-teal);
+		padding: 0.25rem 0.75rem;
+		background: rgba(237, 255, 254, 0.06);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		border-radius: var(--radius-small);
+		font-size: 0.76rem;
+		font-weight: 500;
+		color: var(--color-liquid-mist);
 		margin-bottom: 1.25rem;
 	}
 
 	.water-desc {
-		font-size: 0.98rem;
+		font-size: 0.95rem;
 		line-height: 1.65;
-		color: #cbd5e1;
+		color: var(--color-silver-mist);
 		margin-bottom: 1.6rem;
 	}
 
@@ -141,9 +143,9 @@
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		font-size: 0.92rem;
-		font-weight: 600;
-		color: #ffffff;
+		font-size: 0.88rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
 	}
 
 	.water-dot {
@@ -152,10 +154,10 @@
 
 	.media-frame {
 		position: relative;
-		border-radius: var(--radius-xl);
+		border-radius: var(--radius-cards);
 		overflow: hidden;
-		border: 2px solid rgba(255, 255, 255, 0.15);
-		box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	.water-img {
@@ -170,24 +172,24 @@
 		bottom: 1rem;
 		left: 1rem;
 		right: 1rem;
-		background: rgba(4, 13, 26, 0.85);
+		background: rgba(1, 29, 28, 0.9);
 		backdrop-filter: blur(8px);
-		padding: 0.8rem 1rem;
-		border-radius: var(--radius-md);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 0.75rem 0.95rem;
+		border-radius: var(--radius-small);
+		border: 1px solid rgba(203, 255, 252, 0.2);
 		display: flex;
 		flex-direction: column;
 		gap: 0.2rem;
 	}
 
 	.shield-badge {
-		font-size: 0.85rem;
-		font-weight: 800;
-		color: var(--accent-teal);
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-liquid-mist);
 	}
 
 	.clean-badge {
-		font-size: 0.76rem;
-		color: #e2e8f0;
+		font-size: 0.74rem;
+		color: var(--color-silver-mist);
 	}
 </style>

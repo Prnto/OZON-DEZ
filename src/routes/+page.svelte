@@ -300,9 +300,9 @@
 				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
-						Чому нам довіряють жителі та бізнес Одещини понад 14 років
+						Чому нам довіряють жителі та бізнес Одещини понад 15 років
 					{:else}
-						Почему нам доверяют жители и бизнес Одесской области более 14 лет
+						Почему нам доверяют жители и бизнес Одесской области более 15 лет
 					{/if}
 				</h2>
 			</div>
@@ -332,9 +332,9 @@
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
-							ТОВ «ОЗОН-ДЕЗ» — це офіційно зареєстроване українське підприємство (ЄДРПОУ 37537169) з 14-річним досвідом. Ми використовуємо виключно сертифіковані препарати МОЗ України 4-го класу безпеки та високопродуктивні промислові генератори озону O₃, забезпечуючи 100% захист об'єктів будь-якої складності.
+							ТОВ «ОЗОН-ДЕЗ» — це офіційно зареєстроване українське підприємство (ЄДРПОУ 37537169) з 15-річним досвідом. Ми використовуємо виключно сертифіковані препарати МОЗ України 4-го класу безпеки та високопродуктивні промислові генератори озону O₃, забезпечуючи 100% захист об'єктів будь-якої складності.
 						{:else}
-							ООО «ОЗОН-ДЕЗ» — официально зарегистрированное украинское предприятие (ЕГРПОУ 37537169) с 14-летним опытом. Мы используем сертифицированные препараты Минздрава Украины 4-го класса безопасности и промышленные генераторы озона O₃, обеспечивая 100% защиту объектов.
+							ООО «ОЗОН-ДЕЗ» — официально зарегистрированное украинское предприятие (ЕГРПОУ 37537169) с 15-летним опытом. Мы используем сертифицированные препараты Минздрава Украины 4-го класса безопасности и промышленные генераторы озона O₃, обеспечивая 100% защиту объектов.
 						{/if}
 					</p>
 					<div class="brand-perks-row">
@@ -356,7 +356,7 @@
 
 			<div class="trust-grid">
 				<div class="trust-card glass-card">
-					<div class="t-badge-num">14+</div>
+					<div class="t-badge-num">15+</div>
 					<h4>{#if langState.current === 'ua'}Років досвіду на ринку{:else}Лет опыта на рынке{/if}</h4>
 					<p>Працюємо безперервно з 2011 року. Знаємо специфіку приморського клімату, вологість та резистентність комах.</p>
 				</div>
@@ -431,20 +431,20 @@
 
 	/* Directions Hub */
 	.hub-directions-section {
-		background: #ffffff;
-		border-bottom: 1px solid var(--border-light);
+		background: var(--color-liquid-deep);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	.directions-hub-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.8rem;
+		gap: 1.5rem;
 	}
 
 	@media (max-width: 1180px) {
 		.directions-hub-grid {
 			grid-template-columns: repeat(2, 1fr);
-			gap: 1.4rem;
+			gap: 1.25rem;
 		}
 	}
 
@@ -455,117 +455,76 @@
 	}
 
 	.dir-card {
-		padding: 2.2rem 1.8rem;
+		padding: 2rem 1.6rem;
 		display: flex;
 		flex-direction: column;
-		border: 1.5px solid var(--border-light);
-		transition: all var(--transition-norm);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	@media (max-width: 480px) {
 		.dir-card {
-			padding: 1.5rem 1.15rem;
+			padding: 1.4rem 1.15rem;
 		}
 	}
 
 	.dir-card:hover {
-		transform: translateY(-5px);
-		box-shadow: var(--shadow-xl);
-	}
-
-	.dir-card.dir-blue:hover {
-		border-color: #1f5cb5;
-	}
-	.dir-card.dir-teal:hover {
-		border-color: #00d4aa;
-	}
-	.dir-card.dir-dark:hover {
-		border-color: #06152b;
-	}
-	.dir-card.dir-amber:hover {
-		border-color: #f59e0b;
-	}
-	.dir-card.dir-cyan:hover {
-		border-color: #00b4d8;
+		transform: translateY(-3px);
+		border-color: rgba(203, 255, 252, 0.3);
 	}
 
 	.dir-card-top {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 1.2rem;
+		margin-bottom: 1rem;
 		gap: 0.5rem;
 		flex-wrap: wrap;
 	}
 
-	.dir-pill {
-		font-size: 0.74rem;
-		font-weight: 700;
-		background: #e0f2fe;
-		color: #0369a1;
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
-	}
-
-	.dir-pill-teal {
-		font-size: 0.74rem;
-		font-weight: 700;
-		background: #ccfbf1;
-		color: #0f766e;
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
-	}
-
-	.dir-pill-dark {
-		font-size: 0.74rem;
-		font-weight: 700;
-		background: #f1f5f9;
-		color: #0f172a;
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
-	}
-
-	.dir-pill-amber {
-		font-size: 0.74rem;
-		font-weight: 700;
-		background: #fef3c7;
-		color: #92400e;
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
-	}
-
+	.dir-pill,
+	.dir-pill-teal,
+	.dir-pill-dark,
+	.dir-pill-amber,
 	.dir-pill-cyan {
-		font-size: 0.74rem;
-		font-weight: 700;
-		background: #e0f2fe;
-		color: #0284c7;
+		font-size: 0.72rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		background: rgba(237, 255, 254, 0.06);
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.12);
 		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
+		border-radius: var(--radius-small);
 	}
 
 	.dir-price {
-		font-size: 0.82rem;
-		font-weight: 800;
-		color: var(--primary-900);
+		font-family: var(--font-heading);
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
 	}
 
 	.dir-icon {
-		font-size: 2.5rem;
-		margin-bottom: 0.8rem;
+		font-size: 2.2rem;
+		margin-bottom: 0.75rem;
 	}
 
 	.dir-title {
-		font-size: 1.35rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.6rem;
+		font-size: 1.25rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 		line-height: 1.25;
 	}
 
 	.dir-desc {
-		font-size: 0.9rem;
+		font-size: 0.88rem;
 		line-height: 1.55;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		margin-bottom: 1.25rem;
 	}
 
@@ -575,12 +534,16 @@
 		flex-direction: column;
 		gap: 0.45rem;
 		font-size: 0.82rem;
-		font-weight: 600;
-		color: #1e293b;
-		margin-bottom: 1.8rem;
-		border-top: 1px dashed var(--border-light);
-		padding-top: 1rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
+		margin-bottom: 1.6rem;
+		border-top: 1px dashed rgba(203, 255, 252, 0.1);
+		padding-top: 0.9rem;
 		flex: 1;
+	}
+
+	.dir-checklist li {
+		color: var(--color-silver-mist);
 	}
 
 	.dir-card-footer {
@@ -588,45 +551,56 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 0.6rem;
-		border-top: 1px solid var(--border-light);
-		padding-top: 1.2rem;
+		border-top: 1px solid var(--border-subtle);
+		padding-top: 1rem;
 	}
 
 	.dir-btn {
-		font-size: 0.84rem;
-		font-weight: 700;
-		padding: 0.5rem 0.9rem;
+		font-size: 0.82rem;
+		font-weight: 500;
+		padding: 0.5rem 0.85rem;
+		background: transparent;
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.15);
+		border-radius: var(--radius-small);
+		text-decoration: none;
+		transition: all var(--transition-fast);
+	}
+
+	.dir-btn:hover {
+		border-color: rgba(203, 255, 252, 0.4);
+		color: var(--color-platinum);
 	}
 
 	/* Calc Teaser */
 	.calc-teaser-section {
-		background: #f8fafc;
+		background: var(--color-liquid-abyss);
 	}
 
 	.calc-teaser-card {
-		padding: 3.5rem;
-		border-radius: var(--radius-xl);
+		padding: 3rem;
+		border-radius: var(--radius-cards);
 		display: grid;
 		grid-template-columns: 1.2fr 0.8fr;
-		gap: 3.5rem;
+		gap: 3rem;
 		align-items: center;
-		background: radial-gradient(circle at 10% 20%, #0c2d58 0%, #06152b 100%);
-		border: 1px solid rgba(0, 212, 170, 0.35);
-		box-shadow: 0 24px 50px rgba(6, 21, 43, 0.4);
+		background: var(--color-liquid-kelp);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		box-shadow: none;
 	}
 
 	@media (max-width: 960px) {
 		.calc-teaser-card {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
-			padding: 2.2rem 1.8rem;
+			gap: 2rem;
+			padding: 2rem 1.6rem;
 		}
 	}
 
 	@media (max-width: 520px) {
 		.calc-teaser-card {
-			padding: 1.6rem 1.15rem;
-			gap: 1.8rem;
+			padding: 1.5rem 1.15rem;
+			gap: 1.5rem;
 		}
 
 		.teaser-actions {
@@ -644,17 +618,18 @@
 	}
 
 	.teaser-heading {
-		font-size: clamp(1.8rem, 2.8vw, 2.3rem);
-		color: #ffffff;
+		font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin: 0.8rem 0 1rem;
-		line-height: 1.25;
+		line-height: 1.22;
 	}
 
 	.teaser-sub {
-		font-size: 1rem;
-		color: #cbd5e1;
+		font-size: 0.95rem;
+		color: var(--color-silver-mist);
 		line-height: 1.6;
-		margin-bottom: 2rem;
+		margin-bottom: 1.8rem;
 		max-width: 620px;
 	}
 
@@ -665,68 +640,70 @@
 	}
 
 	.teaser-preview-box {
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		border-radius: var(--radius-lg);
-		padding: 1.8rem;
+		background: var(--color-liquid-deep);
+		border: 1px solid rgba(203, 255, 252, 0.1);
+		border-radius: var(--radius-cards);
+		padding: 1.6rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.8rem;
+		gap: 0.75rem;
 	}
 
 	.prev-header {
-		font-size: 0.92rem;
-		font-weight: 800;
-		color: var(--accent-teal);
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-liquid-mist);
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.08em;
 		padding-bottom: 0.6rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+		border-bottom: 1px solid rgba(203, 255, 252, 0.08);
 	}
 
 	.prev-row {
 		display: flex;
 		justify-content: space-between;
-		font-size: 0.88rem;
-		color: #cbd5e1;
+		font-size: 0.86rem;
+		color: var(--color-silver-mist);
 	}
 
 	.prev-row strong {
-		color: #ffffff;
+		color: var(--color-lavender-phosphor);
 		font-family: var(--font-heading);
+		font-weight: 500;
 	}
 
 	.prev-footnote {
 		font-size: 0.72rem;
-		color: #94a3b8;
-		padding-top: 0.8rem;
-		border-top: 1px dashed rgba(255, 255, 255, 0.12);
+		color: var(--color-silver-mist);
+		opacity: 0.75;
+		padding-top: 0.75rem;
+		border-top: 1px dashed rgba(203, 255, 252, 0.08);
 		line-height: 1.4;
 	}
 
 	/* Trust Grid & Brand Showcase */
 	.trust-section {
-		background: #ffffff;
+		background: var(--color-liquid-deep);
 	}
 
 	.brand-visual-showcase {
 		display: grid;
-		grid-template-columns: 1.15fr 1fr;
+		grid-template-columns: 1.1fr 1fr;
 		gap: 2.5rem;
 		align-items: center;
 		padding: 2rem;
-		border-radius: var(--radius-xl);
-		background: linear-gradient(135deg, #071933 0%, #0d2e5a 100%);
-		border: 1px solid rgba(0, 212, 170, 0.3);
-		margin-bottom: 3rem;
-		box-shadow: 0 20px 45px rgba(7, 25, 51, 0.25);
+		border-radius: var(--radius-cards);
+		background: var(--color-liquid-kelp);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		margin-bottom: 2.5rem;
+		box-shadow: none;
 	}
 
 	@media (max-width: 960px) {
 		.brand-visual-showcase {
 			grid-template-columns: 1fr;
 			padding: 1.5rem;
-			gap: 1.8rem;
+			gap: 1.6rem;
 		}
 	}
 
@@ -738,10 +715,9 @@
 
 	.brand-photo-wrap {
 		position: relative;
-		border-radius: var(--radius-lg);
+		border-radius: var(--radius-cards);
 		overflow: hidden;
-		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		border: 1px solid rgba(203, 255, 252, 0.12);
 	}
 
 	.brand-showcase-img {
@@ -759,21 +735,21 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: rgba(7, 25, 51, 0.88);
+		background: rgba(1, 29, 28, 0.9);
 		backdrop-filter: blur(8px);
-		padding: 0.35rem 0.85rem;
-		border-radius: var(--radius-full);
-		font-size: 0.78rem;
-		font-weight: 700;
-		color: #ffffff;
-		border: 1px solid rgba(0, 212, 170, 0.4);
+		padding: 0.35rem 0.8rem;
+		border-radius: var(--radius-small);
+		font-size: 0.76rem;
+		font-weight: 500;
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.2);
 	}
 
 	.tag-dot {
-		width: 7px;
-		height: 7px;
+		width: 6px;
+		height: 6px;
 		border-radius: 50%;
-		background: var(--accent-teal);
+		background: #cbfffc;
 	}
 
 	.brand-showcase-info {
@@ -782,47 +758,41 @@
 	}
 
 	.brand-showcase-info h3 {
-		font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-		font-weight: 800;
-		color: #ffffff;
+		font-size: clamp(1.4rem, 2vw, 1.8rem);
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.25;
 		margin: 0.8rem 0 1rem;
 	}
 
 	.brand-showcase-info p {
-		font-size: 0.95rem;
+		font-size: 0.92rem;
 		line-height: 1.6;
-		color: #cbd5e1;
-		margin-bottom: 1.5rem;
-	}
-
-	.brand-perks-row {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
+		color: var(--color-silver-mist);
+		margin-bottom: 1.4rem;
 	}
 
 	.brand-perk-item {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
-		padding: 0.4rem 0.85rem;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: var(--radius-full);
-		font-size: 0.82rem;
-		font-weight: 600;
-		color: #ffffff;
+		padding: 0.35rem 0.75rem;
+		background: rgba(237, 255, 254, 0.06);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		border-radius: var(--radius-small);
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
 	}
 
 	.perk-icon {
-		font-size: 1rem;
+		font-size: 0.95rem;
 	}
 
 	.trust-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 1.5rem;
+		gap: 1.25rem;
 	}
 
 	@media (max-width: 960px) {
@@ -838,66 +808,72 @@
 	}
 
 	.trust-card {
-		padding: 2.2rem 1.6rem;
-		border: 1px solid var(--border-light);
+		padding: 1.8rem 1.4rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: all var(--transition-fast);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.trust-card:hover {
-		transform: translateY(-4px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.25);
 	}
 
 	.t-badge-num {
 		font-family: var(--font-heading);
 		font-size: 2.2rem;
-		font-weight: 800;
-		color: var(--primary-900);
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
 		line-height: 1;
 		margin-bottom: 0.8rem;
+		letter-spacing: -0.03em;
 	}
 
 	.trust-card h4 {
-		font-size: 1.12rem;
-		font-weight: 800;
-		color: var(--primary-950);
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.5rem;
 	}
 
 	.trust-card p {
-		font-size: 0.86rem;
-		color: var(--text-muted);
+		font-size: 0.84rem;
+		color: var(--color-silver-mist);
 		line-height: 1.55;
 	}
 
 	/* Preview banner */
 	.quick-work-preview-section {
-		background: #f8fafc;
+		background: var(--color-liquid-abyss);
 	}
 
 	.preview-banner {
-		padding: 2.5rem 3rem;
-		border: 1px solid var(--border-light);
+		padding: 2.2rem 2.8rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 2.5rem;
+		gap: 2rem;
+		box-shadow: none;
 	}
 
 	@media (max-width: 900px) {
 		.preview-banner {
 			flex-direction: column;
 			align-items: flex-start;
-			padding: 2rem 1.5rem;
+			padding: 1.8rem 1.4rem;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.preview-banner {
-			padding: 1.6rem 1.15rem;
+			padding: 1.4rem 1.15rem;
 		}
 
 		.preview-buttons {
@@ -911,15 +887,15 @@
 	}
 
 	.preview-text h3 {
-		font-size: 1.4rem;
-		font-weight: 800;
-		color: var(--primary-950);
+		font-size: 1.3rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.5rem;
 	}
 
 	.preview-text p {
-		font-size: 0.92rem;
-		color: var(--text-muted);
+		font-size: 0.88rem;
+		color: var(--color-silver-mist);
 		line-height: 1.55;
 		max-width: 650px;
 	}

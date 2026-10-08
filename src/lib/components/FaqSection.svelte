@@ -46,7 +46,8 @@
 
 <style>
 	.faq-section {
-		background: #f8fafc;
+		background: var(--color-liquid-abyss);
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.faq-list {
@@ -54,23 +55,25 @@
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.9rem;
 	}
 
 	.faq-item {
-		border: 1px solid var(--border-light);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		overflow: hidden;
-		transition: all var(--transition-fast);
+		transition: border-color var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.faq-item.is-open {
-		border-color: rgba(0, 212, 170, 0.4);
-		box-shadow: var(--shadow-md);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.faq-question-btn {
 		width: 100%;
-		padding: 1.35rem 1.6rem;
+		padding: 1.25rem 1.6rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -83,34 +86,36 @@
 
 	.q-text {
 		font-family: var(--font-heading);
-		font-size: 1.08rem;
-		font-weight: 700;
-		color: var(--primary-950);
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.35;
 	}
 
 	.faq-arrow {
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		background: #f1f5f9;
+		width: 30px;
+		height: 30px;
+		border-radius: var(--radius-small);
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--primary-800);
+		font-size: 1.15rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
 		flex-shrink: 0;
 		transition: all var(--transition-fast);
 	}
 
 	.faq-item.is-open .faq-arrow {
-		background: var(--accent-teal);
-		color: #042436;
+		background: var(--gradient-aurora);
+		color: #02201e;
+		border-color: rgba(255, 255, 255, 0.5);
 	}
 
 	.faq-answer {
-		padding: 0 1.6rem 1.4rem;
+		padding: 0 1.6rem 1.3rem;
 		animation: fadeIn 0.2s ease-out;
 	}
 
@@ -126,20 +131,20 @@
 	}
 
 	.faq-answer p {
-		font-size: 0.95rem;
-		line-height: 1.65;
-		color: #475569;
+		font-size: 0.92rem;
+		line-height: 1.6;
+		color: var(--color-silver-mist);
 	}
 
 	@media (max-width: 480px) {
 		.faq-question-btn {
-			padding: 1.15rem 1.1rem;
+			padding: 1.1rem 1.15rem;
 		}
 		.q-text {
-			font-size: 0.98rem;
+			font-size: 0.96rem;
 		}
 		.faq-answer {
-			padding: 0 1.1rem 1.2rem;
+			padding: 0 1.15rem 1.15rem;
 		}
 	}
 </style>

@@ -134,7 +134,7 @@
 						<input
 							id="m-phone"
 							type="tel"
-							placeholder="+38 (068) 261-53-50"
+							placeholder="+38 (063) 667-26-53"
 							bind:value={clientPhone}
 							required
 							class="m-input"
@@ -186,7 +186,7 @@
 	.modal-backdrop {
 		position: fixed;
 		inset: 0;
-		background: rgba(4, 13, 26, 0.72);
+		background: rgba(1, 29, 28, 0.85);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
 		z-index: 1000;
@@ -208,13 +208,13 @@
 
 	.modal-dialog {
 		width: 100%;
-		max-width: 520px;
-		background: #ffffff;
-		border-radius: var(--radius-xl);
+		max-width: 500px;
+		background: var(--color-liquid-kelp);
+		border-radius: var(--radius-cards);
 		padding: 2.2rem;
 		position: relative;
-		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-		border: 1px solid rgba(255, 255, 255, 0.8);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 		animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 		max-height: 90vh;
 		overflow-y: auto;
@@ -224,7 +224,6 @@
 	@media (max-width: 480px) {
 		.modal-dialog {
 			padding: 1.5rem 1.15rem;
-			border-radius: var(--radius-lg);
 			max-height: 92vh;
 		}
 	}
@@ -232,7 +231,7 @@
 	@keyframes popIn {
 		from {
 			opacity: 0;
-			transform: scale(0.94) translateY(12px);
+			transform: scale(0.96) translateY(8px);
 		}
 		to {
 			opacity: 1;
@@ -244,13 +243,13 @@
 		position: absolute;
 		top: 1.25rem;
 		right: 1.25rem;
-		width: 34px;
-		height: 34px;
-		border-radius: 50%;
-		border: none;
-		background: #f1f5f9;
-		color: #475569;
-		font-size: 1rem;
+		width: 32px;
+		height: 32px;
+		border-radius: var(--radius-small);
+		border: 1px solid var(--border-subtle);
+		background: var(--color-liquid-deep);
+		color: var(--color-silver-mist);
+		font-size: 0.9rem;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
@@ -259,38 +258,39 @@
 	}
 
 	.close-btn:hover {
-		background: #e2e8f0;
-		color: #0f172a;
+		border-color: rgba(203, 255, 252, 0.35);
+		color: var(--color-platinum);
 	}
 
 	.modal-top-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		font-size: 0.76rem;
-		font-weight: 700;
+		font-size: 0.72rem;
+		font-weight: 500;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: #00876c;
-		background: rgba(0, 212, 170, 0.12);
+		letter-spacing: 0.08em;
+		color: var(--color-liquid-mist);
+		background: rgba(237, 255, 254, 0.06);
 		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-full);
+		border-radius: var(--radius-small);
+		border: 1px solid rgba(203, 255, 252, 0.12);
 		margin-bottom: 0.8rem;
 	}
 
 	.modal-heading {
-		font-size: 1.4rem;
-		font-weight: 800;
-		color: var(--primary-950);
+		font-size: 1.35rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.25;
 		margin-bottom: 0.4rem;
 	}
 
 	.modal-sub {
-		font-size: 0.88rem;
-		color: var(--text-muted);
+		font-size: 0.86rem;
+		color: var(--color-silver-mist);
 		line-height: 1.5;
-		margin-bottom: 1.6rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.modal-form {
@@ -307,25 +307,29 @@
 
 	.m-lbl {
 		font-size: 0.8rem;
-		font-weight: 700;
-		color: var(--primary-900);
+		font-weight: 500;
+		color: var(--color-platinum);
 	}
 
 	.m-input {
 		width: 100%;
 		padding: 0.75rem 0.95rem;
-		border-radius: var(--radius-sm);
-		border: 1.5px solid var(--border-light);
-		background: #ffffff;
-		font-size: 16px;
-		color: var(--text-title);
+		border-radius: var(--radius-small);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		background: var(--color-liquid-deep);
+		font-size: 15px;
+		color: var(--color-platinum);
 		outline: none;
 		transition: border-color var(--transition-fast);
 	}
 
+	.m-input::placeholder {
+		color: var(--color-silver-mist);
+		opacity: 0.55;
+	}
+
 	.m-input:focus {
-		border-color: var(--primary-700);
-		box-shadow: 0 0 0 3px rgba(22, 66, 130, 0.12);
+		border-color: rgba(203, 255, 252, 0.4);
 	}
 
 	.m-textarea {
@@ -333,14 +337,15 @@
 	}
 
 	.modal-action-row {
-		margin-top: 0.6rem;
+		margin-top: 0.5rem;
 	}
 
 	.m-privacy {
 		font-size: 0.72rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
+		opacity: 0.75;
 		text-align: center;
-		margin-top: 0.5rem;
+		margin-top: 0.4rem;
 	}
 
 	/* Success State */
@@ -350,39 +355,39 @@
 	}
 
 	.modal-success-badge {
-		width: 60px;
-		height: 60px;
+		width: 54px;
+		height: 54px;
 		border-radius: 50%;
-		background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
-		color: #042436;
-		font-size: 2rem;
-		font-weight: 900;
+		background: var(--gradient-aurora);
+		color: #02201e;
+		font-size: 1.8rem;
+		font-weight: 700;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin: 0 auto 1.25rem;
+		margin: 0 auto 1.2rem;
 	}
 
 	.modal-success-title {
-		font-size: 1.5rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.6rem;
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 	}
 
 	.modal-success-p {
-		font-size: 0.92rem;
-		color: var(--text-muted);
+		font-size: 0.88rem;
+		color: var(--color-silver-mist);
 		line-height: 1.55;
-		margin-bottom: 1.5rem;
+		margin-bottom: 1.4rem;
 	}
 
 	.direct-call-box {
-		background: #f1f5f9;
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
 		padding: 1rem;
-		border-radius: var(--radius-md);
+		border-radius: var(--radius-cards);
 		font-size: 0.85rem;
-		font-weight: 600;
-		color: var(--primary-900);
+		color: var(--color-silver-mist);
 	}
 </style>

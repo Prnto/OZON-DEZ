@@ -10,7 +10,9 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"bot": "node scripts/telegram-bot-responder.js"
+		"bot": "node scripts/telegram-bot-responder.js",
+		"webhook:status": "node scripts/set-telegram-webhook.js status",
+		"webhook:delete": "node scripts/set-telegram-webhook.js delete"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^8.0.0",

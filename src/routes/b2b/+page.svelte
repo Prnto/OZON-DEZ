@@ -131,22 +131,26 @@
 
 <style>
 	.industries-section {
-		background: #f8fafc;
+		background: var(--color-liquid-deep);
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.industries-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-		gap: 1.6rem;
-		margin-bottom: 3.5rem;
+		gap: 1.5rem;
+		margin-bottom: 3rem;
 	}
 
 	.ind-card {
-		padding: 2rem;
-		border: 1px solid var(--border-light);
+		padding: 1.8rem 1.6rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: all var(--transition-fast);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	@media (max-width: 480px) {
@@ -156,27 +160,26 @@
 	}
 
 	.ind-card:hover {
-		transform: translateY(-4px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-lg);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.ind-icon {
-		font-size: 2.2rem;
-		margin-bottom: 1rem;
+		font-size: 2rem;
+		margin-bottom: 0.8rem;
 	}
 
 	.ind-card h3 {
-		font-size: 1.25rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.6rem;
+		font-size: 1.15rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 	}
 
 	.ind-card p {
-		font-size: 0.9rem;
+		font-size: 0.88rem;
 		line-height: 1.6;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		margin-bottom: 1.2rem;
 		flex: 1;
 	}
@@ -187,26 +190,27 @@
 		flex-direction: column;
 		gap: 0.4rem;
 		font-size: 0.82rem;
-		font-weight: 700;
-		color: var(--primary-900);
-		border-top: 1px dashed var(--border-light);
+		font-weight: 500;
+		color: var(--color-silver-mist);
+		border-top: 1px dashed rgba(203, 255, 252, 0.1);
 		padding-top: 0.8rem;
 	}
 
 	.ind-list li::before {
 		content: '✔ ';
-		color: var(--accent-teal-dark);
+		color: var(--color-liquid-mist);
 	}
 
 	.b2b-doc-banner {
-		padding: 3rem;
-		border-radius: var(--radius-xl);
+		padding: 2.5rem 3rem;
+		border-radius: var(--radius-cards);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2.5rem;
-		background: linear-gradient(135deg, #092042 0%, #102e5e 100%);
-		border: 1px solid rgba(0, 212, 170, 0.3);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	@media (max-width: 900px) {
@@ -219,7 +223,7 @@
 
 	@media (max-width: 480px) {
 		.b2b-doc-banner {
-			padding: 1.6rem 1.15rem;
+			padding: 1.5rem 1.15rem;
 		}
 		.b2b-doc-banner .btn {
 			width: 100%;
@@ -227,15 +231,16 @@
 	}
 
 	.doc-banner-content h3 {
-		font-size: 1.6rem;
-		color: #ffffff;
-		margin-bottom: 0.8rem;
+		font-size: 1.45rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.6rem;
 	}
 
 	.doc-banner-content p {
-		font-size: 0.95rem;
+		font-size: 0.9rem;
 		line-height: 1.6;
-		color: #cbd5e1;
+		color: var(--color-silver-mist);
 		max-width: 700px;
 	}
 </style>

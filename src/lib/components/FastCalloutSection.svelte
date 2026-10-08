@@ -15,7 +15,7 @@
 			badge: '⚡ Чергова служба 24/7',
 			title: 'Потрібен терміновий виїзд спеціаліста сьогодні?',
 			subtitle: 'Оперативна бригада по м. Чорноморськ, Одесі та прилеглих районах. Виїзд від 30 хвилин із повним комплектом сертифікованого обладнання.',
-			phonePlaceholder: '+38 (068) 261-53-50',
+			phonePlaceholder: '+38 (063) 667-26-53',
 			addressPlaceholder: 'Адреса (наприклад, Чорноморськ, Миру 8)',
 			submitBtn: 'Викликати чергову бригаду',
 			callDirectLabel: 'Або зателефонуйте черговому прямо зараз:',
@@ -32,7 +32,7 @@
 			badge: '⚡ Дежурная служба 24/7',
 			title: 'Нужен срочный выезд специалиста сегодня?',
 			subtitle: 'Оперативная бригада по г. Черноморск, Одессе и области. Выезд от 30 минут с полным комплектом сертифицированного оборудования.',
-			phonePlaceholder: '+38 (068) 261-53-50',
+			phonePlaceholder: '+38 (063) 667-26-53',
 			addressPlaceholder: 'Адрес (например, Черноморск, Мира 8)',
 			submitBtn: 'Вызвать дежурную бригаду',
 			callDirectLabel: 'Или позвоните дежурному прямо сейчас:',
@@ -168,15 +168,15 @@
 <style>
 	.fast-callout-section {
 		padding: 3.5rem 0;
-		background: #ffffff;
+		background: var(--color-liquid-abyss);
 	}
 
 	.callout-card {
-		border-radius: var(--radius-xl);
+		border-radius: var(--radius-cards);
 		padding: 3rem 3.5rem;
-		background: linear-gradient(135deg, #040d1a 0%, #081a36 60%, #0d284f 100%);
-		border: 1px solid rgba(0, 212, 170, 0.25);
-		box-shadow: 0 20px 50px rgba(4, 13, 26, 0.4), 0 0 30px rgba(0, 212, 170, 0.15);
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	@media (max-width: 992px) {
@@ -200,9 +200,9 @@
 	}
 
 	.callout-title {
-		font-size: 2.1rem;
-		font-weight: 800;
-		color: #ffffff;
+		font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.22;
 		margin: 0.8rem 0;
 	}
@@ -214,8 +214,8 @@
 	}
 
 	.callout-sub {
-		font-size: 1.02rem;
-		color: #94a3b8;
+		font-size: 0.95rem;
+		color: var(--color-silver-mist);
 		line-height: 1.6;
 		margin-bottom: 1.5rem;
 	}
@@ -228,72 +228,76 @@
 	}
 
 	.bullet-item {
-		font-size: 0.92rem;
-		font-weight: 600;
-		color: #e0ecfd;
+		font-size: 0.88rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 	}
 
 	.direct-phone-block {
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		padding: 1rem 1.4rem;
-		border-radius: var(--radius-md);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		padding: 0.9rem 1.3rem;
+		border-radius: var(--radius-small);
 		display: inline-flex;
 		flex-direction: column;
 		gap: 0.3rem;
 	}
 
 	.direct-lbl {
-		font-size: 0.78rem;
-		color: #94a3b8;
+		font-size: 0.74rem;
+		color: var(--color-silver-mist);
 		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.08em;
 	}
 
 	.direct-link {
 		font-size: 1.25rem;
-		font-weight: 800;
-		color: #00d4aa;
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
 		font-family: var(--font-heading);
+		text-decoration: none;
+		letter-spacing: -0.02em;
 		transition: color var(--transition-fast);
 	}
 
 	.direct-link:hover {
-		color: #ffffff;
+		color: var(--color-platinum);
 	}
 
 	/* Form */
 	.callout-form {
 		padding: 2.2rem 2rem;
-		border-radius: var(--radius-lg);
-		background: #ffffff;
+		border-radius: var(--radius-cards);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
 		display: flex;
 		flex-direction: column;
-		gap: 1.2rem;
-		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+		gap: 1.1rem;
+		box-shadow: none;
 	}
 
 	.form-badge-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
-		background: rgba(0, 212, 170, 0.12);
-		color: #00876c;
-		font-size: 0.78rem;
-		font-weight: 700;
-		padding: 0.35rem 0.75rem;
-		border-radius: var(--radius-full);
+		background: rgba(237, 255, 254, 0.06);
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		font-size: 0.76rem;
+		font-weight: 500;
+		padding: 0.3rem 0.75rem;
+		border-radius: var(--radius-small);
+		align-self: flex-start;
 	}
 
 	.live-dot {
-		width: 7px;
-		height: 7px;
+		width: 6px;
+		height: 6px;
 		border-radius: 50%;
-		background: #00d4aa;
-		box-shadow: 0 0 6px #00d4aa;
+		background: #cbfffc;
 	}
 
 	.form-input-group {
@@ -303,52 +307,59 @@
 	}
 
 	.f-lbl {
-		font-size: 0.82rem;
-		font-weight: 700;
-		color: var(--primary-900);
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 	}
 
 	.f-input {
 		width: 100%;
-		padding: 0.85rem 1rem;
-		border-radius: var(--radius-sm);
-		border: 1.5px solid var(--border-light);
-		background: #ffffff;
-		font-size: 16px;
-		color: var(--text-title);
+		padding: 0.8rem 1rem;
+		border-radius: var(--radius-small);
+		border: 1px solid rgba(203, 255, 252, 0.12);
+		background: var(--color-liquid-deep);
+		font-size: 15px;
+		color: var(--color-platinum);
 		outline: none;
-		min-height: 48px;
+		min-height: 44px;
 		transition: border-color var(--transition-fast);
 	}
 
+	.f-input::placeholder {
+		color: var(--color-silver-mist);
+		opacity: 0.55;
+	}
+
 	.f-input:focus {
-		border-color: var(--primary-700);
-		box-shadow: 0 0 0 3px rgba(22, 66, 130, 0.12);
+		border-color: rgba(203, 255, 252, 0.4);
 	}
 
 	.form-security-note {
 		font-size: 0.72rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
+		opacity: 0.75;
 		text-align: center;
 		line-height: 1.4;
 	}
 
 	/* Success */
 	.callout-success-box {
-		padding: 2.5rem 2rem;
+		padding: 2.2rem 1.8rem;
 		text-align: center;
-		background: #ffffff;
-		border-radius: var(--radius-lg);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		box-shadow: none;
 	}
 
 	.success-badge-icon {
-		width: 54px;
-		height: 54px;
+		width: 50px;
+		height: 50px;
 		border-radius: 50%;
-		background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
-		color: #042436;
-		font-size: 1.8rem;
-		font-weight: 900;
+		background: var(--gradient-aurora);
+		color: #02201e;
+		font-size: 1.6rem;
+		font-weight: 700;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -356,14 +367,15 @@
 	}
 
 	.callout-success-box h3 {
-		font-size: 1.4rem;
-		color: var(--primary-950);
+		font-size: 1.35rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.5rem;
 	}
 
 	.callout-success-box p {
-		font-size: 0.92rem;
-		color: var(--text-muted);
+		font-size: 0.9rem;
+		color: var(--color-silver-mist);
 		line-height: 1.5;
 	}
 </style>

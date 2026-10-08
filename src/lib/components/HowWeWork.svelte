@@ -60,14 +60,14 @@
 
 <style>
 	.work-section {
-		background: #f8fafc;
+		background: var(--color-liquid-abyss);
 	}
 
 	.steps-grid {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		gap: 1.2rem;
-		margin-bottom: 3.5rem;
+		margin-bottom: 3rem;
 		position: relative;
 	}
 
@@ -88,22 +88,25 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		border: 1px solid var(--border-light);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		position: relative;
-		transition: all var(--transition-norm);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.step-card:hover {
-		transform: translateY(-4px);
-		border-color: var(--accent-teal);
-		box-shadow: 0 12px 28px rgba(0, 212, 170, 0.15);
+		transform: translateY(-3px);
+		border-color: rgba(203, 255, 252, 0.3);
 	}
 
 	.step-badge-circle {
-		width: 44px;
-		height: 44px;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
-		background: #f1f5f9;
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -112,33 +115,33 @@
 	}
 
 	.step-card:hover .step-badge-circle {
-		background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
+		border-color: rgba(203, 255, 252, 0.4);
 	}
 
 	.step-index {
 		font-family: var(--font-heading);
-		font-weight: 800;
-		font-size: 1.1rem;
-		color: var(--primary-900);
+		font-weight: 500;
+		font-size: 1rem;
+		color: var(--color-lavender-phosphor);
 	}
 
 	.step-icon-emoji {
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		margin-bottom: 0.8rem;
 	}
 
 	.step-card-title {
-		font-size: 1.05rem;
-		font-weight: 700;
-		color: var(--primary-950);
-		margin-bottom: 0.6rem;
+		font-size: 1.02rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 		line-height: 1.3;
 	}
 
 	.step-card-desc {
 		font-size: 0.84rem;
 		line-height: 1.55;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 	}
 
 	.prep-tips-box {
@@ -147,8 +150,10 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
-		border: 1px solid rgba(0, 212, 170, 0.3);
-		background: linear-gradient(90deg, rgba(0, 212, 170, 0.08) 0%, #ffffff 100%);
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		box-shadow: none;
 	}
 
 	@media (max-width: 800px) {
@@ -166,19 +171,19 @@
 	}
 
 	.prep-icon {
-		font-size: 2.2rem;
+		font-size: 2rem;
 	}
 
 	.prep-title {
-		font-size: 1.08rem;
-		font-weight: 700;
-		color: var(--primary-950);
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.25rem;
 	}
 
 	.prep-desc {
-		font-size: 0.88rem;
-		color: #475569;
+		font-size: 0.86rem;
+		color: var(--color-silver-mist);
 		line-height: 1.45;
 	}
 </style>

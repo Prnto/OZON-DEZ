@@ -76,8 +76,8 @@
 
 <style>
 	.b2b-section {
-		background: #ffffff;
-		border-top: 1px solid var(--border-light);
+		background: var(--color-liquid-abyss);
+		border-top: 1px solid var(--border-subtle);
 		padding: 4.5rem 0;
 	}
 
@@ -87,27 +87,27 @@
 	}
 
 	.dark-accent {
-		background: rgba(0, 212, 170, 0.12);
-		color: #00876c;
-		border: 1px solid rgba(0, 212, 170, 0.35);
+		background: rgba(237, 255, 254, 0.06);
+		color: var(--color-liquid-mist);
+		border: 1px solid rgba(203, 255, 252, 0.12);
 	}
 
 	.b2b-section-heading {
-		font-size: clamp(1.85rem, 3.2vw, 2.6rem);
-		font-weight: 800;
-		color: var(--primary-950);
+		font-size: clamp(1.85rem, 3vw, 2.5rem);
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.25;
 		margin: 0.8rem 0 1.2rem;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.03em;
 	}
 
 	.b2b-paragraphs {
 		display: flex;
 		flex-direction: column;
 		gap: 0.85rem;
-		font-size: 1.05rem;
+		font-size: 1rem;
 		line-height: 1.65;
-		color: #475569;
+		color: var(--color-silver-mist);
 	}
 
 	/* 4 Points Grid */
@@ -115,7 +115,7 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 1.4rem;
-		margin-bottom: 3.5rem;
+		margin-bottom: 3rem;
 	}
 
 	@media (max-width: 1024px) {
@@ -131,65 +131,65 @@
 	}
 
 	.point-item {
-		padding: 2rem 1.6rem;
-		border: 1.5px solid var(--border-light);
-		border-radius: var(--radius-lg);
-		background: #ffffff;
+		padding: 1.8rem 1.5rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: all var(--transition-norm);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.point-item:hover {
-		transform: translateY(-4px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-lg);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.point-icon-box {
-		font-size: 2rem;
-		margin-bottom: 1rem;
+		font-size: 1.8rem;
+		margin-bottom: 0.8rem;
 	}
 
 	.point-title {
-		font-size: 1.15rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.4rem;
 		line-height: 1.3;
 	}
 
 	.point-desc {
-		font-size: 0.88rem;
-		color: var(--text-muted);
+		font-size: 0.85rem;
+		color: var(--color-silver-mist);
 		line-height: 1.55;
 	}
 
 	/* CTA Bar */
 	.b2b-cta-bar {
-		padding: 2.5rem 3rem;
-		border-radius: var(--radius-xl);
+		padding: 2.2rem 2.8rem;
+		border-radius: var(--radius-cards);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2.5rem;
-		background: linear-gradient(135deg, #071933 0%, #0d2e5a 100%);
-		border: 1px solid rgba(0, 212, 170, 0.35);
-		box-shadow: 0 20px 45px rgba(5, 17, 36, 0.25);
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	@media (max-width: 960px) {
 		.b2b-cta-bar {
 			flex-direction: column;
 			align-items: flex-start;
-			padding: 2rem 1.6rem;
+			padding: 1.8rem 1.4rem;
 		}
 	}
 
 	.b2b-stats-cluster {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1.25rem;
 		flex-wrap: wrap;
 	}
 
@@ -197,24 +197,25 @@
 		display: flex;
 		align-items: center;
 		gap: 0.85rem;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		padding: 0.75rem 1.25rem;
-		border-radius: var(--radius-md);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		padding: 0.75rem 1.2rem;
+		border-radius: var(--radius-small);
 	}
 
 	.b2b-stat-pill .stat-num {
 		font-family: var(--font-heading);
-		font-size: 1.85rem;
-		font-weight: 800;
-		color: var(--accent-teal);
+		font-size: 1.8rem;
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
 		line-height: 1;
+		letter-spacing: -0.02em;
 	}
 
 	.b2b-stat-pill .stat-lbl {
-		font-size: 0.82rem;
-		color: #cbd5e1;
-		font-weight: 600;
+		font-size: 0.8rem;
+		color: var(--color-silver-mist);
+		font-weight: 500;
 		max-width: 170px;
 		line-height: 1.35;
 	}

@@ -160,15 +160,15 @@
 	}
 
 	.prep-guide-section {
-		background: #ffffff;
-		border-top: 1px solid var(--border-light);
+		background: var(--color-liquid-deep);
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.prep-cards-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 1.5rem;
-		margin-bottom: 3.5rem;
+		gap: 1.4rem;
+		margin-bottom: 3rem;
 	}
 
 	@media (max-width: 960px) {
@@ -184,11 +184,14 @@
 	}
 
 	.prep-card {
-		padding: 2rem 1.6rem;
-		border: 1px solid var(--border-light);
+		padding: 1.8rem 1.4rem;
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: all var(--transition-fast);
+		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		box-shadow: none;
 	}
 
 	@media (max-width: 480px) {
@@ -198,38 +201,38 @@
 	}
 
 	.prep-card:hover {
-		transform: translateY(-4px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.prep-card-icon {
-		font-size: 2.2rem;
-		margin-bottom: 1rem;
+		font-size: 2rem;
+		margin-bottom: 0.8rem;
 	}
 
 	.prep-card h3 {
-		font-size: 1.15rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.6rem;
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 	}
 
 	.prep-card p {
-		font-size: 0.88rem;
-		color: var(--text-muted);
+		font-size: 0.86rem;
+		color: var(--color-silver-mist);
 		line-height: 1.55;
 	}
 
 	.prep-action-banner {
-		padding: 3rem;
-		border-radius: var(--radius-xl);
+		padding: 2.5rem 3rem;
+		border-radius: var(--radius-cards);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2.5rem;
-		background: linear-gradient(135deg, #071b36 0%, #0d3268 100%);
-		border: 1px solid rgba(0, 212, 170, 0.3);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		box-shadow: none;
 	}
 
 	@media (max-width: 860px) {
@@ -242,7 +245,7 @@
 
 	@media (max-width: 480px) {
 		.prep-action-banner {
-			padding: 1.6rem 1.15rem;
+			padding: 1.5rem 1.15rem;
 		}
 		.prep-action-banner .btn {
 			width: 100%;
@@ -251,23 +254,24 @@
 
 	.prep-banner-badge {
 		display: inline-block;
-		font-size: 0.75rem;
-		font-weight: 700;
-		color: var(--accent-teal);
+		font-size: 0.74rem;
+		font-weight: 600;
+		color: var(--color-liquid-mist);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.4rem;
 	}
 
 	.prep-action-banner h3 {
-		font-size: 1.6rem;
-		color: #ffffff;
-		margin-bottom: 0.6rem;
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 	}
 
 	.prep-action-banner p {
-		font-size: 0.95rem;
-		color: #cbd5e1;
+		font-size: 0.9rem;
+		color: var(--color-silver-mist);
 		line-height: 1.55;
 		max-width: 650px;
 	}

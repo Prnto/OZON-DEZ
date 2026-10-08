@@ -82,7 +82,7 @@
 	<div class="main-bar">
 		<div class="main-bar-container">
 			<div class="logo-box">
-				<Logo variant="dark" />
+				<Logo variant="light" />
 			</div>
 
 			<!-- Desktop Navigation Links to Separate Pages -->
@@ -232,22 +232,24 @@
 		left: 0;
 		right: 0;
 		z-index: 100;
-		background: #ffffff;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+		background: rgba(1, 38, 36, 0.92);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border-bottom: 1px solid rgba(203, 255, 252, 0.08);
 		transition: all var(--transition-norm);
 		padding-top: env(safe-area-inset-top, 0);
 	}
 
 	.header-wrapper.scrolled {
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		border-bottom-color: rgba(203, 255, 252, 0.18);
 	}
 
 	/* Top Utility Bar */
 	.top-bar {
-		background: #081a36;
-		color: #94a3b8;
-		font-size: 0.8rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		background: #011d1c;
+		color: #8e9e9d;
+		font-size: 0.78rem;
+		border-bottom: 1px solid rgba(203, 255, 252, 0.06);
 	}
 
 	.top-bar-container {
@@ -381,9 +383,7 @@
 
 	/* Main Navigation Bar */
 	.main-bar {
-		background: rgba(255, 255, 255, 0.98);
-		backdrop-filter: blur(16px);
-		-webkit-backdrop-filter: blur(16px);
+		background: transparent;
 	}
 
 	.main-bar-container {
@@ -404,7 +404,7 @@
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: clamp(0.15rem, 0.5vw, 0.75rem);
+		gap: clamp(0.2rem, 0.6vw, 0.85rem);
 		flex: 1;
 		justify-content: center;
 		min-width: 0;
@@ -418,31 +418,33 @@
 	}
 
 	.nav-link {
-		font-size: clamp(0.78rem, 0.85vw, 0.86rem);
-		font-weight: 600;
-		color: var(--text-title);
+		font-size: 11.5px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-silver-mist);
 		white-space: nowrap;
 		flex-shrink: 0;
-		padding: 0.35rem clamp(0.32rem, 0.45vw, 0.55rem);
-		border-radius: var(--radius-sm);
+		padding: 0.4rem clamp(0.35rem, 0.45vw, 0.6rem);
+		border-radius: var(--radius-small);
 		transition: all var(--transition-fast);
 		text-decoration: none;
 		position: relative;
 	}
 
 	.nav-link:hover, .nav-link.active {
-		color: var(--primary-700);
-		background: rgba(0, 212, 170, 0.08);
+		color: var(--color-platinum);
+		background: rgba(0, 55, 52, 0.6);
 	}
 
 	.nav-link.active::after {
 		content: '';
 		position: absolute;
 		bottom: 2px;
-		left: 10%;
-		right: 10%;
+		left: 15%;
+		right: 15%;
 		height: 2px;
-		background: var(--accent-teal);
+		background: #cbfffc;
 		border-radius: 2px;
 	}
 
@@ -486,9 +488,9 @@
 		justify-content: space-around;
 		width: 40px;
 		height: 40px;
-		background: #f1f5f9;
-		border: 1px solid var(--border-light);
-		border-radius: var(--radius-sm);
+		background: #003734;
+		border: 1px solid rgba(203, 255, 252, 0.18);
+		border-radius: var(--radius-small);
 		cursor: pointer;
 		padding: 8px;
 		transition: background var(--transition-fast);
@@ -496,7 +498,7 @@
 	}
 
 	.burger-btn:hover {
-		background: #e2e8f0;
+		background: #004d49;
 	}
 
 	@media (max-width: 1240px) {
@@ -507,8 +509,8 @@
 
 	.burger-btn span {
 		width: 100%;
-		height: 2.2px;
-		background-color: var(--primary-900);
+		height: 2px;
+		background-color: var(--color-platinum);
 		border-radius: 2px;
 		transition: all 0.3s ease;
 	}
@@ -529,9 +531,9 @@
 	.mobile-backdrop {
 		position: fixed;
 		inset: 0;
-		background: rgba(4, 13, 26, 0.55);
-		backdrop-filter: blur(4px);
-		-webkit-backdrop-filter: blur(4px);
+		background: rgba(1, 29, 28, 0.75);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 		z-index: 98;
 	}
 
@@ -540,9 +542,8 @@
 		top: 100%;
 		left: 0;
 		right: 0;
-		background: #ffffff;
-		border-bottom: 2px solid var(--border-light);
-		box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+		background: #011d1c;
+		border-bottom: 1px solid rgba(203, 255, 252, 0.15);
 		padding: 1.25rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0));
 		animation: slideDown 0.25s ease-out;
 		z-index: 99;
@@ -573,43 +574,43 @@
 		align-items: center;
 		justify-content: space-between;
 		padding-bottom: 0.8rem;
-		border-bottom: 1px solid var(--border-light);
+		border-bottom: 1px solid rgba(203, 255, 252, 0.1);
 		margin-bottom: 0.5rem;
 	}
 
 	.mobile-lang-label {
 		font-size: 0.82rem;
-		font-weight: 700;
-		color: var(--text-muted);
+		font-weight: 500;
+		color: var(--color-silver-mist);
 	}
 
 	.mobile-lang-btn {
-		background: #f1f5f9;
-		border-color: var(--border-light);
-		color: var(--text-body);
+		background: #003734;
+		border-color: rgba(203, 255, 252, 0.2);
+		color: var(--color-liquid-mist);
 		padding: 0.35rem 0.8rem;
 	}
 
 	.mobile-lang-btn .lang-opt.active {
-		color: var(--primary-800);
+		color: #cbfffc;
 	}
 
 	.mobile-nav-link {
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--text-title);
-		padding: 0.65rem 0.6rem;
-		border-radius: var(--radius-sm);
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
+		padding: 0.65rem 0.75rem;
+		border-radius: var(--radius-small);
 		text-decoration: none;
-		transition: background var(--transition-fast);
+		transition: background var(--transition-fast), color var(--transition-fast);
 	}
 
 	.mobile-nav-link:hover, .mobile-nav-link.active {
-		background: #f8fafc;
-		color: var(--primary-700);
+		background: #003734;
+		color: var(--color-platinum);
 	}
 
 	.m-icon {
@@ -623,7 +624,7 @@
 	.mobile-contacts-box {
 		margin-top: 1rem;
 		padding-top: 1rem;
-		border-top: 1px solid var(--border-light);
+		border-top: 1px solid rgba(203, 255, 252, 0.1);
 	}
 
 	.mobile-phones {
@@ -633,21 +634,21 @@
 	}
 
 	.mobile-phone {
-		font-weight: 700;
-		color: var(--primary-900);
+		font-weight: 600;
+		color: var(--color-platinum);
 		font-size: 1.1rem;
 		text-decoration: none;
 	}
 
 	.mobile-phone-sub {
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		font-size: 0.92rem;
 		text-decoration: none;
 	}
 
 	.mobile-hours {
 		margin-top: 0.6rem;
-		font-size: 0.85rem;
-		color: var(--text-muted);
+		font-size: 0.82rem;
+		color: #8e9e9d;
 	}
 </style>

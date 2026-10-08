@@ -141,15 +141,16 @@
 
 <style>
 	.agro-showcase-section {
-		background: #ffffff;
+		background: var(--color-liquid-abyss);
 		padding: 4.5rem 0;
 	}
 
 	.agro-showcase-box {
 		padding: clamp(2rem, 4vw, 3.2rem);
-		border: 1.5px solid var(--border-light);
-		border-radius: var(--radius-xl);
-		background: #ffffff;
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		background: var(--color-liquid-deep);
+		box-shadow: none;
 	}
 
 	.agro-showcase-header {
@@ -166,19 +167,19 @@
 	}
 
 	.kved-chip {
-		background: #f1f5f9;
-		color: var(--primary-900);
-		padding: 0.35rem 0.8rem;
-		border-radius: var(--radius-full);
-		font-size: 0.78rem;
-		font-weight: 700;
-		border: 1px solid var(--border-light);
+		background: rgba(237, 255, 254, 0.06);
+		color: var(--color-liquid-mist);
+		padding: 0.3rem 0.75rem;
+		border-radius: var(--radius-small);
+		font-size: 0.76rem;
+		font-weight: 500;
+		border: 1px solid rgba(203, 255, 252, 0.12);
 	}
 
 	.agro-p {
-		font-size: 1.05rem;
+		font-size: 1rem;
 		line-height: 1.65;
-		color: #475569;
+		color: var(--color-silver-mist);
 		margin-top: 1rem;
 	}
 
@@ -196,9 +197,10 @@
 	}
 
 	.glass-card-subtle {
-		background: #f8fafc;
-		border: 1px solid var(--border-light);
-		border-radius: var(--radius-md);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		box-shadow: none;
 	}
 
 	.hl-item {
@@ -206,13 +208,11 @@
 		align-items: flex-start;
 		gap: 1rem;
 		padding: 1.4rem 1.25rem;
-		transition: all var(--transition-fast);
+		transition: border-color var(--transition-fast);
 	}
 
 	.hl-item:hover {
-		transform: translateY(-2px);
-		border-color: var(--primary-600);
-		box-shadow: var(--shadow-sm);
+		border-color: rgba(203, 255, 252, 0.3);
 	}
 
 	.hl-icon {
@@ -222,20 +222,22 @@
 
 	.hl-item strong {
 		display: block;
-		font-size: 1.02rem;
-		color: var(--primary-950);
+		font-size: 1rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		margin-bottom: 0.3rem;
 	}
 
 	.hl-item p {
-		font-size: 0.86rem;
-		color: var(--text-muted);
+		font-size: 0.84rem;
+		color: var(--color-silver-mist);
 		line-height: 1.5;
 	}
 
 	/* Agro services list */
 	.agro-cards-section {
-		background: #f8fafc;
+		background: var(--color-liquid-deep);
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.agro-services-list {
@@ -245,12 +247,15 @@
 	}
 
 	.agro-srv-item {
-		padding: 2.5rem;
+		padding: 2.2rem;
 		display: grid;
 		grid-template-columns: 1.2fr 0.8fr;
 		gap: 2.5rem;
-		border: 1px solid var(--border-light);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
 		align-items: center;
+		box-shadow: none;
 	}
 
 	@media (max-width: 860px) {
@@ -282,41 +287,42 @@
 	}
 
 	.target-tag {
-		font-size: 0.78rem;
-		color: var(--text-muted);
-		background: #f1f5f9;
-		padding: 0.25rem 0.7rem;
-		border-radius: var(--radius-full);
-		font-weight: 600;
+		font-size: 0.74rem;
+		color: var(--color-liquid-mist);
+		background: rgba(237, 255, 254, 0.06);
+		padding: 0.2rem 0.65rem;
+		border-radius: var(--radius-small);
+		font-weight: 500;
+		border: 1px solid rgba(203, 255, 252, 0.1);
 	}
 
 	.badge-tag {
-		font-size: 0.75rem;
-		background: #fef3c7;
-		color: #92400e;
-		padding: 0.25rem 0.7rem;
-		border-radius: var(--radius-full);
-		font-weight: 700;
+		font-size: 0.74rem;
+		background: rgba(245, 158, 11, 0.15);
+		color: #fbbf24;
+		padding: 0.2rem 0.65rem;
+		border-radius: var(--radius-small);
+		font-weight: 600;
 	}
 
 	.agro-srv-item h3 {
-		font-size: 1.5rem;
-		font-weight: 800;
-		color: var(--primary-950);
-		margin-bottom: 0.6rem;
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: var(--color-platinum);
+		margin-bottom: 0.5rem;
 	}
 
 	.srv-short {
-		font-size: 0.98rem;
-		font-weight: 600;
-		color: var(--primary-800);
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: var(--color-liquid-mist);
 		margin-bottom: 0.8rem;
 	}
 
 	.srv-detailed {
-		font-size: 0.88rem;
+		font-size: 0.86rem;
 		line-height: 1.6;
-		color: #64748b;
+		color: var(--color-silver-mist);
 	}
 
 	.srv-perks {
@@ -324,10 +330,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
-		font-size: 0.88rem;
-		font-weight: 600;
-		color: #1e293b;
-		margin-bottom: 1.6rem;
+		font-size: 0.86rem;
+		font-weight: 500;
+		color: var(--color-silver-mist);
+		margin-bottom: 1.5rem;
 	}
 
 	.srv-bottom-action {
@@ -335,7 +341,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding-top: 1.2rem;
-		border-top: 1px solid var(--border-light);
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.srv-price-box {
@@ -345,15 +351,16 @@
 
 	.p-lbl {
 		font-size: 0.72rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		text-transform: uppercase;
-		font-weight: 700;
+		letter-spacing: 0.08em;
 	}
 
 	.p-val {
 		font-family: var(--font-heading);
 		font-size: 1.35rem;
-		font-weight: 800;
-		color: var(--primary-900);
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
+		letter-spacing: -0.02em;
 	}
 </style>

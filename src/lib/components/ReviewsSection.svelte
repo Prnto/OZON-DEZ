@@ -215,7 +215,7 @@
 			<div class="metric-divider"></div>
 			<div class="metric-block">
 				<div class="metric-icon">🏢</div>
-				<div class="metric-val">14+ років</div>
+				<div class="metric-val">15+ років</div>
 				<div class="metric-desc">Офіційний досвід із 2011 року</div>
 			</div>
 		</div>
@@ -306,9 +306,9 @@
 
 <style>
 	.reviews-section {
-		background: #ffffff;
-		border-top: 1px solid var(--border-light);
-		border-bottom: 1px solid var(--border-light);
+		background: var(--color-liquid-abyss);
+		border-top: 1px solid var(--border-subtle);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	.trust-metrics-strip {
@@ -316,8 +316,11 @@
 		grid-template-columns: 1fr auto 1fr auto 1fr;
 		align-items: center;
 		padding: 1.8rem 2.5rem;
-		border-radius: var(--radius-xl);
+		border-radius: var(--radius-cards);
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
 		margin-bottom: 2.5rem;
+		box-shadow: none;
 	}
 
 	@media (max-width: 768px) {
@@ -342,32 +345,33 @@
 	}
 
 	.stars-row {
-		color: #f59e0b;
-		font-size: 1.3rem;
+		color: #ffd166;
+		font-size: 1.2rem;
 		letter-spacing: 0.1em;
 	}
 
 	.metric-icon {
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 	}
 
 	.metric-val {
-		font-size: 1.6rem;
-		font-weight: 800;
-		color: #ffffff;
+		font-size: 1.7rem;
+		font-weight: 500;
+		color: var(--color-lavender-phosphor);
 		font-family: var(--font-heading);
+		letter-spacing: -0.03em;
 	}
 
 	.metric-desc {
-		font-size: 0.85rem;
-		color: #94a3b8;
+		font-size: 0.82rem;
+		color: var(--color-silver-mist);
 		max-width: 260px;
 	}
 
 	.metric-divider {
 		width: 1px;
-		height: 50px;
-		background: rgba(255, 255, 255, 0.15);
+		height: 44px;
+		background: rgba(203, 255, 252, 0.1);
 	}
 
 	/* Tabs */
@@ -375,41 +379,42 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.6rem;
+		gap: 0.55rem;
 		flex-wrap: wrap;
 		margin-bottom: 2.5rem;
 	}
 
 	.filter-tab-btn {
-		padding: 0.6rem 1.2rem;
-		min-height: 44px;
-		border-radius: var(--radius-full);
-		border: 1.5px solid var(--border-light);
-		background: #ffffff;
-		color: var(--text-body);
-		font-size: 0.9rem;
-		font-weight: 600;
+		padding: 0.55rem 1.15rem;
+		min-height: 40px;
+		border-radius: var(--radius-small);
+		border: 1px solid var(--border-subtle);
+		background: var(--color-liquid-kelp);
+		color: var(--color-silver-mist);
+		font-size: 0.86rem;
+		font-weight: 500;
 		cursor: pointer;
 		transition: all var(--transition-fast);
 	}
 
 	.filter-tab-btn:hover {
-		border-color: var(--primary-700);
-		color: var(--primary-900);
+		border-color: rgba(203, 255, 252, 0.35);
+		color: var(--color-platinum);
 	}
 
 	.filter-tab-btn.active {
-		background: var(--primary-900);
-		border-color: var(--primary-900);
-		color: #ffffff;
-		box-shadow: 0 4px 12px rgba(8, 26, 54, 0.2);
+		background: var(--gradient-aurora);
+		border-color: rgba(255, 255, 255, 0.6);
+		color: #02201e;
+		font-weight: 600;
+		box-shadow: none;
 	}
 
 	/* Grid */
 	.reviews-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.8rem;
+		gap: 1.5rem;
 		margin-bottom: 2.5rem;
 	}
 
@@ -430,13 +435,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-		border: 1px solid var(--border-light);
-		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+		background: var(--color-liquid-kelp);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-cards);
+		transition: transform var(--transition-fast), border-color var(--transition-fast);
+		box-shadow: none;
 	}
 
 	.review-card:hover {
-		transform: translateY(-4px);
-		box-shadow: var(--shadow-lg);
+		transform: translateY(-3px);
+		border-color: rgba(203, 255, 252, 0.28);
 	}
 
 	.review-card-top {
@@ -453,35 +461,36 @@
 	}
 
 	.author-avatar {
-		width: 44px;
-		height: 44px;
-		min-width: 44px;
+		width: 42px;
+		height: 42px;
+		min-width: 42px;
 		border-radius: 50%;
-		background: #e0ecfd;
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 1.3rem;
+		font-size: 1.25rem;
 	}
 
 	.author-name {
-		font-size: 1rem;
-		font-weight: 800;
-		color: var(--primary-950);
+		font-size: 0.98rem;
+		font-weight: 500;
+		color: var(--color-platinum);
 		line-height: 1.25;
 	}
 
 	.author-role {
 		font-size: 0.78rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
 		line-height: 1.35;
 		margin-top: 0.15rem;
 	}
 
 	.author-city {
 		font-size: 0.74rem;
-		color: #00876c;
-		font-weight: 700;
+		color: var(--color-liquid-mist);
+		font-weight: 500;
 		margin-top: 0.2rem;
 	}
 
@@ -489,41 +498,48 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
-		gap: 0.2rem;
+		gap: 0.25rem;
 	}
 
 	.stars {
-		color: #f59e0b;
+		color: #ffd166;
 		font-size: 0.95rem;
 		letter-spacing: 0.08em;
 	}
 
 	.verified-tag {
 		font-size: 0.68rem;
-		font-weight: 700;
-		color: #059669;
-		background: rgba(16, 185, 129, 0.12);
+		font-weight: 600;
+		color: var(--color-liquid-mist);
+		background: rgba(0, 130, 124, 0.25);
+		border: 1px solid rgba(203, 255, 252, 0.15);
 		padding: 0.15rem 0.5rem;
-		border-radius: var(--radius-full);
+		border-radius: var(--radius-small);
 		white-space: nowrap;
 	}
 
 	.review-service-pill {
-		font-size: 0.8rem;
-		background: #f1f5f9;
+		font-size: 0.78rem;
+		background: var(--color-liquid-deep);
+		border: 1px solid var(--border-subtle);
 		padding: 0.4rem 0.75rem;
-		border-radius: var(--radius-sm);
-		color: var(--text-body);
+		border-radius: var(--radius-small);
+		color: var(--color-silver-mist);
 		line-height: 1.4;
 	}
 
 	.review-service-pill span {
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
+		opacity: 0.75;
+	}
+
+	.review-service-pill strong {
+		color: var(--color-platinum);
 	}
 
 	.review-quote {
-		font-size: 0.92rem;
-		color: var(--text-body);
+		font-size: 0.9rem;
+		color: var(--color-silver-mist);
 		line-height: 1.6;
 		font-style: italic;
 		flex: 1;
@@ -534,16 +550,17 @@
 		justify-content: space-between;
 		align-items: center;
 		padding-top: 0.8rem;
-		border-top: 1px dashed var(--border-light);
+		border-top: 1px dashed rgba(203, 255, 252, 0.1);
 		font-size: 0.76rem;
-		color: var(--text-muted);
+		color: var(--color-silver-mist);
+		opacity: 0.85;
 		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 
 	.review-contract-note {
-		color: #00876c;
-		font-weight: 600;
+		color: var(--color-liquid-mist);
+		font-weight: 500;
 	}
 
 	.reviews-action-center {
