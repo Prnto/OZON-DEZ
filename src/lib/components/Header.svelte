@@ -15,7 +15,12 @@
 
 	function isActive(route: string) {
 		if (route === '/') {
-			return currentPath === '/' || currentPath === '' || currentPath.endsWith('/OZON-DEZ/') || currentPath.endsWith('/OZON-DEZ');
+			return (
+				currentPath === '/' ||
+				currentPath === '' ||
+				currentPath.endsWith('/OZON-DEZ/') ||
+				currentPath.endsWith('/OZON-DEZ')
+			);
 		}
 		return currentPath.includes(route);
 	}
@@ -36,7 +41,7 @@
 <svelte:window onscroll={handleScroll} />
 
 <header class="header-wrapper" class:scrolled={isScrolled}>
-	<!-- Top Utility Bar: Address, Hours, Phones, Language -->
+	<!-- Top Utility Bar: Address, Hours, Phones, Theme Switcher, Language -->
 	<div class="top-bar">
 		<div class="top-bar-container">
 			<div class="top-bar-left">
@@ -64,33 +69,53 @@
 					<span>{currentContent.phones.mobileDisplay}</span>
 				</a>
 				<span class="top-bar-divider">|</span>
-				<!-- Theme Switcher (Dark / Light) -->
-				<button
-					type="button"
-					class="theme-toggle-btn"
-					onclick={() => themeState.toggle()}
-					title={themeState.current === 'dark' ? 'Увімкнути світлу тему' : 'Увімкнути темну тему'}
-				>
-					{#if themeState.current === 'dark'}
-						<span class="theme-icon">☀️</span>
-						<span class="theme-label">{#if langState.current === 'ua'}Світла{:else}Светлая{/if}</span>
-					{:else}
+
+				<!-- Explicit Dual Theme Switcher (Dark / Light) -->
+				<div class="theme-segmented-ctrl" role="group" aria-label="Тема сайту">
+					<button
+						type="button"
+						class="theme-segment-btn"
+						class:active={themeState.current === 'dark'}
+						onclick={() => themeState.setTheme('dark')}
+						title="Темна тема"
+					>
 						<span class="theme-icon">🌙</span>
 						<span class="theme-label">{#if langState.current === 'ua'}Темна{:else}Темная{/if}</span>
-					{/if}
-				</button>
+					</button>
+					<button
+						type="button"
+						class="theme-segment-btn"
+						class:active={themeState.current === 'light'}
+						onclick={() => themeState.setTheme('light')}
+						title="Світла тема"
+					>
+						<span class="theme-icon">☀️</span>
+						<span class="theme-label">{#if langState.current === 'ua'}Світла{:else}Светлая{/if}</span>
+					</button>
+				</div>
+
 				<span class="top-bar-divider">|</span>
+
 				<!-- Language Switcher -->
-				<button
-					type="button"
-					class="lang-toggle-btn"
-					onclick={() => langState.toggle()}
-					title="Переключити мову / Переключить язык"
-				>
-					<span class="lang-opt" class:active={langState.current === 'ua'}>UA</span>
+				<div class="lang-segmented-ctrl" role="group" aria-label="Мова сайту">
+					<button
+						type="button"
+						class="lang-segment-btn"
+						class:active={langState.current === 'ua'}
+						onclick={() => langState.setLang('ua')}
+					>
+						UA
+					</button>
 					<span class="lang-divider">/</span>
-					<span class="lang-opt" class:active={langState.current === 'ru'}>RU</span>
-				</button>
+					<button
+						type="button"
+						class="lang-segment-btn"
+						class:active={langState.current === 'ru'}
+						onclick={() => langState.setLang('ru')}
+					>
+						RU
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -99,34 +124,46 @@
 	<div class="main-bar">
 		<div class="main-bar-container">
 			<div class="logo-box">
-				<Logo variant="light" />
+				<Logo variant={themeState.current === 'dark' ? 'light' : 'dark'} />
 			</div>
 
-			<!-- Desktop Navigation Links to Separate Pages -->
-			<nav class="nav-links">
-				<a href={resolve('/services')} class="nav-link" class:active={isActive('/services')}>
-					{#if langState.current === 'ua'}Послуги{:else}Услуги{/if}
+			<!-- Top Tapbar: Complete list of all 9 items with icons directly visible and tap-friendly -->
+			<nav class="top-tapbar" aria-label="Головна навігація">
+				<a href={resolve('/')} class="tapbar-btn" class:active={isActive('/')}>
+					<span class="tap-icon">🏠</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Головна{:else}Главная{/if}</span>
 				</a>
-				<a href={resolve('/ozone')} class="nav-link" class:active={isActive('/ozone')}>
-					{#if langState.current === 'ua'}Озонування{:else}Озонирование{/if}
+				<a href={resolve('/services')} class="tapbar-btn" class:active={isActive('/services')}>
+					<span class="tap-icon">🧹</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Послуги{:else}Услуги{/if}</span>
 				</a>
-				<a href={resolve('/b2b')} class="nav-link" class:active={isActive('/b2b')}>
-					HACCP
+				<a href={resolve('/ozone')} class="tapbar-btn" class:active={isActive('/ozone')}>
+					<span class="tap-icon">💨</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Озонування O₃{:else}Озонирование O₃{/if}</span>
 				</a>
-				<a href={resolve('/agro')} class="nav-link" class:active={isActive('/agro')}>
-					{#if langState.current === 'ua'}Агро{:else}Агро{/if}
+				<a href={resolve('/b2b')} class="tapbar-btn" class:active={isActive('/b2b')}>
+					<span class="tap-icon">🏢</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Бізнесу & HACCP{:else}Бизнесу & HACCP{/if}</span>
 				</a>
-				<a href={resolve('/water')} class="nav-link" class:active={isActive('/water')}>
-					{#if langState.current === 'ua'}Вода{:else}Вода{/if}
+				<a href={resolve('/agro')} class="tapbar-btn" class:active={isActive('/agro')}>
+					<span class="tap-icon">🌾</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Агросектор{:else}Агросектор{/if}</span>
 				</a>
-				<a href={resolve('/how-we-work')} class="nav-link" class:active={isActive('/how-we-work')}>
-					{#if langState.current === 'ua'}Як працюємо{:else}Как работаем{/if}
+				<a href={resolve('/water')} class="tapbar-btn" class:active={isActive('/water')}>
+					<span class="tap-icon">💧</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Очистка води{:else}Очистка воды{/if}</span>
 				</a>
-				<a href={resolve('/calculator')} class="nav-link" class:active={isActive('/calculator')}>
-					{#if langState.current === 'ua'}Калькулятор{:else}Калькулятор{/if}
+				<a href={resolve('/how-we-work')} class="tapbar-btn" class:active={isActive('/how-we-work')}>
+					<span class="tap-icon">⚙️</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Як працюємо{:else}Как работаем{/if}</span>
 				</a>
-				<a href={resolve('/contacts')} class="nav-link" class:active={isActive('/contacts')}>
-					{#if langState.current === 'ua'}Контакти{:else}Контакты{/if}
+				<a href={resolve('/calculator')} class="tapbar-btn" class:active={isActive('/calculator')}>
+					<span class="tap-icon">🧮</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Калькулятор{:else}Калькулятор{/if}</span>
+				</a>
+				<a href={resolve('/contacts')} class="tapbar-btn" class:active={isActive('/contacts')}>
+					<span class="tap-icon">📍</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Контакти{:else}Контакты{/if}</span>
 				</a>
 			</nav>
 
@@ -142,13 +179,13 @@
 					<span class="cta-short-label">⚡ {#if langState.current === 'ua'}Замовити{:else}Заказать{/if}</span>
 				</button>
 
-				<!-- Mobile Hamburger Toggle -->
+				<!-- Hamburger Toggle for Mobile Quick Call & Info -->
 				<button
 					type="button"
 					class="burger-btn"
 					class:open={isMobileMenuOpen}
 					onclick={toggleMobileMenu}
-					aria-label="Меню"
+					aria-label="Меню контактів"
 				>
 					<span></span>
 					<span></span>
@@ -166,30 +203,47 @@
 				<div class="mobile-controls-row">
 					<div class="mobile-lang-row">
 						<span class="mobile-lang-label">Мова:</span>
-						<button
-							type="button"
-							class="lang-toggle-btn mobile-lang-btn"
-							onclick={() => langState.toggle()}
-						>
-							<span class="lang-opt" class:active={langState.current === 'ua'}>UA</span>
+						<div class="lang-segmented-ctrl">
+							<button
+								type="button"
+								class="lang-segment-btn"
+								class:active={langState.current === 'ua'}
+								onclick={() => langState.setLang('ua')}
+							>
+								UA
+							</button>
 							<span class="lang-divider">/</span>
-							<span class="lang-opt" class:active={langState.current === 'ru'}>RU</span>
-						</button>
+							<button
+								type="button"
+								class="lang-segment-btn"
+								class:active={langState.current === 'ru'}
+								onclick={() => langState.setLang('ru')}
+							>
+								RU
+							</button>
+						</div>
 					</div>
 
 					<div class="mobile-theme-row">
 						<span class="mobile-lang-label">Тема:</span>
-						<button
-							type="button"
-							class="theme-toggle-btn mobile-theme-btn"
-							onclick={() => themeState.toggle()}
-						>
-							{#if themeState.current === 'dark'}
-								<span>☀️ Світла</span>
-							{:else}
-								<span>🌙 Темна</span>
-							{/if}
-						</button>
+						<div class="theme-segmented-ctrl">
+							<button
+								type="button"
+								class="theme-segment-btn"
+								class:active={themeState.current === 'dark'}
+								onclick={() => themeState.setTheme('dark')}
+							>
+								🌙 Темна
+							</button>
+							<button
+								type="button"
+								class="theme-segment-btn"
+								class:active={themeState.current === 'light'}
+								onclick={() => themeState.setTheme('light')}
+							>
+								☀️ Світла
+							</button>
+						</div>
 					</div>
 				</div>
 
@@ -270,12 +324,22 @@
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
 		border-bottom: 1px solid var(--color-void-border);
-		transition: all var(--transition-norm);
+		transition: background var(--transition-norm), border-color var(--transition-norm);
 		padding-top: env(safe-area-inset-top, 0);
 	}
 
+	:global(html[data-theme="light"]) .header-wrapper {
+		background: rgba(255, 255, 255, 0.94);
+		border-bottom-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+	}
+
 	.header-wrapper.scrolled {
-		border-bottom-color: rgba(255, 255, 255, 0.12);
+		border-bottom-color: rgba(255, 255, 255, 0.14);
+	}
+
+	:global(html[data-theme="light"]) .header-wrapper.scrolled {
+		border-bottom-color: rgba(15, 23, 42, 0.12);
 	}
 
 	/* Top Utility Bar */
@@ -284,6 +348,13 @@
 		color: var(--color-ash-gray);
 		font-size: 0.76rem;
 		border-bottom: 1px solid var(--color-void-border);
+		transition: background var(--transition-norm), border-color var(--transition-norm);
+	}
+
+	:global(html[data-theme="light"]) .top-bar {
+		background: #ffffff;
+		color: #64748b;
+		border-bottom-color: rgba(15, 23, 42, 0.08);
 	}
 
 	.top-bar-container {
@@ -293,17 +364,18 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 
-	.top-bar-left, .top-bar-right {
+	.top-bar-left,
+	.top-bar-right {
 		display: flex;
 		align-items: center;
-		gap: 0.9rem;
+		gap: 0.8rem;
 		white-space: nowrap;
 	}
 
-	@media (max-width: 860px) {
+	@media (max-width: 920px) {
 		.top-bar-left {
 			display: none;
 		}
@@ -314,15 +386,15 @@
 
 	@media (max-width: 480px) {
 		.top-bar-container {
-			padding: 0.3rem 0.75rem;
-			gap: 0.5rem;
+			padding: 0.3rem 0.65rem;
+			gap: 0.4rem;
 		}
 		.top-phone-link {
-			font-size: 0.76rem;
-			gap: 0.25rem;
+			font-size: 0.72rem;
+			gap: 0.2rem;
 		}
 		.top-bar-right {
-			gap: 0.5rem;
+			gap: 0.4rem;
 		}
 	}
 
@@ -339,6 +411,10 @@
 	.top-bar-divider {
 		color: rgba(255, 255, 255, 0.15);
 		font-size: 0.75rem;
+	}
+
+	:global(html[data-theme="light"]) .top-bar-divider {
+		color: rgba(15, 23, 42, 0.12);
 	}
 
 	.top-phone-link {
@@ -358,6 +434,15 @@
 	.top-phone-link.highlight {
 		color: var(--color-bone-white);
 		font-weight: 600;
+	}
+
+	:global(html[data-theme="light"]) .top-phone-link {
+		color: #334155;
+	}
+
+	:global(html[data-theme="light"]) .top-phone-link:hover,
+	:global(html[data-theme="light"]) .top-phone-link.highlight {
+		color: #0f172a;
 	}
 
 	.phone-pulse-dot {
@@ -385,27 +470,114 @@
 		}
 	}
 
-	.lang-toggle-btn {
+	/* Explicit Dual Theme Segmented Control */
+	.theme-segmented-ctrl {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.25rem;
-		padding: 0.2rem 0.6rem;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: var(--radius-full);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		background: rgba(255, 255, 255, 0.05);
-		cursor: pointer;
-		font-size: 0.72rem;
-		font-weight: 600;
-		color: var(--color-ash-gray);
-		transition: all var(--transition-fast);
+		padding: 2px;
+		gap: 2px;
 	}
 
-	.lang-toggle-btn:hover {
-		background: rgba(255, 255, 255, 0.12);
+	:global(html[data-theme="light"]) .theme-segmented-ctrl {
+		background: rgba(15, 23, 42, 0.05);
+		border-color: rgba(15, 23, 42, 0.12);
+	}
+
+	.theme-segment-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.18rem 0.55rem;
+		border-radius: var(--radius-full);
+		border: none;
+		background: transparent;
+		color: var(--color-ash-gray);
+		font-size: 0.72rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		white-space: nowrap;
+	}
+
+	.theme-segment-btn:hover {
 		color: var(--color-bone-white);
 	}
 
-	.lang-opt.active {
+	.theme-segment-btn.active {
+		background: var(--color-electric-iris);
+		color: #ffffff;
+		box-shadow: 0 1px 4px rgba(128, 82, 255, 0.4);
+	}
+
+	:global(html[data-theme="light"]) .theme-segment-btn {
+		color: #64748b;
+	}
+
+	:global(html[data-theme="light"]) .theme-segment-btn:hover {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .theme-segment-btn.active {
+		background: var(--color-electric-iris);
+		color: #ffffff;
+		box-shadow: 0 1px 4px rgba(109, 62, 247, 0.3);
+	}
+
+	.theme-icon {
+		font-size: 0.72rem;
+		line-height: 1;
+	}
+
+	.theme-label {
+		font-size: 0.7rem;
+		letter-spacing: 0.02em;
+	}
+
+	/* Language Segmented Control */
+	.lang-segmented-ctrl {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.2rem;
+		padding: 0.18rem 0.55rem;
+		border-radius: var(--radius-full);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		background: rgba(255, 255, 255, 0.05);
+		font-size: 0.72rem;
+		font-weight: 600;
+	}
+
+	:global(html[data-theme="light"]) .lang-segmented-ctrl {
+		border-color: rgba(15, 23, 42, 0.12);
+		background: rgba(15, 23, 42, 0.05);
+	}
+
+	.lang-segment-btn {
+		border: none;
+		background: transparent;
+		color: var(--color-ash-gray);
+		cursor: pointer;
+		font-size: 0.72rem;
+		font-weight: 600;
+		padding: 0 0.1rem;
+		transition: color var(--transition-fast);
+	}
+
+	.lang-segment-btn:hover {
+		color: var(--color-bone-white);
+	}
+
+	:global(html[data-theme="light"]) .lang-segment-btn {
+		color: #64748b;
+	}
+
+	:global(html[data-theme="light"]) .lang-segment-btn:hover {
+		color: #0f172a;
+	}
+
+	.lang-segment-btn.active {
 		color: var(--color-saffron-spark);
 		font-weight: 700;
 	}
@@ -415,48 +587,8 @@
 		font-size: 0.7rem;
 	}
 
-	/* Theme Toggle in Top Bar */
-	.theme-toggle-btn {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		padding: 0.2rem 0.65rem;
-		border-radius: var(--radius-full);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		background: rgba(255, 255, 255, 0.05);
-		cursor: pointer;
-		font-size: 0.72rem;
-		font-weight: 600;
-		color: var(--color-silver-mist);
-		transition: all var(--transition-fast);
-	}
-
-	:global(html[data-theme="light"]) .theme-toggle-btn {
-		border-color: rgba(15, 23, 42, 0.12);
-		background: rgba(15, 23, 42, 0.04);
-		color: var(--color-ash-gray);
-	}
-
-	.theme-toggle-btn:hover {
-		background: rgba(255, 255, 255, 0.12);
-		color: var(--color-bone-white);
-		border-color: var(--color-electric-iris);
-	}
-
-	:global(html[data-theme="light"]) .theme-toggle-btn:hover {
-		background: rgba(15, 23, 42, 0.08);
-		color: var(--color-bone-white);
-	}
-
-	.theme-icon {
-		font-size: 0.75rem;
-		line-height: 1;
-	}
-
-	.theme-label {
-		font-size: 0.72rem;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
+	:global(html[data-theme="light"]) .lang-divider {
+		color: rgba(15, 23, 42, 0.2);
 	}
 
 	/* Main Navigation Bar */
@@ -467,69 +599,119 @@
 	.main-bar-container {
 		max-width: var(--container-width);
 		margin: 0 auto;
-		padding: 0.75rem clamp(0.75rem, 2vw, 1.5rem);
+		padding: 0.65rem clamp(0.75rem, 2vw, 1.5rem);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 0.8rem;
 		position: relative;
 	}
 
 	.logo-box {
 		flex-shrink: 0;
 		z-index: 5;
-		margin-right: 1rem;
 	}
 
-	/* Nav Links */
-	.nav-links {
+	/* Top Tapbar: Horizontal, Always Accessible */
+	.top-tapbar {
 		display: flex;
 		align-items: center;
-		gap: clamp(0.2rem, 0.6vw, 0.8rem);
+		gap: 0.3rem;
 		flex: 1;
-		justify-content: flex-end;
-		margin: 0 1rem;
+		justify-content: center;
 		min-width: 0;
+		overflow-x: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		-webkit-overflow-scrolling: touch;
+		padding: 0.25rem 0.35rem;
+		border-radius: var(--radius-buttons);
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid var(--color-void-border);
 	}
 
-	@media (max-width: 1280px) {
-		.nav-links {
-			display: none;
-		}
+	.top-tapbar::-webkit-scrollbar {
+		display: none;
 	}
 
-	.nav-link {
+	:global(html[data-theme="light"]) .top-tapbar {
+		background: rgba(15, 23, 42, 0.03);
+		border-color: rgba(15, 23, 42, 0.08);
+	}
+
+	.tapbar-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.42rem 0.7rem;
+		border-radius: var(--radius-buttons);
 		font-size: 13px;
 		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.025em;
-		color: var(--color-ash-gray);
+		letter-spacing: 0.015em;
+		color: var(--color-silver-mist);
 		white-space: nowrap;
 		flex-shrink: 0;
-		padding: 0.4rem clamp(0.35rem, 0.5vw, 0.7rem);
-		border-radius: var(--radius-buttons);
-		transition: all var(--transition-fast);
 		text-decoration: none;
-		position: relative;
+		transition: all var(--transition-fast);
+		border: 1px solid transparent;
+		background: transparent;
 	}
 
-	.nav-link:hover {
+	.tap-icon {
+		font-size: 14px;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+
+	.tapbar-btn:hover {
 		color: var(--color-bone-white);
+		background: rgba(255, 255, 255, 0.08);
+		transform: translateY(-1px);
 	}
 
-	.nav-link.active {
-		color: var(--color-bone-white);
-		font-weight: 600;
+	:global(html[data-theme="light"]) .tapbar-btn {
+		color: #475569;
 	}
 
-	.nav-link.active::after {
-		content: '';
-		position: absolute;
-		bottom: 0px;
-		left: 20%;
-		right: 20%;
-		height: 2px;
+	:global(html[data-theme="light"]) .tapbar-btn:hover {
+		color: #0f172a;
+		background: rgba(15, 23, 42, 0.06);
+	}
+
+	.tapbar-btn.active {
 		background: var(--color-electric-iris);
-		border-radius: 2px;
+		color: #ffffff;
+		font-weight: 600;
+		border-color: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 2px 8px rgba(128, 82, 255, 0.35);
+	}
+
+	:global(html[data-theme="light"]) .tapbar-btn.active {
+		background: var(--color-electric-iris);
+		color: #ffffff;
+		border-color: var(--color-electric-iris);
+		box-shadow: 0 2px 8px rgba(109, 62, 247, 0.28);
+	}
+
+	/* Responsive Tapbar Flow */
+	@media (max-width: 1040px) {
+		.main-bar-container {
+			flex-wrap: wrap;
+			padding-bottom: 0.6rem;
+		}
+
+		.top-tapbar {
+			order: 3;
+			width: 100%;
+			flex: 1 1 100%;
+			margin: 0.4rem 0 0;
+			justify-content: flex-start;
+			padding: 0.35rem 0.45rem;
+		}
+
+		.burger-btn {
+			display: flex;
+		}
 	}
 
 	.main-bar-actions {
@@ -562,7 +744,7 @@
 		display: none;
 	}
 
-	@media (max-width: 1400px) {
+	@media (max-width: 1200px) {
 		.cta-full-label {
 			display: none;
 		}
@@ -571,24 +753,24 @@
 		}
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 520px) {
 		.main-cta-btn {
 			display: none;
 		}
 	}
 
-	/* Hamburger Button */
+	/* Hamburger Button for Mobile Drawer */
 	.burger-btn {
 		display: none;
 		flex-direction: column;
 		justify-content: space-around;
-		width: 40px;
-		height: 40px;
+		width: 38px;
+		height: 38px;
 		background: #0d0d0d;
 		border: 1px solid var(--color-void-border);
 		border-radius: var(--radius-buttons);
 		cursor: pointer;
-		padding: 9px;
+		padding: 8px;
 		transition: background var(--transition-fast);
 		touch-action: manipulation;
 	}
@@ -608,18 +790,16 @@
 		border-color: rgba(15, 23, 42, 0.25);
 	}
 
-	@media (max-width: 1280px) {
-		.burger-btn {
-			display: flex;
-		}
-	}
-
 	.burger-btn span {
 		width: 100%;
 		height: 2px;
 		background-color: var(--color-bone-white);
 		border-radius: 2px;
 		transition: all 0.3s ease;
+	}
+
+	:global(html[data-theme="light"]) .burger-btn span {
+		background-color: #0f172a;
 	}
 
 	.burger-btn.open span:nth-child(1) {
@@ -634,27 +814,6 @@
 		transform: translateY(-7px) rotate(-45deg);
 	}
 
-	.mobile-controls-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 0.8rem;
-		padding-bottom: 1.2rem;
-		margin-bottom: 1.2rem;
-		border-bottom: 1px solid var(--border-subtle);
-		flex-wrap: wrap;
-	}
-
-	.mobile-theme-row, .mobile-lang-row {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.mobile-theme-btn {
-		padding: 0.35rem 0.85rem;
-	}
-
 	/* Mobile Drawer */
 	.mobile-backdrop {
 		position: fixed;
@@ -663,6 +822,10 @@
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		z-index: 98;
+	}
+
+	:global(html[data-theme="light"]) .mobile-backdrop {
+		background: rgba(15, 23, 42, 0.4);
 	}
 
 	.mobile-drawer {
@@ -678,6 +841,12 @@
 		max-height: calc(100vh - 85px);
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
+	}
+
+	:global(html[data-theme="light"]) .mobile-drawer {
+		background: #ffffff;
+		border-bottom-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
 	}
 
 	@keyframes slideDown {
@@ -697,30 +866,32 @@
 		gap: 0.5rem;
 	}
 
-	.mobile-lang-row {
+	.mobile-controls-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-bottom: 0.8rem;
-		border-bottom: 1px solid var(--color-void-border);
-		margin-bottom: 0.5rem;
+		gap: 0.8rem;
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid var(--border-subtle);
+		flex-wrap: wrap;
+	}
+
+	.mobile-theme-row,
+	.mobile-lang-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
 	.mobile-lang-label {
 		font-size: 0.82rem;
-		font-weight: 400;
+		font-weight: 500;
 		color: var(--color-ash-gray);
 	}
 
-	.mobile-lang-btn {
-		background: #141414;
-		border-color: rgba(255, 255, 255, 0.15);
-		color: var(--color-bone-white);
-		padding: 0.35rem 0.8rem;
-	}
-
-	.mobile-lang-btn .lang-opt.active {
-		color: var(--color-saffron-spark);
+	:global(html[data-theme="light"]) .mobile-lang-label {
+		color: #64748b;
 	}
 
 	.mobile-nav-link {
@@ -736,9 +907,20 @@
 		transition: background var(--transition-fast), color var(--transition-fast);
 	}
 
-	.mobile-nav-link:hover, .mobile-nav-link.active {
+	:global(html[data-theme="light"]) .mobile-nav-link {
+		color: #334155;
+	}
+
+	.mobile-nav-link:hover,
+	.mobile-nav-link.active {
 		background: #141414;
 		color: var(--color-bone-white);
+	}
+
+	:global(html[data-theme="light"]) .mobile-nav-link:hover,
+	:global(html[data-theme="light"]) .mobile-nav-link.active {
+		background: #f1f5f9;
+		color: #0f172a;
 	}
 
 	.m-icon {
@@ -755,6 +937,10 @@
 		border-top: 1px solid var(--color-void-border);
 	}
 
+	:global(html[data-theme="light"]) .mobile-contacts-box {
+		border-top-color: rgba(15, 23, 42, 0.08);
+	}
+
 	.mobile-phones {
 		display: flex;
 		flex-direction: column;
@@ -768,15 +954,27 @@
 		text-decoration: none;
 	}
 
+	:global(html[data-theme="light"]) .mobile-phone {
+		color: #0f172a;
+	}
+
 	.mobile-phone-sub {
 		color: var(--color-ash-gray);
 		font-size: 0.92rem;
 		text-decoration: none;
 	}
 
+	:global(html[data-theme="light"]) .mobile-phone-sub {
+		color: #64748b;
+	}
+
 	.mobile-hours {
 		margin-top: 0.6rem;
 		font-size: 0.82rem;
 		color: var(--color-ash-gray);
+	}
+
+	:global(html[data-theme="light"]) .mobile-hours {
+		color: #64748b;
 	}
 </style>

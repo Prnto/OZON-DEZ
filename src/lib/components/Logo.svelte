@@ -16,7 +16,7 @@
 	<div class="logo-icon">
 		<svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<!-- Geometric Sharp-Edged Shield from Design_2.md -->
-			<rect width="44" height="44" rx="12" fill="#090909" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+			<rect class="logo-shield-rect" width="44" height="44" rx="12" fill="#090909" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
 			<!-- Triangular Core Particle in #8052ff -> #15846e -->
 			<path
 				d="M22 10L33 29H11L22 10Z"
@@ -75,6 +75,17 @@
 		width: 100%;
 		height: 100%;
 		display: block;
+	}
+
+	.logo-shield-rect {
+		fill: #090909;
+		stroke: rgba(255, 255, 255, 0.1);
+		transition: fill var(--transition-fast), stroke var(--transition-fast);
+	}
+
+	:global(html[data-theme="light"]) .logo-shield-rect {
+		fill: #ffffff;
+		stroke: rgba(15, 23, 42, 0.12);
 	}
 
 	.logo-text {

@@ -524,12 +524,22 @@
 
 	.review-service-pill {
 		font-size: 0.78rem;
-		background: #040404;
+		background: var(--color-surface-hover);
 		border: 1px solid var(--color-void-border);
 		padding: 0.45rem 0.8rem;
 		border-radius: var(--radius-tags);
 		color: var(--color-silver-mist);
 		line-height: 1.4;
+	}
+
+	:global(html[data-theme="light"]) .review-service-pill {
+		background: #f1f5f9;
+		border-color: rgba(15, 23, 42, 0.08);
+		color: #334155;
+	}
+
+	:global(html[data-theme="light"]) .review-card {
+		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 	}
 
 	.review-service-pill span {

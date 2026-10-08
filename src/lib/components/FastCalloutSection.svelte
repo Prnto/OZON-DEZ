@@ -367,4 +367,23 @@
 		color: var(--color-silver-mist);
 		line-height: 1.5;
 	}
+
+	:global(html[data-theme="light"]) .f-input {
+		background: #ffffff;
+		border-color: rgba(15, 23, 42, 0.15);
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .f-input::placeholder {
+		color: #94a3b8;
+	}
+
+	:global(html[data-theme="light"]) .callout-success-box {
+		background: #ffffff;
+		border-color: rgba(15, 23, 42, 0.1);
+	}
+
+	:global(html[data-theme="light"]) .callout-card {
+		box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+	}
 </style>

@@ -361,4 +361,33 @@
 			height: 380px;
 		}
 	}
+
+	/* Light Mode Adjustments */
+	:global(html[data-theme="light"]) .hero-title-accent {
+		color: #6d3ef7;
+	}
+
+	:global(html[data-theme="light"]) .constellation-badge {
+		background: #ffffff;
+		color: #0f172a;
+		border-color: rgba(15, 23, 42, 0.1);
+		box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+	}
+
+	:global(html[data-theme="light"]) .constellation-frame {
+		background: radial-gradient(circle at center, #f8fafc 0%, #ffffff 70%);
+		border-color: rgba(15, 23, 42, 0.08);
+	}
+
+	:global(html[data-theme="light"]) .pain-chip {
+		background: #ffffff;
+		border-color: rgba(15, 23, 42, 0.1);
+		color: #334155;
+	}
+
+	:global(html[data-theme="light"]) .pain-chip:hover {
+		background: #f1f5f9;
+		border-color: var(--color-saffron-spark);
+		color: #0f172a;
+	}
 </style>

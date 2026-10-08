@@ -696,10 +696,25 @@
 	}
 
 	.calc-form-box {
-		background: #040404;
+		background: var(--color-surface-hover);
 		border: 1px solid var(--color-void-border);
 		border-radius: var(--radius-small);
 		padding: 1.4rem;
+	}
+
+	:global(html[data-theme="light"]) .calc-form-box {
+		background: #f8fafc;
+		border-color: rgba(15, 23, 42, 0.08);
+	}
+
+	:global(html[data-theme="light"]) .obj-btn:hover,
+	:global(html[data-theme="light"]) .srv-btn:hover {
+		border-color: rgba(15, 23, 42, 0.25);
+		background: #f1f5f9;
+	}
+
+	:global(html[data-theme="light"]) .calc-result-card {
+		box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
 	}
 
 	.form-title {

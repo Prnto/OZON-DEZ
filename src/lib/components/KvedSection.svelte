@@ -151,4 +151,15 @@
 		color: var(--color-bone-white);
 		font-weight: 500;
 	}
+
+	:global(html[data-theme="light"]) .kved-code-tag {
+		background: rgba(15, 23, 42, 0.05);
+		border-color: rgba(15, 23, 42, 0.1);
+		color: #334155;
+	}
+
+	:global(html[data-theme="light"]) .kved-card,
+	:global(html[data-theme="light"]) .legal-guarantee-bar {
+		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+	}
 </style>

@@ -45,6 +45,10 @@ export const langState = {
 		currentLang = val;
 		persistLang(val);
 	},
+	setLang(val: 'ru' | 'ua') {
+		currentLang = val;
+		persistLang(val);
+	},
 	toggle() {
 		currentLang = currentLang === 'ua' ? 'ru' : 'ua';
 		persistLang(currentLang);

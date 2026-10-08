@@ -395,4 +395,30 @@
 		font-size: 0.85rem;
 		color: var(--color-ash-gray);
 	}
+
+	:global(html[data-theme="light"]) .modal-backdrop {
+		background: rgba(15, 23, 42, 0.45);
+	}
+
+	:global(html[data-theme="light"]) .modal-dialog {
+		background: #ffffff;
+		border-color: rgba(15, 23, 42, 0.12);
+		box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.2);
+	}
+
+	:global(html[data-theme="light"]) .m-input {
+		background: #f8fafc;
+		border-color: rgba(15, 23, 42, 0.12);
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .m-input:focus {
+		background: #ffffff;
+		border-color: var(--color-electric-iris);
+	}
+
+	:global(html[data-theme="light"]) .direct-call-box {
+		background: #f8fafc;
+		border-color: rgba(15, 23, 42, 0.08);
+	}
 </style>

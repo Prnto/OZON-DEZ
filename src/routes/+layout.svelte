@@ -21,7 +21,7 @@
 			url: 'https://prnto.github.io/OZON-DEZ/',
 			telephone: currentContent.phones.mobile,
 			priceRange: '₴₴',
-			image: 'https://prnto.github.io/OZON-DEZ/images/hero-doctor.jpg',
+			image: 'https://prnto.github.io/OZON-DEZ/images/ozone-bg.jpg',
 			address: {
 				'@type': 'PostalAddress',
 				streetAddress: 'проспект Миру, 8А',

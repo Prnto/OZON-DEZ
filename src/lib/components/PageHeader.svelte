@@ -79,9 +79,8 @@
 		object-fit: cover;
 		object-position: center 30%;
 		display: block;
-		opacity: 0.25;
-		filter: brightness(0.6) contrast(1.1);
-		mix-blend-mode: luminosity;
+		opacity: 0.85;
+		filter: contrast(1.05) saturate(1.05);
 	}
 
 	.header-bg-overlay {
@@ -89,8 +88,14 @@
 		inset: 0;
 		z-index: 1;
 		background:
-			linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.95) 100%),
-			linear-gradient(to top, var(--color-void) 0%, transparent 60%);
+			linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.2) 100%),
+			linear-gradient(to top, var(--color-void) 0%, transparent 40%);
+	}
+
+	:global(html[data-theme="light"]) .header-bg-overlay {
+		background:
+			linear-gradient(90deg, rgba(248, 250, 252, 0.85) 0%, rgba(248, 250, 252, 0.55) 55%, rgba(248, 250, 252, 0.2) 100%),
+			linear-gradient(to top, var(--color-void) 0%, transparent 40%);
 	}
 
 	.header-glow {
@@ -149,6 +154,11 @@
 		line-height: 1.15;
 		margin-bottom: 0.8rem;
 		letter-spacing: -0.04em;
+		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+	}
+
+	:global(html[data-theme="light"]) .page-title {
+		text-shadow: 0 1px 12px rgba(255, 255, 255, 0.85);
 	}
 
 	.page-subtitle {
@@ -157,6 +167,12 @@
 		font-weight: 300;
 		max-width: 820px;
 		line-height: 1.6;
+		text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+	}
+
+	:global(html[data-theme="light"]) .page-subtitle {
+		color: #334155;
+		text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
 	}
 
 	@media (max-width: 768px) {

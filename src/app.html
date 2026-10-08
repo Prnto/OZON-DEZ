@@ -11,8 +11,20 @@
 		<!-- Open Graph -->
 		<meta property="og:title" content="ТОВ «ОЗОН-ДЕЗ» — Санітарна безпека та пест-контроль HACCP (15 років досвіду)" />
 		<meta property="og:description" content="15 років досвіду в дезінфекції, дезінсекції, озонуванні та пест-контролі HACCP у Чорноморську, Одесі та Одеській області. Офіс: просп. Миру, 8-А." />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="%sveltekit.assets%/images/hero-doctor.jpg" />
+		<meta property="og:image" content="%sveltekit.assets%/images/pest-cockroaches.jpg" />
+
+		<!-- Prevent theme flash on initial load -->
+		<script>
+			try {
+				var savedTheme = localStorage.getItem('ozon_dez_theme') || 'dark';
+				document.documentElement.setAttribute('data-theme', savedTheme);
+				if (savedTheme === 'light') {
+					document.documentElement.classList.add('theme-light');
+				} else {
+					document.documentElement.classList.add('theme-dark');
+				}
+			} catch (e) {}
+		</script>
 
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
