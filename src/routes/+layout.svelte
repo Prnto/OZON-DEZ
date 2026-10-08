@@ -3,6 +3,7 @@
 	import Header from '#lib/components/Header.svelte';
 	import Footer from '#lib/components/Footer.svelte';
 	import OrderModal from '#lib/components/OrderModal.svelte';
+	import FloatingContactWidget from '#lib/components/FloatingContactWidget.svelte';
 	import { langState } from '../lib/state/language.svelte';
 	import { contentMap } from '../lib/data/content';
 	import type { LayoutProps } from './$types';
@@ -84,6 +85,7 @@
 	</main>
 	<Footer />
 	<OrderModal />
+	<FloatingContactWidget />
 </div>
 
 <style>

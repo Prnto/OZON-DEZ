@@ -2,6 +2,8 @@
 	import { resolve, asset } from '$app/paths';
 	import Hero from '#lib/components/Hero.svelte';
 	import KvedSection from '#lib/components/KvedSection.svelte';
+	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
+	import FastCalloutSection from '#lib/components/FastCalloutSection.svelte';
 	import { langState } from '../lib/state/language.svelte';
 	import { contentMap } from '../lib/data/content';
 	import { orderModal } from '../lib/state/modal.svelte';
@@ -408,6 +410,12 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Real Case Studies & Customer Reviews -->
+	<ReviewsSection />
+
+	<!-- Fast 24/7 Emergency Dispatch Callout Form -->
+	<FastCalloutSection />
 
 	<!-- Official Licenses & KVEDs -->
 	<KvedSection />
