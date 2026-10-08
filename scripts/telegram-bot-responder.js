@@ -538,20 +538,28 @@ async function pollUpdates() {
 					await api('answerCallbackQuery', { callback_query_id: cb.id });
 
 					console.log(`[Callback] ${data} from ${chatId}`);
+					const currentSession = getSession(chatId);
 
 					if (data === 'menu_main') {
+						currentSession.state = 'idle';
 						await sendMainMenu(chatId, true, messageId);
 					} else if (data === 'menu_services') {
+						currentSession.state = 'idle';
 						await sendServicesMenu(chatId, messageId);
 					} else if (data === 'call_doctor') {
+						currentSession.state = 'idle';
 						await sendDoctorCallCard(chatId, messageId);
 					} else if (data === 'srv_disinfection') {
+						currentSession.state = 'idle';
 						await sendServiceDetail(chatId, messageId, 'disinfection');
 					} else if (data === 'srv_disinsection') {
+						currentSession.state = 'idle';
 						await sendServiceDetail(chatId, messageId, 'disinsection');
 					} else if (data === 'srv_deratization') {
+						currentSession.state = 'idle';
 						await sendServiceDetail(chatId, messageId, 'deratization');
 					} else if (data === 'srv_ozone') {
+						currentSession.state = 'idle';
 						await sendServiceDetail(chatId, messageId, 'ozone');
 					} else if (data.startsWith('order_')) {
 						let srvTitle = null;
@@ -601,6 +609,11 @@ async function pollUpdates() {
 					const session = getSession(chatId);
 
 					console.log(`[Message] ${from.first_name || chatId}: "${text}" (state: ${session.state})`);
+
+					// Skip updates without text and without contact
+					if (!text && !msg.contact) {
+						continue;
+					}
 
 					// Shared Contact
 					if (msg.contact && msg.contact.phone_number) {
