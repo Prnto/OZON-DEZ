@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { resolve, asset } from '$app/paths';
 	import Hero from '#lib/components/Hero.svelte';
-	import ConstellationCanvas from '#lib/components/ConstellationCanvas.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 
 	import { langState } from '../lib/state/language.svelte';
@@ -17,9 +16,6 @@
 </svelte:head>
 
 <div class="homepage">
-	<!-- Atmospheric Fullpage Constellation Animation as Main Background -->
-	<ConstellationCanvas mode="fullpage" />
-
 	<!-- Hero Section -->
 	<Hero />
 
@@ -435,7 +431,7 @@
 		flex-direction: column;
 		width: 100%;
 		overflow: hidden;
-		background-color: var(--color-void);
+		background-color: transparent;
 	}
 
 	/* Directions Hub */

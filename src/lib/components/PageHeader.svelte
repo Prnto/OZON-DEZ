@@ -55,7 +55,7 @@
 	.page-header-banner {
 		position: relative;
 		padding: 4rem 0 3.5rem;
-		background: var(--color-void);
+		background: transparent;
 		overflow: hidden;
 		border-bottom: 1px solid var(--border-subtle);
 	}
@@ -89,13 +89,13 @@
 		z-index: 1;
 		background:
 			linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.2) 100%),
-			linear-gradient(to top, var(--color-void) 0%, transparent 40%);
+			linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 40%);
 	}
 
 	:global(html[data-theme="light"]) .header-bg-overlay {
 		background:
 			linear-gradient(90deg, rgba(244, 246, 249, 0.94) 0%, rgba(244, 246, 249, 0.8) 50%, rgba(244, 246, 249, 0.35) 100%),
-			linear-gradient(to top, var(--color-void) 0%, transparent 40%);
+			linear-gradient(to top, rgba(244, 246, 249, 0.3) 0%, transparent 40%);
 	}
 
 	:global(html[data-theme="light"]) .bg-img {

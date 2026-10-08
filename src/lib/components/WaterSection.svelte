@@ -17,9 +17,9 @@
 					<h2 class="water-title">{water.title}</h2>
 					<div class="water-kved-tag">
 						{#if langState.current === 'ua'}
-							КВЕД 36.00: Забір, очищення та постачання води
+							Забір, очищення та безпечне постачання води
 						{:else}
-							КВЭД 36.00: Забор, очистка и поставка воды
+							Забор, очистка и безопасная поставка воды
 						{/if}
 					</div>
 					<p class="water-desc">{water.description}</p>

@@ -137,10 +137,18 @@
 
 <style>
 	.footer {
-		background: var(--color-void);
+		background: rgba(0, 0, 0, 0.65);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
 		color: var(--color-ash-gray);
 		padding: 5.5rem 0 calc(2.5rem + env(safe-area-inset-bottom, 0));
 		border-top: 1px solid var(--border-subtle);
+		position: relative;
+		z-index: 1;
+	}
+
+	:global(html[data-theme="light"]) .footer {
+		background: rgba(244, 246, 249, 0.75);
 	}
 
 	@media (max-width: 600px) {

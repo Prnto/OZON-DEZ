@@ -18,7 +18,7 @@
 	</title>
 	<meta
 		name="description"
-		content="Очищення та дезінфекція резервуарів, колодязів, свердловин та інженерних мереж водопроводу за КВЕД 36.00 у Чорноморську та Одеській області."
+		content="Очищення та дезінфекція резервуарів, колодязів, свердловин та інженерних мереж водопроводу у Чорноморську та Одеській області."
 	/>
 </svelte:head>
 
@@ -71,7 +71,7 @@
 
 <style>
 	.water-process-section {
-		background: var(--color-void);
+		background: transparent;
 		border-top: 1px solid var(--border-subtle);
 		padding: var(--space-3xl) 0;
 	}

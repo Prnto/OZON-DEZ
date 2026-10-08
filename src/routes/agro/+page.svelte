@@ -19,7 +19,7 @@
 	</title>
 	<meta
 		name="description"
-		content="Професійна фумігація зерносховищ, елеваторів та складів від довгоносика, хрущака та вогнівки. Санітарний супровід агропідприємств за КВЕД 01.61, 01.62."
+		content="Професійна фумігація зерносховищ, елеваторів та складів від довгоносика, хрущака та вогнівки. Санітарний супровід та комплексний захист агропідприємств."
 	/>
 </svelte:head>
 
@@ -42,8 +42,8 @@
 						<div class="section-badge">
 							{#if langState.current === 'ua'}Елеватори та Логістика{:else}Элеваторы и Логистика{/if}
 						</div>
-						<span class="kved-chip">КВЕД 01.61 (Рослинництво)</span>
-						<span class="kved-chip">КВЕД 01.62 (Тваринництво)</span>
+						<span class="kved-chip">{#if langState.current === 'ua'}Рослинництво & Зерно{:else}Растениеводство & Зерно{/if}</span>
+						<span class="kved-chip">{#if langState.current === 'ua'}Тваринництво & Ферми{:else}Животноводство & Фермы{/if}</span>
 					</div>
 					<h2 class="section-title">
 						{#if langState.current === 'ua'}
@@ -141,7 +141,7 @@
 
 <style>
 	.agro-showcase-section {
-		background: var(--color-void);
+		background: transparent;
 		padding: var(--space-3xl) 0;
 	}
 
@@ -239,7 +239,7 @@
 
 	/* Agro services list */
 	.agro-cards-section {
-		background: var(--color-void);
+		background: transparent;
 		border-top: 1px solid var(--border-subtle);
 		padding: var(--space-3xl) 0;
 	}

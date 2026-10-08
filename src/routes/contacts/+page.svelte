@@ -2,7 +2,6 @@
 	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import ContactSection from '#lib/components/ContactSection.svelte';
-	import KvedSection from '#lib/components/KvedSection.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
 
@@ -103,28 +102,14 @@
 
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Основний КВЕД:{:else}Основной КВЭД:{/if}
+							{#if langState.current === 'ua'}Напрямки діяльності:{:else}Направления деятельности:{/if}
 						</span>
 						<span class="req-val">
-							<strong>81.29</strong> — Інші види діяльності із прибирання (дезінфекція, дезінсекція, дератизація, озонування)
-						</span>
-					</div>
-
-					<div class="req-row">
-						<span class="req-key">
-							{#if langState.current === 'ua'}Аграрні КВЕД:{:else}Аграрные КВЭД:{/if}
-						</span>
-						<span class="req-val">
-							<strong>01.61</strong> (Допоміжна діяльність у рослинництві / фумігація), <strong>01.62</strong> (Допоміжна діяльність у тваринництві)
-						</span>
-					</div>
-
-					<div class="req-row">
-						<span class="req-key">
-							{#if langState.current === 'ua'}Водопостачання КВЕД:{:else}Водоснабжение КВЭД:{/if}
-						</span>
-						<span class="req-val">
-							<strong>36.00</strong> — Забір, очищення та постачання води (дезінфекція мереж та резервуарів)
+							{#if langState.current === 'ua'}
+								Дезінсекція, дератизація, дезінфекція приміщень, озонування газом O₃, фумігація зерна, санітарна очистка систем водопостачання та пест-контроль HACCP
+							{:else}
+								Дезинсекция, дератизация, дезинфекция помещений, озонирование газом O₃, фумигация зерна, санитарная очистка систем водоснабжения и пест-контроль HACCP
+							{/if}
 						</span>
 					</div>
 
@@ -199,7 +184,6 @@
 	</section>
 
 	<!-- Licenses list -->
-	<KvedSection />
 </div>
 
 <style>
@@ -210,7 +194,7 @@
 	}
 
 	.requisites-section {
-		background: var(--color-void);
+		background: transparent;
 		border-bottom: 1px solid var(--border-subtle);
 		padding: var(--space-3xl) 0;
 	}
@@ -280,10 +264,6 @@
 		word-break: break-word;
 	}
 
-	.req-val strong {
-		color: var(--color-bone-white);
-		font-weight: 500;
-	}
 
 	.req-mono {
 		font-family: monospace;
@@ -307,7 +287,7 @@
 
 	/* Geo */
 	.geo-section {
-		background: var(--color-void);
+		background: transparent;
 		padding: var(--space-3xl) 0;
 	}
 

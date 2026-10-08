@@ -2,7 +2,6 @@
 	import { asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import HowWeWork from '#lib/components/HowWeWork.svelte';
-	import KvedSection from '#lib/components/KvedSection.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
 	import { orderModal } from '../../lib/state/modal.svelte';
@@ -148,8 +147,7 @@
 		</div>
 	</section>
 
-	<!-- Official Licenses & KVEDs -->
-	<KvedSection />
+	<!-- Official Licenses & Compliance -->
 </div>
 
 <style>
@@ -160,7 +158,7 @@
 	}
 
 	.prep-guide-section {
-		background: var(--color-void);
+		background: transparent;
 		border-top: 1px solid var(--border-subtle);
 		padding: var(--space-3xl) 0;
 	}

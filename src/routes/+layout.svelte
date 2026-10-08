@@ -4,6 +4,7 @@
 	import Footer from '#lib/components/Footer.svelte';
 	import OrderModal from '#lib/components/OrderModal.svelte';
 	import FloatingContactWidget from '#lib/components/FloatingContactWidget.svelte';
+	import ConstellationCanvas from '#lib/components/ConstellationCanvas.svelte';
 	import { langState } from '../lib/state/language.svelte';
 	import { contentMap } from '../lib/data/content';
 	import type { LayoutProps } from './$types';
@@ -79,6 +80,9 @@
 </svelte:head>
 
 <div class="site-layout">
+	<!-- Persistent Constellation Canvas across all pages and full scroll height -->
+	<ConstellationCanvas mode="fullpage" />
+
 	<Header />
 	<main class="site-main">
 		{@render children()}
@@ -93,9 +97,14 @@
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+		position: relative;
+		background: transparent;
 	}
 
 	.site-main {
 		flex: 1;
+		position: relative;
+		z-index: 1;
+		background: transparent;
 	}
 </style>
