@@ -2,6 +2,7 @@
 	import { asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
+	import { sendTelegramLead } from '../services/telegram';
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let contacts = $derived(currentContent.contacts);
@@ -13,15 +14,26 @@
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
 
-	function handleContactSubmit(e: Event) {
+	async function handleContactSubmit(e: Event) {
 		e.preventDefault();
-		if (!formPhone.trim()) return;
+		if (!formPhone.trim() || isSubmitting) return;
 
 		isSubmitting = true;
-		setTimeout(() => {
+		try {
+			await sendTelegramLead({
+				source: 'Форма розділу Контакти',
+				name: formName,
+				phone: formPhone,
+				serviceTitle: formService,
+				comment: formComment,
+				lang: langState.current
+			});
+		} catch (err) {
+			console.error('Error submitting contact form:', err);
+		} finally {
 			isSubmitting = false;
 			isSuccess = true;
-		}, 500);
+		}
 	}
 </script>
 

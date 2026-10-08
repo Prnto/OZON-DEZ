@@ -2,6 +2,7 @@
 	import { orderModal } from '../state/modal.svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
+	import { sendTelegramLead } from '../services/telegram';
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let modalData = $derived(currentContent.modal);
@@ -23,15 +24,28 @@
 		}
 	});
 
-	function handleSubmit(e: Event) {
+	async function handleSubmit(e: Event) {
 		e.preventDefault();
-		if (!clientPhone.trim()) return;
+		if (!clientPhone.trim() || isSubmitting) return;
 
 		isSubmitting = true;
-		setTimeout(() => {
+		try {
+			await sendTelegramLead({
+				source: 'Модальне вікно замовлення',
+				name: clientName,
+				phone: clientPhone,
+				address: clientAddress,
+				comment: clientComment,
+				serviceTitle: orderModal.data.serviceTitle,
+				serviceCategory: orderModal.data.serviceCategory,
+				lang: langState.current
+			});
+		} catch (err) {
+			console.error('Error submitting order:', err);
+		} finally {
 			isSubmitting = false;
 			isSubmitted = true;
-		}, 500);
+		}
 	}
 
 	function handleClose() {

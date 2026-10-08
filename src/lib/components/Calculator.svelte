@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
+	import { sendTelegramLead } from '../services/telegram';
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let calcData = $derived(currentContent.calculator);
@@ -48,15 +49,36 @@
 		}
 	}
 
-	function handleSubmitOrder(e: Event) {
+	async function handleSubmitOrder(e: Event) {
 		e.preventDefault();
-		if (!clientPhone.trim()) return;
+		if (!clientPhone.trim() || isSubmitting) return;
 
 		isSubmitting = true;
-		setTimeout(() => {
+		try {
+			const currentObj = calcData.objectTypes.find((o) => o.id === selectedObject);
+			const currentSrv = calcData.serviceTypes.find((s) => s.id === selectedService);
+			const extrasNames = selectedExtras
+				.map((id) => calcData.extras.find((e) => e.id === id)?.name)
+				.filter(Boolean)
+				.join(', ');
+
+			await sendTelegramLead({
+				source: 'Онлайн-калькулятор вартості',
+				name: clientName,
+				phone: clientPhone,
+				serviceTitle: currentSrv?.name,
+				objectType: currentObj?.name,
+				area: `${area} м²`,
+				price: `${calculatedPrice} грн`,
+				extras: extrasNames || 'Не обрано',
+				lang: langState.current
+			});
+		} catch (err) {
+			console.error('Error submitting calculator order:', err);
+		} finally {
 			isSubmitting = false;
 			isSuccess = true;
-		}, 500);
+		}
 	}
 </script>
 
