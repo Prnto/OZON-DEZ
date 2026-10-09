@@ -57,17 +57,17 @@
 			</div>
 
 			<div class="top-bar-right">
-				<!-- Landline -->
-				<a href="tel:{currentContent.phones.landline}" class="top-phone-link">
-					<span class="top-icon">☎️</span>
-					<span>{currentContent.phones.landlineDisplay}</span>
-				</a>
-				<span class="top-bar-divider">|</span>
-				<!-- Mobile -->
-				<a href="tel:{currentContent.phones.mobile}" class="top-phone-link highlight">
-					<span class="phone-pulse-dot"></span>
-					<span>{currentContent.phones.mobileDisplay}</span>
-				</a>
+				<!-- Landline & Mobile in pill badges with capsule border -->
+				<div class="top-phones-cluster">
+					<a href="tel:{currentContent.phones.landline}" class="top-phone-pill" title="Міський / Офіс">
+						<span class="top-icon">☎️</span>
+						<span>{currentContent.phones.landlineDisplay}</span>
+					</a>
+					<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill highlight" title="Мобільний зв'язок">
+						<span class="phone-pulse-dot"></span>
+						<span>{currentContent.phones.mobileDisplay}</span>
+					</a>
+				</div>
 				<span class="top-bar-divider">|</span>
 
 				<!-- Explicit Dual Theme Switcher (Dark / Light) -->
@@ -139,16 +139,6 @@
 				</div>
 
 				<div class="main-bar-actions">
-					<!-- Prominent Phone link with live pulse dot -->
-					<a
-						href="tel:{currentContent.phones.mobile}"
-						class="header-phone-badge"
-						title={langState.current === 'ua' ? 'Виклик спеціаліста' : langState.current === 'ru' ? 'Вызов специалиста' : 'Call a specialist'}
-					>
-						<span class="phone-pulse-dot"></span>
-						<span class="phone-num-txt">{currentContent.phones.mobileDisplay}</span>
-					</a>
-
 					<!-- Order CTA button -->
 					<button
 						type="button"
@@ -174,30 +164,24 @@
 				</div>
 			</div>
 
-			<!-- Row 2: Dedicated Navigation Tapbar spanning full width -->
+			<!-- Row 2: Dedicated Navigation Tapbar spanning full width (text-only, emojis removed) -->
 			<nav class="top-tapbar" aria-label="Головна навігація">
 				<a href={resolve('/')} class="tapbar-btn" class:active={isActive('/')}>
-					<span class="tap-icon">🏠</span>
 					<span class="tap-label">{#if langState.current === 'ua'}Головна{:else if langState.current === 'ru'}Главная{:else}Home{/if}</span>
 				</a>
 				<a href={resolve('/services')} class="tapbar-btn" class:active={isActive('/services')}>
-					<span class="tap-icon">🧹</span>
 					<span class="tap-label">{currentContent.nav.services}</span>
 				</a>
 				<a href={resolve('/b2b')} class="tapbar-btn" class:active={isActive('/b2b')}>
-					<span class="tap-icon">🏢</span>
 					<span class="tap-label">{currentContent.nav.b2b}</span>
 				</a>
 				<a href={resolve('/how-we-work')} class="tapbar-btn" class:active={isActive('/how-we-work')}>
-					<span class="tap-icon">⚙️</span>
 					<span class="tap-label">{currentContent.nav.howWeWork}</span>
 				</a>
 				<a href={resolve('/calculator')} class="tapbar-btn" class:active={isActive('/calculator')}>
-					<span class="tap-icon">🧮</span>
 					<span class="tap-label">{currentContent.nav.calculator}</span>
 				</a>
 				<a href={resolve('/contacts')} class="tapbar-btn" class:active={isActive('/contacts')}>
-					<span class="tap-icon">📍</span>
 					<span class="tap-label">{currentContent.nav.contacts}</span>
 				</a>
 			</nav>
@@ -266,27 +250,21 @@
 				</div>
 
 				<a href={resolve('/')} class="mobile-nav-link" class:active={isActive('/')} onclick={closeMobileMenu}>
-					<span class="m-icon">🏠</span>
 					<span>{#if langState.current === 'ua'}Головна{:else if langState.current === 'ru'}Главная{:else}Home{/if}</span>
 				</a>
 				<a href={resolve('/services')} class="mobile-nav-link" class:active={isActive('/services')} onclick={closeMobileMenu}>
-					<span class="m-icon">🧹</span>
 					<span>{currentContent.nav.services}</span>
 				</a>
 				<a href={resolve('/b2b')} class="mobile-nav-link" class:active={isActive('/b2b')} onclick={closeMobileMenu}>
-					<span class="m-icon">🏢</span>
 					<span>{currentContent.nav.b2b}</span>
 				</a>
 				<a href={resolve('/how-we-work')} class="mobile-nav-link" class:active={isActive('/how-we-work')} onclick={closeMobileMenu}>
-					<span class="m-icon">⚙️</span>
 					<span>{currentContent.nav.howWeWork}</span>
 				</a>
 				<a href={resolve('/calculator')} class="mobile-nav-link" class:active={isActive('/calculator')} onclick={closeMobileMenu}>
-					<span class="m-icon">🧮</span>
 					<span>{currentContent.nav.calculator}</span>
 				</a>
 				<a href={resolve('/contacts')} class="mobile-nav-link" class:active={isActive('/contacts')} onclick={closeMobileMenu}>
-					<span class="m-icon">📍</span>
 					<span>{currentContent.nav.contacts}</span>
 				</a>
 
@@ -395,9 +373,10 @@
 			padding: 0.3rem 0.65rem;
 			gap: 0.4rem;
 		}
-		.top-phone-link {
+		.top-phone-pill {
 			font-size: 0.72rem;
 			gap: 0.2rem;
+			padding: 0.2rem 0.5rem;
 		}
 		.top-bar-right {
 			gap: 0.4rem;
@@ -423,31 +402,49 @@
 		color: rgba(15, 23, 42, 0.12);
 	}
 
-	.top-phone-link {
+	.top-phones-cluster {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		color: var(--color-silver-mist);
-		font-weight: 500;
-		text-decoration: none;
-		transition: color var(--transition-fast);
+		gap: 0.45rem;
 	}
 
-	.top-phone-link:hover {
-		color: var(--color-bone-white);
-	}
-
-	.top-phone-link.highlight {
+	.top-phone-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		padding: 0.28rem 0.75rem;
+		border-radius: var(--radius-full);
+		background: rgba(128, 82, 255, 0.08);
+		border: 1px solid var(--color-iris-border);
 		color: var(--color-bone-white);
 		font-weight: 600;
+		font-size: 12.5px;
+		text-decoration: none;
+		transition: all var(--transition-fast);
+		white-space: nowrap;
 	}
 
-	:global(html[data-theme="light"]) .top-phone-link {
-		color: #334155;
+	.top-phone-pill:hover {
+		background: rgba(128, 82, 255, 0.18);
+		border-color: rgba(128, 82, 255, 0.5);
+		color: #ffffff;
+		transform: translateY(-1px);
 	}
 
-	:global(html[data-theme="light"]) .top-phone-link:hover,
-	:global(html[data-theme="light"]) .top-phone-link.highlight {
+	.top-phone-pill.highlight {
+		border-color: rgba(128, 82, 255, 0.35);
+	}
+
+	:global(html[data-theme="light"]) .top-phone-pill {
+		background: #ffffff;
+		border-color: rgba(99, 66, 232, 0.22);
+		color: #1e293b;
+		box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+	}
+
+	:global(html[data-theme="light"]) .top-phone-pill:hover {
+		background: #f1f5f9;
+		border-color: rgba(99, 66, 232, 0.4);
 		color: #0f172a;
 	}
 
@@ -625,47 +622,7 @@
 		z-index: 5;
 	}
 
-	.header-phone-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.45rem 0.95rem;
-		border-radius: var(--radius-buttons);
-		background: rgba(128, 82, 255, 0.08);
-		border: 1px solid var(--color-iris-border);
-		color: var(--color-bone-white);
-		font-weight: 600;
-		font-size: 13px;
-		text-decoration: none;
-		transition: all var(--transition-fast);
-		white-space: nowrap;
-	}
 
-	.header-phone-badge:hover {
-		background: rgba(128, 82, 255, 0.16);
-		border-color: rgba(128, 82, 255, 0.45);
-		color: #ffffff;
-		transform: translateY(-1px);
-	}
-
-	:global(html[data-theme="light"]) .header-phone-badge {
-		background: #ffffff;
-		border-color: rgba(99, 66, 232, 0.22);
-		color: #1e293b;
-		box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
-	}
-
-	:global(html[data-theme="light"]) .header-phone-badge:hover {
-		background: #f1f5f9;
-		border-color: rgba(99, 66, 232, 0.4);
-		color: #0f172a;
-	}
-
-	@media (max-width: 640px) {
-		.header-phone-badge {
-			display: none;
-		}
-	}
 
 	/* Top Tapbar: Full Width Row, Never Overlaps Logo */
 	.top-tapbar {
@@ -713,11 +670,7 @@
 		background: transparent;
 	}
 
-	.tap-icon {
-		font-size: 14px;
-		line-height: 1;
-		flex-shrink: 0;
-	}
+
 
 	.tapbar-btn:hover {
 		color: var(--color-bone-white);
@@ -958,13 +911,7 @@
 		color: #0f172a;
 	}
 
-	.m-icon {
-		font-size: 1.15rem;
-		width: 24px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-	}
+
 
 	.mobile-contacts-box {
 		margin-top: 1rem;

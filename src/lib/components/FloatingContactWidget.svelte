@@ -142,13 +142,20 @@
 					<span class="item-arrow">→</span>
 				</a>
 
-				<!-- Instagram -->
-				<a
-					href="https://instagram.com/ozon_dez"
-					target="_blank"
-					rel="noreferrer"
+				<!-- Instagram (Coming soon stub) -->
+				<button
+					type="button"
 					class="menu-item insta-action"
-					onclick={closeWidget}
+					onclick={() => {
+						closeWidget();
+						alert(
+							langState.current === 'ua'
+								? 'Офіційна Instagram-сторінка ТОВ «ОЗОН-ДЕЗ» у процесі оформлення та незабаром відкриється!'
+								: langState.current === 'ru'
+								? 'Официальная Instagram-страница ООО «ОЗОН-ДЕЗ» в процессе оформления и скоро откроется!'
+								: 'Official Instagram page of LLC "OZON-DEZ" is coming soon!'
+						);
+					}}
 					role="menuitem"
 				>
 					<div class="item-icon-wrap insta-icon">
@@ -160,16 +167,16 @@
 						<span class="item-title">Instagram</span>
 						<span class="item-detail">
 							{#if langState.current === 'ua'}
-								Офіційна сторінка
+								Скоро відкриття
 							{:else if langState.current === 'ru'}
-								Официальная страница
+								Скоро открытие
 							{:else}
-								Official Page
+								Opening soon
 							{/if}
 						</span>
 					</div>
 					<span class="item-arrow">→</span>
-				</a>
+				</button>
 
 				<!-- Viber -->
 				<a

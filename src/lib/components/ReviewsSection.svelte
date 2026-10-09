@@ -266,7 +266,7 @@
 		<div class="reviews-action-center">
 			<button
 				type="button"
-				class="btn btn-primary btn-lg"
+				class="btn btn-guarantee-ghost btn-lg"
 				onclick={() => orderModal.open({ serviceTitle: 'Санітарна обробка з гарантією' })}
 			>
 				<span>🛡️ {currentData.leaveReviewBtn}</span>
@@ -288,11 +288,13 @@
 		display: grid;
 		grid-template-columns: 1fr auto 1fr auto 1fr;
 		align-items: center;
-		padding: 2rem 2.8rem;
+		padding: 1.4rem 2.2rem;
 		border-radius: var(--radius-cards);
-		background: var(--color-surface);
-		border: 1px solid var(--color-void-border);
-		margin-bottom: 2.5rem;
+		background: rgba(13, 17, 28, 0.45);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		margin-bottom: 2rem;
 		box-shadow: none;
 	}
 
@@ -407,14 +409,16 @@
 	}
 
 	.review-card {
-		padding: 2.2rem 1.8rem;
+		padding: 1.6rem 1.5rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1.1rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-void-border);
+		gap: 1rem;
+		background: rgba(13, 17, 28, 0.45);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.08);
 		border-radius: var(--radius-cards);
-		transition: transform var(--transition-fast), border-color var(--transition-fast);
+		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 		box-shadow: none;
 	}
 
@@ -552,6 +556,37 @@
 
 	.reviews-action-center {
 		text-align: center;
-		margin-top: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.btn-guarantee-ghost {
+		background: rgba(128, 82, 255, 0.08);
+		border: 1.5px solid rgba(128, 82, 255, 0.5);
+		color: #ffffff;
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+		transition: all 0.25s ease;
+		cursor: pointer;
+		font-weight: 600;
+	}
+
+	.btn-guarantee-ghost:hover {
+		background: rgba(128, 82, 255, 0.22);
+		border-color: #a855f7;
+		color: #ffffff;
+		box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+		transform: translateY(-2px);
+	}
+
+	:global(html[data-theme="light"]) .btn-guarantee-ghost {
+		background: rgba(128, 82, 255, 0.06);
+		border-color: rgba(128, 82, 255, 0.4);
+		color: #581c87;
+	}
+
+	:global(html[data-theme="light"]) .btn-guarantee-ghost:hover {
+		background: rgba(128, 82, 255, 0.14);
+		color: #3b0764;
 	}
 </style>
