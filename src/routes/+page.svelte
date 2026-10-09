@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { PhoneCall, Calculator, Lightning } from 'phosphor-svelte';
+	import Hero from '#lib/components/Hero.svelte';
 	import AboutCompany from '#lib/components/AboutCompany.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 	import { orderModal } from '../lib/state/modal.svelte';
@@ -16,6 +17,9 @@
 </svelte:head>
 
 <div class="homepage">
+	<!-- Hero Showcase with Promotional Visual -->
+	<Hero />
+
 	<!-- Official Company Profile & Core 5 Directions -->
 	<AboutCompany />
 
