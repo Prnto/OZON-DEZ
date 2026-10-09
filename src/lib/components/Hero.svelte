@@ -10,87 +10,89 @@
 </script>
 
 <section id="hero" class="hero-section">
-	<div class="container hero-container">
-		<!-- Semantic accessible H1 for SEO -->
-		<h1 class="sr-only">{hero.titleMain} {hero.titleHighlight} — {currentContent.companyName}</h1>
+	<!-- Semantic accessible H1 for SEO -->
+	<h1 class="sr-only">{hero.titleMain} {hero.titleHighlight} — {currentContent.companyName}</h1>
 
-		<!-- Promotional Hero Visual Showcase -->
-		<div class="hero-banner-wrapper">
-			<div class="hero-banner-frame">
-				<img
-					src="{asset('images/hero-main.webp')}"
-					alt="{hero.titleMain} — {currentContent.companyName}"
-					class="hero-banner-img"
-					data-testid="hero-promo-image"
-					width="1376"
-					height="768"
-					loading="eager"
-					fetchpriority="high"
-				/>
+	<!-- Full-width Hero Visual Banner (stretched edge-to-edge like PageHeader) -->
+	<div class="hero-banner-full">
+		<div class="hero-banner-media">
+			<img
+				src="{asset('images/hero-main.webp')}"
+				alt="{hero.titleMain} — {currentContent.companyName}"
+				class="hero-banner-img"
+				data-testid="hero-promo-image"
+				width="1376"
+				height="768"
+				loading="eager"
+				fetchpriority="high"
+			/>
 
-				<div class="hero-banner-overlay" aria-hidden="true"></div>
-
-				<!-- Floating feature badges at bottom of the banner -->
-				<div class="hero-banner-pills">
-					<div class="banner-pill">
-						<ShieldCheck size={16} weight="duotone" />
-						<span>
-							{#if langState.current === 'ua'}100% гарантія за договором{:else if langState.current === 'ru'}100% гарантия по договору{:else}100% contract warranty{/if}
-						</span>
-					</div>
-					<div class="banner-pill">
-						<Clock size={16} weight="duotone" />
-						<span>
-							{#if langState.current === 'ua'}Виїзд від 30–45 хв{:else if langState.current === 'ru'}Выезд от 30–45 мин{:else}Arrival in 30–45 min{/if}
-						</span>
-					</div>
-					<div class="banner-pill">
-						<Flask size={16} weight="duotone" />
-						<span>
-							{#if langState.current === 'ua'}Сертифіковано МОЗ України{:else if langState.current === 'ru'}Сертифицировано МОЗ Украины{:else}Ministry of Health certified{/if}
-						</span>
-					</div>
-				</div>
-			</div>
+			<div class="hero-banner-overlay" aria-hidden="true"></div>
 		</div>
 
-		<!-- Quick CTAs placed directly below the promotional banner -->
-		<div class="hero-actions">
-			<button
-				type="button"
-				class="btn btn-primary btn-lg"
-				data-testid="hero-call-btn"
-				onclick={() =>
-					orderModal.open({
-						serviceTitle:
-							langState.current === 'ua'
-								? 'Виклик спеціаліста'
-								: langState.current === 'ru'
-								? 'Вызов специалиста'
-								: 'Call a specialist'
-					})}
-			>
-				<Lightning size={18} weight="fill" />
-				<span>{hero.ctaPrimary}</span>
-			</button>
+		<!-- Floating feature badges at bottom of the banner -->
+		<div class="hero-banner-pills">
+			<div class="banner-pill">
+				<ShieldCheck size={16} weight="duotone" />
+				<span>
+					{#if langState.current === 'ua'}100% гарантія за договором{:else if langState.current === 'ru'}100% гарантия по договору{:else}100% contract warranty{/if}
+				</span>
+			</div>
+			<div class="banner-pill">
+				<Clock size={16} weight="duotone" />
+				<span>
+					{#if langState.current === 'ua'}Виїзд від 30–45 хв{:else if langState.current === 'ru'}Выезд от 30–45 мин{:else}Arrival in 30–45 min{/if}
+				</span>
+			</div>
+			<div class="banner-pill">
+				<Flask size={16} weight="duotone" />
+				<span>
+					{#if langState.current === 'ua'}Сертифіковано МОЗ України{:else if langState.current === 'ru'}Сертифицировано МОЗ Украины{:else}Ministry of Health certified{/if}
+				</span>
+			</div>
+		</div>
+	</div>
 
-			<a
-				href={resolve('/calculator')}
-				class="btn btn-secondary btn-lg"
-				data-testid="hero-calc-link"
-			>
-				<Calculator size={18} weight="bold" />
-				<span>{hero.ctaSecondary}</span>
-			</a>
+	<!-- Quick CTAs placed directly below the promotional banner in container -->
+	<div class="hero-actions-wrapper">
+		<div class="container">
+			<div class="hero-actions">
+				<button
+					type="button"
+					class="btn btn-primary btn-lg"
+					data-testid="hero-call-btn"
+					onclick={() =>
+						orderModal.open({
+							serviceTitle:
+								langState.current === 'ua'
+									? 'Виклик спеціаліста'
+									: langState.current === 'ru'
+									? 'Вызов специалиста'
+									: 'Call a specialist'
+						})}
+				>
+					<Lightning size={18} weight="fill" />
+					<span>{hero.ctaPrimary}</span>
+				</button>
 
-			<a
-				href="tel:{currentContent.phones.mobile}"
-				class="btn btn-ghost btn-lg hero-phone-cta"
-				data-testid="hero-phone-link"
-			>
-				<PhoneCall size={18} weight="bold" />
-				<span>{currentContent.phones.mobileDisplay}</span>
-			</a>
+				<a
+					href={resolve('/calculator')}
+					class="btn btn-secondary btn-lg"
+					data-testid="hero-calc-link"
+				>
+					<Calculator size={18} weight="bold" />
+					<span>{hero.ctaSecondary}</span>
+				</a>
+
+				<a
+					href="tel:{currentContent.phones.mobile}"
+					class="btn btn-ghost btn-lg hero-phone-cta"
+					data-testid="hero-phone-link"
+				>
+					<PhoneCall size={18} weight="bold" />
+					<span>{currentContent.phones.mobileDisplay}</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -100,93 +102,72 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
-		padding: clamp(1.5rem, 3.5vh, 2.5rem) 0 clamp(2.5rem, 4.5vh, 3.8rem);
+		padding: 0 0 clamp(2rem, 4vh, 3.2rem);
 		border-bottom: 1px solid var(--color-void-border);
 		overflow: hidden;
 	}
 
-	.hero-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.8rem;
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		gap: 0.9rem;
-	}
-
-	.hero-actions .btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		padding: 0.85rem 1.6rem;
-		font-size: 0.95rem;
-	}
-
-	.hero-phone-cta {
-		border: 1px solid var(--border-subtle);
-		background: rgba(255, 255, 255, 0.04);
-		color: var(--color-bone-white);
-	}
-
-	.hero-phone-cta:hover {
-		border-color: var(--color-electric-iris);
-		background: rgba(128, 82, 255, 0.12);
-		color: #ffffff;
-	}
-
-	/* Hero Promotional Banner */
-	.hero-banner-wrapper {
-		width: 100%;
-		max-width: 1140px;
-		margin-top: 0.5rem;
-	}
-
-	.hero-banner-frame {
+	/* Full-width Hero Banner (Stretched edge-to-edge across screen like PageHeader) */
+	.hero-banner-full {
 		position: relative;
 		width: 100%;
-		border-radius: var(--radius-cards);
 		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		border-bottom: 1px solid var(--border-subtle);
 		background: #09090b;
-		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(128, 82, 255, 0.18);
-		aspect-ratio: 16 / 9;
 	}
 
-	:global(html[data-theme="light"]) .hero-banner-frame {
-		border-color: rgba(99, 102, 241, 0.25);
-		box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14), 0 0 25px rgba(99, 102, 241, 0.12);
+	.hero-banner-media {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 16 / 9;
+		max-height: clamp(380px, 48vw, 680px);
 	}
 
 	.hero-banner-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center;
+		object-position: center 25%;
 		display: block;
 		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
-	.hero-banner-frame:hover .hero-banner-img {
-		transform: scale(1.02);
+	.hero-banner-full:hover .hero-banner-img {
+		transform: scale(1.015);
 	}
 
 	.hero-banner-overlay {
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(
-			180deg,
-			rgba(0, 0, 0, 0.05) 0%,
-			transparent 55%,
-			rgba(0, 0, 0, 0.75) 100%
-		);
+		background:
+			linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 0.2) 0%,
+				transparent 40%,
+				rgba(0, 0, 0, 0.72) 100%
+			),
+			linear-gradient(
+				90deg,
+				rgba(0, 0, 0, 0.35) 0%,
+				transparent 15%,
+				transparent 85%,
+				rgba(0, 0, 0, 0.35) 100%
+			);
 		pointer-events: none;
+	}
+
+	:global(html[data-theme="light"]) .hero-banner-overlay {
+		background:
+			linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.1) 0%,
+				transparent 40%,
+				rgba(15, 23, 42, 0.45) 100%
+			);
 	}
 
 	.hero-banner-pills {
@@ -218,6 +199,41 @@
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 
+	/* Actions Bar below the banner */
+	.hero-actions-wrapper {
+		width: 100%;
+		padding-top: clamp(1.4rem, 2.8vh, 2rem);
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.9rem;
+	}
+
+	.hero-actions .btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.85rem 1.6rem;
+		font-size: 0.95rem;
+	}
+
+	.hero-phone-cta {
+		border: 1px solid var(--border-subtle);
+		background: rgba(255, 255, 255, 0.04);
+		color: var(--color-bone-white);
+	}
+
+	.hero-phone-cta:hover {
+		border-color: var(--color-electric-iris);
+		background: rgba(128, 82, 255, 0.12);
+		color: #ffffff;
+	}
+
 	@media (max-width: 900px) {
 		.hero-banner-pills {
 			bottom: 0.85rem;
@@ -228,6 +244,13 @@
 		.banner-pill {
 			font-size: 0.76rem;
 			padding: 0.35rem 0.75rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero-banner-media {
+			max-height: none;
+			aspect-ratio: 16 / 9;
 		}
 	}
 
