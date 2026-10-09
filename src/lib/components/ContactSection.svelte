@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { asset } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -140,52 +139,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- Chornomorsk Map Info Card & Office Location -->
-				<div class="map-card glass-card">
-					<div class="map-preview-header">
-						<div>
-							<div class="map-title">{contacts.map.title}</div>
-							<div class="map-subtitle">{contacts.map.subtitle}</div>
-						</div>
-						<a
-							href="https://maps.google.com/?q=г.+Черноморск,+проспект+Мира,+8А"
-							target="_blank"
-							rel="noreferrer"
-							class="btn btn-secondary btn-sm"
-						>
-							{contacts.map.btn}
-						</a>
-					</div>
-					<div class="map-photo-visual">
-						<img
-							src={asset('images/port-chornomorsk-office.jpg')}
-							alt="Вид на місто Чорноморськ та морський порт — локація офісу ТОВ ОЗОН-ДЕЗ"
-							class="map-port-photo"
-							loading="lazy"
-						/>
-						<div class="map-photo-overlay">
-							<div class="office-location-badge">
-								<span class="badge-pulse-dot"></span>
-								<div>
-									<strong>{currentContent.address.actual}</strong>
-									<div class="location-sub-text">
-										{#if langState.current === 'ua'}
-											м. Чорноморськ • Виїзд на об'єкт від 30 хв
-										{:else if langState.current === 'ru'}
-											г. Черноморск • Выезд на объект от 30 мин
-										{:else}
-											Chornomorsk • On-site arrival from 30 min
-										{/if}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="map-route-tags-bar">
-						<span class="route-city-tag">⚓ {contacts.map.routeCities}</span>
-					</div>
-				</div>
 			</div>
 
 			<!-- Direct Request Form -->
@@ -293,7 +246,7 @@
 
 	.contacts-grid {
 		display: grid;
-		grid-template-columns: 1.15fr 0.85fr;
+		grid-template-columns: 1fr 1fr;
 		gap: 2.5rem;
 		align-items: start;
 	}
@@ -500,121 +453,6 @@
 	.mess-tg:hover {
 		background: #0077b5;
 		transform: translateY(-1px);
-	}
-
-	/* Map card */
-	.map-card {
-		padding: 1.75rem;
-		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
-		border-radius: var(--radius-cards);
-		box-shadow: none;
-	}
-
-	.map-preview-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 1.2rem;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-	}
-
-	.map-title {
-		font-size: 1rem;
-		font-weight: 400;
-		letter-spacing: -0.02em;
-		color: var(--color-bone-white);
-	}
-
-	.map-subtitle {
-		font-size: 0.8rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
-	}
-
-	.map-photo-visual {
-		position: relative;
-		border-radius: 16px;
-		overflow: hidden;
-		aspect-ratio: 16/9;
-		margin-bottom: 1rem;
-		box-shadow: none;
-		border: 1px solid var(--border-subtle);
-	}
-
-	.map-port-photo {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center;
-		display: block;
-		transition: transform var(--transition-norm);
-	}
-
-	.map-card:hover .map-port-photo {
-		transform: scale(1.02);
-	}
-
-	.map-photo-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(
-			to top,
-			rgba(0, 0, 0, 0.9) 0%,
-			rgba(0, 0, 0, 0.3) 55%,
-			transparent 100%
-		);
-		display: flex;
-		align-items: flex-end;
-		padding: 1rem;
-	}
-
-	.office-location-badge {
-		display: flex;
-		align-items: center;
-		gap: 0.65rem;
-		background: rgba(9, 9, 9, 0.92);
-		backdrop-filter: blur(8px);
-		padding: 0.5rem 0.85rem;
-		border-radius: var(--radius-pill);
-		border: 1px solid var(--border-subtle);
-		box-shadow: none;
-	}
-
-	.badge-pulse-dot {
-		width: 8px;
-		height: 8px;
-		border-radius: 50%;
-		background: var(--color-electric-iris);
-		box-shadow: 0 0 0 3px rgba(128, 82, 255, 0.25);
-		flex-shrink: 0;
-	}
-
-	.office-location-badge strong {
-		font-size: 0.82rem;
-		color: var(--color-bone-white);
-		display: block;
-		line-height: 1.2;
-		font-weight: 500;
-	}
-
-	.location-sub-text {
-		font-size: 0.72rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
-	}
-
-	.map-route-tags-bar {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.route-city-tag {
-		font-size: 0.82rem;
-		font-weight: 300;
-		color: var(--color-silver-mist);
 	}
 
 	/* Form Column */

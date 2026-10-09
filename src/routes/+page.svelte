@@ -94,42 +94,6 @@
 		</div>
 	</section>
 
-	<!-- Quick Link to How We Work Preview -->
-	<section class="section quick-work-preview-section">
-		<div class="container">
-			<div class="preview-banner glass-card">
-				<div class="preview-text">
-					<h3>
-						{#if langState.current === 'ua'}
-							Бажаєте дізнатися більше про підготовку приміщення та гарантії?
-						{:else if langState.current === 'ru'}
-							Хотите узнать больше о подготовке помещения и гарантиях?
-						{:else}
-							Want to know more about facility preparation and warranties?
-						{/if}
-					</h3>
-					<p>
-						{#if langState.current === 'ua'}
-							Ознайомтеся з детальним 5-кроковим регламентом нашої роботи, пам'яткою з підготовки квартири та юридичними гарантіями ТОВ «ОЗОН-ДЕЗ».
-						{:else if langState.current === 'ru'}
-							Ознакомьтесь с подробным 5-шаговым регламентом нашей работы, памяткой по подготовке и юридическими гарантиями ООО «ОЗОН-ДЕЗ».
-						{:else}
-							Review our 5-step workflow, client preparation guidelines, and official legal warranties of LLC "OZON-DEZ".
-						{/if}
-					</p>
-				</div>
-				<div class="preview-buttons">
-					<a href={resolve('/how-we-work')} class="btn btn-primary">
-						{#if langState.current === 'ua'}Читати розділ «Як ми працюємо» →{:else if langState.current === 'ru'}Читать раздел «Как мы работаем» →{:else}Read "How We Work" →{/if}
-					</a>
-					<a href={resolve('/contacts')} class="btn btn-secondary">
-						{#if langState.current === 'ua'}Контакти та реквізити{:else if langState.current === 'ru'}Контакты и реквизиты{:else}Contacts & Office Details{/if}
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Real Case Studies & Customer Reviews -->
 	<ReviewsSection />
 </div>
@@ -254,73 +218,5 @@
 		padding-top: 0.75rem;
 		border-top: 1px dashed var(--color-void-border);
 		line-height: 1.4;
-	}
-
-
-
-	/* Preview banner */
-	.quick-work-preview-section {
-		position: relative;
-		z-index: 1;
-		background: transparent;
-		border-top: 1px solid var(--color-void-border);
-	}
-
-	.preview-banner {
-		padding: 2.5rem 3rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-void-border);
-		border-radius: var(--radius-cards);
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2rem;
-		box-shadow: none;
-	}
-
-	@media (max-width: 900px) {
-		.preview-banner {
-			flex-direction: column;
-			align-items: flex-start;
-			padding: 1.8rem 1.4rem;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.preview-banner {
-			padding: 1.4rem 1.15rem;
-		}
-
-		.preview-buttons {
-			width: 100%;
-			flex-direction: column;
-		}
-
-		.preview-buttons .btn {
-			width: 100%;
-		}
-	}
-
-	.preview-text h3 {
-		font-size: 1.35rem;
-		font-weight: 400;
-		color: var(--color-bone-white);
-		letter-spacing: -0.025em;
-		margin-bottom: 0.5rem;
-	}
-
-	.preview-text p {
-		font-size: 0.9rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
-		line-height: 1.55;
-		max-width: 650px;
-	}
-
-	.preview-buttons {
-		display: flex;
-		gap: 1rem;
-		flex-shrink: 0;
-		flex-wrap: wrap;
 	}
 </style>
