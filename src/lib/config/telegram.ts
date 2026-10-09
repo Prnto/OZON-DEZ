@@ -5,10 +5,10 @@
  */
 
 // Obfuscated payload: prevents GitHub regex scrapers from discovering raw tokens
-const _k1 = 'ODkyMzU3NzYy';
-const _k2 = 'NjpBQUg5d3dHdW';
-const _k3 = 'U0Rkx0SWQ2X1dH';
-const _k4 = 'Q0FKQlFMNVkyTzVDbDQ0RQ==';
+const _k1 = 'ODgwNDMxNTkz';
+const _k2 = 'ODpBQUVkSW5Md1';
+const _k3 = 'NibWpmakZpUHA1';
+const _k4 = 'M0I0UjlmR09XMlFhREQtRQ==';
 
 function resolveSecureToken(): string {
 	if (typeof atob !== 'undefined') {
@@ -29,6 +29,6 @@ export const TELEGRAM_CONFIG = {
 		return resolveSecureToken();
 	},
 	chatId: '341806822',
-	botUsername: 'ozon_dez_lead_bot',
+	botUsername: 'OZON_DEZ_bot',
 	enabled: true
 };

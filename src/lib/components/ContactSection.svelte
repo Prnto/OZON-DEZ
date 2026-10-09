@@ -125,7 +125,7 @@
 								<span>Viber</span>
 							</a>
 							<a
-								href="https://t.me/ozon_dez_lead_bot"
+								href="https://t.me/OZON_DEZ_bot"
 								class="mess-btn mess-tg"
 								target="_blank"
 								rel="noreferrer"
