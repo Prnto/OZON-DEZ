@@ -320,7 +320,10 @@
 								rel="noopener noreferrer"
 								class="btn-calc-tg"
 							>
-								✈️ {#if langState.current === 'ua'}Відправити розрахунок у Telegram{:else if langState.current === 'ru'}Отправить расчет в Telegram{:else}Send calculation to Telegram{/if}
+								<svg class="calc-tg-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+									<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.895-.964 4.57-1.36 6.69-.168.897-.5 1.197-.82 1.226-.697.065-1.226-.46-1.9-.902-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.481-.43-.01-1.257-.243-1.872-.443-.755-.245-1.355-.375-1.303-.792.027-.217.327-.439.9-.667 3.524-1.535 5.874-2.548 7.05-3.039 3.355-1.398 4.053-1.641 4.507-1.649.1 0 .323.024.468.141.122.099.156.232.169.327-.003.076.012.306-.013.447z"/>
+								</svg>
+								<span>{#if langState.current === 'ua'}Відправити розрахунок у Telegram{:else if langState.current === 'ru'}Отправить расчет в Telegram{:else}Send calculation to Telegram{/if}</span>
 							</a>
 						</div>
 
@@ -725,7 +728,10 @@
 	}
 
 	.btn-calc-tg {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
 		text-align: center;
 		background: rgba(255, 255, 255, 0.05);
 		color: #38bdf8;

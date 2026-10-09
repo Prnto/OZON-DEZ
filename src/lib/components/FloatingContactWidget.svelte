@@ -93,7 +93,11 @@
 					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap phone-icon">📞</div>
+					<div class="item-icon-wrap phone-icon">
+						<svg class="brand-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+							<path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+						</svg>
+					</div>
 					<div class="item-content">
 						<span class="item-title">
 							{#if langState.current === 'ua'}
@@ -118,7 +122,11 @@
 					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap tg-icon">✈️</div>
+					<div class="item-icon-wrap tg-icon">
+						<svg class="brand-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+							<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.895-.964 4.57-1.36 6.69-.168.897-.5 1.197-.82 1.226-.697.065-1.226-.46-1.9-.902-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.481-.43-.01-1.257-.243-1.872-.443-.755-.245-1.355-.375-1.303-.792.027-.217.327-.439.9-.667 3.524-1.535 5.874-2.548 7.05-3.039 3.355-1.398 4.053-1.641 4.507-1.649.1 0 .323.024.468.141.122.099.156.232.169.327-.003.076.012.306-.013.447z"/>
+						</svg>
+					</div>
 					<div class="item-content">
 						<span class="item-title">OZON-DEZ</span>
 						<span class="item-detail">
@@ -143,7 +151,11 @@
 					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap viber-icon">💜</div>
+					<div class="item-icon-wrap viber-icon">
+						<svg class="brand-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+							<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
+						</svg>
+					</div>
 					<div class="item-content">
 						<span class="item-title">Viber</span>
 						<span class="item-detail">
@@ -166,7 +178,11 @@
 					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap call-icon">☎️</div>
+					<div class="item-icon-wrap office-icon">
+						<svg class="brand-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+							<path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+						</svg>
+					</div>
 					<div class="item-content">
 						<span class="item-title">
 							{#if langState.current === 'ua'}
@@ -199,7 +215,9 @@
 			{#if isOpen}
 				✕
 			{:else}
-				💬
+				<svg class="trigger-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+					<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+				</svg>
 			{/if}
 		</span>
 		<span class="trigger-label"></span>
@@ -479,6 +497,48 @@
 
 	.call-icon {
 		background: rgba(128, 82, 255, 0.2);
+	}
+
+	.tg-icon {
+		color: #29b6f6;
+		background: rgba(0, 136, 204, 0.14);
+	}
+
+	.tg-action:hover {
+		border-color: #0088cc;
+	}
+
+	.viber-icon {
+		color: #a797ff;
+		background: rgba(115, 96, 242, 0.16);
+	}
+
+	.viber-action:hover {
+		border-color: #7360f2;
+	}
+
+	.phone-icon {
+		color: #34d399;
+		background: rgba(16, 185, 129, 0.14);
+	}
+
+	.phone-action:hover {
+		border-color: #10b981;
+	}
+
+	.office-icon {
+		color: #fbbf24;
+		background: rgba(245, 158, 11, 0.14);
+	}
+
+	.office-action:hover {
+		border-color: #f59e0b;
+	}
+
+	.brand-svg,
+	.trigger-svg {
+		display: block;
+		flex-shrink: 0;
 	}
 
 	@media (max-width: 480px) {
