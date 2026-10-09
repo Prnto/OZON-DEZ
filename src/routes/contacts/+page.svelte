@@ -33,7 +33,7 @@
 		title={c.title}
 		subtitle={c.subtitle}
 		crumbs={[{ label: currentContent.nav.contacts }]}
-		imageSrc={asset('images/contacts-bg.jpg')}
+		imageSrc={asset('images/contacts-bg.webp')}
 	/>
 
 	<!-- Main Contact Section (Addresses, Phones, Schedule, Messengers & Direct Form) -->
@@ -72,12 +72,12 @@
 					</div>
 					<div
 						class="card-crest-watermark"
-						style="background-image: url('{asset('images/crests/chornomorsk.png')}');"
+						style="background-image: url('{asset('images/crests/chornomorsk.webp')}');"
 						aria-hidden="true"
 					></div>
 					<div class="city-crest-badge">
 						<img
-							src="{asset('images/crests/chornomorsk.png')}"
+							src="{asset('images/crests/chornomorsk.webp')}"
 							alt="Герб м. Чорноморськ"
 							width="44"
 							height="44"
@@ -112,12 +112,12 @@
 					</div>
 					<div
 						class="card-crest-watermark"
-						style="background-image: url('{asset('images/crests/odesa.png')}');"
+						style="background-image: url('{asset('images/crests/odesa.webp')}');"
 						aria-hidden="true"
 					></div>
 					<div class="city-crest-badge">
 						<img
-							src="{asset('images/crests/odesa.png')}"
+							src="{asset('images/crests/odesa.webp')}"
 							alt="Герб м. Одеса"
 							width="44"
 							height="44"
@@ -152,12 +152,12 @@
 					</div>
 					<div
 						class="card-crest-watermark"
-						style="background-image: url('{asset('images/crests/ovidiopol.png')}');"
+						style="background-image: url('{asset('images/crests/ovidiopol.webp')}');"
 						aria-hidden="true"
 					></div>
 					<div class="city-crest-badge">
 						<img
-							src="{asset('images/crests/ovidiopol.png')}"
+							src="{asset('images/crests/ovidiopol.webp')}"
 							alt="Герб Овідіопольського району"
 							width="44"
 							height="44"
@@ -192,12 +192,12 @@
 					</div>
 					<div
 						class="card-crest-watermark"
-						style="background-image: url('{asset('images/crests/yuzhne.png')}');"
+						style="background-image: url('{asset('images/crests/yuzhne.webp')}');"
 						aria-hidden="true"
 					></div>
 					<div class="city-crest-badge">
 						<img
-							src="{asset('images/crests/yuzhne.png')}"
+							src="{asset('images/crests/yuzhne.webp')}"
 							alt="Герб м. Южне"
 							width="44"
 							height="44"
@@ -232,12 +232,12 @@
 					</div>
 					<div
 						class="card-crest-watermark"
-						style="background-image: url('{asset('images/crests/bilhorod.png')}');"
+						style="background-image: url('{asset('images/crests/bilhorod.webp')}');"
 						aria-hidden="true"
 					></div>
 					<div class="city-crest-badge">
 						<img
-							src="{asset('images/crests/bilhorod.png')}"
+							src="{asset('images/crests/bilhorod.webp')}"
 							alt="Герб м. Білгород-Дністровський"
 							width="44"
 							height="44"
@@ -272,12 +272,12 @@
 					</div>
 					<div
 						class="card-crest-watermark"
-						style="background-image: url('{asset('images/crests/odesa-oblast.png')}');"
+						style="background-image: url('{asset('images/crests/odesa-oblast.webp')}');"
 						aria-hidden="true"
 					></div>
 					<div class="city-crest-badge">
 						<img
-							src="{asset('images/crests/odesa-oblast.png')}"
+							src="{asset('images/crests/odesa-oblast.webp')}"
 							alt="Герб Одеської області"
 							width="44"
 							height="44"

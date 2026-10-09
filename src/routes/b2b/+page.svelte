@@ -34,7 +34,7 @@
 		title={b2b.title}
 		subtitle={b2b.subtitle}
 		crumbs={[{ label: currentContent.nav.b2b }]}
-		imageSrc={asset('images/b2b-haccp-audit.jpg')}
+		imageSrc={asset('images/b2b-haccp-audit.webp')}
 	/>
 
 	<BusinessHaccp />

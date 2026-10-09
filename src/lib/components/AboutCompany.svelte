@@ -12,35 +12,35 @@
 	> = {
 		'01': {
 			icon: 'images/icons/stop-cockroach.svg',
-			bg: 'images/pest-cockroaches.jpg',
+			bg: 'images/pest-cockroaches.webp',
 			accentColor: '#ef4444',
 			badgeClass: 'badge-pest',
 			targetId: 'disinsection'
 		},
 		'02': {
 			icon: 'images/icons/stop-rodent.svg',
-			bg: 'images/deratization-rodents.jpg',
+			bg: 'images/deratization-rodents.webp',
 			accentColor: '#ef4444',
 			badgeClass: 'badge-rodent',
 			targetId: 'deratization'
 		},
 		'03': {
 			icon: 'images/icons/disinfection-shield.svg',
-			bg: 'images/hero-disinfection.jpg',
+			bg: 'images/hero-disinfection.webp',
 			accentColor: '#10b981',
 			badgeClass: 'badge-disinfection',
 			targetId: 'disinfection'
 		},
 		'04': {
 			icon: 'images/icons/ozone-molecule.svg',
-			bg: 'images/ozone-bg.jpg',
+			bg: 'images/ozone-bg.webp',
 			accentColor: '#8052ff',
 			badgeClass: 'badge-ozone',
 			targetId: 'ozonation'
 		},
 		'05': {
 			icon: 'images/icons/pest-haccp.svg',
-			bg: 'images/b2b-haccp-audit.jpg',
+			bg: 'images/b2b-haccp-audit.webp',
 			accentColor: '#f59e0b',
 			badgeClass: 'badge-haccp',
 			targetId: 'pest-control'

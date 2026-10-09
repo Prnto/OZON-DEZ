@@ -52,7 +52,7 @@
 			? 'Предоставляем полный комплекс услуг физическим и юридическим лицам в Черноморске, Одессе и Одесской области. Используем исключительно зарегистрированные в Украине препараты, генераторы тумана и промышленные озонаторы.'
 			: 'We provide a complete range of services to individuals and businesses in Chornomorsk, Odesa, and the Odesa region. We use exclusively Ukraine-registered preparations, fog generators, and industrial ozone machines.'}
 		crumbs={[{ label: currentContent.nav.services }]}
-		imageSrc={asset('images/services-bg.jpg')}
+		imageSrc={asset('images/services-bg.webp')}
 	/>
 
 	<!-- 5 Confirmed Services of LLC "OZON-DEZ" -->
@@ -64,7 +64,7 @@
 				<article class="service-card glass-card" id="disinsection">
 					<div class="service-card-media">
 						<img
-							src={asset('images/pest-cockroaches.jpg')}
+							src={asset('images/pest-cockroaches.webp')}
 							alt="Дезінсекція тарганів, клопів, бліх холодним туманом ULV"
 							class="service-img"
 							loading="lazy"
@@ -123,7 +123,7 @@
 				<article class="service-card glass-card" id="deratization">
 					<div class="service-card-media">
 						<img
-							src={asset('images/deratization-rodents.jpg')}
+							src={asset('images/deratization-rodents.webp')}
 							alt="Дератизація: знищення щурів, мишей, встановлення принадних станцій"
 							class="service-img"
 							loading="lazy"
@@ -182,7 +182,7 @@
 				<article class="service-card glass-card" id="disinfection">
 					<div class="service-card-media">
 						<img
-							src={asset('images/restaurant-kitchen-dez.jpg')}
+							src={asset('images/restaurant-kitchen-dez.webp')}
 							alt="Дезінфекція поверхонь, ємностей та питної води"
 							class="service-img"
 							loading="lazy"
@@ -241,7 +241,7 @@
 				<article class="service-card glass-card" id="ozonation">
 					<div class="service-card-media">
 						<img
-							src={asset('images/ozone-bg.jpg')}
+							src={asset('images/ozone-bg.webp')}
 							alt="Озонування приміщень, ємностей та видалення стійких запахів"
 							class="service-img"
 							loading="lazy"
@@ -301,7 +301,7 @@
 					<span id="pest_control" style="position: absolute; top: -110px; visibility: hidden;" aria-hidden="true"></span>
 					<div class="service-card-media">
 						<img
-							src={asset('images/warehouse-logistics-dez.jpg')}
+							src={asset('images/warehouse-logistics-dez.webp')}
 							alt="Пест-контроль для бізнесу за системою HACCP: склади, виробництва, HoReCa"
 							class="service-img"
 							loading="lazy"

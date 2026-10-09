@@ -34,7 +34,7 @@
 		title={calc.title}
 		subtitle={calc.subtitle}
 		crumbs={[{ label: currentContent.nav.calculator }]}
-		imageSrc={asset('images/calculator-bg.jpg')}
+		imageSrc={asset('images/calculator-bg.webp')}
 	/>
 
 	<!-- Full interactive calculator -->

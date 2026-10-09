@@ -49,7 +49,7 @@
 				<div class="water-media">
 					<div class="media-frame">
 						<img
-							src={asset('images/water-purification.jpg')}
+							src={asset('images/water-purification.webp')}
 							alt="Дезінфекція систем водопостачання та очищення води ОЗОН-ДЕЗ"
 							class="water-img"
 							loading="lazy"

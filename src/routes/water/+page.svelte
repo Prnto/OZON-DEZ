@@ -34,7 +34,7 @@
 		title={water.title}
 		subtitle={water.subtitle}
 		crumbs={[{ label: currentContent.nav.water }]}
-		imageSrc={asset('images/water-purification.jpg')}
+		imageSrc={asset('images/water-purification.webp')}
 	/>
 
 	<WaterSection />

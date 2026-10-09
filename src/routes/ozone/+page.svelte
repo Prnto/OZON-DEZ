@@ -43,7 +43,7 @@
 			? 'Глубокое обеззараживание воздуха и материалов газом озоном. Убивает 99.9% патогенов, спор плесени и вирусов без токсичной химии.'
 			: 'Deep disinfection of air and materials using ozone gas. Destroys 99.9% of bacteria, fungal spores, and viruses without toxic chemicals.'}
 		crumbs={[{ label: currentContent.nav.ozone }]}
-		imageSrc={asset('images/ozone-bg.jpg')}
+		imageSrc={asset('images/ozone-bg.webp')}
 	/>
 
 	<!-- Hero Feature Section -->

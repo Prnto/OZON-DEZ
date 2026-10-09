@@ -34,7 +34,7 @@
 		title={work.title}
 		subtitle={work.subtitle}
 		crumbs={[{ label: currentContent.nav.howWeWork }]}
-		imageSrc={asset('images/how-we-work-bg.jpg')}
+		imageSrc={asset('images/how-we-work-bg.webp')}
 	/>
 
 	<!-- Main How We Work component -->
