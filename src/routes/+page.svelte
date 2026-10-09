@@ -50,6 +50,7 @@
 						<button
 							type="button"
 							class="btn btn-primary btn-lg"
+							data-testid="teaser-call-btn"
 							style="display: inline-flex; align-items: center; gap: 0.45rem;"
 							onclick={() =>
 								orderModal.open({
@@ -64,7 +65,12 @@
 							<PhoneCall size={18} weight="bold" />
 							<span>{#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
 						</button>
-						<a href={resolve('/calculator')} class="btn btn-secondary btn-lg" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+						<a
+							href={resolve('/calculator')}
+							class="btn btn-secondary btn-lg"
+							data-testid="teaser-calc-link"
+							style="display: inline-flex; align-items: center; gap: 0.45rem;"
+						>
 							<Calculator size={18} weight="bold" />
 							<span>{#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
 						</a>

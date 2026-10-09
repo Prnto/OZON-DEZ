@@ -162,13 +162,14 @@
 					</div>
 
 					{#if isSuccess}
-						<div class="contact-success-state">
+						<div class="contact-success-state" data-testid="contact-success-message">
 							<div class="success-check-icon"><CheckCircle size={36} weight="fill" /></div>
 							<h3>{contacts.form.successTitle}</h3>
 							<p>{contacts.form.successDesc}</p>
 							<button
 								type="button"
 								class="btn btn-primary"
+								data-testid="contact-again-btn"
 								onclick={() => {
 									isSuccess = false;
 									formPhone = '';
@@ -179,7 +180,7 @@
 							</button>
 						</div>
 					{:else}
-						<form onsubmit={handleContactSubmit} class="contact-main-form">
+						<form onsubmit={handleContactSubmit} class="contact-main-form" data-testid="contact-form">
 							<div class="input-field">
 								<label for="c-name" class="input-lbl">{contacts.form.nameLbl}</label>
 								<input
@@ -188,6 +189,7 @@
 									placeholder={contacts.form.namePlaceholder}
 									bind:value={formName}
 									class="styled-input"
+									data-testid="contact-name-input"
 								/>
 							</div>
 
@@ -200,12 +202,13 @@
 									bind:value={formPhone}
 									required
 									class="styled-input"
+									data-testid="contact-phone-input"
 								/>
 							</div>
 
 							<div class="input-field">
 								<label for="c-service" class="input-lbl">{contacts.form.serviceLbl}</label>
-								<select id="c-service" bind:value={formService} class="styled-input styled-select">
+								<select id="c-service" bind:value={formService} class="styled-input styled-select" data-testid="contact-service-select">
 									{#each currentContent.categories as cat}
 										<optgroup label={cat.title}>
 											{#each cat.services as srv}
@@ -227,10 +230,11 @@
 									placeholder={contacts.form.commentPlaceholder}
 									bind:value={formComment}
 									class="styled-input styled-textarea"
+									data-testid="contact-comment-textarea"
 								></textarea>
 							</div>
 
-							<button type="submit" class="btn btn-primary btn-lg" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;" disabled={isSubmitting}>
+							<button type="submit" class="btn btn-primary btn-lg" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;" disabled={isSubmitting} data-testid="contact-submit-btn">
 								{#if isSubmitting}
 									...
 								{:else}

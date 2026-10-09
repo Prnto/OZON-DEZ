@@ -33,7 +33,7 @@
 
 <div class="floating-widget-wrapper">
 	{#if isOpen}
-		<div class="widget-menu glass-card-dark" role="menu">
+		<div class="widget-menu glass-card-dark" role="menu" data-testid="floating-widget-menu">
 			<div class="menu-header">
 				<div class="status-indicator">
 					<span class="live-pulse"></span>
@@ -47,7 +47,14 @@
 						{/if}
 					</span>
 				</div>
-				<button type="button" class="menu-close-btn" onclick={closeWidget} aria-label="Закрити меню" style="display: flex; align-items: center; justify-content: center;">
+				<button
+					type="button"
+					class="menu-close-btn"
+					onclick={closeWidget}
+					aria-label="Закрити меню"
+					data-testid="floating-widget-close-btn"
+					style="display: flex; align-items: center; justify-content: center;"
+				>
 					<X size={16} weight="bold" />
 				</button>
 			</div>
@@ -57,6 +64,7 @@
 				<button
 					type="button"
 					class="menu-item call-action"
+					data-testid="floating-call-modal-btn"
 					onclick={() => {
 						closeWidget();
 						orderModal.open({ serviceTitle: currentContent.modal.defaultTitle });
@@ -91,6 +99,7 @@
 				<a
 					href="tel:{currentContent.phones.mobile}"
 					class="menu-item phone-action"
+					data-testid="floating-mobile-link"
 					onclick={closeWidget}
 					role="menuitem"
 				>
@@ -120,6 +129,7 @@
 					target="_blank"
 					rel="noreferrer"
 					class="menu-item tg-action"
+					data-testid="floating-telegram-link"
 					onclick={closeWidget}
 					role="menuitem"
 				>
@@ -147,6 +157,7 @@
 				<button
 					type="button"
 					class="menu-item insta-action"
+					data-testid="floating-instagram-btn"
 					onclick={() => {
 						closeWidget();
 						alert(
@@ -185,6 +196,7 @@
 					target="_blank"
 					rel="noreferrer"
 					class="menu-item viber-action"
+					data-testid="floating-viber-link"
 					onclick={closeWidget}
 					role="menuitem"
 				>
@@ -212,6 +224,7 @@
 				<a
 					href="tel:{currentContent.phones.landline}"
 					class="menu-item office-action"
+					data-testid="floating-landline-link"
 					onclick={closeWidget}
 					role="menuitem"
 				>
@@ -243,6 +256,7 @@
 		type="button"
 		class="floating-trigger-btn"
 		class:active={isOpen}
+		data-testid="floating-widget-trigger-btn"
 		onclick={toggleWidget}
 		aria-expanded={isOpen}
 		aria-label={langState.current === 'ua' ? 'Швидкий зв’язок та виклик спеціаліста' : langState.current === 'ru' ? 'Быстрая связь и вызов специалиста' : 'Quick contact & specialist call'}

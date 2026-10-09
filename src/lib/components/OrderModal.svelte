@@ -80,13 +80,14 @@
 			role="dialog"
 			aria-modal="true"
 			tabindex="-1"
+			data-testid="order-modal"
 		>
-			<button type="button" class="close-btn" onclick={handleClose} aria-label={modalData.closeBtn} style="display: flex; align-items: center; justify-content: center;">
+			<button type="button" class="close-btn" onclick={handleClose} aria-label={modalData.closeBtn} data-testid="order-modal-close-btn" style="display: flex; align-items: center; justify-content: center;">
 				<X size={18} weight="bold" />
 			</button>
 
 			{#if isSubmitted}
-				<div class="modal-success">
+				<div class="modal-success" data-testid="order-success-message">
 					<div class="modal-success-badge" style="display: flex; align-items: center; justify-content: center;">
 						<CheckCircle size={36} weight="fill" />
 					</div>
@@ -100,7 +101,7 @@
 							<PhoneCall size={18} weight="bold" /> {currentContent.phones.mobileDisplay}
 						</a>
 					</div>
-					<button type="button" class="btn btn-secondary btn-sm" style="margin-top: 1.5rem;" onclick={handleClose}>
+					<button type="button" class="btn btn-secondary btn-sm" style="margin-top: 1.5rem;" onclick={handleClose} data-testid="order-success-close-btn">
 						{modalData.closeBtn}
 					</button>
 				</div>
@@ -120,7 +121,7 @@
 					</p>
 				</div>
 
-				<form onsubmit={handleSubmit} class="modal-form">
+				<form onsubmit={handleSubmit} class="modal-form" data-testid="order-form">
 					<div class="field-row">
 						<label for="m-name" class="m-lbl">{modalData.nameLbl}</label>
 						<input
@@ -129,6 +130,7 @@
 							placeholder={modalData.namePlaceholder}
 							bind:value={clientName}
 							class="m-input"
+							data-testid="order-name-input"
 						/>
 					</div>
 
@@ -141,6 +143,7 @@
 							bind:value={clientPhone}
 							required
 							class="m-input"
+							data-testid="order-phone-input"
 						/>
 					</div>
 
@@ -152,6 +155,7 @@
 							placeholder={modalData.addressPlaceholder}
 							bind:value={clientAddress}
 							class="m-input"
+							data-testid="order-address-input"
 						/>
 					</div>
 
@@ -163,6 +167,7 @@
 							placeholder={modalData.commentPlaceholder}
 							bind:value={clientComment}
 							class="m-input m-textarea"
+							data-testid="order-comment-textarea"
 						></textarea>
 					</div>
 
@@ -171,6 +176,7 @@
 							type="submit"
 							class="btn btn-primary modal-submit-btn"
 							disabled={isSubmitting}
+							data-testid="order-submit-btn"
 						>
 							{#if isSubmitting}
 								...

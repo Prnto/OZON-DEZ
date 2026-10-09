@@ -177,7 +177,7 @@
 						<label class="calc-label" for="calcService">
 							1. {#if langState.current === 'ua'}Оберіть необхідну послугу:{:else if langState.current === 'ru'}Выберите необходимую услугу:{:else}Select required service:{/if}
 						</label>
-						<select id="calcService" class="calc-select" bind:value={selectedService}>
+						<select id="calcService" class="calc-select" data-testid="calc-service-select" bind:value={selectedService}>
 							<option value="disinsection">
 								{#if langState.current === 'ua'}Дезінсекція (таргани, блохи, комарі, кліщі){:else if langState.current === 'ru'}Дезинсекция (тараканы, блохи, комары, клещи){:else}Disinsection (cockroaches, fleas, mosquitoes, ticks){/if}
 							</option>
@@ -243,6 +243,7 @@
 							min="20"
 							max="350"
 							step="5"
+							data-testid="calc-area-input"
 							bind:value={area}
 							class="calc-range"
 						/>
@@ -286,7 +287,7 @@
 						</span>
 						<div class="summary-price">
 							<span class="price-from">{#if langState.current === 'ua'}від{:else if langState.current === 'ru'}от{:else}from{/if}</span>
-							<span class="price-val">{calculatedPrice}</span>
+							<span class="price-val" data-testid="calc-price-value">{calculatedPrice}</span>
 							<span class="price-currency">{#if langState.current === 'en'}UAH{:else}грн{/if}</span>
 						</div>
 
@@ -310,7 +311,7 @@
 						</ul>
 
 						<div class="summary-cta">
-							<a href="tel:{currentContent.phones.mobile}" class="btn-calc-submit">
+							<a href="tel:{currentContent.phones.mobile}" class="btn-calc-submit" data-testid="calc-order-call-btn">
 								<span><PhoneCall size={16} weight="bold" /></span>
 								<span>
 									{#if langState.current === 'ua'}Замовити за цією ціною{:else if langState.current === 'ru'}Заказать по этой цене{:else}Order at this price{/if}
@@ -321,6 +322,7 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								class="btn-calc-tg"
+								data-testid="calc-order-telegram-link"
 							>
 								<svg class="calc-tg-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
 									<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.895-.964 4.57-1.36 6.69-.168.897-.5 1.197-.82 1.226-.697.065-1.226-.46-1.9-.902-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.481-.43-.01-1.257-.243-1.872-.443-.755-.245-1.355-.375-1.303-.792.027-.217.327-.439.9-.667 3.524-1.535 5.874-2.548 7.05-3.039 3.355-1.398 4.053-1.641 4.507-1.649.1 0 .323.024.468.141.122.099.156.232.169.327-.003.076.012.306-.013.447z"/>
@@ -332,11 +334,11 @@
 						<!-- Quick callback submit -->
 						<div class="calc-lead-section">
 							{#if isSuccess}
-								<div class="lead-success-badge" style="display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+								<div class="lead-success-badge" data-testid="calc-lead-success-message" style="display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
 									<CheckCircle size={18} weight="fill" /> {#if langState.current === 'ua'}Заявку надіслано! Спеціаліст зв'яжеться з вами.{:else if langState.current === 'ru'}Заявка отправлена! Специалист свяжется с вами.{:else}Request sent! Our specialist will contact you.{/if}
 								</div>
 							{:else}
-								<form onsubmit={handleSubmitOrder} class="quick-lead-form">
+								<form onsubmit={handleSubmitOrder} class="quick-lead-form" data-testid="calc-lead-form">
 									<div class="lead-inputs">
 										<input
 											type="tel"
@@ -344,8 +346,9 @@
 											bind:value={clientPhone}
 											required
 											class="lead-input"
+											data-testid="calc-lead-phone-input"
 										/>
-										<button type="submit" class="lead-btn" disabled={isSubmitting} style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
+										<button type="submit" class="lead-btn" data-testid="calc-lead-submit-btn" disabled={isSubmitting} style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
 											{#if isSubmitting}...{:else}<Lightning size={16} weight="fill" /> {#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}{/if}
 										</button>
 									</div>

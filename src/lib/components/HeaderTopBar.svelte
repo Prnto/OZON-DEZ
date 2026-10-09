@@ -24,11 +24,11 @@
 		<div class="top-bar-right">
 			<!-- Landline & Mobile in pill badges with capsule border -->
 			<div class="top-phones-cluster">
-				<a href="tel:{currentContent.phones.landline}" class="top-phone-pill" title="Міський / Офіс">
+				<a href="tel:{currentContent.phones.landline}" class="top-phone-pill" title="Міський / Офіс" data-testid="topbar-landline-link">
 					<span class="top-icon"><Phone size={13} weight="bold" /></span>
 					<span>{currentContent.phones.landlineDisplay}</span>
 				</a>
-				<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill highlight" title="Мобільний зв'язок">
+				<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill highlight" title="Мобільний зв'язок" data-testid="topbar-mobile-link">
 					<span class="phone-pulse-dot"></span>
 					<span>{currentContent.phones.mobileDisplay}</span>
 				</a>
@@ -41,8 +41,10 @@
 					type="button"
 					class="theme-segment-btn"
 					class:active={themeState.current === 'dark'}
+					aria-pressed={themeState.current === 'dark'}
 					onclick={() => themeState.setTheme('dark')}
 					title="Темна тема"
+					data-testid="theme-dark-btn"
 				>
 					<span class="theme-icon"><Moon size={13} weight="bold" /></span>
 					<span class="theme-label">{#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}</span>
@@ -51,8 +53,10 @@
 					type="button"
 					class="theme-segment-btn"
 					class:active={themeState.current === 'light'}
+					aria-pressed={themeState.current === 'light'}
 					onclick={() => themeState.setTheme('light')}
 					title="Світла тема"
+					data-testid="theme-light-btn"
 				>
 					<span class="theme-icon"><Sun size={13} weight="bold" /></span>
 					<span class="theme-label">{#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}</span>
@@ -67,7 +71,9 @@
 					type="button"
 					class="lang-segment-btn"
 					class:active={langState.current === 'ua'}
+					aria-pressed={langState.current === 'ua'}
 					onclick={() => langState.setLang('ua')}
+					data-testid="lang-ua-btn"
 				>
 					UA
 				</button>
@@ -76,7 +82,9 @@
 					type="button"
 					class="lang-segment-btn"
 					class:active={langState.current === 'ru'}
+					aria-pressed={langState.current === 'ru'}
 					onclick={() => langState.setLang('ru')}
+					data-testid="lang-ru-btn"
 				>
 					RU
 				</button>
@@ -85,7 +93,9 @@
 					type="button"
 					class="lang-segment-btn"
 					class:active={langState.current === 'en'}
+					aria-pressed={langState.current === 'en'}
 					onclick={() => langState.setLang('en')}
+					data-testid="lang-en-btn"
 				>
 					EN
 				</button>

@@ -79,6 +79,7 @@
 						href="{resolve('/services')}#{meta?.targetId || 'services'}"
 						class="service-pill-card glass-card"
 						title="{srv.title}"
+						data-testid="about-service-{meta?.targetId || srv.num}-link"
 					>
 						<!-- Thematic Background Photography with Dark Protective Overlay -->
 						{#if meta?.bg}

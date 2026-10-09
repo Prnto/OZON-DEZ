@@ -31,7 +31,7 @@
 
 {#if isOpen}
 	<div class="mobile-backdrop" onclick={onClose} role="presentation"></div>
-	<div class="mobile-drawer">
+	<div class="mobile-drawer" data-testid="mobile-drawer">
 		<div class="mobile-nav">
 			<div class="mobile-controls-row">
 				<div class="mobile-lang-row">
@@ -41,6 +41,8 @@
 							type="button"
 							class="lang-segment-btn"
 							class:active={langState.current === 'ua'}
+							data-testid="mobile-lang-ua-btn"
+							aria-pressed={langState.current === 'ua'}
 							onclick={() => langState.setLang('ua')}
 						>
 							UA
@@ -50,6 +52,8 @@
 							type="button"
 							class="lang-segment-btn"
 							class:active={langState.current === 'ru'}
+							data-testid="mobile-lang-ru-btn"
+							aria-pressed={langState.current === 'ru'}
 							onclick={() => langState.setLang('ru')}
 						>
 							RU
@@ -59,6 +63,8 @@
 							type="button"
 							class="lang-segment-btn"
 							class:active={langState.current === 'en'}
+							data-testid="mobile-lang-en-btn"
+							aria-pressed={langState.current === 'en'}
 							onclick={() => langState.setLang('en')}
 						>
 							EN
@@ -73,6 +79,8 @@
 							type="button"
 							class="theme-segment-btn"
 							class:active={themeState.current === 'dark'}
+							data-testid="mobile-theme-dark-btn"
+							aria-pressed={themeState.current === 'dark'}
 							onclick={() => themeState.setTheme('dark')}
 						>
 							<Moon size={14} weight="bold" /> {#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}
@@ -81,6 +89,8 @@
 							type="button"
 							class="theme-segment-btn"
 							class:active={themeState.current === 'light'}
+							data-testid="mobile-theme-light-btn"
+							aria-pressed={themeState.current === 'light'}
 							onclick={() => themeState.setTheme('light')}
 						>
 							<Sun size={14} weight="bold" /> {#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}
@@ -89,31 +99,73 @@
 				</div>
 			</div>
 
-			<a href={resolve('/')} class="mobile-nav-link" class:active={isActive('/')} onclick={onClose}>
+			<a
+				href={resolve('/')}
+				class="mobile-nav-link"
+				class:active={isActive('/')}
+				data-testid="mobile-nav-home-link"
+				aria-current={isActive('/') ? 'page' : undefined}
+				onclick={onClose}
+			>
 				<span>{#if langState.current === 'ua'}Головна{:else if langState.current === 'ru'}Главная{:else}Home{/if}</span>
 			</a>
-			<a href={resolve('/services')} class="mobile-nav-link" class:active={isActive('/services')} onclick={onClose}>
+			<a
+				href={resolve('/services')}
+				class="mobile-nav-link"
+				class:active={isActive('/services')}
+				data-testid="mobile-nav-services-link"
+				aria-current={isActive('/services') ? 'page' : undefined}
+				onclick={onClose}
+			>
 				<span>{currentContent.nav.services}</span>
 			</a>
-			<a href={resolve('/b2b')} class="mobile-nav-link" class:active={isActive('/b2b')} onclick={onClose}>
+			<a
+				href={resolve('/b2b')}
+				class="mobile-nav-link"
+				class:active={isActive('/b2b')}
+				data-testid="mobile-nav-b2b-link"
+				aria-current={isActive('/b2b') ? 'page' : undefined}
+				onclick={onClose}
+			>
 				<span>{currentContent.nav.b2b}</span>
 			</a>
-			<a href={resolve('/how-we-work')} class="mobile-nav-link" class:active={isActive('/how-we-work')} onclick={onClose}>
+			<a
+				href={resolve('/how-we-work')}
+				class="mobile-nav-link"
+				class:active={isActive('/how-we-work')}
+				data-testid="mobile-nav-how-we-work-link"
+				aria-current={isActive('/how-we-work') ? 'page' : undefined}
+				onclick={onClose}
+			>
 				<span>{currentContent.nav.howWeWork}</span>
 			</a>
-			<a href={resolve('/calculator')} class="mobile-nav-link" class:active={isActive('/calculator')} onclick={onClose}>
+			<a
+				href={resolve('/calculator')}
+				class="mobile-nav-link"
+				class:active={isActive('/calculator')}
+				data-testid="mobile-nav-calculator-link"
+				aria-current={isActive('/calculator') ? 'page' : undefined}
+				onclick={onClose}
+			>
 				<span>{currentContent.nav.calculator}</span>
 			</a>
-			<a href={resolve('/contacts')} class="mobile-nav-link" class:active={isActive('/contacts')} onclick={onClose}>
+			<a
+				href={resolve('/contacts')}
+				class="mobile-nav-link"
+				class:active={isActive('/contacts')}
+				data-testid="mobile-nav-contacts-link"
+				aria-current={isActive('/contacts') ? 'page' : undefined}
+				onclick={onClose}
+			>
 				<span>{currentContent.nav.contacts}</span>
 			</a>
 
 			<div class="mobile-contacts-box">
 				<div class="mobile-phones">
-					<a href="tel:{currentContent.phones.mobile}" class="mobile-phone">
+					<a href="tel:{currentContent.phones.mobile}" class="mobile-phone" data-testid="mobile-phone-link">
 						<PhoneCall size={18} weight="bold" /> {currentContent.phones.mobileDisplay}
 					</a>
-					<a href="tel:{currentContent.phones.landline}" class="mobile-phone-sub">
+					<a href="tel:{currentContent.phones.landline}" class="mobile-phone-sub" data-testid="mobile-landline-link">
 						<Phone size={16} weight="bold" /> {currentContent.phones.landlineDisplay}
 					</a>
 				</div>
@@ -123,6 +175,7 @@
 				<button
 					type="button"
 					class="btn btn-primary"
+					data-testid="mobile-call-btn"
 					style="width: 100%; margin-top: 1rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;"
 					onclick={() => {
 						onClose();

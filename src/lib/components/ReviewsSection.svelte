@@ -183,6 +183,8 @@
 				type="button"
 				class="filter-tab-btn"
 				class:active={activeFilter === 'all'}
+				data-testid="reviews-filter-all-btn"
+				aria-pressed={activeFilter === 'all'}
 				onclick={() => (activeFilter = 'all')}
 			>
 				{currentData.filterAll}
@@ -191,6 +193,8 @@
 				type="button"
 				class="filter-tab-btn"
 				class:active={activeFilter === 'b2c'}
+				data-testid="reviews-filter-b2c-btn"
+				aria-pressed={activeFilter === 'b2c'}
 				onclick={() => (activeFilter = 'b2c')}
 				style="display: inline-flex; align-items: center; gap: 0.35rem;"
 			>
@@ -201,6 +205,8 @@
 				type="button"
 				class="filter-tab-btn"
 				class:active={activeFilter === 'haccp'}
+				data-testid="reviews-filter-haccp-btn"
+				aria-pressed={activeFilter === 'haccp'}
 				onclick={() => (activeFilter = 'haccp')}
 				style="display: inline-flex; align-items: center; gap: 0.35rem;"
 			>

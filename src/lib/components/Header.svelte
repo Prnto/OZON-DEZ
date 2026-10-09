@@ -62,6 +62,7 @@
 						type="button"
 						class="btn btn-primary btn-sm main-cta-btn"
 						onclick={() => orderModal.open({ serviceTitle: currentContent.nav.callBtn })}
+						data-testid="header-call-btn"
 					>
 						<span class="cta-full-label"><Lightning size={14} weight="fill" /> {currentContent.nav.callBtn}</span>
 						<span class="cta-short-label"><Lightning size={14} weight="fill" /> {#if langState.current === 'ua'}Виклик{:else if langState.current === 'ru'}Вызов{:else}Call{/if}</span>
@@ -72,8 +73,10 @@
 						type="button"
 						class="burger-btn"
 						class:open={isMobileMenuOpen}
+						aria-expanded={isMobileMenuOpen}
 						onclick={toggleMobileMenu}
 						aria-label="Меню контактів"
+						data-testid="header-mobile-menu-btn"
 					>
 						<span></span>
 						<span></span>
@@ -84,22 +87,22 @@
 
 			<!-- Row 2: Dedicated Navigation Tapbar spanning full width -->
 			<nav class="top-tapbar" aria-label="Головна навігація">
-				<a href={resolve('/')} class="tapbar-btn" class:active={isActive('/')}>
+				<a href={resolve('/')} class="tapbar-btn" class:active={isActive('/')} aria-current={isActive('/') ? 'page' : undefined} data-testid="nav-home-link">
 					<span class="tap-label">{#if langState.current === 'ua'}Головна{:else if langState.current === 'ru'}Главная{:else}Home{/if}</span>
 				</a>
-				<a href={resolve('/services')} class="tapbar-btn" class:active={isActive('/services')}>
+				<a href={resolve('/services')} class="tapbar-btn" class:active={isActive('/services')} aria-current={isActive('/services') ? 'page' : undefined} data-testid="nav-services-link">
 					<span class="tap-label">{currentContent.nav.services}</span>
 				</a>
-				<a href={resolve('/b2b')} class="tapbar-btn" class:active={isActive('/b2b')}>
+				<a href={resolve('/b2b')} class="tapbar-btn" class:active={isActive('/b2b')} aria-current={isActive('/b2b') ? 'page' : undefined} data-testid="nav-b2b-link">
 					<span class="tap-label">{currentContent.nav.b2b}</span>
 				</a>
-				<a href={resolve('/how-we-work')} class="tapbar-btn" class:active={isActive('/how-we-work')}>
+				<a href={resolve('/how-we-work')} class="tapbar-btn" class:active={isActive('/how-we-work')} aria-current={isActive('/how-we-work') ? 'page' : undefined} data-testid="nav-how-we-work-link">
 					<span class="tap-label">{currentContent.nav.howWeWork}</span>
 				</a>
-				<a href={resolve('/calculator')} class="tapbar-btn" class:active={isActive('/calculator')}>
+				<a href={resolve('/calculator')} class="tapbar-btn" class:active={isActive('/calculator')} aria-current={isActive('/calculator') ? 'page' : undefined} data-testid="nav-calculator-link">
 					<span class="tap-label">{currentContent.nav.calculator}</span>
 				</a>
-				<a href={resolve('/contacts')} class="tapbar-btn" class:active={isActive('/contacts')}>
+				<a href={resolve('/contacts')} class="tapbar-btn" class:active={isActive('/contacts')} aria-current={isActive('/contacts') ? 'page' : undefined} data-testid="nav-contacts-link">
 					<span class="tap-label">{currentContent.nav.contacts}</span>
 				</a>
 			</nav>
