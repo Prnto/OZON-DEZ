@@ -22,13 +22,13 @@
 		</div>
 
 		<div class="top-bar-right">
-			<!-- Landline & Mobile in pill badges with capsule border -->
+			<!-- Landline & Mobile in pill badges with police red/blue strobe effect -->
 			<div class="top-phones-cluster">
-				<a href="tel:{currentContent.phones.landline}" class="top-phone-pill" title="Міський / Офіс" data-testid="topbar-landline-link">
+				<a href="tel:{currentContent.phones.landline}" class="top-phone-pill phone-pill-red" title="Міський / Офіс" data-testid="topbar-landline-link">
 					<span class="top-icon"><Phone size={13} weight="bold" /></span>
 					<span>{currentContent.phones.landlineDisplay}</span>
 				</a>
-				<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill highlight" title="Мобільний зв'язок" data-testid="topbar-mobile-link">
+				<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill phone-pill-blue" title="Мобільний зв'язок" data-testid="topbar-mobile-link">
 					<span class="phone-pulse-dot"></span>
 					<span>{currentContent.phones.mobileDisplay}</span>
 				</a>
@@ -193,38 +193,81 @@
 		gap: 0.45rem;
 		padding: 0.28rem 0.75rem;
 		border-radius: var(--radius-full);
-		background: rgba(128, 82, 255, 0.08);
-		border: 1px solid var(--color-iris-border);
-		color: var(--color-bone-white);
 		font-weight: 600;
 		font-size: 12.5px;
 		text-decoration: none;
-		transition: all var(--transition-fast);
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
 		white-space: nowrap;
 	}
 
-	.top-phone-pill:hover {
-		background: rgba(128, 82, 255, 0.18);
-		border-color: rgba(128, 82, 255, 0.5);
+	/* Left phone pill: Red */
+	.top-phone-pill.phone-pill-red {
+		background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
+		border: 1px solid rgba(239, 68, 68, 0.55);
+		color: #fee2e2;
+		box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+		animation: policeStrobeRed 1.4s ease-in-out 3 normal forwards;
+	}
+
+	.top-phone-pill.phone-pill-red:hover {
+		background: rgba(239, 68, 68, 0.38);
+		border-color: rgba(239, 68, 68, 0.85);
 		color: #ffffff;
+		box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
 		transform: translateY(-1px);
 	}
 
-	.top-phone-pill.highlight {
-		border-color: rgba(128, 82, 255, 0.35);
+	/* Right phone pill: Blue */
+	.top-phone-pill.phone-pill-blue {
+		background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(29, 78, 216, 0.42));
+		border: 1px solid rgba(59, 130, 246, 0.55);
+		color: #dbeafe;
+		box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+		animation: policeStrobeBlue 1.4s ease-in-out 3 normal forwards;
 	}
 
-	:global(html[data-theme="light"]) .top-phone-pill {
-		background: #ffffff;
-		border-color: rgba(99, 66, 232, 0.22);
-		color: #1e293b;
-		box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+	.top-phone-pill.phone-pill-blue:hover {
+		background: rgba(37, 99, 235, 0.38);
+		border-color: rgba(59, 130, 246, 0.85);
+		color: #ffffff;
+		box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
+		transform: translateY(-1px);
 	}
 
-	:global(html[data-theme="light"]) .top-phone-pill:hover {
-		background: #f1f5f9;
-		border-color: rgba(99, 66, 232, 0.4);
-		color: #0f172a;
+	/* Light mode adjustments */
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red {
+		background: linear-gradient(135deg, rgba(254, 226, 226, 0.95), rgba(254, 202, 202, 0.85));
+		border-color: rgba(239, 68, 68, 0.5);
+		color: #b91c1c;
+		box-shadow: 0 1px 4px rgba(220, 38, 38, 0.15);
+	}
+
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red:hover {
+		background: #fee2e2;
+		border-color: rgba(220, 38, 38, 0.7);
+		color: #991b1b;
+		box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+	}
+
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue {
+		background: linear-gradient(135deg, rgba(219, 234, 254, 0.95), rgba(191, 219, 254, 0.85));
+		border-color: rgba(59, 130, 246, 0.5);
+		color: #1d4ed8;
+		box-shadow: 0 1px 4px rgba(37, 99, 235, 0.15);
+	}
+
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue:hover {
+		background: #dbeafe;
+		border-color: rgba(37, 99, 235, 0.7);
+		color: #1e40af;
+		box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+	}
+
+	/* Blue pulse dot inside mobile pill */
+	.phone-pill-blue .phone-pulse-dot {
+		background-color: #3b82f6;
+		box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+		animation: pulseDotBlue 2s infinite;
 	}
 
 	.phone-pulse-dot {
@@ -235,6 +278,95 @@
 		box-shadow: 0 0 0 0 rgba(128, 82, 255, 0.7);
 		animation: pulseDot 2s infinite;
 		flex-shrink: 0;
+	}
+
+	@keyframes pulseDotBlue {
+		0% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+		}
+		70% {
+			transform: scale(1);
+			box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+		}
+		100% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+		}
+	}
+
+	/* Police Strobe Keyframes: 3 flashes on Red, then 3 flashes on Blue, then Pause. Repeats 3 times, then stops. */
+	@keyframes policeStrobeRed {
+		0%,
+		8%,
+		16% {
+			background: #ef4444;
+			border-color: #ffffff;
+			color: #ffffff;
+			box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.95), 0 0 32px 8px rgba(255, 68, 68, 0.6);
+			transform: scale(1.02);
+		}
+		4%,
+		12%,
+		20% {
+			background: rgba(220, 38, 38, 0.15);
+			border-color: rgba(239, 68, 68, 0.3);
+			color: #fecaca;
+			box-shadow: none;
+			transform: scale(1);
+		}
+		24%,
+		100% {
+			background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
+			border-color: rgba(239, 68, 68, 0.55);
+			color: #fee2e2;
+			box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+			transform: scale(1);
+		}
+	}
+
+	@keyframes policeStrobeBlue {
+		0%,
+		24% {
+			background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(29, 78, 216, 0.42));
+			border-color: rgba(59, 130, 246, 0.55);
+			color: #dbeafe;
+			box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+			transform: scale(1);
+		}
+		28%,
+		36%,
+		44% {
+			background: #3b82f6;
+			border-color: #ffffff;
+			color: #ffffff;
+			box-shadow: 0 0 18px 4px rgba(59, 130, 246, 0.95), 0 0 32px 8px rgba(59, 130, 246, 0.6);
+			transform: scale(1.02);
+		}
+		32%,
+		40%,
+		48% {
+			background: rgba(37, 99, 235, 0.15);
+			border-color: rgba(59, 130, 246, 0.3);
+			color: #bfdbfe;
+			box-shadow: none;
+			transform: scale(1);
+		}
+		52%,
+		100% {
+			background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(29, 78, 216, 0.42));
+			border-color: rgba(59, 130, 246, 0.55);
+			color: #dbeafe;
+			box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+			transform: scale(1);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.top-phone-pill.phone-pill-red,
+		.top-phone-pill.phone-pill-blue {
+			animation: none;
+		}
 	}
 
 	@keyframes pulseDot {
