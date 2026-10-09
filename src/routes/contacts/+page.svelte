@@ -188,82 +188,177 @@
 
 			<div class="geo-chips-grid">
 				<div class="geo-city-card glass-card">
-					<div class="city-icon">⚓</div>
-					<h4>{#if langState.current === 'ua'}м. Чорноморськ{:else if langState.current === 'ru'}г. Черноморск{:else}Chornomorsk{/if}</h4>
-					<p>
-						{#if langState.current === 'ua'}
-							Базовий офіс компанії (просп. Миру, 8-а). Виїзд на об'єкт протягом 30-45 хвилин.
-						{:else if langState.current === 'ru'}
-							Базовый офис компании (просп. Мира, 8-а). Выезд на объект в течение 30-45 минут.
-						{:else}
-							Company headquarters (Myru Ave, 8-a). On-site specialist arrival within 30-45 minutes.
-						{/if}
-					</p>
+					<div
+						class="card-crest-watermark"
+						style="background-image: url('{asset('images/crests/chornomorsk.png')}');"
+						aria-hidden="true"
+					></div>
+					<div class="city-crest-badge">
+						<img
+							src="{asset('images/crests/chornomorsk.png')}"
+							alt="Герб м. Чорноморськ"
+							width="44"
+							height="44"
+							loading="lazy"
+						/>
+					</div>
+					<div class="city-card-body">
+						<h4>{#if langState.current === 'ua'}м. Чорноморськ{:else if langState.current === 'ru'}г. Черноморск{:else}Chornomorsk{/if}</h4>
+						<p>
+							{#if langState.current === 'ua'}
+								Базовий офіс компанії (просп. Миру, 8-а). Виїзд на об'єкт протягом 30-45 хвилин.
+							{:else if langState.current === 'ru'}
+								Базовый офис компании (просп. Мира, 8-а). Выезд на объект в течение 30-45 минут.
+							{:else}
+								Company headquarters (Myru Ave, 8-a). On-site specialist arrival within 30-45 minutes.
+							{/if}
+						</p>
+					</div>
 				</div>
+
 				<div class="geo-city-card glass-card">
-					<div class="city-icon">🏙️</div>
-					<h4>{#if langState.current === 'ua'}м. Одеса{:else if langState.current === 'ru'}г. Одесса{:else}Odesa{/if}</h4>
-					<p>
-						{#if langState.current === 'ua'}
-							Усі райони міста: Київський, Приморський, Хаджибейський, Пересипський.
-						{:else if langState.current === 'ru'}
-							Все районы города: Киевский, Приморский, Хаджибейский, Пересыпский.
-						{:else}
-							All city districts: Kyivskyi, Prymorskyi, Khadzhybeyskyi, Peresyp skyi.
-						{/if}
-					</p>
+					<div
+						class="card-crest-watermark"
+						style="background-image: url('{asset('images/crests/odesa.png')}');"
+						aria-hidden="true"
+					></div>
+					<div class="city-crest-badge">
+						<img
+							src="{asset('images/crests/odesa.png')}"
+							alt="Герб м. Одеса"
+							width="44"
+							height="44"
+							loading="lazy"
+						/>
+					</div>
+					<div class="city-card-body">
+						<h4>{#if langState.current === 'ua'}м. Одеса{:else if langState.current === 'ru'}г. Одесса{:else}Odesa{/if}</h4>
+						<p>
+							{#if langState.current === 'ua'}
+								Усі райони міста: Київський, Приморський, Хаджибейський, Пересипський.
+							{:else if langState.current === 'ru'}
+								Все районы города: Киевский, Приморский, Хаджибейский, Пересыпский.
+							{:else}
+								All city districts: Kyivskyi, Prymorskyi, Khadzhybeyskyi, Peresyp skyi.
+							{/if}
+						</p>
+					</div>
 				</div>
+
 				<div class="geo-city-card glass-card">
-					<div class="city-icon">🌾</div>
-					<h4>{#if langState.current === 'ua'}Овідіопольський р-н{:else if langState.current === 'ru'}Овидиопольский р-н{:else}Ovidiopol district{/if}</h4>
-					<p>
-						{#if langState.current === 'ua'}
-							Великодолинське, Малодолинське, Олександрівка, Таїрове, Сухий Лиман.
-						{:else if langState.current === 'ru'}
-							Великодолинское, Малодолинское, Александровка, Таирово, Сухой Лиман.
-						{:else}
-							Velykodolynske, Malodolynske, Oleksandrivka, Tairove, Sukhyi Lyman.
-						{/if}
-					</p>
+					<div
+						class="card-crest-watermark"
+						style="background-image: url('{asset('images/crests/ovidiopol.png')}');"
+						aria-hidden="true"
+					></div>
+					<div class="city-crest-badge">
+						<img
+							src="{asset('images/crests/ovidiopol.png')}"
+							alt="Герб Овідіопольського району"
+							width="44"
+							height="44"
+							loading="lazy"
+						/>
+					</div>
+					<div class="city-card-body">
+						<h4>{#if langState.current === 'ua'}Овідіопольський р-н{:else if langState.current === 'ru'}Овидиопольский р-н{:else}Ovidiopol district{/if}</h4>
+						<p>
+							{#if langState.current === 'ua'}
+								Великодолинське, Малодолинське, Олександрівка, Таїрове, Сухий Лиман.
+							{:else if langState.current === 'ru'}
+								Великодолинское, Малодолинское, Александровка, Таирово, Сухой Лиман.
+							{:else}
+								Velykodolynske, Malodolynske, Oleksandrivka, Tairove, Sukhyi Lyman.
+							{/if}
+						</p>
+					</div>
 				</div>
+
 				<div class="geo-city-card glass-card">
-					<div class="city-icon">🚢</div>
-					<h4>{#if langState.current === 'ua'}м. Южне & Порти{:else if langState.current === 'ru'}г. Южное & Порты{:else}Yuzhne & Seaports{/if}</h4>
-					<p>
-						{#if langState.current === 'ua'}
-							Портова зона «Південний», Чорноморський морський порт, логістичні хаби.
-						{:else if langState.current === 'ru'}
-							Портовая зона «Южный», Черноморский морской порт, логистические хабы.
-						{:else}
-							Pivdennyi port zone, Chornomorsk sea trading port, logistics cargo hubs.
-						{/if}
-					</p>
+					<div
+						class="card-crest-watermark"
+						style="background-image: url('{asset('images/crests/yuzhne.png')}');"
+						aria-hidden="true"
+					></div>
+					<div class="city-crest-badge">
+						<img
+							src="{asset('images/crests/yuzhne.png')}"
+							alt="Герб м. Южне"
+							width="44"
+							height="44"
+							loading="lazy"
+						/>
+					</div>
+					<div class="city-card-body">
+						<h4>{#if langState.current === 'ua'}м. Южне & Порти{:else if langState.current === 'ru'}г. Южное & Порты{:else}Yuzhne & Seaports{/if}</h4>
+						<p>
+							{#if langState.current === 'ua'}
+								Портова зона «Південний», Чорноморський морський порт, логістичні хаби.
+							{:else if langState.current === 'ru'}
+								Портовая зона «Южный», Черноморский морской порт, логистические хабы.
+							{:else}
+								Pivdennyi port zone, Chornomorsk sea trading port, logistics cargo hubs.
+							{/if}
+						</p>
+					</div>
 				</div>
+
 				<div class="geo-city-card glass-card">
-					<div class="city-icon">🏰</div>
-					<h4>{#if langState.current === 'ua'}Білгород-Дністровський{:else if langState.current === 'ru'}Белгород-Днестровский{:else}Bilhorod-Dnistrovskyi{/if}</h4>
-					<p>
-						{#if langState.current === 'ua'}
-							Виробництва, склади, курортні готелі та бази відпочинку Затоки і Шабо.
-						{:else if langState.current === 'ru'}
-							Производства, склады, курортные отели и базы отдыха Затоки и Шабо.
-						{:else}
-							Production plants, warehouses, resort hotels, and recreation complexes in Zatoka and Shabo.
-						{/if}
-					</p>
+					<div
+						class="card-crest-watermark"
+						style="background-image: url('{asset('images/crests/bilhorod.png')}');"
+						aria-hidden="true"
+					></div>
+					<div class="city-crest-badge">
+						<img
+							src="{asset('images/crests/bilhorod.png')}"
+							alt="Герб м. Білгород-Дністровський"
+							width="44"
+							height="44"
+							loading="lazy"
+						/>
+					</div>
+					<div class="city-card-body">
+						<h4>{#if langState.current === 'ua'}Білгород-Дністровський{:else if langState.current === 'ru'}Белгород-Днестровский{:else}Bilhorod-Dnistrovskyi{/if}</h4>
+						<p>
+							{#if langState.current === 'ua'}
+								Виробництва, склади, курортні готелі та бази відпочинку Затоки і Шабо.
+							{:else if langState.current === 'ru'}
+								Производства, склады, курортные отели и базы отдыха Затоки и Шабо.
+							{:else}
+								Production plants, warehouses, resort hotels, and recreation complexes in Zatoka and Shabo.
+							{/if}
+						</p>
+					</div>
 				</div>
+
 				<div class="geo-city-card glass-card">
-					<div class="city-icon">🗺️</div>
-					<h4>{#if langState.current === 'ua'}Вся Одеська область{:else if langState.current === 'ru'}Вся Одесская область{:else}Entire Odesa region{/if}</h4>
-					<p>
-						{#if langState.current === 'ua'}
-							Виїзні мобільні бригади для обробки підприємств, складських комплексів, фермерських господарств та заводів.
-						{:else if langState.current === 'ru'}
-							Выездные мобильные бригады для обработки предприятий, складских комплексов, фермерских хозяйств и заводов.
-						{:else}
-							Mobile specialist teams for enterprises, logistics warehouses, farms, and industrial plants.
-						{/if}
-					</p>
+					<div
+						class="card-crest-watermark"
+						style="background-image: url('{asset('images/crests/odesa-oblast.png')}');"
+						aria-hidden="true"
+					></div>
+					<div class="city-crest-badge">
+						<img
+							src="{asset('images/crests/odesa-oblast.png')}"
+							alt="Герб Одеської області"
+							width="44"
+							height="44"
+							loading="lazy"
+						/>
+					</div>
+					<div class="city-card-body">
+						<h4>{#if langState.current === 'ua'}Вся Одеська область{:else if langState.current === 'ru'}Вся Одесская область{:else}Entire Odesa region{/if}</h4>
+						<p>
+							{#if langState.current === 'ua'}
+								Виїзні мобільні бригади для обробки підприємств, складських комплексів, фермерських господарств та заводів.
+							{:else if langState.current === 'ru'}
+								Выездные мобильные бригады для обработки предприятий, складских комплексов, фермерских хозяйств и заводов.
+							{:else}
+								Mobile specialist teams for enterprises, logistics warehouses, farms, and industrial plants.
+							{/if}
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -396,32 +491,88 @@
 	}
 
 	.geo-city-card {
+		position: relative;
+		overflow: hidden;
 		padding: 2.2rem 1.8rem;
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: border-color var(--transition-fast), transform var(--transition-fast);
-		box-shadow: none;
+		transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 	}
 
 	.geo-city-card:hover {
-		transform: translateY(-2px);
-		border-color: var(--color-electric-iris);
+		transform: translateY(-3px);
+		border-color: rgba(99, 102, 241, 0.45);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(99, 102, 241, 0.15);
 	}
 
-	.city-icon {
-		font-size: 2rem;
-		margin-bottom: 0.85rem;
+	.card-crest-watermark {
+		position: absolute;
+		right: -15px;
+		bottom: -20px;
+		width: 145px;
+		height: 145px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: 0.08;
+		pointer-events: none;
+		filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.25));
+		transition: opacity var(--transition-fast), transform var(--transition-normal);
+		z-index: 0;
+	}
+
+	.geo-city-card:hover .card-crest-watermark {
+		opacity: 0.18;
+		transform: scale(1.1) rotate(-4deg);
+	}
+
+	.city-crest-badge {
+		position: relative;
+		z-index: 1;
+		width: 58px;
+		height: 58px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1.15rem;
+		border-radius: 14px;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+		padding: 7px;
+		backdrop-filter: blur(8px);
+		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+	}
+
+	.geo-city-card:hover .city-crest-badge {
+		transform: translateY(-2px) scale(1.05);
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(99, 102, 241, 0.6);
+		box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+	}
+
+	.city-crest-badge img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+	}
+
+	.city-card-body {
+		position: relative;
+		z-index: 1;
 	}
 
 	.geo-city-card h4 {
-		font-size: 1.1rem;
-		font-weight: 400;
+		font-size: 1.15rem;
+		font-weight: 500;
 		letter-spacing: -0.02em;
 		color: var(--color-bone-white);
-		margin-bottom: 0.45rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.geo-city-card p {
