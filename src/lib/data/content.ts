@@ -722,7 +722,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		contacts: {
 			badge: 'Зв’яжіться з нами',
-			title: 'Контакти та розташування офісу',
+			title: 'Контакти',
 			subtitle: 'м. Чорноморськ та Одеська область. Оперативний виїзд спеціаліста в день звернення.',
 			formTitle: 'Швидкий зв’язок зі спеціалістом',
 			formSubtitle: 'Залиште номер телефону, і черговий спеціаліст зв’яжеться з вами протягом 5 хвилин для консультації.',
@@ -1246,7 +1246,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		contacts: {
 			badge: 'Свяжитесь с нами',
-			title: 'Контакты и расположение офиса',
+			title: 'Контакты',
 			subtitle: 'г. Черноморск и Одесская область. Оперативный выезд специалиста в день обращения.',
 			formTitle: 'Быстрая связь со специалистом',
 			formSubtitle: 'Оставьте номер телефона, и дежурный специалист перезвонит вам в течение 5 минут для консультации.',
@@ -1770,7 +1770,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		contacts: {
 			badge: 'Get in Touch',
-			title: 'Contacts & Office Location',
+			title: 'Contacts',
 			subtitle: 'Chornomorsk and Odesa region. Same-day specialist dispatch upon request.',
 			formTitle: 'Direct Contact with a Specialist',
 			formSubtitle: 'Leave your phone number and an on-duty specialist will call you back within 5 minutes for a free consultation.',

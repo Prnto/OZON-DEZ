@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { langState } from '../state/language.svelte';
-	import { orderModal } from '../state/modal.svelte';
 
 	let activeFilter = $state('all');
 
@@ -176,28 +175,6 @@
 			<p class="section-subtitle">{currentData.subtitle}</p>
 		</div>
 
-		<!-- Trust Metrics Banner -->
-		<div class="trust-metrics-strip glass-card-dark">
-			<div class="metric-block">
-				<div class="stars-row">★★★★★</div>
-				<div class="metric-val">{currentData.scoreBadge}</div>
-				<div class="metric-desc">{currentData.scoreNote}</div>
-			</div>
-			<div class="metric-divider"></div>
-			<div class="metric-block">
-				<div class="metric-icon">🛡️</div>
-				<div class="metric-val">100%</div>
-				<div class="metric-desc">{currentData.guaranteeTitle}</div>
-			</div>
-			<div class="metric-divider"></div>
-			<div class="metric-block">
-				<div class="metric-icon">🏢</div>
-				<div class="metric-val">15+ {#if langState.current === 'ua'}років{:else if langState.current === 'ru'}лет{:else}years{/if}</div>
-				<div class="metric-desc">
-					{#if langState.current === 'ua'}Офіційний досвід із 2011 року{:else if langState.current === 'ru'}Официальный опыт с 2011 года{:else}Official experience since 2011{/if}
-				</div>
-			</div>
-		</div>
 
 		<!-- Filter Tabs -->
 		<div class="filter-tabs-row">
@@ -262,16 +239,6 @@
 			{/each}
 		</div>
 
-		<!-- Bottom Action -->
-		<div class="reviews-action-center">
-			<button
-				type="button"
-				class="btn btn-guarantee-ghost btn-lg"
-				onclick={() => orderModal.open({ serviceTitle: 'Санітарна обробка з гарантією' })}
-			>
-				<span>🛡️ {currentData.leaveReviewBtn}</span>
-			</button>
-		</div>
 	</div>
 </section>
 
@@ -282,72 +249,6 @@
 		background: transparent;
 		border-top: 1px solid var(--color-void-border);
 		border-bottom: 1px solid var(--color-void-border);
-	}
-
-	.trust-metrics-strip {
-		display: grid;
-		grid-template-columns: 1fr auto 1fr auto 1fr;
-		align-items: center;
-		padding: 1.4rem 2.2rem;
-		border-radius: var(--radius-cards);
-		background: rgba(13, 17, 28, 0.45);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		margin-bottom: 2rem;
-		box-shadow: none;
-	}
-
-	@media (max-width: 768px) {
-		.trust-metrics-strip {
-			grid-template-columns: 1fr;
-			gap: 1.4rem;
-			padding: 1.5rem 1.2rem;
-			text-align: center;
-		}
-
-		.metric-divider {
-			display: none;
-		}
-	}
-
-	.metric-block {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		gap: 0.35rem;
-	}
-
-	.stars-row {
-		color: var(--color-saffron-spark);
-		font-size: 1.2rem;
-		letter-spacing: 0.1em;
-	}
-
-	.metric-icon {
-		font-size: 1.4rem;
-	}
-
-	.metric-val {
-		font-size: 1.8rem;
-		font-weight: 400;
-		color: var(--color-bone-white);
-		font-family: var(--font-heading);
-		letter-spacing: -0.03em;
-	}
-
-	.metric-desc {
-		font-size: 0.82rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
-		max-width: 260px;
-	}
-
-	.metric-divider {
-		width: 1px;
-		height: 44px;
-		background: var(--color-void-border);
 	}
 
 	/* Tabs */
@@ -554,39 +455,4 @@
 		font-weight: 500;
 	}
 
-	.reviews-action-center {
-		text-align: center;
-		margin-top: 2rem;
-	}
-
-	.btn-guarantee-ghost {
-		background: rgba(128, 82, 255, 0.08);
-		border: 1.5px solid rgba(128, 82, 255, 0.5);
-		color: #ffffff;
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-		transition: all 0.25s ease;
-		cursor: pointer;
-		font-weight: 600;
-	}
-
-	.btn-guarantee-ghost:hover {
-		background: rgba(128, 82, 255, 0.22);
-		border-color: #a855f7;
-		color: #ffffff;
-		box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
-		transform: translateY(-2px);
-	}
-
-	:global(html[data-theme="light"]) .btn-guarantee-ghost {
-		background: rgba(128, 82, 255, 0.06);
-		border-color: rgba(128, 82, 255, 0.4);
-		color: #581c87;
-	}
-
-	:global(html[data-theme="light"]) .btn-guarantee-ghost:hover {
-		background: rgba(128, 82, 255, 0.14);
-		color: #3b0764;
-	}
 </style>
