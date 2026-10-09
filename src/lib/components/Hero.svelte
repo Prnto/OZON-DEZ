@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
-	import { PhoneCall, Calculator, ShieldCheck, Clock, Flask, Lightning, CheckCircle } from 'phosphor-svelte';
+	import { PhoneCall, Calculator, ShieldCheck, Clock, Flask, Lightning } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -92,21 +92,6 @@
 				<span>{currentContent.phones.mobileDisplay}</span>
 			</a>
 		</div>
-
-		<!-- 3 Core Triggers / Value Props -->
-		<div class="hero-triggers-grid">
-			{#each hero.triggers as trg, idx}
-				<div class="trigger-card glass-card">
-					<div class="trigger-card-header">
-						<span class="trigger-check">
-							<CheckCircle size={18} weight="fill" color="var(--color-electric-iris)" />
-						</span>
-						<h3 class="trigger-title">{trg.title}</h3>
-					</div>
-					<p class="trigger-desc">{trg.desc}</p>
-				</div>
-			{/each}
-		</div>
 	</div>
 </section>
 
@@ -115,7 +100,7 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
-		padding: clamp(1.5rem, 3.5vh, 2.5rem) 0 clamp(3rem, 5vh, 4.5rem);
+		padding: clamp(1.5rem, 3.5vh, 2.5rem) 0 clamp(2.5rem, 4.5vh, 3.8rem);
 		border-bottom: 1px solid var(--color-void-border);
 		overflow: hidden;
 	}
@@ -233,57 +218,7 @@
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 
-	/* 3 Triggers Grid */
-	.hero-triggers-grid {
-		width: 100%;
-		max-width: 1140px;
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1.25rem;
-		margin-top: 0.5rem;
-	}
-
-	.trigger-card {
-		padding: 1.35rem 1.45rem;
-		border-radius: var(--radius-cards);
-		display: flex;
-		flex-direction: column;
-		gap: 0.45rem;
-		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
-		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-	}
-
-	.trigger-card:hover {
-		transform: translateY(-2px);
-		border-color: rgba(128, 82, 255, 0.4);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-	}
-
-	.trigger-card-header {
-		display: flex;
-		align-items: center;
-		gap: 0.55rem;
-	}
-
-	.trigger-title {
-		font-size: 0.95rem;
-		font-weight: 600;
-		color: var(--color-bone-white);
-	}
-
-	.trigger-desc {
-		font-size: 0.84rem;
-		line-height: 1.5;
-		color: var(--color-ash-gray);
-	}
-
 	@media (max-width: 900px) {
-		.hero-triggers-grid {
-			grid-template-columns: 1fr;
-			gap: 0.85rem;
-		}
-
 		.hero-banner-pills {
 			bottom: 0.85rem;
 			left: 0.85rem;
