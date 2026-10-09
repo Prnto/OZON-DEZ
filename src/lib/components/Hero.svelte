@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { asset, resolve } from '$app/paths';
-	import { PhoneCall, Calculator, ShieldCheck, Clock, Flask, Lightning } from 'phosphor-svelte';
+	import { asset } from '$app/paths';
+	import { ShieldCheck, Clock, Flask } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
-	import { orderModal } from '../state/modal.svelte';
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let hero = $derived(currentContent.hero);
@@ -52,49 +51,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Quick CTAs placed directly below the promotional banner in container -->
-	<div class="hero-actions-wrapper">
-		<div class="container">
-			<div class="hero-actions">
-				<button
-					type="button"
-					class="btn btn-primary btn-lg"
-					data-testid="hero-call-btn"
-					onclick={() =>
-						orderModal.open({
-							serviceTitle:
-								langState.current === 'ua'
-									? 'Виклик спеціаліста'
-									: langState.current === 'ru'
-									? 'Вызов специалиста'
-									: 'Call a specialist'
-						})}
-				>
-					<Lightning size={18} weight="fill" />
-					<span>{hero.ctaPrimary}</span>
-				</button>
-
-				<a
-					href={resolve('/calculator')}
-					class="btn btn-secondary btn-lg"
-					data-testid="hero-calc-link"
-				>
-					<Calculator size={18} weight="bold" />
-					<span>{hero.ctaSecondary}</span>
-				</a>
-
-				<a
-					href="tel:{currentContent.phones.mobile}"
-					class="btn btn-ghost btn-lg hero-phone-cta"
-					data-testid="hero-phone-link"
-				>
-					<PhoneCall size={18} weight="bold" />
-					<span>{currentContent.phones.mobileDisplay}</span>
-				</a>
-			</div>
-		</div>
-	</div>
 </section>
 
 <style>
@@ -102,8 +58,7 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
-		padding: 0 0 clamp(2rem, 4vh, 3.2rem);
-		border-bottom: 1px solid var(--color-void-border);
+		padding: 0;
 		overflow: hidden;
 	}
 
@@ -199,41 +154,6 @@
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 
-	/* Actions Bar below the banner */
-	.hero-actions-wrapper {
-		width: 100%;
-		padding-top: clamp(1.4rem, 2.8vh, 2rem);
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		gap: 0.9rem;
-	}
-
-	.hero-actions .btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		padding: 0.85rem 1.6rem;
-		font-size: 0.95rem;
-	}
-
-	.hero-phone-cta {
-		border: 1px solid var(--border-subtle);
-		background: rgba(255, 255, 255, 0.04);
-		color: var(--color-bone-white);
-	}
-
-	.hero-phone-cta:hover {
-		border-color: var(--color-electric-iris);
-		background: rgba(128, 82, 255, 0.12);
-		color: #ffffff;
-	}
-
 	@media (max-width: 900px) {
 		.hero-banner-pills {
 			bottom: 0.85rem;
@@ -255,15 +175,6 @@
 	}
 
 	@media (max-width: 600px) {
-		.hero-actions {
-			flex-direction: column;
-			width: 100%;
-		}
-
-		.hero-actions .btn {
-			width: 100%;
-		}
-
 		.hero-banner-pills {
 			display: none;
 		}
