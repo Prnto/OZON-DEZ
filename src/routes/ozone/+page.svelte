@@ -15,23 +15,33 @@
 	<title>
 		{langState.current === 'ua'
 			? 'Озонування приміщень O₃, видалення запахів та плісняви — ТОВ «ОЗОН-ДЕЗ»'
-			: 'Озонирование помещений O₃, удаление запахов и плесени — ООО «ОЗОН-ДЕЗ»'}
+			: langState.current === 'ru'
+			? 'Озонирование помещений O₃, удаление запахов и плесени — ООО «ОЗОН-ДЕЗ»'
+			: 'Room Ozonation O₃, Odor & Mold Removal — LLC "OZON-DEZ"'}
 	</title>
 	<meta
 		name="description"
-		content="Глибоке озонування газом O₃, виведення запаху гару після пожежі, знищення плісняви та демеркуризація ртуті в Чорноморську та Одеській області."
+		content={langState.current === 'ua'
+			? 'Глибоке озонування газом O₃ приміщень та ємностей, видалення запахів, знищення плісняви та демеркуризація ртуті в Чорноморську та Одеській області.'
+			: langState.current === 'ru'
+			? 'Глубокое озонирование газом O₃ помещений и емкостей, удаление запахов, уничтожение плесени и демеркуризация ртути в Черноморске и Одесской области.'
+			: 'Deep O3 gas ozonation of premises and storage containers, odor elimination, mold destruction, and mercury demercurization in Chornomorsk and Odesa region.'}
 	/>
 </svelte:head>
 
 <div class="ozone-page">
 	<PageHeader
-		badge={langState.current === 'ua' ? 'Екологічна стерилізація O₃' : 'Экологическая стерилизация O₃'}
+		badge={langState.current === 'ua' ? 'Екологічна стерилізація O₃' : langState.current === 'ru' ? 'Экологическая стерилизация O₃' : 'Eco Sterilization O₃'}
 		title={langState.current === 'ua'
 			? 'Професійне озонування, усунення запахів та плісняви'
-			: 'Профессиональное озонирование, устранение запахов и плесени'}
+			: langState.current === 'ru'
+			? 'Профессиональное озонирование, устранение запахов и плесени'
+			: 'Professional Ozonation, Odor & Mold Elimination'}
 		subtitle={langState.current === 'ua'
 			? 'Глибоке знезараження повітря та матеріалів газом озоном. Знищує 99.9% бактерій, спор грибка та вірусів без токсичної хімії.'
-			: 'Глубокое обеззараживание воздуха и материалов газом озоном. Убивает 99.9% патогенов, спор плесени и вирусов без токсичной химии.'}
+			: langState.current === 'ru'
+			? 'Глубокое обеззараживание воздуха и материалов газом озоном. Убивает 99.9% патогенов, спор плесени и вирусов без токсичной химии.'
+			: 'Deep disinfection of air and materials using ozone gas. Destroys 99.9% of bacteria, fungal spores, and viruses without toxic chemicals.'}
 		crumbs={[{ label: currentContent.nav.ozone }]}
 		imageSrc={asset('images/ozone-bg.jpg')}
 	/>
@@ -42,41 +52,45 @@
 			<div class="ozone-intro-grid">
 				<div class="intro-text-col">
 					<div class="section-badge">
-						{#if langState.current === 'ua'}Принцип дії озону{:else}Принцип действия озона{/if}
+						{#if langState.current === 'ua'}Принцип дії озону{:else if langState.current === 'ru'}Принцип действия озона{:else}How Ozone Works{/if}
 					</div>
 					<h2 class="section-title">
 						{#if langState.current === 'ua'}
 							Чому озон O₃ перевершує звичайну хлорну хімію?
-						{:else}
+						{:else if langState.current === 'ru'}
 							Почему озон O₃ превосходит обычную хлорную химию?
+						{:else}
+							Why O₃ Ozone Outperforms Conventional Chlorine Chemistry
 						{/if}
 					</h2>
 					<p class="intro-p">
 						{#if langState.current === 'ua'}
 							Озон є найпотужнішим природним окислювачем. Маючи три атоми кисню замість двох, він миттєво вступає в реакцію з білковими оболонками вірусів, бактерій та ароматичних вуглеводнів, окислюючи та руйнуючи їх клітинну структуру.
-						{:else}
+						{:else if langState.current === 'ru'}
 							Озон является мощнейшим природным окислителем. Имея три атома кислорода вместо двух, он мгновенно окисляет белковые оболочки вирусов, бактерий и ароматических углеводородов, полностью разрушая их структуру.
+						{:else}
+							Ozone is the strongest natural oxidizer. With three oxygen atoms instead of two, it immediately reacts with the protein membranes of viruses, bacteria, and aromatic hydrocarbons, completely breaking down their cellular structure.
 						{/if}
 					</p>
 
 					<div class="comparison-cards">
 						<div class="comp-card good">
-							<div class="comp-badge">✅ Озон (O₃)</div>
+							<div class="comp-badge">✅ {#if langState.current === 'en'}Ozone (O₃){:else}Озон (O₃){/if}</div>
 							<ul>
-								<li>100% проникнення в пори бетону і тканини</li>
-								<li>Розпадається на чистий кисень (O₂) за 30-40 хв</li>
-								<li>Не залишає нальоту і хімічних слідів</li>
-								<li>Руйнує джерело запаху, а не маскує його</li>
+								<li>{#if langState.current === 'ua'}100% проникнення в пори бетону і тканини{:else if langState.current === 'ru'}100% проникновение в поры бетона и ткани{:else}100% penetration into concrete pores and fabrics{/if}</li>
+								<li>{#if langState.current === 'ua'}Розпадається на чистий кисень (O₂) за 30-40 хв{:else if langState.current === 'ru'}Распадается на чистый кислород (O₂) за 30-40 мин{:else}Decomposes into pure oxygen (O₂) in 30-40 min{/if}</li>
+								<li>{#if langState.current === 'ua'}Не залишає нальоту і хімічних слідів{:else if langState.current === 'ru'}Не оставляет налета и химических следов{:else}Leaves zero residue and chemical traces{/if}</li>
+								<li>{#if langState.current === 'ua'}Руйнує джерело запаху, а не маскує його{:else if langState.current === 'ru'}Разрушает источник запаха, а не маскирует его{:else}Destroys odor at molecular level, never masks{/if}</li>
 							</ul>
 						</div>
 
 						<div class="comp-card bad">
-							<div class="comp-badge bad-b">❌ Звичайна побутова хімія</div>
+							<div class="comp-badge bad-b">❌ {#if langState.current === 'ua'}Звичайна побутова хімія{:else if langState.current === 'ru'}Обычная бытовая химия{:else}Standard Household Chemicals{/if}</div>
 							<ul>
-								<li>Покриває лише зовнішню поверхню</li>
-								<li>Токсичні випари хлору тримаються цілодобово</li>
-								<li>Може викликати алергію та астму</li>
-								<li>Лише тимчасово маскує стійкі запахи</li>
+								<li>{#if langState.current === 'ua'}Покриває лише зовнішню поверхню{:else if langState.current === 'ru'}Покрывает только внешнюю поверхность{:else}Covers only surface layer{/if}</li>
+								<li>{#if langState.current === 'ua'}Токсичні випари хлору тримаються цілодобово{:else if langState.current === 'ru'}Токсичные испарения хлора держатся сутками{:else}Toxic chlorine vapors linger for days{/if}</li>
+								<li>{#if langState.current === 'ua'}Може викликати алергію та астму{:else if langState.current === 'ru'}Может вызывать аллергию и астму{:else}Can cause allergic reactions and asthma{/if}</li>
+								<li>{#if langState.current === 'ua'}Лише тимчасово маскує стійкі запахи{:else if langState.current === 'ru'}Лишь временно маскирует стойкие запахи{:else}Only temporarily covers odors with scents{/if}</li>
 							</ul>
 						</div>
 					</div>
@@ -88,27 +102,29 @@
 						<h3>
 							{#if langState.current === 'ua'}
 								Свіжість після грози з медичною чистотою
-							{:else}
+							{:else if langState.current === 'ru'}
 								Свежесть после грозы с медицинской чистотой
+							{:else}
+								Post-thunderstorm freshness with clinical purity
 							{/if}
 						</h3>
 						<div class="key-facts-list">
 							<div class="fact-row">
 								<span class="fact-num">300x</span>
 								<span class="fact-txt">
-									{#if langState.current === 'ua'}сильніший за дію хлору проти вірусів{:else}сильнее действия хлора против вирусов{/if}
+									{#if langState.current === 'ua'}сильніший за дію хлору проти вірусів{:else if langState.current === 'ru'}сильнее действия хлора против вирусов{:else}stronger than chlorine against viruses{/if}
 								</span>
 							</div>
 							<div class="fact-row">
 								<span class="fact-num">99.9%</span>
 								<span class="fact-txt">
-									{#if langState.current === 'ua'}загибель бактерій та спор цвілі{:else}гибель бактерий и спор плесени{/if}
+									{#if langState.current === 'ua'}загибель бактерій та спор цвілі{:else if langState.current === 'ru'}гибель бактерий и спор плесени{:else}destruction of bacteria & mold spores{/if}
 								</span>
 							</div>
 							<div class="fact-row">
 								<span class="fact-num">0%</span>
 								<span class="fact-txt">
-									{#if langState.current === 'ua'}залишкової хімії або алергенів{:else}остаточной химии или аллергенов{/if}
+									{#if langState.current === 'ua'}залишкової хімії або алергенів{:else if langState.current === 'ru'}остаточной химии или аллергенов{:else}residual chemistry or allergens{/if}
 								</span>
 							</div>
 						</div>
@@ -116,9 +132,9 @@
 							type="button"
 							class="btn btn-primary"
 							style="width: 100%; margin-top: 1.5rem;"
-							onclick={() => orderModal.open({ serviceTitle: 'Озонування приміщення' })}
+							onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Озонування приміщення' : langState.current === 'ru' ? 'Озонирование помещения' : 'Facility ozonation' })}
 						>
-							{#if langState.current === 'ua'}Замовити озонування об'єкта{:else}Заказать озонирование объекта{/if}
+							{#if langState.current === 'ua'}Виклик спеціаліста з озонування{:else if langState.current === 'ru'}Вызов специалиста по озонированию{:else}Call ozonation specialist{/if}
 						</button>
 					</div>
 				</div>
@@ -131,16 +147,18 @@
 		<div class="container">
 			<div class="section-header">
 				<div class="section-badge">
-					{#if langState.current === 'ua'}Спеціалізація озон-послуг{:else}Специализация озон-услуг{/if}
+					{#if langState.current === 'ua'}Спеціалізація озон-послуг{:else if langState.current === 'ru'}Специализация озон-услуг{:else}Ozone Services{/if}
 				</div>
 				<h2 class="section-title">
-					{#if langState.current === 'ua'}4 напрямки еко-очищення приміщень{:else}4 направления эко-очистки помещений{/if}
+					{#if langState.current === 'ua'}4 напрямки еко-очищення приміщень{:else if langState.current === 'ru'}4 направления эко-очистки помещений{:else}4 eco-purification directions{/if}
 				</h2>
 				<p class="section-subtitle">
 					{#if langState.current === 'ua'}
-						Від комплексного знезараження квартир до екстреного виведення гару після пожеж та демеркуризації ртуті.
+						Від комплексного знезараження квартир та ємностей до ліквідації стійких запахів, плісняви та демеркуризації ртуті.
+					{:else if langState.current === 'ru'}
+						От комплексного обеззараживания квартир и емкостей до ликвидации стойких запахов, плесени и демеркуризации ртути.
 					{:else}
-						От комплексного обеззараживания квартир до экстренного выведения гари после пожаров и демеркуризации ртути.
+						From comprehensive purification of rooms and storage containers to permanent odor elimination, mold remediation, and mercury demercurization.
 					{/if}
 				</p>
 			</div>
@@ -174,7 +192,7 @@
 						<div class="srv-card-footer">
 							<div class="srv-card-price">
 								<span class="price-lbl">
-									{#if langState.current === 'ua'}Вартість:{:else}Стоимость:{/if}
+									{#if langState.current === 'ua'}Вартість:{:else if langState.current === 'ru'}Стоимость:{:else}Price:{/if}
 								</span>
 								<span class="price-digit">{srv.priceFrom}</span>
 							</div>
@@ -183,7 +201,7 @@
 								class="btn btn-primary btn-sm"
 								onclick={() => orderModal.open({ serviceTitle: srv.title, serviceCategory: 'Озонування O₃' })}
 							>
-								{#if langState.current === 'ua'}Замовити виїзд{:else}Заказать выезд{/if}
+								{#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}
 							</button>
 						</div>
 					</div>

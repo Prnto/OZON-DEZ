@@ -21,8 +21,8 @@ const ADMIN_CHAT_ID = '341806822';
 const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const TEMP_PHONE = '+380636672653';
 const TEMP_PHONE_DISPLAY = '+38 (063) 667-26-53';
-const CALL_PHONE = '+380508797335';
-const CALL_PHONE_DISPLAY = '+38 (050) 879-73-35';
+const CALL_PHONE = '+380636672653';
+const CALL_PHONE_DISPLAY = '+38 (063) 667-26-53';
 
 let lastUpdateId = 0;
 const sessions = new Map();
@@ -90,7 +90,7 @@ async function sendMainMenu(chatId, isEdit = false, messageId = null) {
 				{ text: '🧮 Калькулятор у чаті', callback_data: 'calc_start' }
 			],
 			[
-				{ text: `📞 Здійснити виклик`, callback_data: 'call_doctor' }
+				{ text: `📞 Виклик спеціаліста`, callback_data: 'call_specialist' }
 			],
 			[
 				{ text: '🌐 Відкрити сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
@@ -392,7 +392,7 @@ async function sendCalcResult(chatId, messageId, sqMeters, areaLabel) {
 				{ text: '🔄 Перерахувати заново', callback_data: 'calc_start' }
 			],
 			[
-				{ text: `📞 Здійснити виклик`, callback_data: 'call_doctor' },
+				{ text: `📞 Виклик спеціаліста`, callback_data: 'call_specialist' },
 				{ text: '🏠 Меню', callback_data: 'menu_main' }
 			]
 		]
@@ -446,15 +446,15 @@ async function sendDoctorCallCard(chatId, messageId = null) {
 		chat_id: chatId,
 		phone_number: CALL_PHONE,
 		first_name: 'ТОВ «ОЗОН-ДЕЗ»',
-		last_name: 'Здійснити виклик'
+		last_name: 'Виклик спеціаліста'
 	});
 
-	const text = `📞 <b>Здійснити виклик ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
+	const text = `📞 <b>Виклик спеціаліста ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
 		`Натисніть на картку контакту вище (кнопка <b>«Зателефонувати / Позвонить»</b>) або наберіть номер напряму:\n\n` +
 		`📱 <b><a href="tel:${CALL_PHONE}">${CALL_PHONE_DISPLAY}</a></b>\n` +
 		`📱 <b>${CALL_PHONE}</b>\n\n` +
 		`☎️ Міський офіс: <b>(04868) 6-03-08</b>\n` +
-		`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-А</b>`;
+		`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-а</b>`;
 
 	const keyboard = {
 		inline_keyboard: [
@@ -572,7 +572,7 @@ async function pollUpdates() {
 					} else if (data === 'menu_services') {
 						currentSession.state = 'idle';
 						await sendServicesMenu(chatId, messageId);
-					} else if (data === 'call_doctor') {
+					} else if (data === 'call_doctor' || data === 'call_specialist') {
 						currentSession.state = 'idle';
 						await sendDoctorCallCard(chatId, messageId);
 					} else if (data === 'srv_disinfection') {
@@ -708,7 +708,7 @@ async function pollUpdates() {
 					await api('sendMessage', {
 						chat_id: chatId,
 						text: `✅ <b>Дякуємо за повідомлення!</b>\n\n` +
-							`Ваше запитання передано фахівцям ТОВ «ОЗОН-ДЕЗ».\n` +
+							`Ваше повідомлення передано черговому спеціалісту ТОВ «ОЗОН-ДЕЗ».\n` +
 							`Ми зв'яжемося з вами найближчим часом.\n\n` +
 							`📞 Для прямого виклику телефонуйте:\n` +
 							`👉 <b><a href="tel:${CALL_PHONE}">${CALL_PHONE_DISPLAY}</a></b>.`,

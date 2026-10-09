@@ -14,11 +14,17 @@
 	<title>
 		{langState.current === 'ua'
 			? 'Пест-контроль HACCP для бізнесу та HoReCa — ТОВ «ОЗОН-ДЕЗ»'
-			: 'Пест-контроль HACCP для бизнеса и HoReCa — ООО «ОЗОН-ДЕЗ»'}
+			: langState.current === 'ru'
+			? 'Пест-контроль HACCP для бизнеса и HoReCa — ООО «ОЗОН-ДЕЗ»'
+			: 'Pest Control HACCP for Business & HoReCa — LLC "OZON-DEZ"'}
 	</title>
 	<meta
 		name="description"
-		content="Комплексний пест-контроль за стандартами HACCP (ХАССП) для ресторанів, готелів, складів та підприємств у Чорноморську. Повний пакет документів для перевірок."
+		content={langState.current === 'ua'
+			? 'Комплексний пест-контроль за стандартами HACCP (ХАССП) для ресторанів, готелів, складів та підприємств у Чорноморську. Повний пакет документів для перевірок.'
+			: langState.current === 'ru'
+			? 'Комплексный пест-контроль по стандартам HACCP (ХАССП) для ресторанов, отелей, складов и предприятий в Черноморске. Полный пакет документов для проверок.'
+			: 'Comprehensive pest control under HACCP standards for restaurants, hotels, warehouses, and enterprises in Chornomorsk and Odesa region.'}
 	/>
 </svelte:head>
 
@@ -38,13 +44,15 @@
 		<div class="container">
 			<div class="section-header">
 				<div class="section-badge">
-					{#if langState.current === 'ua'}Галузеві рішення{:else}Отраслевые решения{/if}
+					{#if langState.current === 'ua'}Галузеві рішення{:else if langState.current === 'ru'}Отраслевые решения{:else}Industry solutions{/if}
 				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
 						Кому ми гарантуємо 100% відповідність нормам HACCP
-					{:else}
+					{:else if langState.current === 'ru'}
 						Кому мы гарантируем 100% соответствие нормам HACCP
+					{:else}
+						Who we guarantee 100% HACCP compliance for
 					{/if}
 				</h2>
 			</div>
@@ -52,77 +60,115 @@
 			<div class="industries-grid">
 				<div class="ind-card glass-card">
 					<div class="ind-icon">🍽️</div>
-					<h3>HoReCa (Ресторани & Готелі)</h3>
+					<h3>
+						{#if langState.current === 'ua'}HoReCa (Ресторани & Готелі){:else if langState.current === 'ru'}HoReCa (Рестораны & Отели){:else}HoReCa (Restaurants & Hotels){/if}
+					</h3>
 					<p>
-						Захист кухонь, залів та продуктових комор від тарганів і гризунів. Проведення обробок виключно у нічні або неробочі години з видачею актів.
+						{#if langState.current === 'ua'}
+							Захист кухонь, залів та продуктових комор від тарганів і гризунів. Проведення обробок виключно у нічні або неробочі години з видачею актів.
+						{:else if langState.current === 'ru'}
+							Защита кухонь, залов и продуктовых кладовых от тараканов и грызунов. Проведение обработок исключительно в ночные или нерабочие часы с выдачей актов.
+						{:else}
+							Protection of kitchens, dining halls, and storage pantries from cockroaches and rodents. Treatments conducted during off-hours or nighttime with official compliance acts.
+						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>Моніторинг пасток за графіком</li>
-						<li>Без запаху та слідів на інвентарі</li>
+						<li>{#if langState.current === 'ua'}Моніторинг пасток за графіком{:else if langState.current === 'ru'}Мониторинг ловушек по графику{:else}Scheduled trap monitoring{/if}</li>
+						<li>{#if langState.current === 'ua'}Без запаху та слідів на інвентарі{:else if langState.current === 'ru'}Без запаха и следов на инвентаре{:else}No odor or residue on equipment{/if}</li>
 					</ul>
 				</div>
 
 				<div class="ind-card glass-card">
 					<div class="ind-icon">🏬</div>
-					<h3>Супермаркети та Торгові мережі</h3>
+					<h3>
+						{#if langState.current === 'ua'}Супермаркети та Торгові мережі{:else if langState.current === 'ru'}Супермаркеты и Торговые сети{:else}Supermarkets & Retail Chains{/if}
+					</h3>
 					<p>
-						Бар'єрний захист торгових залів, рамп та складських накопичувачів. Регулярна профілактика та швидке реагування на одиничні інциденти.
+						{#if langState.current === 'ua'}
+							Бар'єрний захист торгових залів, рамп та складських накопичувачів. Регулярна профілактика та швидке реагування на одиничні інциденти.
+						{:else if langState.current === 'ru'}
+							Барьерная защита торговых залов, рамп и складских накопителей. Регулярная профилактика и быстрое реагирование на единичные инциденты.
+						{:else}
+							Barrier protection for retail floors, loading ramps, and stockrooms. Regular prevention and rapid response to isolated pest sightings.
+						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>Контейнери з ключем безпеки</li>
-						<li>Журнал обліку для інспекцій</li>
+						<li>{#if langState.current === 'ua'}Контейнери з ключем безпеки{:else if langState.current === 'ru'}Контейнеры с ключом безопасности{:else}Tamper-resistant bait stations with keys{/if}</li>
+						<li>{#if langState.current === 'ua'}Журнал обліку для інспекцій{:else if langState.current === 'ru'}Журнал учета для инспекций{:else}Official pest control log for state audits{/if}</li>
 					</ul>
 				</div>
 
 				<div class="ind-card glass-card">
 					<div class="ind-icon">📦</div>
-					<h3>Логістичні центри та Склади</h3>
+					<h3>
+						{#if langState.current === 'ua'}Логістичні центри та Склади{:else if langState.current === 'ru'}Логистические центры и Склады{:else}Logistics Centers & Warehouses{/if}
+					</h3>
 					<p>
-						Дератизація периметру та внутрішніх зон зберігання вантажів. Контроль переміщення гризунів на великих площах.
+						{#if langState.current === 'ua'}
+							Дератизація периметру та внутрішніх зон зберігання вантажів. Контроль переміщення гризунів на великих площах.
+						{:else if langState.current === 'ru'}
+							Дератизация периметра и внутренних зон хранения грузов. Контроль перемещения грызунов на больших площадях.
+						{:else}
+							Perimeter and interior deratization for cargo storage facilities. Monitoring rodent migration across large industrial floor areas.
+						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>Карта точок контролю об'єкта</li>
-						<li>Офіційні протоколи дератизації</li>
+						<li>{#if langState.current === 'ua'}Карта точок контролю об'єкта{:else if langState.current === 'ru'}Карта точек контроля объекта{:else}Comprehensive control point layout map{/if}</li>
+						<li>{#if langState.current === 'ua'}Офіційні протоколи дератизації{:else if langState.current === 'ru'}Официальные протоколы дератизации{:else}Certified deratization protocols{/if}</li>
 					</ul>
 				</div>
 
 				<div class="ind-card glass-card">
 					<div class="ind-icon">🥖</div>
-					<h3>Харчові виробництва</h3>
+					<h3>
+						{#if langState.current === 'ua'}Харчові виробництва{:else if langState.current === 'ru'}Пищевые производства{:else}Food Processing Plants{/if}
+					</h3>
 					<p>
-						Суворе дотримання санітарно-гігієнічних вимог харчової промисловості за міжнародним сертифікатом ISO 22000 / HACCP.
+						{#if langState.current === 'ua'}
+							Суворе дотримання санітарно-гігієнічних вимог харчової промисловості за міжнародним стандартом ISO 22000 / HACCP.
+						{:else if langState.current === 'ru'}
+							Строгое соблюдение санитарно-гигиенических требований пищевой промышленности по международному стандарту ISO 22000 / HACCP.
+						{:else}
+							Strict compliance with food safety sanitation requirements under international ISO 22000 and HACCP standards.
+						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>Індивідуальний регламент санації</li>
-						<li>Персональний технолог-аудитор</li>
+						<li>{#if langState.current === 'ua'}Індивідуальний регламент санації{:else if langState.current === 'ru'}Индивидуальный регламент санации{:else}Customized sanitation protocol{/if}</li>
+						<li>{#if langState.current === 'ua'}Персональний спеціаліст-аудитор{:else if langState.current === 'ru'}Персональный специалист-аудитор{:else}Dedicated specialist auditor{/if}</li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="b2b-doc-banner glass-card-dark">
 				<div class="doc-banner-content">
-					<div class="section-badge dark">Юридичний захист</div>
+					<div class="section-badge dark">
+						{#if langState.current === 'ua'}Юридичний захист{:else if langState.current === 'ru'}Юридическая защита{:else}Legal protection{/if}
+					</div>
 					<h3>
 						{#if langState.current === 'ua'}
 							Повний пакет документів для Держпродспоживслужби
-						{:else}
+						{:else if langState.current === 'ru'}
 							Полный пакет документов для Госпродпотребслужбы
+						{:else}
+							Full document package for state inspections
 						{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
 							Укладаючи офіційний договір з ТОВ «ОЗОН-ДЕЗ», ви отримуєте затверджену програму пест-контролю, карти розміщення пасток, сертифікати якості на всі препарати та акти виконаних робіт із мокрими печатками.
-						{:else}
+						{:else if langState.current === 'ru'}
 							Заключая официальный договор с ООО «ОЗОН-ДЕЗ», вы получаете утвержденную программу пест-контроля, карты размещения станций, сертификаты на препараты и официальные акты с мокрыми печатями.
+						{:else}
+							By signing an official contract with LLC "OZON-DEZ", you receive an approved pest control program, trap layout maps, certificates of quality for all preparations, and stamped acts of completed work.
 						{/if}
 					</p>
 				</div>
 				<button
 					type="button"
 					class="btn btn-primary btn-lg"
-					onclick={() => orderModal.open({ serviceTitle: 'Запит комерційної пропозиції HACCP' })}
+					onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Запит комерційної пропозиції HACCP' : langState.current === 'ru' ? 'Запрос коммерческого предложения HACCP' : 'HACCP Commercial Proposal Request' })}
 				>
-					{#if langState.current === 'ua'}Отримати зразок договору та КП{:else}Получить образец договора и КП{/if}
+					{#if langState.current === 'ua'}Отримати зразок договору та КП{:else if langState.current === 'ru'}Получить образец договора и КП{:else}Get contract sample & proposal{/if}
 				</button>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import Hero from '#lib/components/Hero.svelte';
+	import AboutCompany from '#lib/components/AboutCompany.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 
 	import { langState } from '../lib/state/language.svelte';
@@ -18,71 +19,80 @@
 	<!-- Hero Section -->
 	<Hero />
 
+	<!-- Official Company Profile & Core 5 Directions -->
+	<AboutCompany />
+
 	<!-- Interactive Calculator Teaser Section -->
 	<section class="section calc-teaser-section">
 		<div class="container">
 			<div class="calc-teaser-card glass-card-dark">
 				<div class="teaser-left">
 					<div class="section-badge dark">
-						{#if langState.current === 'ua'}Точний розрахунок онлайн{:else}Точный расчет онлайн{/if}
+						{#if langState.current === 'ua'}Точний розрахунок онлайн{:else if langState.current === 'ru'}Точный расчет онлайн{:else}Precise Online Estimate{/if}
 					</div>
 					<h2 class="teaser-heading">
 						{#if langState.current === 'ua'}
 							Дізнайтесь точну вартість обробки вашого приміщення за 30 секунд
-						{:else}
+						{:else if langState.current === 'ru'}
 							Узнайте точную стоимость обработки вашего помещения за 30 секунд
+						{:else}
+							Calculate the exact cost of treating your facility in 30 seconds
 						{/if}
 					</h2>
 					<p class="teaser-sub">
 						{#if langState.current === 'ua'}
 							Скористайтеся нашим інтерактивним калькулятором: оберіть тип об'єкта (квартира, будинок, ресторан, склад), вкажіть площу та отримайте миттєву фіксовану вартість з гарантією.
-						{:else}
+						{:else if langState.current === 'ru'}
 							Воспользуйтесь нашим интерактивным калькулятором: выберите тип объекта, укажите площадь и получите мгновенный расчет стоимости с гарантией.
+						{:else}
+							Use our interactive calculator: select facility type, specify square meters, and get an instant fixed quote with a contract warranty.
 						{/if}
 					</p>
 					<div class="teaser-actions">
 						<a href={resolve('/calculator')} class="btn btn-primary btn-lg">
-							<span>🧮 {#if langState.current === 'ua'}Відкрити онлайн-калькулятор{:else}Открыть онлайн-калькулятор{/if}</span>
+							<span>🧮 {#if langState.current === 'ua'}Відкрити онлайн-калькулятор{:else if langState.current === 'ru'}Открыть онлайн-калькулятор{:else}Open Online Calculator{/if}</span>
 						</a>
 						<a href={resolve('/how-we-work')} class="btn btn-secondary btn-lg">
-							<span>⚙️ {#if langState.current === 'ua'}Як ми працюємо{:else}Как мы работаем{/if}</span>
+							<span>⚙️ {#if langState.current === 'ua'}Як ми працюємо{:else if langState.current === 'ru'}Как мы работаем{:else}How We Work{/if}</span>
 						</a>
 					</div>
 				</div>
 
 				<div class="teaser-right">
 					<div class="teaser-preview-box">
-						<div class="prev-header">⚡ Приклад базових тарифів</div>
-						<div class="prev-row">
-							<span>1-кімнатна квартира:</span>
-							<strong>від 850 грн</strong>
+						<div class="prev-header">
+							{#if langState.current === 'ua'}⚡ Приклад базових тарифів{:else if langState.current === 'ru'}⚡ Пример базовых тарифов{:else}⚡ Sample Standard Rates{/if}
 						</div>
 						<div class="prev-row">
-							<span>2-кімнатна квартира:</span>
-							<strong>від 1 050 грн</strong>
+							<span>{#if langState.current === 'ua'}1-кімнатна квартира:{:else if langState.current === 'ru'}1-комнатная квартира:{:else}1-room apartment:{/if}</span>
+							<strong>{#if langState.current === 'en'}from 850 UAH{:else}від 850 грн{/if}</strong>
 						</div>
 						<div class="prev-row">
-							<span>Приватний будинок (100 м²):</span>
-							<strong>від 1 450 грн</strong>
+							<span>{#if langState.current === 'ua'}2-кімнатна квартира:{:else if langState.current === 'ru'}2-комнатная квартира:{:else}2-room apartment:{/if}</span>
+							<strong>{#if langState.current === 'en'}from 1 050 UAH{:else}від 1 050 грн{/if}</strong>
 						</div>
 						<div class="prev-row">
-							<span>Озонування кімнати / авто:</span>
-							<strong>від 1 200 грн</strong>
+							<span>{#if langState.current === 'ua'}Приватний будинок (100 м²):{:else if langState.current === 'ru'}Частный дом (100 м²):{:else}Private house (100 m²):{/if}</span>
+							<strong>{#if langState.current === 'en'}from 1 450 UAH{:else}від 1 450 грн{/if}</strong>
 						</div>
 						<div class="prev-row">
-							<span>HoReCa / Ресторан (HACCP):</span>
-							<strong>від 1 800 грн</strong>
+							<span>{#if langState.current === 'ua'}HoReCa / Ресторан (HACCP):{:else if langState.current === 'ru'}HoReCa / Ресторан (HACCP):{:else}HoReCa / Restaurant (HACCP):{/if}</span>
+							<strong>{#if langState.current === 'en'}from 1 800 UAH{:else}від 1 800 грн{/if}</strong>
 						</div>
 						<div class="prev-footnote">
-							* Всі ціни включають виїзд фахівця, сертифіковані препарати та гарантійний акт.
+							{#if langState.current === 'ua'}
+								* Всі ціни включають виїзд спеціаліста, сертифіковані препарати та гарантійний акт.
+							{:else if langState.current === 'ru'}
+								* Все цены включают выезд специалиста, сертифицированные препараты и гарантийный акт.
+							{:else}
+								* All prices include specialist visit, certified preparations, and warranty certificate.
+							{/if}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
 
 	<!-- Quick Link to How We Work Preview -->
 	<section class="section quick-work-preview-section">
@@ -92,24 +102,28 @@
 					<h3>
 						{#if langState.current === 'ua'}
 							Бажаєте дізнатися більше про підготовку приміщення та гарантії?
-						{:else}
+						{:else if langState.current === 'ru'}
 							Хотите узнать больше о подготовке помещения и гарантиях?
+						{:else}
+							Want to know more about facility preparation and warranties?
 						{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
 							Ознайомтеся з детальним 5-кроковим регламентом нашої роботи, пам'яткою з підготовки квартири та юридичними гарантіями ТОВ «ОЗОН-ДЕЗ».
-						{:else}
+						{:else if langState.current === 'ru'}
 							Ознакомьтесь с подробным 5-шаговым регламентом нашей работы, памяткой по подготовке и юридическими гарантиями ООО «ОЗОН-ДЕЗ».
+						{:else}
+							Review our 5-step workflow, client preparation guidelines, and official legal warranties of LLC "OZON-DEZ".
 						{/if}
 					</p>
 				</div>
 				<div class="preview-buttons">
 					<a href={resolve('/how-we-work')} class="btn btn-primary">
-						{#if langState.current === 'ua'}Читати розділ «Як ми працюємо» →{:else}Читать раздел «Как мы работаем» →{/if}
+						{#if langState.current === 'ua'}Читати розділ «Як ми працюємо» →{:else if langState.current === 'ru'}Читать раздел «Как мы работаем» →{:else}Read "How We Work" →{/if}
 					</a>
 					<a href={resolve('/contacts')} class="btn btn-secondary">
-						{#if langState.current === 'ua'}Контакти та реквізити{:else}Контакты и реквизиты{/if}
+						{#if langState.current === 'ua'}Контакти та реквізити{:else if langState.current === 'ru'}Контакты и реквизиты{:else}Contacts & Office Details{/if}
 					</a>
 				</div>
 			</div>

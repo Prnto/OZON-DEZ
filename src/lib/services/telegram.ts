@@ -12,7 +12,7 @@ export interface LeadData {
 	extras?: string;
 	address?: string;
 	comment?: string;
-	lang?: 'ua' | 'ru';
+	lang?: 'ua' | 'ru' | 'en';
 }
 
 function escapeHtml(text: string): string {
@@ -35,9 +35,9 @@ export async function sendTelegramLead(lead: LeadData): Promise<{ success: boole
 	// If bot is not configured yet, log politely and simulate success to keep visitor UX seamless
 	if (!isEnabled || !token || !chatId) {
 		console.info(
-			'[OZON-DEZ] Заявка зафіксована (Telegram не налаштовано).',
-			'\nДані заявки:', lead,
-			'\nЩоб отримувати заявки в Telegram, вкажіть botToken та chatId у файлі src/lib/config/telegram.ts'
+			'[OZON-DEZ] Повідомлення зафіксовано (Telegram не налаштовано).',
+			'\nДані звернення:', lead,
+			'\nЩоб отримувати повідомлення в Telegram, вкажіть botToken та chatId у файлі src/lib/config/telegram.ts'
 		);
 		return { success: true };
 	}
@@ -52,7 +52,7 @@ export async function sendTelegramLead(lead: LeadData): Promise<{ success: boole
 		minute: '2-digit'
 	});
 
-	let message = `🚨 <b>НОВА ЗАЯВКА — ТОВ «ОЗОН-ДЕЗ»</b> 🚨\n`;
+	let message = `🚨 <b>OZON-DEZ</b> 🚨\n`;
 	message += `━━━━━━━━━━━━━━━━━━━━━\n`;
 	message += `📞 <b>Телефон:</b> <code>${escapeHtml(lead.phone)}</code>\n`;
 	if (lead.name?.trim()) {

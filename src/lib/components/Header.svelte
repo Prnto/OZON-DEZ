@@ -80,7 +80,7 @@
 						title="Темна тема"
 					>
 						<span class="theme-icon">🌙</span>
-						<span class="theme-label">{#if langState.current === 'ua'}Темна{:else}Темная{/if}</span>
+						<span class="theme-label">{#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}</span>
 					</button>
 					<button
 						type="button"
@@ -90,13 +90,13 @@
 						title="Світла тема"
 					>
 						<span class="theme-icon">☀️</span>
-						<span class="theme-label">{#if langState.current === 'ua'}Світла{:else}Светлая{/if}</span>
+						<span class="theme-label">{#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}</span>
 					</button>
 				</div>
 
 				<span class="top-bar-divider">|</span>
 
-				<!-- Language Switcher -->
+				<!-- Language Switcher: 3 Languages (UA / RU / EN) -->
 				<div class="lang-segmented-ctrl" role="group" aria-label="Мова сайту">
 					<button
 						type="button"
@@ -115,6 +115,15 @@
 					>
 						RU
 					</button>
+					<span class="lang-divider">/</span>
+					<button
+						type="button"
+						class="lang-segment-btn"
+						class:active={langState.current === 'en'}
+						onclick={() => langState.setLang('en')}
+					>
+						EN
+					</button>
 				</div>
 			</div>
 		</div>
@@ -131,9 +140,13 @@
 
 				<div class="main-bar-actions">
 					<!-- Prominent Phone link with live pulse dot -->
-					<a href="tel:+380508797335" class="header-phone-badge" title="Здійснити виклик">
+					<a
+						href="tel:{currentContent.phones.mobile}"
+						class="header-phone-badge"
+						title={langState.current === 'ua' ? 'Виклик спеціаліста' : langState.current === 'ru' ? 'Вызов специалиста' : 'Call a specialist'}
+					>
 						<span class="phone-pulse-dot"></span>
-						<span class="phone-num-txt">+38 (050) 879-73-35</span>
+						<span class="phone-num-txt">{currentContent.phones.mobileDisplay}</span>
 					</a>
 
 					<!-- Order CTA button -->
@@ -143,7 +156,7 @@
 						onclick={() => orderModal.open({ serviceTitle: currentContent.nav.callBtn })}
 					>
 						<span class="cta-full-label">⚡ {currentContent.nav.callBtn}</span>
-						<span class="cta-short-label">⚡ {#if langState.current === 'ua'}Замовити{:else}Заказать{/if}</span>
+						<span class="cta-short-label">⚡ {#if langState.current === 'ua'}Виклик{:else if langState.current === 'ru'}Вызов{:else}Call{/if}</span>
 					</button>
 
 					<!-- Hamburger Toggle for Mobile Quick Call & Info -->
@@ -165,39 +178,27 @@
 			<nav class="top-tapbar" aria-label="Головна навігація">
 				<a href={resolve('/')} class="tapbar-btn" class:active={isActive('/')}>
 					<span class="tap-icon">🏠</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Головна{:else}Главная{/if}</span>
+					<span class="tap-label">{#if langState.current === 'ua'}Головна{:else if langState.current === 'ru'}Главная{:else}Home{/if}</span>
 				</a>
 				<a href={resolve('/services')} class="tapbar-btn" class:active={isActive('/services')}>
 					<span class="tap-icon">🧹</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Послуги{:else}Услуги{/if}</span>
-				</a>
-				<a href={resolve('/ozone')} class="tapbar-btn" class:active={isActive('/ozone')}>
-					<span class="tap-icon">💨</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Озонування O₃{:else}Озонирование O₃{/if}</span>
+					<span class="tap-label">{currentContent.nav.services}</span>
 				</a>
 				<a href={resolve('/b2b')} class="tapbar-btn" class:active={isActive('/b2b')}>
 					<span class="tap-icon">🏢</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Бізнесу & HACCP{:else}Бизнесу & HACCP{/if}</span>
-				</a>
-				<a href={resolve('/agro')} class="tapbar-btn" class:active={isActive('/agro')}>
-					<span class="tap-icon">🌾</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Агросектор{:else}Агросектор{/if}</span>
-				</a>
-				<a href={resolve('/water')} class="tapbar-btn" class:active={isActive('/water')}>
-					<span class="tap-icon">💧</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Очистка води{:else}Очистка воды{/if}</span>
+					<span class="tap-label">{currentContent.nav.b2b}</span>
 				</a>
 				<a href={resolve('/how-we-work')} class="tapbar-btn" class:active={isActive('/how-we-work')}>
 					<span class="tap-icon">⚙️</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Як працюємо{:else}Как работаем{/if}</span>
+					<span class="tap-label">{currentContent.nav.howWeWork}</span>
 				</a>
 				<a href={resolve('/calculator')} class="tapbar-btn" class:active={isActive('/calculator')}>
 					<span class="tap-icon">🧮</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Калькулятор{:else}Калькулятор{/if}</span>
+					<span class="tap-label">{currentContent.nav.calculator}</span>
 				</a>
 				<a href={resolve('/contacts')} class="tapbar-btn" class:active={isActive('/contacts')}>
 					<span class="tap-icon">📍</span>
-					<span class="tap-label">{#if langState.current === 'ua'}Контакти{:else}Контакты{/if}</span>
+					<span class="tap-label">{currentContent.nav.contacts}</span>
 				</a>
 			</nav>
 		</div>
@@ -210,7 +211,7 @@
 			<div class="mobile-nav">
 				<div class="mobile-controls-row">
 					<div class="mobile-lang-row">
-						<span class="mobile-lang-label">Мова:</span>
+						<span class="mobile-lang-label">{#if langState.current === 'ua'}Мова:{:else if langState.current === 'ru'}Язык:{:else}Lang:{/if}</span>
 						<div class="lang-segmented-ctrl">
 							<button
 								type="button"
@@ -229,11 +230,20 @@
 							>
 								RU
 							</button>
+							<span class="lang-divider">/</span>
+							<button
+								type="button"
+								class="lang-segment-btn"
+								class:active={langState.current === 'en'}
+								onclick={() => langState.setLang('en')}
+							>
+								EN
+							</button>
 						</div>
 					</div>
 
 					<div class="mobile-theme-row">
-						<span class="mobile-lang-label">Тема:</span>
+						<span class="mobile-lang-label">{#if langState.current === 'ua'}Тема:{:else if langState.current === 'ru'}Тема:{:else}Theme:{/if}</span>
 						<div class="theme-segmented-ctrl">
 							<button
 								type="button"
@@ -241,7 +251,7 @@
 								class:active={themeState.current === 'dark'}
 								onclick={() => themeState.setTheme('dark')}
 							>
-								🌙 Темна
+								🌙 {#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}
 							</button>
 							<button
 								type="button"
@@ -249,7 +259,7 @@
 								class:active={themeState.current === 'light'}
 								onclick={() => themeState.setTheme('light')}
 							>
-								☀️ Світла
+								☀️ {#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}
 							</button>
 						</div>
 					</div>
@@ -257,27 +267,15 @@
 
 				<a href={resolve('/')} class="mobile-nav-link" class:active={isActive('/')} onclick={closeMobileMenu}>
 					<span class="m-icon">🏠</span>
-					<span>{#if langState.current === 'ua'}Головна{:else}Главная{/if}</span>
+					<span>{#if langState.current === 'ua'}Головна{:else if langState.current === 'ru'}Главная{:else}Home{/if}</span>
 				</a>
 				<a href={resolve('/services')} class="mobile-nav-link" class:active={isActive('/services')} onclick={closeMobileMenu}>
 					<span class="m-icon">🧹</span>
 					<span>{currentContent.nav.services}</span>
 				</a>
-				<a href={resolve('/ozone')} class="mobile-nav-link" class:active={isActive('/ozone')} onclick={closeMobileMenu}>
-					<span class="m-icon">💨</span>
-					<span>{currentContent.nav.ozone}</span>
-				</a>
 				<a href={resolve('/b2b')} class="mobile-nav-link" class:active={isActive('/b2b')} onclick={closeMobileMenu}>
 					<span class="m-icon">🏢</span>
 					<span>{currentContent.nav.b2b}</span>
-				</a>
-				<a href={resolve('/agro')} class="mobile-nav-link" class:active={isActive('/agro')} onclick={closeMobileMenu}>
-					<span class="m-icon">🌾</span>
-					<span>{currentContent.nav.agro}</span>
-				</a>
-				<a href={resolve('/water')} class="mobile-nav-link" class:active={isActive('/water')} onclick={closeMobileMenu}>
-					<span class="m-icon">💧</span>
-					<span>{currentContent.nav.water}</span>
 				</a>
 				<a href={resolve('/how-we-work')} class="mobile-nav-link" class:active={isActive('/how-we-work')} onclick={closeMobileMenu}>
 					<span class="m-icon">⚙️</span>

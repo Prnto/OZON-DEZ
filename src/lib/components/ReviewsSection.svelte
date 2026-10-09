@@ -8,19 +8,42 @@
 		ua: {
 			badge: 'Довіра та репутація',
 			title: 'Реальні відгуки та виконані санітарні кейси',
-			subtitle: 'Понад 380 успішно знезаражених об’єктів у Чорноморську, Одесі та області: від затишних квартир до великих елеваторів і ресторанів.',
+			subtitle: 'Понад 380 успішно знезаражених об’єктів у Чорноморську, Одесі та області: від затишних квартир та приватних осель до ресторанів і підприємств.',
 			scoreBadge: '4.9 з 5',
 			scoreNote: 'середня оцінка на основі 380+ обробок',
 			guaranteeTitle: '100% юридична гарантія за договором',
 			filterAll: 'Всі об’єкти',
 			filterB2C: 'Квартири та будинки',
 			filterHaccp: 'HoReCa & Бізнес',
-			filterAgro: 'Агросектор & Вода',
 			leaveReviewBtn: 'Замовити обробку з гарантією',
 			verifiedBadge: 'Перевірений клієнт',
 			items: [
 				{
 					id: 1,
+					category: 'b2c',
+					author: 'Олена Ковальчук',
+					role: 'Власниця квартири, просп. Миру',
+					city: 'м. Чорноморськ',
+					service: 'Знищення тарганів холодним туманом',
+					text: 'Боролися з тарганами понад півроку побутовими балончиками — нічого не допомагало. Спеціаліст ОЗОН-ДЕЗ приїхав у день дзвінка, провів обробку за 40 хвилин. Комахи зникли повністю на наступний день. Приємно вразило, що немає запаху і безпечно для нашого кота.',
+					rating: 5,
+					date: 'Серпень 2026',
+					icon: '🪳'
+				},
+				{
+					id: 2,
+					category: 'b2c',
+					author: 'Михайло С.',
+					role: 'Мешканець, вул. Данченка',
+					city: 'м. Чорноморськ',
+					service: 'Знищення постільних клопів з гарантією',
+					text: 'Дуже вдячний за конфіденційність та професіоналізм. Спеціаліст приїхав у цивільному одязі, все пояснив, обробив дивани та щілини. Після першого ж сеансу укуси припинилися. Дякую за спокійний сон нашої родини!',
+					rating: 5,
+					date: 'Травень 2026',
+					icon: '🛏️'
+				},
+				{
+					id: 3,
 					category: 'haccp',
 					author: 'Олег Васильович',
 					role: 'Керуючий мережі ресторанів «Чорноморська Рів’єра»',
@@ -30,85 +53,48 @@
 					rating: 5,
 					date: 'Вересень 2026',
 					icon: '🍽️'
-				},
-				{
-					id: 2,
-					category: 'b2c',
-					author: 'Олена Ковальчук',
-					role: 'Власниця квартири, просп. Миру',
-					city: 'м. Чорноморськ',
-					service: 'Знищення тарганів холодним туманом',
-					text: 'Боролися з тарганами понад півроку побутовими балончиками — нічого не допомагало. Майстер ОЗОН-ДЕЗ приїхав у день дзвінка, провів обробку за 40 хвилин. Комахи зникли повністю на наступний день. Приємно вразило, що немає запаху і безпечно для нашого кота.',
-					rating: 5,
-					date: 'Серпень 2026',
-					icon: '🏢'
-				},
-				{
-					id: 3,
-					category: 'agro',
-					author: 'Сергій Миколайович',
-					role: 'Головний технолог елеватора',
-					city: 'Одеська область',
-					service: 'Фумігація силосів та зерна пшениці',
-					text: 'Необхідно було терміново провести газацію 8 500 тонн продовольчого зерна перед завантаженням на судно в порту. Бригада ОЗОН-ДЕЗ спрацювала бездоганно: герметизація, введення фосфіду алюмінію, експозиція та дегазація. Фітосанітарний сертифікат отримано без затримок.',
-					rating: 5,
-					date: 'Липень 2026',
-					icon: '🌾'
-				},
-				{
-					id: 4,
-					category: 'b2c',
-					author: 'Андрій Пономаренко',
-					role: 'Власник котеджу',
-					city: 'с. Молодіжне, Одеська обл.',
-					service: 'Озонування приміщення після пожежі в гаражі',
-					text: 'Запах гару та чаду в’ївся в меблі та стіни всього першого поверху. Озонування промисловим апаратом ОЗОН-ДЕЗ за 5 годин повністю розщепило кіптяву на молекулярному рівні. Запаху диму немає взагалі, повітря свіже та чисте.',
-					rating: 5,
-					date: 'Серпень 2026',
-					icon: '💨'
-				},
-				{
-					id: 5,
-					category: 'agro',
-					author: 'Ірина Данилівна',
-					role: 'Адміністратор готельного комплексу',
-					city: 'смт Затока / Грибівка',
-					service: 'Санація та дезінфекція резервуарів води',
-					text: 'Перед відкриттям сезону замовили промивку накопичувальних резервуарів питної води на 15 м³. Видалили весь наліт та мул, провели антимікробну обробку. Лабораторний аналіз води після обробки показав абсолютну безпеку.',
-					rating: 5,
-					date: 'Червень 2026',
-					icon: '💧'
-				},
-				{
-					id: 6,
-					category: 'b2c',
-					author: 'Михайло С.',
-					role: 'Мешканець, вул. Данченка',
-					city: 'м. Чорноморськ',
-					service: 'Знищення постільних клопів з гарантією',
-					text: 'Дуже вдячний за конфіденційність та професіоналізм. Майстер приїхав у цивільному одязі, все пояснив, обробив дивани та щілини. Після першого ж сеансу укуси припинилися. Дякую за спокійний сон нашої родини!',
-					rating: 5,
-					date: 'Травень 2026',
-					icon: '🛏️'
 				}
 			]
 		},
 		ru: {
 			badge: 'Доверие и репутация',
 			title: 'Реальные отзывы и выполненные санитарные кейсы',
-			subtitle: 'Более 380 успешно обеззараженных объектов в Черноморске, Одессе и области: от квартир до крупных зерновых терминалов и ресторанов.',
+			subtitle: 'Более 380 успешно обеззараженных объектов в Черноморске, Одессе и области: от квартир и частных домов до ресторанов и предприятий.',
 			scoreBadge: '4.9 из 5',
 			scoreNote: 'средняя оценка на основе 380+ обработок',
 			guaranteeTitle: '100% юридическая гарантия по договору',
 			filterAll: 'Все объекты',
 			filterB2C: 'Квартиры и дома',
 			filterHaccp: 'HoReCa & Бизнес',
-			filterAgro: 'Агросектор & Вода',
 			leaveReviewBtn: 'Заказать обработку с гарантией',
 			verifiedBadge: 'Проверенный клиент',
 			items: [
 				{
 					id: 1,
+					category: 'b2c',
+					author: 'Елена Ковальчук',
+					role: 'Владелица квартиры, просп. Мира',
+					city: 'г. Черноморск',
+					service: 'Уничтожение тараканов холодным туманом',
+					text: 'Боролись с тараканами более полугода бытовыми баллончиками — ничего не помогало. Специалист ОЗОН-ДЕЗ приехал в день звонка, провел обработку за 40 минут. Насекомые исчезли полностью на следующий день. Приятно удивило, что нет запаха и безопасно для кота.',
+					rating: 5,
+					date: 'Август 2026',
+					icon: '🪳'
+				},
+				{
+					id: 2,
+					category: 'b2c',
+					author: 'Михаил С.',
+					role: 'Житель, ул. Данченко',
+					city: 'г. Черноморск',
+					service: 'Уничтожение постельных клопов с гарантией',
+					text: 'Очень благодарен за конфиденциальность и профессионализм. Специалист приехал в гражданской одежде, все объяснил, обработал диваны и плинтуса. После первого же сеанса укусы прекратились. Спасибо за спокойный сон семьи!',
+					rating: 5,
+					date: 'Май 2026',
+					icon: '🛏️'
+				},
+				{
+					id: 3,
 					category: 'haccp',
 					author: 'Олег Васильевич',
 					role: 'Управляющий сети ресторанов «Черноморская Ривьера»',
@@ -118,66 +104,57 @@
 					rating: 5,
 					date: 'Сентябрь 2026',
 					icon: '🍽️'
+				}
+			]
+		},
+		en: {
+			badge: 'Trust & Reputation',
+			title: 'Real Reviews & Completed Sanitary Cases',
+			subtitle: 'Over 380 successfully treated facilities in Chornomorsk, Odesa, and region: from private apartments and houses to restaurants and enterprises.',
+			scoreBadge: '4.9 out of 5',
+			scoreNote: 'average rating based on 380+ treatments',
+			guaranteeTitle: '100% legal contract warranty',
+			filterAll: 'All Facilities',
+			filterB2C: 'Apartments & Houses',
+			filterHaccp: 'HoReCa & Business',
+			leaveReviewBtn: 'Order Treatment with Warranty',
+			verifiedBadge: 'Verified Client',
+			items: [
+				{
+					id: 1,
+					category: 'b2c',
+					author: 'Olena Kovalchuk',
+					role: 'Apartment Owner, Myru Ave',
+					city: 'Chornomorsk',
+					service: 'Cockroach Extermination with ULV Cold Fog',
+					text: 'We fought cockroaches for six months using retail spray cans — nothing helped. An OZON-DEZ specialist arrived the same day and completed the treatment in 40 minutes. Insects vanished completely next day. Very pleased that there was no smell and it was safe for our cat.',
+					rating: 5,
+					date: 'August 2026',
+					icon: '🪳'
 				},
 				{
 					id: 2,
 					category: 'b2c',
-					author: 'Елена Ковальчук',
-					role: 'Владелица квартиры, просп. Мира',
-					city: 'г. Черноморск',
-					service: 'Уничтожение тараканов холодным туманом',
-					text: 'Боролись с тараканами более полугода бытовыми баллончиками — ничего не помогало. Мастер ОЗОН-ДЕЗ приехал в день звонка, провел обработку за 40 минут. Насекомые исчезли полностью на следующий день. Приятно удивило, что нет запаха и безопасно для кота.',
+					author: 'Mykhailo S.',
+					role: 'Resident, Danchenka St',
+					city: 'Chornomorsk',
+					service: 'Bedbug Elimination with Warranty',
+					text: 'Extremely grateful for confidentiality and professionalism. The specialist arrived in casual clothes, explained everything clearly, and treated the rooms. Bites ceased after the very first session. Thank you for our family peace of mind!',
 					rating: 5,
-					date: 'Август 2026',
-					icon: '🏢'
+					date: 'May 2026',
+					icon: '🛏️'
 				},
 				{
 					id: 3,
-					category: 'agro',
-					author: 'Сергей Николаевич',
-					role: 'Главный технолог элеватора',
-					city: 'Одесская область',
-					service: 'Фумигация силосов и зерна пшеницы',
-					text: 'Необходимо было срочно провести газацию 8 500 тонн продовольственного зерна перед погрузкой на судно в порту. Бригада ОЗОН-ДЕЗ сработала безупречно: герметизация, введение фосфида алюминия, дегазация. Фитосанитарный сертификат получен без задержек.',
+					category: 'haccp',
+					author: 'Oleg Vasyliovych',
+					role: 'General Manager, "Chornomorska Riviera" Restaurant Chain',
+					city: 'Chornomorsk',
+					service: 'Pest Control via HACCP Standards',
+					text: 'We have cooperated with LLC "OZON-DEZ" under an annual contract. Scheduled nighttime kitchen and hall treatments without pungent chemical smells. Passed state food inspections on the first attempt with all log sheets, trap maps, and certificates provided.',
 					rating: 5,
-					date: 'Июль 2026',
-					icon: '🌾'
-				},
-				{
-					id: 4,
-					category: 'b2c',
-					author: 'Андрей Пономаренко',
-					role: 'Владелец коттеджа',
-					city: 'с. Молодежное, Одесская обл.',
-					service: 'Озонирование помещения после пожара в гараже',
-					text: 'Запах гари въелся в мебель и стены всего первого этажа. Озонирование промышленным аппаратом ОЗОН-ДЕЗ за 5 часов полностью расщепило копоть на молекулярном уровне. Запаха дыма нет вообще, воздух чистый и свежий.',
-					rating: 5,
-					date: 'Август 2026',
-					icon: '💨'
-				},
-				{
-					id: 5,
-					category: 'agro',
-					author: 'Ирина Даниловна',
-					role: 'Администратор отельного комплекса',
-					city: 'пгт Затока / Грибовка',
-					service: 'Санация и дезинфекция резервуаров воды',
-					text: 'Перед открытием сезона заказали промывку накопительных резервуаров питьевой воды на 15 м³. Удалили налет и ил, провели антимикробную обработку. Лабораторный анализ воды после обработки показал абсолютную безопасность.',
-					rating: 5,
-					date: 'Июнь 2026',
-					icon: '💧'
-				},
-				{
-					id: 6,
-					category: 'b2c',
-					author: 'Михаил С.',
-					role: 'Житель, ул. Данченко',
-					city: 'г. Черноморск',
-					service: 'Уничтожение постельных клопов с гарантией',
-					text: 'Очень благодарен за конфиденциальность и профессионализм. Мастер приехал в гражданской одежде, все объяснил, обработал диваны и плинтуса. После первого же сеанса укусы прекратились. Спасибо за спокойный сон семьи!',
-					rating: 5,
-					date: 'Май 2026',
-					icon: '🛏️'
+					date: 'September 2026',
+					icon: '🍽️'
 				}
 			]
 		}
@@ -215,8 +192,10 @@
 			<div class="metric-divider"></div>
 			<div class="metric-block">
 				<div class="metric-icon">🏢</div>
-				<div class="metric-val">15+ років</div>
-				<div class="metric-desc">Офіційний досвід із 2011 року</div>
+				<div class="metric-val">15+ {#if langState.current === 'ua'}років{:else if langState.current === 'ru'}лет{:else}years{/if}</div>
+				<div class="metric-desc">
+					{#if langState.current === 'ua'}Офіційний досвід із 2011 року{:else if langState.current === 'ru'}Официальный опыт с 2011 года{:else}Official experience since 2011{/if}
+				</div>
 			</div>
 		</div>
 
@@ -245,14 +224,6 @@
 				onclick={() => (activeFilter = 'haccp')}
 			>
 				🍽️ {currentData.filterHaccp}
-			</button>
-			<button
-				type="button"
-				class="filter-tab-btn"
-				class:active={activeFilter === 'agro'}
-				onclick={() => (activeFilter = 'agro')}
-			>
-				🌾 {currentData.filterAgro}
 			</button>
 		</div>
 

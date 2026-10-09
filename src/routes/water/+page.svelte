@@ -14,11 +14,17 @@
 	<title>
 		{langState.current === 'ua'
 			? 'Дезінфекція систем водопостачання та очистка води — ТОВ «ОЗОН-ДЕЗ»'
-			: 'Дезинфекция систем водоснабжения и очистка воды — ООО «ОЗОН-ДЕЗ»'}
+			: langState.current === 'ru'
+			? 'Дезинфекция систем водоснабжения и очистка воды — ООО «ОЗОН-ДЕЗ»'
+			: 'Water System Disinfection & Purification — LLC "OZON-DEZ"'}
 	</title>
 	<meta
 		name="description"
-		content="Очищення та дезінфекція резервуарів, колодязів, свердловин та інженерних мереж водопроводу у Чорноморську та Одеській області."
+		content={langState.current === 'ua'
+			? 'Очищення та дезінфекція резервуарів, колодязів, свердловин та інженерних мереж водопроводу у Чорноморську та Одеській області.'
+			: langState.current === 'ru'
+			? 'Очистка и дезинфекция резервуаров, колодцев, скважин и инженерных сетей водопровода в Черноморске и Одесской области.'
+			: 'Cleaning and disinfection of storage tanks, wells, boreholes, and water pipeline networks in Chornomorsk and Odesa region.'}
 	/>
 </svelte:head>
 
@@ -37,32 +43,80 @@
 	<section class="section water-process-section">
 		<div class="container">
 			<div class="section-header">
-				<div class="section-badge">ДСанПіН Стандарти</div>
+				<div class="section-badge">
+					{#if langState.current === 'ua'}ДСанПіН Стандарти{:else if langState.current === 'ru'}ГСанПиН Стандарты{:else}Sanitary Standards{/if}
+				</div>
 				<h2 class="section-title">
-					{#if langState.current === 'ua'}Регламент дезінфекції водопровідних систем{:else}Регламент дезинфекции водопроводных систем{/if}
+					{#if langState.current === 'ua'}
+						Регламент дезінфекції водопровідних систем
+					{:else if langState.current === 'ru'}
+						Регламент дезинфекции водопроводных систем
+					{:else}
+						Water Pipeline Disinfection Protocol
+					{/if}
 				</h2>
 			</div>
 
 			<div class="water-steps-grid">
 				<div class="w-step glass-card">
 					<div class="w-num">01</div>
-					<h4>Аудит та аналіз біоплівки</h4>
-					<p>Візуальний огляд внутрішніх поверхонь резервуарів або колодязів, замір бактеріального забруднення.</p>
+					<h4>
+						{#if langState.current === 'ua'}Аудит та аналіз біоплівки{:else if langState.current === 'ru'}Аудит и анализ биопленки{:else}Audit & Biofilm Analysis{/if}
+					</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Візуальний огляд внутрішніх поверхонь резервуарів або колодязів, замір бактеріального забруднення.
+						{:else if langState.current === 'ru'}
+							Визуальный осмотр внутренних поверхностей резервуаров или колодцев, замер бактериального загрязнения.
+						{:else}
+							Visual inspection of interior tank surfaces, boreholes, or wells, and bacterial contamination testing.
+						{/if}
+					</p>
 				</div>
 				<div class="w-step glass-card">
 					<div class="w-num">02</div>
-					<h4>Механічна очистка стінок</h4>
-					<p>Видалення мулу, вапняного нальоту, залізистих відкладень та осаду за допомогою гідродинамічного обладнання.</p>
+					<h4>
+						{#if langState.current === 'ua'}Механічна очистка стінок{:else if langState.current === 'ru'}Механическая очистка стенок{:else}Mechanical Surface Cleaning{/if}
+					</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Видалення мулу, вапняного нальоту, залізистих відкладень та осаду за допомогою гідродинамічного обладнання.
+						{:else if langState.current === 'ru'}
+							Удаление ила, известкового налета, железистых отложений и осадка гидродинамическим оборудованием.
+						{:else}
+							Removal of silt, limescale, ferrous deposits, and sediments using hydrodynamic washing equipment.
+						{/if}
+					</p>
 				</div>
 				<div class="w-step glass-card">
 					<div class="w-num">03</div>
-					<h4>Антимікробна санація</h4>
-					<p>Заповнення системи дезінфікуючим розчином або озонування води для 100% знищення легіонели та патогенів.</p>
+					<h4>
+						{#if langState.current === 'ua'}Антимікробна санація{:else if langState.current === 'ru'}Антимикробная санация{:else}Antimicrobial Sanitation{/if}
+					</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Заповнення системи дезінфікуючим розчином або озонування води для 100% знищення легіонели та патогенів.
+						{:else if langState.current === 'ru'}
+							Заполнение системы дезинфицирующим раствором или озонирование воды для 100% уничтожения легионеллы и патогенов.
+						{:else}
+							System filling with certified disinfectant solution or water ozonation for 100% pathogen eradication.
+						{/if}
+					</p>
 				</div>
 				<div class="w-step glass-card">
 					<div class="w-num">04</div>
-					<h4>Промивка та контроль якості</h4>
-					<p>Скидання технологічної води, промивка чистою водою та видача паспорта санітарної обробки резервуара.</p>
+					<h4>
+						{#if langState.current === 'ua'}Промивка та контроль якості{:else if langState.current === 'ru'}Промывка и контроль качества{:else}Flushing & Quality Control{/if}
+					</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Скидання технологічної води, промивка чистою водою та видача паспорта санітарної обробки резервуара.
+						{:else if langState.current === 'ru'}
+							Сброс технологической воды, промывка чистой водой и выдача паспорта санитарной обработки резервуара.
+						{:else}
+							Discharge of technical water, flushing with clean potable water, and issuing the sanitary service certificate.
+						{/if}
+					</p>
 				</div>
 			</div>
 		</div>

@@ -12,12 +12,12 @@
 
 	const calloutData = {
 		ua: {
-			badge: '⚡ Чергова служба 24/7',
+			badge: '⚡ Кваліфікована служба',
 			title: 'Потрібен терміновий виїзд спеціаліста сьогодні?',
 			subtitle: 'Оперативна бригада по м. Чорноморськ, Одесі та прилеглих районах. Виїзд від 30 хвилин із повним комплектом сертифікованого обладнання.',
 			phonePlaceholder: '+38 (063) 667-26-53',
 			addressPlaceholder: 'Адреса (наприклад, Чорноморськ, Миру 8)',
-			submitBtn: 'Викликати чергову бригаду',
+			submitBtn: 'Викликати спеціаліста',
 			callDirectLabel: 'Або зателефонуйте черговому прямо зараз:',
 			successTitle: 'Заявку прийнято!',
 			successText: 'Черговий спеціаліст зв’яжеться з вами протягом 2-3 хвилин для узгодження часу прибуття.',
@@ -29,20 +29,37 @@
 			]
 		},
 		ru: {
-			badge: '⚡ Дежурная служба 24/7',
+			badge: '⚡ Квалифицированная служба',
 			title: 'Нужен срочный выезд специалиста сегодня?',
 			subtitle: 'Оперативная бригада по г. Черноморск, Одессе и области. Выезд от 30 минут с полным комплектом сертифицированного оборудования.',
 			phonePlaceholder: '+38 (063) 667-26-53',
 			addressPlaceholder: 'Адрес (например, Черноморск, Мира 8)',
-			submitBtn: 'Вызвать дежурную бригаду',
+			submitBtn: 'Вызвать специалиста',
 			callDirectLabel: 'Или позвоните дежурному прямо сейчас:',
-			successTitle: 'Заявка принята!',
+			successTitle: 'Обращение принято!',
 			successText: 'Дежурный специалист свяжется с вами в течение 2-3 минут для согласования времени прибытия.',
 			againBtn: 'Отправить другой номер',
 			trustBullets: [
 				'⏱️ Прибытие на объект от 30 мин',
 				'🛡️ Препараты 4-го класса безопасности (без запаха)',
 				'📜 Договор и гарантийный талон на месте'
+			]
+		},
+		en: {
+			badge: '⚡ Certified Sanitary Service',
+			title: 'Need urgent specialist dispatch today?',
+			subtitle: 'Rapid response team across Chornomorsk, Odesa, and surrounding areas. Arrival from 30 minutes with certified equipment.',
+			phonePlaceholder: '+38 (063) 667-26-53',
+			addressPlaceholder: 'Address (e.g., Chornomorsk, 8 Myru Ave)',
+			submitBtn: 'Call a specialist',
+			callDirectLabel: 'Or call the on-duty specialist directly:',
+			successTitle: 'Request accepted!',
+			successText: 'An on-duty specialist will reach out within 2-3 minutes to confirm arrival time.',
+			againBtn: 'Submit another number',
+			trustBullets: [
+				'⏱️ On-site arrival from 30 min',
+				'🛡️ Class-4 safety preparations (odorless)',
+				'📜 Contract & warranty certificate on site'
 			]
 		}
 	};
@@ -56,7 +73,7 @@
 		isSubmitting = true;
 		try {
 			await sendTelegramLead({
-				source: 'Терміновий виклик чергової бригади 24/7 (Головна)',
+				source: 'Терміновий виклик спеціаліста (Головна)',
 				phone: phone,
 				address: address || 'Не вказано (уточнить оператор)',
 				serviceTitle: 'Екстрений виїзд фахівця',

@@ -44,12 +44,10 @@
 						'Tuesday',
 						'Wednesday',
 						'Thursday',
-						'Friday',
-						'Saturday',
-						'Sunday'
+						'Friday'
 					],
-					opens: '00:00',
-					closes: '23:59'
+					opens: '09:00',
+					closes: '15:00'
 				}
 			],
 			areaServed: [

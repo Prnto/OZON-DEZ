@@ -13,11 +13,17 @@
 	<title>
 		{langState.current === 'ua'
 			? 'Контакти та реквізити ТОВ «ОЗОН-ДЕЗ» — Чорноморськ, Одеська обл.'
-			: 'Контакты и реквизиты ООО «ОЗОН-ДЕЗ» — Черноморск, Одесская обл.'}
+			: langState.current === 'ru'
+			? 'Контакты и реквизиты ООО «ОЗОН-ДЕЗ» — Черноморск, Одесская обл.'
+			: 'Contacts & Requisites LLC "OZON-DEZ" — Chornomorsk, Odesa region'}
 	</title>
 	<meta
 		name="description"
-		content="Офіційні контакти ТОВ «ОЗОН-ДЕЗ»: м. Чорноморськ, просп. Миру, 8-А. Телефони: +38 (063) 667-26-53, (04868) 6-03-08. Повні юридичні реквізити, карта та месенджери."
+		content={langState.current === 'ua'
+			? 'Офіційні контакти ТОВ «ОЗОН-ДЕЗ»: м. Чорноморськ, просп. Миру, 8-а. Телефони: +38 (063) 667-26-53, (04868) 6-03-08. Повні юридичні реквізити, карта та месенджери.'
+			: langState.current === 'ru'
+			? 'Официальные контакты ООО «ОЗОН-ДЕЗ»: г. Черноморск, просп. Мира, 8-а. Телефоны: +38 (063) 667-26-53, (04868) 6-03-08. Полные юридические реквизиты, карта и мессенджеры.'
+			: 'Official contacts of LLC "OZON-DEZ": Chornomorsk, Myru Ave, 8-a. Phones: +38 (063) 667-26-53, (04868) 6-03-08. Legal requisites, map and messengers.'}
 	/>
 </svelte:head>
 
@@ -38,20 +44,24 @@
 		<div class="container">
 			<div class="section-header">
 				<div class="section-badge">
-					{#if langState.current === 'ua'}Юридичні відомості{:else}Юридические сведения{/if}
+					{#if langState.current === 'ua'}Юридичні відомості{:else if langState.current === 'ru'}Юридические сведения{:else}Legal information{/if}
 				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
 						Офіційні реквізити компанії
-					{:else}
+					{:else if langState.current === 'ru'}
 						Официальные реквизиты компании
+					{:else}
+						Official company requisites
 					{/if}
 				</h2>
 				<p class="section-subtitle">
 					{#if langState.current === 'ua'}
 						Для укладання прямих договорів, тендерних закупівель та безготівкових розрахунків з ПДВ.
-					{:else}
+					{:else if langState.current === 'ru'}
 						Для заключения прямых договоров, тендерных закупок и безналичных расчетов с НДС.
+					{:else}
+						For direct contracts, tender procurement, and bank settlements with VAT.
 					{/if}
 				</p>
 			</div>
@@ -60,74 +70,98 @@
 				<div class="req-table-grid">
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Повне найменування:{:else}Полное наименование:{/if}
+							{#if langState.current === 'ua'}Повне найменування:{:else if langState.current === 'ru'}Полное наименование:{:else}Full legal name:{/if}
 						</span>
-						<strong class="req-val">ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «ОЗОН-ДЕЗ»</strong>
+						<strong class="req-val">
+							{#if langState.current === 'en'}
+								LIMITED LIABILITY COMPANY "OZON-DEZ" (ТОВ «ОЗОН-ДЕЗ»)
+							{:else}
+								ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «ОЗОН-ДЕЗ»
+							{/if}
+						</strong>
 					</div>
 
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Скорочене найменування:{:else}Сокращенное наименование:{/if}
+							{#if langState.current === 'ua'}Скорочене найменування:{:else if langState.current === 'ru'}Сокращенное наименование:{:else}Short name:{/if}
 						</span>
-						<span class="req-val">ТОВ «ОЗОН-ДЕЗ» / ТОВ ОЗОН-ДЕЗ</span>
+						<span class="req-val">ТОВ «ОЗОН-ДЕЗ» / LLC OZON-DEZ</span>
 					</div>
 
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Код ЄДРПОУ:{:else}Код ЕГРПОУ:{/if}
+							{#if langState.current === 'ua'}Код ЄДРПОУ:{:else if langState.current === 'ru'}Код ЕГРПОУ:{:else}EDRPOU Code:{/if}
 						</span>
 						<strong class="req-val req-mono">37537169</strong>
 					</div>
 
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Дата державної реєстрації:{:else}Дата госрегистрации:{/if}
-						</span>
-						<span class="req-val">2011 рік (понад 15 років безперервної діяльності)</span>
-					</div>
-
-					<div class="req-row">
-						<span class="req-key">
-							{#if langState.current === 'ua'}Фактична адреса / Офіс:{:else}Фактический адрес / Офис:{/if}
-						</span>
-						<span class="req-val">{currentContent.address.actual}</span>
-					</div>
-
-					<div class="req-row">
-						<span class="req-key">
-							{#if langState.current === 'ua'}Юридична адреса:{:else}Юридический адрес:{/if}
-						</span>
-						<span class="req-val">{currentContent.address.legal}</span>
-					</div>
-
-					<div class="req-row">
-						<span class="req-key">
-							{#if langState.current === 'ua'}Напрямки діяльності:{:else}Направления деятельности:{/if}
+							{#if langState.current === 'ua'}Досвід та реєстрація:{:else if langState.current === 'ru'}Опыт и регистрация:{:else}Experience & Registration:{/if}
 						</span>
 						<span class="req-val">
 							{#if langState.current === 'ua'}
-								Дезінсекція, дератизація, дезінфекція приміщень, озонування газом O₃, фумігація зерна, санітарна очистка систем водопостачання та пест-контроль HACCP
+								Засновано у 2011 році (15 років безперервного практичного досвіду)
+							{:else if langState.current === 'ru'}
+								Основано в 2011 году (15 лет непрерывного практического опыта)
 							{:else}
-								Дезинсекция, дератизация, дезинфекция помещений, озонирование газом O₃, фумигация зерна, санитарная очистка систем водоснабжения и пест-контроль HACCP
+								Established in 2011 (15 years of continuous professional experience)
 							{/if}
 						</span>
 					</div>
 
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Телефони гарячої лінії:{:else}Телефоны горячей линии:{/if}
+							{#if langState.current === 'ua'}Фактична адреса / Офіс:{:else if langState.current === 'ru'}Фактический адрес / Офис:{:else}Actual address / Office:{/if}
+						</span>
+						<span class="req-val">{currentContent.address.actual}</span>
+					</div>
+
+					<div class="req-row">
+						<span class="req-key">
+							{#if langState.current === 'ua'}Юридична адреса:{:else if langState.current === 'ru'}Юридический адрес:{:else}Legal address:{/if}
+						</span>
+						<span class="req-val">{currentContent.address.legal}</span>
+					</div>
+
+					<div class="req-row">
+						<span class="req-key">
+							{#if langState.current === 'ua'}Напрямки діяльності:{:else if langState.current === 'ru'}Направления деятельности:{:else}Core activities:{/if}
 						</span>
 						<span class="req-val">
-							<a href="tel:{currentContent.phones.mobile}" class="req-link">{currentContent.phones.mobileDisplay}</a>,
-							<a href="tel:{currentContent.phones.landline}" class="req-link">{currentContent.phones.landlineDisplay}</a>
+							{#if langState.current === 'ua'}
+								Дезінсекція (комахи), дератизація (гризуни), дезінфекція поверхонь і води, озонування приміщень газом O₃ та професійний Пест-контроль
+							{:else if langState.current === 'ru'}
+								Дезинсекция (насекомые), дератизация (грызуны), дезинфекция поверхностей и воды, озонирование помещений газом O₃ и профессиональный Пест-контроль
+							{:else}
+								Disinsection (insects), deratization (rodents), disinfection of surfaces and water, room ozonation with O₃ gas, and professional Pest Control
+							{/if}
 						</span>
 					</div>
 
 					<div class="req-row">
 						<span class="req-key">
-							{#if langState.current === 'ua'}Форма розрахунків:{:else}Форма расчетов:{/if}
+							{#if langState.current === 'ua'}Контактні телефони:{:else if langState.current === 'ru'}Контактные телефоны:{:else}Contact phone numbers:{/if}
 						</span>
-						<span class="req-val">Безготівковий розрахунок на р/р за договором, готівковий розрахунок, банківські картки (з наданням чека та акта)</span>
+						<span class="req-val">
+							<a href="tel:{currentContent.phones.mobile}" class="req-link">{currentContent.phones.mobileDisplay}</a> ({#if langState.current === 'ua'}мобільний{:else if langState.current === 'ru'}мобильный{:else}mobile{/if}),
+							<a href="tel:{currentContent.phones.landline}" class="req-link">{currentContent.phones.landlineDisplay}</a> ({#if langState.current === 'ua'}міський / офіс{:else if langState.current === 'ru'}городской / офис{:else}city office{/if})
+						</span>
+					</div>
+
+					<div class="req-row">
+						<span class="req-key">
+							{#if langState.current === 'ua'}Форма розрахунків:{:else if langState.current === 'ru'}Форма расчетов:{:else}Payment methods:{/if}
+						</span>
+						<span class="req-val">
+							{#if langState.current === 'ua'}
+								Безготівковий розрахунок на р/р за договором (з ПДВ), готівковий розрахунок, банківські картки (з наданням чека та акта виконаних робіт)
+							{:else if langState.current === 'ru'}
+								Безналичный расчет на р/с по договору (с НДС), наличный расчет, банковские карты (с предоставлением чека и акта выполненных работ)
+							{:else}
+								Non-cash bank settlement via contract (with VAT), cash, bank card payments (with official receipt and act of work completed)
+							{/if}
+						</span>
 					</div>
 				</div>
 			</div>
@@ -138,12 +172,16 @@
 	<section class="section geo-section">
 		<div class="container">
 			<div class="section-header">
-				<div class="section-badge">Географія виїздів</div>
+				<div class="section-badge">
+					{#if langState.current === 'ua'}Географія виїздів{:else if langState.current === 'ru'}География выездов{:else}Service Geography{/if}
+				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
 						Де ми працюємо та виїжджаємо на об'єкти
-					{:else}
+					{:else if langState.current === 'ru'}
 						Где мы работаем и выезжаем на объекты
+					{:else}
+						Where we operate and deploy specialist teams
 					{/if}
 				</h2>
 			</div>
@@ -151,33 +189,81 @@
 			<div class="geo-chips-grid">
 				<div class="geo-city-card glass-card">
 					<div class="city-icon">⚓</div>
-					<h4>м. Чорноморськ</h4>
-					<p>Базовий офіс компанії. Виїзд на об'єкт протягом 30-45 хвилин.</p>
+					<h4>{#if langState.current === 'ua'}м. Чорноморськ{:else if langState.current === 'ru'}г. Черноморск{:else}Chornomorsk{/if}</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Базовий офіс компанії (просп. Миру, 8-а). Виїзд на об'єкт протягом 30-45 хвилин.
+						{:else if langState.current === 'ru'}
+							Базовый офис компании (просп. Мира, 8-а). Выезд на объект в течение 30-45 минут.
+						{:else}
+							Company headquarters (Myru Ave, 8-a). On-site specialist arrival within 30-45 minutes.
+						{/if}
+					</p>
 				</div>
 				<div class="geo-city-card glass-card">
 					<div class="city-icon">🏙️</div>
-					<h4>м. Одеса</h4>
-					<p>Усі райони (Київський, Приморський, Хаджибейський, Пересипський).</p>
+					<h4>{#if langState.current === 'ua'}м. Одеса{:else if langState.current === 'ru'}г. Одесса{:else}Odesa{/if}</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Усі райони міста: Київський, Приморський, Хаджибейський, Пересипський.
+						{:else if langState.current === 'ru'}
+							Все районы города: Киевский, Приморский, Хаджибейский, Пересыпский.
+						{:else}
+							All city districts: Kyivskyi, Prymorskyi, Khadzhybeyskyi, Peresyp skyi.
+						{/if}
+					</p>
 				</div>
 				<div class="geo-city-card glass-card">
 					<div class="city-icon">🌾</div>
-					<h4>Овідіопольський р-н</h4>
-					<p>Великодолинське, Малодолинське, Олександрівка, Таїрове, Сухий Лиман.</p>
+					<h4>{#if langState.current === 'ua'}Овідіопольський р-н{:else if langState.current === 'ru'}Овидиопольский р-н{:else}Ovidiopol district{/if}</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Великодолинське, Малодолинське, Олександрівка, Таїрове, Сухий Лиман.
+						{:else if langState.current === 'ru'}
+							Великодолинское, Малодолинское, Александровка, Таирово, Сухой Лиман.
+						{:else}
+							Velykodolynske, Malodolynske, Oleksandrivka, Tairove, Sukhyi Lyman.
+						{/if}
+					</p>
 				</div>
 				<div class="geo-city-card glass-card">
 					<div class="city-icon">🚢</div>
-					<h4>м. Южне & Порти</h4>
-					<p>Портова зона «Південний», Чорноморський морський порт, логістичні хаби.</p>
+					<h4>{#if langState.current === 'ua'}м. Южне & Порти{:else if langState.current === 'ru'}г. Южное & Порты{:else}Yuzhne & Seaports{/if}</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Портова зона «Південний», Чорноморський морський порт, логістичні хаби.
+						{:else if langState.current === 'ru'}
+							Портовая зона «Южный», Черноморский морской порт, логистические хабы.
+						{:else}
+							Pivdennyi port zone, Chornomorsk sea trading port, logistics cargo hubs.
+						{/if}
+					</p>
 				</div>
 				<div class="geo-city-card glass-card">
 					<div class="city-icon">🏰</div>
-					<h4>Білгород-Дністровський</h4>
-					<p>Агропідприємства, зернові бази, курортні готелі Затоки та Шабо.</p>
+					<h4>{#if langState.current === 'ua'}Білгород-Дністровський{:else if langState.current === 'ru'}Белгород-Днестровский{:else}Bilhorod-Dnistrovskyi{/if}</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Виробництва, склади, курортні готелі та бази відпочинку Затоки і Шабо.
+						{:else if langState.current === 'ru'}
+							Производства, склады, курортные отели и базы отдыха Затоки и Шабо.
+						{:else}
+							Production plants, warehouses, resort hotels, and recreation complexes in Zatoka and Shabo.
+						{/if}
+					</p>
 				</div>
 				<div class="geo-city-card glass-card">
 					<div class="city-icon">🗺️</div>
-					<h4>Вся Одеська область</h4>
-					<p>Виїзні бригади для обробки елеваторів, фермерських господарств та заводів.</p>
+					<h4>{#if langState.current === 'ua'}Вся Одеська область{:else if langState.current === 'ru'}Вся Одесская область{:else}Entire Odesa region{/if}</h4>
+					<p>
+						{#if langState.current === 'ua'}
+							Виїзні мобільні бригади для обробки підприємств, складських комплексів, фермерських господарств та заводів.
+						{:else if langState.current === 'ru'}
+							Выездные мобильные бригады для обработки предприятий, складских комплексов, фермерских хозяйств и заводов.
+						{:else}
+							Mobile specialist teams for enterprises, logistics warehouses, farms, and industrial plants.
+						{/if}
+					</p>
 				</div>
 			</div>
 		</div>

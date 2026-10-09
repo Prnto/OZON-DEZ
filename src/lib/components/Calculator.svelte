@@ -4,50 +4,108 @@
 	import { sendTelegramLead } from '../services/telegram';
 
 	let currentContent = $derived(contentMap[langState.current]);
-	let calcData = $derived(currentContent.calculator);
 
-	let selectedObject = $state('apartment');
-	let selectedService = $state('disinsection');
-	let area = $state(60);
-	let selectedExtras = $state<string[]>(['barrier']);
+	// 5 Confirmed Services with specific formulas from LLC "OZON-DEZ"
+	type ServiceKey = 'disinsection' | 'deratization' | 'disinfection' | 'ozonation' | 'pest_control';
+	type ObjectKey = 'apartment' | 'house' | 'commercial' | 'storage' | 'tank';
 
-	// Form state
+	let selectedService = $state<ServiceKey>('disinsection');
+	let selectedObject = $state<ObjectKey>('apartment');
+	let area = $state(50);
+	let optOdorless = $state(false);
+	let optBarrier = $state(false);
+
+	// Lead form state
 	let clientName = $state('');
 	let clientPhone = $state('');
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
 
-	// Calculation logic
-	let calculatedPrice = $derived.by(() => {
-		const obj = calcData.objectTypes.find((o) => o.id === selectedObject) || calcData.objectTypes[0];
-		const srv = calcData.serviceTypes.find((s) => s.id === selectedService) || calcData.serviceTypes[0];
+	const serviceRates: Record<ServiceKey, { base: number; perSqm: number; timeBase: { ua: string; ru: string; en: string } }> = {
+		disinsection: { base: 900, perSqm: 4.5, timeBase: { ua: '40–60 хв', ru: '40–60 мин', en: '40–60 min' } },
+		deratization: { base: 950, perSqm: 4.0, timeBase: { ua: '30–50 хв', ru: '30–50 мин', en: '30–50 min' } },
+		disinfection: { base: 850, perSqm: 5.0, timeBase: { ua: '45–60 хв', ru: '45–60 мин', en: '45–60 min' } },
+		ozonation:    { base: 1100, perSqm: 6.0, timeBase: { ua: '1–2 год', ru: '1–2 часа', en: '1–2 hrs' } },
+		pest_control: { base: 1600, perSqm: 3.5, timeBase: { ua: 'плановий аудит', ru: 'плановый аудит', en: 'scheduled audit' } }
+	};
 
-		// Base area cost with logarithmic scaling for large areas
-		let effectiveRate = srv.baseRate;
-		if (area > 100) effectiveRate *= 0.9;
-		if (area > 300) effectiveRate *= 0.8;
-		if (area > 1000) effectiveRate *= 0.65;
+	const objectMultipliers: Record<ObjectKey, number> = {
+		apartment: 1.0,
+		house: 1.15,
+		commercial: 1.35,
+		storage: 1.1,
+		tank: 1.25
+	};
 
-		let rawPrice = area * effectiveRate * obj.multiplier;
+	// Only show tank for disinfection & ozonation
+	let isTankAvailable = $derived(selectedService === 'disinfection' || selectedService === 'ozonation');
 
-		// Add extras
-		let extrasSum = 0;
-		for (const extraId of selectedExtras) {
-			const ext = calcData.extras.find((e) => e.id === extraId);
-			if (ext) extrasSum += ext.price;
+	$effect(() => {
+		if (!isTankAvailable && selectedObject === 'tank') {
+			selectedObject = 'apartment';
 		}
-
-		let total = Math.round(rawPrice + extrasSum);
-		return Math.max(850, total);
 	});
 
-	function toggleExtra(id: string) {
-		if (selectedExtras.includes(id)) {
-			selectedExtras = selectedExtras.filter((e) => e !== id);
-		} else {
-			selectedExtras = [...selectedExtras, id];
+	// Price calculation
+	let calculatedPrice = $derived.by(() => {
+		const rate = serviceRates[selectedService];
+		const multiplier = objectMultipliers[selectedObject] || 1.0;
+		let price = (rate.base + (area * rate.perSqm)) * multiplier;
+
+		if (optOdorless) price += 250;
+		if (optBarrier) price += 200;
+
+		return Math.round(price / 50) * 50;
+	});
+
+	let timeDisplay = $derived.by(() => {
+		if (area > 150) {
+			return langState.current === 'ua' ? 'від 1.5–2.5 год' : langState.current === 'ru' ? 'от 1.5–2.5 часа' : 'from 1.5–2.5 hrs';
+		}
+		return serviceRates[selectedService].timeBase[langState.current];
+	});
+
+	function getServiceName(key: ServiceKey, lang: string): string {
+		switch (key) {
+			case 'disinsection':
+				return lang === 'ua' ? 'Дезінсекція (таргани, блохи, комарі, кліщі)' : lang === 'ru' ? 'Дезинсекция (тараканы, блохи, комары, клещи)' : 'Disinsection (cockroaches, fleas, mosquitoes, ticks)';
+			case 'deratization':
+				return lang === 'ua' ? 'Дератизація (щури, миші, гризуни)' : lang === 'ru' ? 'Дератизация (крысы, мыши, грызуны)' : 'Deratization (rats, mice, rodents)';
+			case 'disinfection':
+				return lang === 'ua' ? 'Дезінфекція (поверхні, ємності, вода)' : lang === 'ru' ? 'Дезинфекция (поверхности, емкости, вода)' : 'Disinfection (surfaces, tanks, water)';
+			case 'ozonation':
+				return lang === 'ua' ? 'Озонування O₃ (усунення запахів, плісняви)' : lang === 'ru' ? 'Озонирование O₃ (устранение запахов, плесени)' : 'Ozonation O₃ (odor and mold removal)';
+			case 'pest_control':
+				return lang === 'ua' ? 'Пест-контроль для бізнесу (HACCP)' : lang === 'ru' ? 'Пест-контроль для бизнеса (HACCP)' : 'Pest Control for business (HACCP)';
 		}
 	}
+
+	function getObjectName(key: ObjectKey, lang: string): string {
+		switch (key) {
+			case 'apartment':
+				return lang === 'ua' ? '🏢 Квартира' : lang === 'ru' ? '🏢 Квартира' : '🏢 Apartment';
+			case 'house':
+				return lang === 'ua' ? '🏡 Приватний будинок' : lang === 'ru' ? '🏡 Частный дом' : '🏡 Private house';
+			case 'commercial':
+				return lang === 'ua' ? '☕ Ресторан / HoReCa / Офіс' : lang === 'ru' ? '☕ Ресторан / HoReCa / Офис' : '☕ Restaurant / HoReCa / Office';
+			case 'storage':
+				return lang === 'ua' ? '📦 Склад / Виробництво / Підвал' : lang === 'ru' ? '📦 Склад / Производство / Подвал' : '📦 Warehouse / Facility / Basement';
+			case 'tank':
+				return lang === 'ua' ? '💧 Резервуар / Ємність води' : lang === 'ru' ? '💧 Резервуар / Емкость воды' : '💧 Tank / Water reservoir';
+		}
+	}
+
+	let telegramOrderUrl = $derived.by(() => {
+		const srvName = getServiceName(selectedService, langState.current);
+		const objName = getObjectName(selectedObject, langState.current);
+		const currency = langState.current === 'en' ? 'UAH' : 'грн';
+		const msg = langState.current === 'ua'
+			? `Добрий день! Цікавить послуга: ${srvName}.\nОб'єкт: ${objName}, площа: ${area} м².\nОрієнтовна вартість на сайті: ${calculatedPrice} грн.`
+			: langState.current === 'ru'
+			? `Добрый день! Интересует услуга: ${srvName}.\nОбъект: ${objName}, площадь: ${area} м².\nОриентировочная стоимость на сайте: ${calculatedPrice} грн.`
+			: `Hello! Interested in service: ${srvName}.\nFacility: ${objName}, area: ${area} m².\nEstimated quote from website: ${calculatedPrice} ${currency}.`;
+		return `https://t.me/ozon_dez_lead_bot?start=calc`;
+	});
 
 	async function handleSubmitOrder(e: Event) {
 		e.preventDefault();
@@ -55,22 +113,22 @@
 
 		isSubmitting = true;
 		try {
-			const currentObj = calcData.objectTypes.find((o) => o.id === selectedObject);
-			const currentSrv = calcData.serviceTypes.find((s) => s.id === selectedService);
-			const extrasNames = selectedExtras
-				.map((id) => calcData.extras.find((e) => e.id === id)?.name)
-				.filter(Boolean)
-				.join(', ');
+			const srvName = getServiceName(selectedService, langState.current);
+			const objName = getObjectName(selectedObject, langState.current);
+			const extrasList = [
+				optOdorless ? (langState.current === 'ua' ? 'Без запаху (+250)' : langState.current === 'ru' ? 'Без запаха (+250)' : 'Odorless (+250)') : '',
+				optBarrier ? (langState.current === 'ua' ? 'Бар\'єрний захист (+200)' : langState.current === 'ru' ? 'Барьерная защита (+200)' : 'Barrier (+200)') : ''
+			].filter(Boolean).join(', ') || (langState.current === 'en' ? 'None' : 'Не обрано');
 
 			await sendTelegramLead({
-				source: 'Онлайн-калькулятор вартості',
+				source: 'Онлайн-калькулятор OZON-DEZ',
 				name: clientName,
 				phone: clientPhone,
-				serviceTitle: currentSrv?.name,
-				objectType: currentObj?.name,
+				serviceTitle: srvName,
+				objectType: objName,
 				area: `${area} м²`,
 				price: `${calculatedPrice} грн`,
-				extras: extrasNames || 'Не обрано',
+				extras: extrasList,
 				lang: langState.current
 			});
 		} catch (err) {
@@ -82,217 +140,224 @@
 	}
 </script>
 
-<section id="calculator" class="section calc-section">
-	<div class="container">
-		<div class="section-header">
-			<div class="section-badge">
-				{#if langState.current === 'ua'}Прозорий розрахунок{:else}Прозрачный расчет{/if}
-			</div>
-			<h2 class="section-title">{calcData.title}</h2>
-			<p class="section-subtitle">{calcData.subtitle}</p>
+<section class="calc-section" id="calculator">
+	<div class="calc-container">
+		<div class="calc-header">
+			<span class="calc-tag">
+				🧮 {#if langState.current === 'ua'}ОНЛАЙН РОЗРАХУНОК{:else if langState.current === 'ru'}ОНЛАЙН РАСЧЕТ{:else}ONLINE CALCULATION{/if}
+			</span>
+			<h2 class="calc-title">
+				{#if langState.current === 'ua'}
+					Розрахуйте орієнтовну вартість обробки за 20 секунд
+				{:else if langState.current === 'ru'}
+					Рассчитайте ориентировочную стоимость обработки за 20 секунд
+				{:else}
+					Calculate Estimated Treatment Cost in 20 Seconds
+				{/if}
+			</h2>
+			<p class="calc-subtitle">
+				{#if langState.current === 'ua'}
+					Оберіть послугу, тип об'єкта та площу. Точну фіксовану ціну спеціаліст озвучить перед початком робіт.
+				{:else if langState.current === 'ru'}
+					Выберите услугу, тип объекта и площадь. Точную фиксированную цену специалист озвучит до начала работ.
+				{:else}
+					Select service, facility type, and area. Exact fixed price is confirmed by our specialist prior to work.
+				{/if}
+			</p>
 		</div>
 
-		<div class="calc-grid">
-			<!-- Calculator Controls -->
-			<div class="calc-card glass-card">
-				<!-- Step 1: Object Type -->
-				<div class="step-group">
-					<div class="step-title">
-						<span class="step-num">1</span>
-						<span>{calcData.step1}</span>
-					</div>
-					<div class="obj-buttons-grid">
-						{#each calcData.objectTypes as obj}
-							<button
-								type="button"
-								class="obj-btn"
-								class:active={selectedObject === obj.id}
-								onclick={() => (selectedObject = obj.id)}
-							>
-								<span class="obj-icon">
-									{#if obj.id === 'apartment'}🏢
-									{:else if obj.id === 'house'}🏡
-									{:else if obj.id === 'office'}💼
-									{:else if obj.id === 'horeca'}🍽️
-									{:else if obj.id === 'warehouse'}🏭
-									{:else}⚙️{/if}
-								</span>
-								<span class="obj-name">{obj.name}</span>
-							</button>
-						{/each}
-					</div>
-				</div>
-
-				<!-- Step 2: Service Type -->
-				<div class="step-group">
-					<div class="step-title">
-						<span class="step-num">2</span>
-						<span>{calcData.step2}</span>
-					</div>
-					<div class="srv-buttons-grid">
-						{#each calcData.serviceTypes as srv}
-							<button
-								type="button"
-								class="srv-btn"
-								class:active={selectedService === srv.id}
-								onclick={() => (selectedService = srv.id)}
-							>
-								<span class="srv-icon">
-									{#if srv.id === 'disinsection'}🪳
-									{:else if srv.id === 'ozonation'}💨
-									{:else if srv.id === 'disinfection'}🧪
-									{:else if srv.id === 'mold'}🍄
-									{:else if srv.id === 'deratization'}🐀
-									{:else}🌾{/if}
-								</span>
-								<span class="srv-name">{srv.name}</span>
-							</button>
-						{/each}
-					</div>
-				</div>
-
-				<!-- Step 3: Area Slider -->
-				<div class="step-group">
-					<div class="area-header-row">
-						<label class="step-title" for="area-input">
-							<span class="step-num">3</span>
-							<span>{calcData.step3}</span>
+		<div class="calc-card">
+			<div class="calc-grid">
+				<!-- Ліва колонка: Параметри -->
+				<div class="calc-inputs">
+					<!-- 1. Напрямок послуги -->
+					<div class="calc-group">
+						<label class="calc-label" for="calcService">
+							1. {#if langState.current === 'ua'}Оберіть необхідну послугу:{:else if langState.current === 'ru'}Выберите необходимую услугу:{:else}Select required service:{/if}
 						</label>
-						<div class="area-val-badge">
-							<input
-								id="area-input"
-								type="number"
-								min="15"
-								max="2000"
-								bind:value={area}
-								class="area-num-input"
-							/>
-							<span>м²</span>
+						<select id="calcService" class="calc-select" bind:value={selectedService}>
+							<option value="disinsection">
+								{#if langState.current === 'ua'}Дезінсекція (таргани, блохи, комарі, кліщі){:else if langState.current === 'ru'}Дезинсекция (тараканы, блохи, комары, клещи){:else}Disinsection (cockroaches, fleas, mosquitoes, ticks){/if}
+							</option>
+							<option value="deratization">
+								{#if langState.current === 'ua'}Дератизація (щури, миші, гризуни){:else if langState.current === 'ru'}Дератизация (крысы, мыши, грызуны){:else}Deratization (rats, mice, rodents){/if}
+							</option>
+							<option value="disinfection">
+								{#if langState.current === 'ua'}Дезінфекція (знезараження поверхонь, ємностей, води){:else if langState.current === 'ru'}Дезинфекция (обеззараживание поверхностей, емкостей, воды){:else}Disinfection (surfaces, tanks, water){/if}
+							</option>
+							<option value="ozonation">
+								{#if langState.current === 'ua'}Озонування O₃ (усунення запахів, плісняви, дезінфекція повітря){:else if langState.current === 'ru'}Озонирование O₃ (устранение запахов, плесени, очистка воздуха){:else}Ozonation O₃ (odor, mold & air sanitization){/if}
+							</option>
+							<option value="pest_control">
+								{#if langState.current === 'ua'}Пест-контроль для бізнесу (HACCP, моніторинг, акти){:else if langState.current === 'ru'}Пест-контроль для бизнеса (HACCP, мониторинг, акты){:else}Pest Control for business (HACCP, monitoring, acts){/if}
+							</option>
+						</select>
+					</div>
+
+					<!-- 2. Тип об'єкта -->
+					<div class="calc-group">
+						<span class="calc-label">
+							2. {#if langState.current === 'ua'}Тип об'єкта:{:else if langState.current === 'ru'}Тип объекта:{:else}Facility type:{/if}
+						</span>
+						<div class="calc-radio-group">
+							<label class="radio-card" class:checked={selectedObject === 'apartment'}>
+								<input type="radio" name="objectType" value="apartment" bind:group={selectedObject} />
+								<span class="radio-label">🏢 {#if langState.current === 'ua'}Квартира{:else if langState.current === 'ru'}Квартира{:else}Apartment{/if}</span>
+							</label>
+							<label class="radio-card" class:checked={selectedObject === 'house'}>
+								<input type="radio" name="objectType" value="house" bind:group={selectedObject} />
+								<span class="radio-label">🏡 {#if langState.current === 'ua'}Приватний будинок{:else if langState.current === 'ru'}Частный дом{:else}Private house{/if}</span>
+							</label>
+							<label class="radio-card" class:checked={selectedObject === 'commercial'}>
+								<input type="radio" name="objectType" value="commercial" bind:group={selectedObject} />
+								<span class="radio-label">☕ {#if langState.current === 'ua'}Ресторан / HoReCa / Офіс{:else if langState.current === 'ru'}Ресторан / HoReCa / Офис{:else}HoReCa / Office{/if}</span>
+							</label>
+							<label class="radio-card" class:checked={selectedObject === 'storage'}>
+								<input type="radio" name="objectType" value="storage" bind:group={selectedObject} />
+								<span class="radio-label">📦 {#if langState.current === 'ua'}Склад / Виробництво / Підвал{:else if langState.current === 'ru'}Склад / Производство / Подвал{:else}Storage / Facility{/if}</span>
+							</label>
+							{#if isTankAvailable}
+								<label class="radio-card" class:checked={selectedObject === 'tank'}>
+									<input type="radio" name="objectType" value="tank" bind:group={selectedObject} />
+									<span class="radio-label">💧 {#if langState.current === 'ua'}Резервуар / Ємність води{:else if langState.current === 'ru'}Резервуар / Емкость воды{:else}Tank / Reservoir{/if}</span>
+								</label>
+							{/if}
 						</div>
 					</div>
 
-					<input
-						type="range"
-						min="15"
-						max="1000"
-						step="5"
-						bind:value={area}
-						class="calc-range-slider"
-					/>
+					<!-- 3. Площа об'єкта (Range слайдер) -->
+					<div class="calc-group" id="areaGroup">
+						<div class="calc-label-row">
+							<label class="calc-label" for="calcArea">
+								3. {#if langState.current === 'ua'}Орієнтовна площа:{:else if langState.current === 'ru'}Ориентировочная площадь:{:else}Estimated area:{/if}
+							</label>
+							<span class="calc-range-value">
+								<strong>{area}</strong> {langState.current === 'en' ? 'm²' : 'м²'}
+							</span>
+						</div>
+						<input
+							type="range"
+							id="calcArea"
+							min="20"
+							max="350"
+							step="5"
+							bind:value={area}
+							class="calc-range"
+						/>
+						<div class="calc-range-scale">
+							<span>20 {langState.current === 'en' ? 'm²' : 'м²'}</span>
+							<span>100 {langState.current === 'en' ? 'm²' : 'м²'}</span>
+							<span>200 {langState.current === 'en' ? 'm²' : 'м²'}</span>
+							<span>350+ {langState.current === 'en' ? 'm²' : 'м²'}</span>
+						</div>
+					</div>
 
-					<div class="quick-area-chips">
-						{#each [35, 55, 80, 150, 300, 600] as preset}
-							<button
-								type="button"
-								class="preset-chip"
-								class:active={area === preset}
-								onclick={() => (area = preset)}
+					<!-- 4. Додаткові параметри -->
+					<div class="calc-group">
+						<span class="calc-label">
+							4. {#if langState.current === 'ua'}Додаткові параметри:{:else if langState.current === 'ru'}Дополнительные параметры:{:else}Additional options:{/if}
+						</span>
+						<div class="calc-checkbox-group">
+							<label class="checkbox-item">
+								<input type="checkbox" bind:checked={optOdorless} />
+								<span>
+									{#if langState.current === 'ua'}Препарати без запаху (преміум){:else if langState.current === 'ru'}Препараты без запаха (премиум){:else}Odorless preparations (premium){/if}
+									<strong>(+250 {langState.current === 'en' ? 'UAH' : 'грн'})</strong>
+								</span>
+							</label>
+							<label class="checkbox-item">
+								<input type="checkbox" bind:checked={optBarrier} />
+								<span>
+									{#if langState.current === 'ua'}Встановлення бар'єрного захисту по периметру{:else if langState.current === 'ru'}Установка барьерной защиты по периметру{:else}Perimeter barrier protection{/if}
+									<strong>(+200 {langState.current === 'en' ? 'UAH' : 'грн'})</strong>
+								</span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Права колонка: Результат розрахунку -->
+				<div class="calc-summary">
+					<div class="summary-box">
+						<span class="summary-caption">
+							{#if langState.current === 'ua'}Попередній розрахунок:{:else if langState.current === 'ru'}Предварительный расчет:{:else}Estimated Quote:{/if}
+						</span>
+						<div class="summary-price">
+							<span class="price-from">{#if langState.current === 'ua'}від{:else if langState.current === 'ru'}от{:else}from{/if}</span>
+							<span class="price-val">{calculatedPrice}</span>
+							<span class="price-currency">{#if langState.current === 'en'}UAH{:else}грн{/if}</span>
+						</div>
+
+						<ul class="summary-list">
+							<li>
+								<span>⏱ {#if langState.current === 'ua'}Орієнтовний час обробки:{:else if langState.current === 'ru'}Ориентировочное время обработки:{:else}Estimated duration:{/if}</span>
+								<strong>{timeDisplay}</strong>
+							</li>
+							<li>
+								<span>🛡 {#if langState.current === 'ua'}Гарантія:{:else if langState.current === 'ru'}Гарантия:{:else}Warranty:{/if}</span>
+								<strong>{#if langState.current === 'ua'}Офіційний договір{:else if langState.current === 'ru'}Официальный договор{:else}Official contract{/if}</strong>
+							</li>
+							<li>
+								<span>🧪 {#if langState.current === 'ua'}Препарати:{:else if langState.current === 'ru'}Препараты:{:else}Preparations:{/if}</span>
+								<strong>{#if langState.current === 'ua'}Сертифіковані МОЗ України{:else if langState.current === 'ru'}Сертифицированные МОЗ Украины{:else}Ministry of Health certified{/if}</strong>
+							</li>
+							<li>
+								<span>📍 {#if langState.current === 'ua'}Виїзд:{:else if langState.current === 'ru'}Выезд:{:else}Dispatch area:{/if}</span>
+								<strong>{#if langState.current === 'ua'}Чорноморськ, Одеса та область{:else if langState.current === 'ru'}Черноморск, Одесса и область{:else}Chornomorsk, Odesa & region{/if}</strong>
+							</li>
+						</ul>
+
+						<div class="summary-cta">
+							<a href="tel:{currentContent.phones.mobile}" class="btn-calc-submit">
+								<span>📞</span>
+								<span>
+									{#if langState.current === 'ua'}Замовити за цією ціною{:else if langState.current === 'ru'}Заказать по этой цене{:else}Order at this price{/if}
+								</span>
+							</a>
+							<a
+								href={telegramOrderUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn-calc-tg"
 							>
-								{preset} м²
-							</button>
-						{/each}
-					</div>
-				</div>
-
-				<!-- Step 4: Extras -->
-				<div class="step-group">
-					<div class="step-title">
-						<span class="step-num">4</span>
-						<span>{calcData.step4}</span>
-					</div>
-					<div class="extras-list">
-						{#each calcData.extras as extra}
-							<button
-								type="button"
-								class="extra-item"
-								class:active={selectedExtras.includes(extra.id)}
-								onclick={() => toggleExtra(extra.id)}
-							>
-								<div class="extra-check">
-									{#if selectedExtras.includes(extra.id)}✓{/if}
-								</div>
-								<span class="extra-name">{extra.name}</span>
-								<span class="extra-price">+{extra.price} грн</span>
-							</button>
-						{/each}
-					</div>
-				</div>
-			</div>
-
-			<!-- Price Result & Fast Order Form Card -->
-			<div class="calc-result-card glass-card-dark">
-				<div class="result-top">
-					<div class="result-badge">{calcData.estimateBadge}</div>
-					<div class="price-showcase">
-						<div class="price-title">{calcData.estimateTitle}</div>
-						<div class="price-big">
-							<span class="price-amount">{calculatedPrice}</span>
-							<span class="price-currency">грн</span>
-						</div>
-						<div class="price-note">{calcData.estimateNote}</div>
-					</div>
-
-					<div class="calc-summary-list">
-						<div class="sum-row">
-							<span>{calcData.labels.object}</span>
-							<strong>
-								{calcData.objectTypes.find((o) => o.id === selectedObject)?.name}
-							</strong>
-						</div>
-						<div class="sum-row">
-							<span>{calcData.labels.service}</span>
-							<strong>
-								{calcData.serviceTypes.find((s) => s.id === selectedService)?.name.split('(')[0]}
-							</strong>
-						</div>
-						<div class="sum-row">
-							<span>{calcData.labels.area}</span>
-							<strong>{area} м²</strong>
-						</div>
-					</div>
-				</div>
-
-				<!-- Fast Lead Capture -->
-				<div class="calc-form-box">
-					{#if isSuccess}
-						<div class="success-message">
-							<div class="success-icon">🎉</div>
-							<h4>{calcData.form.successTitle}</h4>
-							<p>{calcData.form.successDesc} {calculatedPrice} грн.</p>
-							<a href="tel:{currentContent.phones.mobile}" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
-								📞 {calcData.form.callNow} {currentContent.phones.mobileDisplay}
+								✈️ {#if langState.current === 'ua'}Відправити розрахунок у Telegram{:else if langState.current === 'ru'}Отправить расчет в Telegram{:else}Send calculation to Telegram{/if}
 							</a>
 						</div>
-					{:else}
-						<form onsubmit={handleSubmitOrder} class="lead-form">
-							<div class="form-title">{calcData.form.title}</div>
-							<div class="form-inputs">
-								<input
-									type="text"
-									placeholder={calcData.form.namePlaceholder}
-									bind:value={clientName}
-									class="calc-input"
-								/>
-								<input
-									type="tel"
-									placeholder={calcData.form.phonePlaceholder}
-									bind:value={clientPhone}
-									required
-									class="calc-input"
-								/>
-							</div>
-							<button type="submit" class="btn btn-primary" style="width: 100%;" disabled={isSubmitting}>
-								{#if isSubmitting}
-									...
-								{:else}
-									{calcData.form.submitBtn} {calculatedPrice} грн
-								{/if}
-							</button>
-							<div class="privacy-note">
-								{calcData.form.privacy}
-							</div>
-						</form>
-					{/if}
+
+						<!-- Quick callback submit -->
+						<div class="calc-lead-section">
+							{#if isSuccess}
+								<div class="lead-success-badge">
+									✓ {#if langState.current === 'ua'}Заявку надіслано! Спеціаліст зв'яжеться з вами.{:else if langState.current === 'ru'}Заявка отправлена! Специалист свяжется с вами.{:else}Request sent! Our specialist will contact you.{/if}
+								</div>
+							{:else}
+								<form onsubmit={handleSubmitOrder} class="quick-lead-form">
+									<div class="lead-inputs">
+										<input
+											type="tel"
+											placeholder={langState.current === 'ua' ? 'Ваш телефон (+380...)' : langState.current === 'ru' ? 'Ваш телефон (+380...)' : 'Phone number (+380...)'}
+											bind:value={clientPhone}
+											required
+											class="lead-input"
+										/>
+										<button type="submit" class="lead-btn" disabled={isSubmitting}>
+											{#if isSubmitting}...{:else}⚡ {#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}{/if}
+										</button>
+									</div>
+								</form>
+							{/if}
+						</div>
+
+						<p class="summary-note">
+							{#if langState.current === 'ua'}
+								* Вартість є орієнтовною. Остаточна сума залежить від ступеня зараження, планування та висоти стелі.
+							{:else if langState.current === 'ru'}
+								* Стоимость является ориентировочной. Окончательная сумма зависит от степени заражения, планировки и высоты потолков.
+							{:else}
+								* Price is estimated. Final cost depends on contamination level, layout, and ceiling height.
+							{/if}
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -301,485 +366,471 @@
 
 <style>
 	.calc-section {
+		padding: 5rem 1.25rem;
 		background: transparent;
+		color: var(--color-bone-white);
+	}
+
+	.calc-container {
+		max-width: 1040px;
+		margin: 0 auto;
+	}
+
+	.calc-header {
+		text-align: center;
+		margin-bottom: 2.8rem;
+	}
+
+	.calc-tag {
+		display: inline-block;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: #38bdf8;
+		letter-spacing: 0.05em;
+		margin-bottom: 8px;
+	}
+
+	:global(html[data-theme="light"]) .calc-tag {
+		color: #0284c7;
+	}
+
+	.calc-title {
+		font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+		font-weight: 800;
+		margin: 0 0 12px 0;
+		line-height: 1.25;
+		color: var(--color-bone-white);
+	}
+
+	:global(html[data-theme="light"]) .calc-title {
+		color: #0f172a;
+	}
+
+	.calc-subtitle {
+		color: var(--color-ash-gray);
+		font-size: 1rem;
+		max-width: 680px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	:global(html[data-theme="light"]) .calc-subtitle {
+		color: #64748b;
+	}
+
+	.calc-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-void-border);
+		border-radius: 20px;
+		box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.25);
+		padding: 36px;
+	}
+
+	:global(html[data-theme="light"]) .calc-card {
+		background: #ffffff;
+		border-color: #e2e8f0;
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
 	}
 
 	.calc-grid {
 		display: grid;
-		grid-template-columns: 1.25fr 0.85fr;
-		gap: 2.2rem;
+		grid-template-columns: 1.35fr 1fr;
+		gap: 36px;
 		align-items: start;
 	}
 
-	@media (max-width: 960px) {
-		.calc-grid {
-			grid-template-columns: 1fr;
-		}
+	.calc-group {
+		margin-bottom: 24px;
 	}
 
-	.calc-card {
-		padding: 2.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 2.2rem;
-		background: var(--color-surface);
-		border-radius: var(--radius-cards);
-		border: 1px solid var(--color-void-border);
-	}
-
-	@media (max-width: 640px) {
-		.calc-card {
-			padding: 1.5rem;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.calc-card {
-			padding: 1.25rem 0.95rem;
-		}
-	}
-
-	.step-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.95rem;
-	}
-
-	.step-title {
-		display: flex;
-		align-items: center;
-		gap: 0.65rem;
-		font-size: 1.05rem;
-		font-weight: 400;
+	.calc-label {
+		display: block;
+		font-size: 0.95rem;
+		font-weight: 700;
 		color: var(--color-bone-white);
-		letter-spacing: -0.02em;
+		margin-bottom: 10px;
 	}
 
-	.step-num {
-		width: 26px;
-		height: 26px;
-		border-radius: var(--radius-buttons);
-		background: rgba(128, 82, 255, 0.15);
-		border: 1px solid var(--color-iris-border);
-		color: #bfa6ff;
+	:global(html[data-theme="light"]) .calc-label {
+		color: #1e293b;
+	}
+
+	.calc-label-row {
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 0.8rem;
-		font-weight: 600;
-		flex-shrink: 0;
-	}
-
-	/* Objects buttons */
-	.obj-buttons-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.75rem;
-	}
-
-	@media (max-width: 600px) {
-		.obj-buttons-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 380px) {
-		.obj-buttons-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.obj-btn {
-		display: flex;
-		align-items: center;
-		gap: 0.6rem;
-		padding: 0.85rem 1rem;
-		border-radius: var(--radius-small);
-		border: 1px solid var(--color-void-border);
-		background: var(--color-surface);
-		cursor: pointer;
-		transition: all var(--transition-fast);
-		text-align: left;
-	}
-
-	.obj-btn:hover {
-		border-color: rgba(255, 255, 255, 0.2);
-		background: var(--color-surface-hover);
-	}
-
-	.obj-btn.active {
-		border-color: var(--color-electric-iris);
-		background: rgba(128, 82, 255, 0.12);
-	}
-
-	.obj-icon {
-		font-size: 1.25rem;
-	}
-
-	.obj-name {
-		font-size: 0.86rem;
-		font-weight: 400;
-		color: var(--color-bone-white);
-	}
-
-	/* Service Buttons */
-	.srv-buttons-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 0.75rem;
-	}
-
-	@media (max-width: 600px) {
-		.srv-buttons-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.srv-btn {
-		display: flex;
-		align-items: center;
-		gap: 0.65rem;
-		padding: 0.85rem 1.1rem;
-		border-radius: var(--radius-small);
-		border: 1px solid var(--color-void-border);
-		background: var(--color-surface);
-		cursor: pointer;
-		transition: all var(--transition-fast);
-		text-align: left;
-	}
-
-	.srv-btn:hover {
-		border-color: rgba(255, 255, 255, 0.2);
-		background: var(--color-surface-hover);
-	}
-
-	.srv-btn.active {
-		border-color: var(--color-electric-iris);
-		background: rgba(128, 82, 255, 0.12);
-	}
-
-	.srv-icon {
-		font-size: 1.3rem;
-	}
-
-	.srv-name {
-		font-size: 0.88rem;
-		font-weight: 400;
-		color: var(--color-bone-white);
-	}
-
-	/* Slider */
-	.area-header-row {
-		display: flex;
-		align-items: center;
 		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
 	}
 
-	.area-val-badge {
+	.calc-range-value {
+		color: #38bdf8;
+		font-size: 1.15rem;
+	}
+
+	:global(html[data-theme="light"]) .calc-range-value {
+		color: #0284c7;
+	}
+
+	.calc-select {
+		width: 100%;
+		padding: 12px 16px;
+		border-radius: 10px;
+		border: 1.5px solid var(--color-void-border);
+		background-color: var(--color-surface-hover);
+		font-size: 0.95rem;
+		color: var(--color-bone-white);
+		outline: none;
+		cursor: pointer;
+		transition: border-color 0.2s;
+	}
+
+	:global(html[data-theme="light"]) .calc-select {
+		border-color: #cbd5e1;
+		background-color: #f8fafc;
+		color: #0f172a;
+	}
+
+	.calc-select:focus {
+		border-color: #38bdf8;
+	}
+
+	:global(html[data-theme="light"]) .calc-select:focus {
+		border-color: #0284c7;
+		background-color: #ffffff;
+	}
+
+	.calc-radio-group {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 10px;
+	}
+
+	.radio-card {
 		display: flex;
 		align-items: center;
-		gap: 0.35rem;
-		background: var(--color-surface-hover);
-		border: 1px solid var(--color-void-border);
-		padding: 0.35rem 0.85rem;
-		border-radius: var(--radius-buttons);
-		font-weight: 500;
-		color: var(--color-bone-white);
-	}
-
-	.area-num-input {
-		width: 65px;
-		background: transparent;
-		border: none;
-		font-weight: 600;
-		font-size: 1.1rem;
-		color: var(--color-bone-white);
-		text-align: right;
-		outline: none;
-	}
-
-	.calc-range-slider {
-		width: 100%;
-		height: 6px;
-		border-radius: 3px;
-		background: var(--color-surface-hover);
-		outline: none;
-		-webkit-appearance: none;
-		appearance: none;
-		accent-color: var(--color-electric-iris);
-	}
-
-	.calc-range-slider::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background: var(--color-electric-iris);
+		padding: 10px 14px;
+		border: 1.5px solid var(--color-void-border);
+		border-radius: 10px;
 		cursor: pointer;
-		border: 2px solid #ffffff;
+		background: var(--color-surface);
+		transition: all 0.2s;
+		color: var(--color-silver-mist);
 	}
 
-	.quick-area-chips {
+	:global(html[data-theme="light"]) .radio-card {
+		border-color: #e2e8f0;
+		background: #f8fafc;
+		color: #334155;
+	}
+
+	.radio-card:hover {
+		border-color: #38bdf8;
+	}
+
+	:global(html[data-theme="light"]) .radio-card:hover {
+		border-color: #94a3b8;
+	}
+
+	.radio-card input {
+		margin-right: 10px;
+		accent-color: #0284c7;
+	}
+
+	.radio-card.checked {
+		border-color: #0284c7;
+		background: rgba(2, 132, 199, 0.15);
+		color: var(--color-bone-white);
+	}
+
+	:global(html[data-theme="light"]) .radio-card.checked {
+		background: #e0f2fe;
+		color: #0f172a;
+	}
+
+	.calc-range {
+		width: 100%;
+		accent-color: #0284c7;
+		cursor: pointer;
+	}
+
+	.calc-range-scale {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
+		justify-content: space-between;
+		font-size: 0.75rem;
+		color: var(--color-ash-gray);
+		margin-top: 4px;
 	}
 
-	.preset-chip {
-		padding: 0.4rem 0.85rem;
-		border-radius: var(--radius-buttons);
-		border: 1px solid var(--color-void-border);
-		background: #0d0d0d;
-		font-size: 0.82rem;
-		font-weight: 400;
+	:global(html[data-theme="light"]) .calc-range-scale {
+		color: #94a3b8;
+	}
+
+	.calc-checkbox-group {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.checkbox-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-size: 0.9rem;
 		color: var(--color-silver-mist);
 		cursor: pointer;
-		transition: all var(--transition-fast);
 	}
 
-	.preset-chip.active, .preset-chip:hover {
-		background: var(--color-electric-iris);
-		color: #ffffff;
-		border-color: var(--color-electric-iris);
+	:global(html[data-theme="light"]) .checkbox-item {
+		color: #334155;
 	}
 
-	/* Extras */
-	.extras-list {
-		display: flex;
-		flex-direction: column;
-		gap: 0.55rem;
+	.checkbox-item input {
+		width: 18px;
+		height: 18px;
+		accent-color: #0284c7;
 	}
 
-	.extra-item {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 0.85rem 1.1rem;
-		border-radius: var(--radius-small);
-		border: 1px solid var(--color-void-border);
-		background: #0d0d0d;
-		cursor: pointer;
-		text-align: left;
-		transition: all var(--transition-fast);
+	.checkbox-item strong {
+		color: #38bdf8;
+		font-size: 0.82rem;
+		margin-left: 0.3rem;
 	}
 
-	.extra-item.active {
-		border-color: var(--color-electric-iris);
-		background: rgba(128, 82, 255, 0.08);
+	:global(html[data-theme="light"]) .checkbox-item strong {
+		color: #0284c7;
 	}
 
-	.extra-check {
-		width: 20px;
-		height: 20px;
-		border-radius: 6px;
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: 700;
-		font-size: 0.85rem;
-		color: #ffffff;
-		background: var(--color-surface);
-	}
-
-	.extra-item.active .extra-check {
-		background: var(--color-electric-iris);
-		border-color: var(--color-electric-iris);
-		color: #ffffff;
-	}
-
-	.extra-name {
-		font-size: 0.86rem;
-		font-weight: 400;
-		color: var(--color-bone-white);
-		flex: 1;
-	}
-
-	.extra-price {
-		font-size: 0.85rem;
-		font-weight: 600;
-		color: var(--color-saffron-spark);
-	}
-
-	/* Result Card */
-	.calc-result-card {
-		padding: 2.5rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		position: sticky;
-		top: 6rem;
-		background: var(--color-surface);
-		border-radius: var(--radius-cards);
+	/* Права колонка з сумою */
+	.calc-summary {
+		background: var(--color-surface-hover);
+		border-radius: 16px;
+		padding: 28px;
 		border: 1px solid var(--color-void-border);
 	}
 
-	@media (max-width: 640px) {
-		.calc-result-card {
-			padding: 1.5rem;
-		}
+	:global(html[data-theme="light"]) .calc-summary {
+		background: #f1f5f9;
+		border-color: #e2e8f0;
 	}
 
-	@media (max-width: 480px) {
-		.calc-result-card {
-			padding: 1.25rem 0.95rem;
-		}
-	}
-
-	.result-badge {
-		display: inline-block;
-		font-size: 0.72rem;
-		font-weight: 600;
+	.summary-caption {
+		font-size: 0.85rem;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--color-saffron-spark);
-		margin-bottom: 0.6rem;
-	}
-
-	.price-showcase {
-		padding-bottom: 1.5rem;
-		border-bottom: 1px solid var(--color-void-border);
-		margin-bottom: 1.5rem;
-	}
-
-	.price-title {
-		font-size: 0.88rem;
+		letter-spacing: 0.05em;
 		color: var(--color-ash-gray);
-		margin-bottom: 0.4rem;
+		font-weight: 700;
 	}
 
-	.price-big {
+	:global(html[data-theme="light"]) .summary-caption {
+		color: #64748b;
+	}
+
+	.summary-price {
 		display: flex;
 		align-items: baseline;
-		gap: 0.5rem;
-		font-family: var(--font-heading);
+		gap: 8px;
+		margin: 8px 0 20px 0;
 	}
 
-	.price-amount {
-		font-size: clamp(2.5rem, 6vw, 3.8rem);
-		font-weight: 400;
-		color: var(--color-bone-white);
+	.price-from {
+		font-size: 1.3rem;
+		color: var(--color-ash-gray);
+	}
+
+	:global(html[data-theme="light"]) .price-from {
+		color: #64748b;
+	}
+
+	.price-val {
+		font-size: 3rem;
+		font-weight: 900;
+		color: #38bdf8;
 		line-height: 1;
-		letter-spacing: -0.04em;
+	}
+
+	:global(html[data-theme="light"]) .price-val {
+		color: #0284c7;
 	}
 
 	.price-currency {
-		font-size: 1.5rem;
-		font-weight: 500;
-		color: var(--color-saffron-spark);
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--color-bone-white);
 	}
 
-	.price-note {
-		margin-top: 0.6rem;
+	:global(html[data-theme="light"]) .price-currency {
+		color: #0f172a;
+	}
+
+	.summary-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 24px 0;
+		border-top: 1px solid var(--color-void-border);
+		border-bottom: 1px solid var(--color-void-border);
+		padding: 16px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-size: 0.88rem;
+	}
+
+	:global(html[data-theme="light"]) .summary-list {
+		border-color: #e2e8f0;
+	}
+
+	.summary-list li {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		color: var(--color-silver-mist);
+	}
+
+	:global(html[data-theme="light"]) .summary-list li {
+		color: #334155;
+	}
+
+	.summary-list strong {
+		color: var(--color-bone-white);
+		text-align: right;
+	}
+
+	:global(html[data-theme="light"]) .summary-list strong {
+		color: #0f172a;
+	}
+
+	.summary-cta {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.btn-calc-submit {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		background: #0284c7;
+		color: #ffffff;
+		font-weight: 700;
+		padding: 14px;
+		border-radius: 10px;
+		text-decoration: none;
+		transition: background 0.2s;
+		font-size: 1rem;
+	}
+
+	.btn-calc-submit:hover {
+		background: #0369a1;
+	}
+
+	.btn-calc-tg {
+		display: block;
+		text-align: center;
+		background: rgba(255, 255, 255, 0.05);
+		color: #38bdf8;
+		border: 1px solid var(--color-void-border);
+		font-weight: 600;
+		font-size: 0.9rem;
+		padding: 11px;
+		border-radius: 10px;
+		text-decoration: none;
+		transition: all 0.2s;
+	}
+
+	:global(html[data-theme="light"]) .btn-calc-tg {
+		background: #ffffff;
+		color: #0284c7;
+		border-color: #cbd5e1;
+	}
+
+	.btn-calc-tg:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	:global(html[data-theme="light"]) .btn-calc-tg:hover {
+		background: #e2e8f0;
+	}
+
+	.calc-lead-section {
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: 1px dashed var(--color-void-border);
+	}
+
+	:global(html[data-theme="light"]) .calc-lead-section {
+		border-color: #cbd5e1;
+	}
+
+	.lead-inputs {
+		display: flex;
+		gap: 8px;
+	}
+
+	.lead-input {
+		flex: 1;
+		padding: 10px 12px;
+		border-radius: 8px;
+		border: 1px solid var(--color-void-border);
+		background: var(--color-surface);
+		color: var(--color-bone-white);
+		font-size: 0.88rem;
+		outline: none;
+	}
+
+	:global(html[data-theme="light"]) .lead-input {
+		border-color: #cbd5e1;
+		background: #ffffff;
+		color: #0f172a;
+	}
+
+	.lead-btn {
+		padding: 10px 14px;
+		border-radius: 8px;
+		border: none;
+		background: #0284c7;
+		color: #ffffff;
+		font-weight: 700;
+		font-size: 0.85rem;
+		cursor: pointer;
+		white-space: nowrap;
+		transition: background 0.2s;
+	}
+
+	.lead-btn:hover {
+		background: #0369a1;
+	}
+
+	.lead-success-badge {
+		background: rgba(16, 185, 129, 0.15);
+		border: 1px solid #10b981;
+		color: #34d399;
+		padding: 10px;
+		border-radius: 8px;
+		font-size: 0.85rem;
+		text-align: center;
+	}
+
+	.summary-note {
+		margin: 16px 0 0 0;
 		font-size: 0.75rem;
 		color: var(--color-ash-gray);
 		line-height: 1.4;
 	}
 
-	.calc-summary-list {
-		display: flex;
-		flex-direction: column;
-		gap: 0.6rem;
-		margin-bottom: 2rem;
+	:global(html[data-theme="light"]) .summary-note {
+		color: #94a3b8;
 	}
 
-	.sum-row {
-		display: flex;
-		justify-content: space-between;
-		font-size: 0.86rem;
-		color: var(--color-ash-gray);
-	}
-
-	.sum-row strong {
-		color: var(--color-bone-white);
-		font-weight: 400;
-	}
-
-	.calc-form-box {
-		background: var(--color-surface-hover);
-		border: 1px solid var(--color-void-border);
-		border-radius: var(--radius-small);
-		padding: 1.4rem;
-	}
-
-	:global(html[data-theme="light"]) .calc-form-box {
-		background: #f8fafc;
-		border-color: rgba(15, 23, 42, 0.08);
-	}
-
-	:global(html[data-theme="light"]) .obj-btn:hover,
-	:global(html[data-theme="light"]) .srv-btn:hover {
-		border-color: rgba(15, 23, 42, 0.25);
-		background: #f1f5f9;
-	}
-
-	:global(html[data-theme="light"]) .calc-result-card {
-		box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
-	}
-
-	.form-title {
-		font-size: 0.88rem;
-		font-weight: 400;
-		color: var(--color-bone-white);
-		margin-bottom: 1rem;
-		text-align: center;
-	}
-
-	.form-inputs {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		margin-bottom: 1rem;
-	}
-
-	.calc-input {
-		width: 100%;
-		padding: 0.85rem 1.1rem;
-		border-radius: var(--radius-small);
-		border: 1px solid var(--color-void-border);
-		background: var(--color-surface);
-		color: var(--color-bone-white);
-		font-size: 16px;
-		outline: none;
-		transition: border-color var(--transition-fast);
-	}
-
-	.calc-input::placeholder {
-		color: var(--color-ash-gray);
-	}
-
-	.calc-input:focus {
-		border-color: var(--color-electric-iris);
-		background: var(--color-surface-hover);
-	}
-
-	.privacy-note {
-		font-size: 0.72rem;
-		color: var(--color-ash-gray);
-		text-align: center;
-		margin-top: 0.75rem;
-	}
-
-	.success-message {
-		text-align: center;
-		padding: 1rem 0;
-	}
-
-	.success-icon {
-		font-size: 2.2rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.success-message h4 {
-		font-size: 1.2rem;
-		color: var(--color-bone-white);
-		margin-bottom: 0.4rem;
-		font-weight: 400;
-	}
-
-	.success-message p {
-		font-size: 0.86rem;
-		color: var(--color-silver-mist);
-		line-height: 1.45;
+	@media (max-width: 860px) {
+		.calc-grid {
+			grid-template-columns: 1fr;
+		}
+		.calc-card {
+			padding: 24px;
+		}
+		.lead-inputs {
+			flex-direction: column;
+		}
 	}
 </style>

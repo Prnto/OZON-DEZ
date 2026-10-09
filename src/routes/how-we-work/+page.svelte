@@ -14,11 +14,17 @@
 	<title>
 		{langState.current === 'ua'
 			? 'Як ми працюємо: етапи, стандарти та гарантія — ТОВ «ОЗОН-ДЕЗ»'
-			: 'Как мы работаем: этапы, стандарты и гарантия — ООО «ОЗОН-ДЕЗ»'}
+			: langState.current === 'ru'
+			? 'Как мы работаем: этапы, стандарты и гарантия — ООО «ОЗОН-ДЕЗ»'
+			: 'How We Work: Stages, Standards & Guarantee — LLC "OZON-DEZ"'}
 	</title>
 	<meta
 		name="description"
-		content="Покроковий регламент проведення дезінфекції, дезінсекції, фумігації та озонування від ТОВ «ОЗОН-ДЕЗ». Офіційний договір, ліцензії МОЗ та акти виконаних робіт."
+		content={langState.current === 'ua'
+			? 'Покроковий регламент проведення дезінфекції, дезінсекції, дератизації, озонування та пест-контролю від ТОВ «ОЗОН-ДЕЗ». Офіційний договір, ліцензії МОЗ та акти виконаних робіт.'
+			: langState.current === 'ru'
+			? 'Пошаговый регламент проведения дезинфекции, дезинсекции, дератизации, озонирования и пест-контроля от ООО «ОЗОН-ДЕЗ». Официальный договор, лицензии МОЗ и акты выполненных работ.'
+			: 'Step-by-step protocol for disinfection, disinsection, deratization, ozonation, and pest control by LLC "OZON-DEZ". Official contract, certified products, and reports.'}
 	/>
 </svelte:head>
 
@@ -39,20 +45,24 @@
 		<div class="container">
 			<div class="section-header">
 				<div class="section-badge">
-					{#if langState.current === 'ua'}Пам'ятка клієнту{:else}Памятка клиенту{/if}
+					{#if langState.current === 'ua'}Пам'ятка клієнту{:else if langState.current === 'ru'}Памятка клиенту{:else}Client memo{/if}
 				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
-						Як підготувати приміщення перед приїздом майстра
+						Як підготувати приміщення перед приїздом спеціаліста
+					{:else if langState.current === 'ru'}
+						Как подготовить помещение перед приездом специалиста
 					{:else}
-						Как подготовить помещение перед приездом мастера
+						How to prepare premises before the specialist arrives
 					{/if}
 				</h2>
 				<p class="section-subtitle">
 					{#if langState.current === 'ua'}
 						Дотримання простих правил підготовки гарантує 100% результат знищення шкідників з першого разу та абсолютну безпеку для людей і тварин.
-					{:else}
+					{:else if langState.current === 'ru'}
 						Соблюдение простых правил подготовки гарантирует 100% результат уничтожения вредителей с первого раза и безопасность для людей и животных.
+					{:else}
+						Following simple preparation rules ensures a 100% pest eradication result on the first attempt and safety for people and pets.
 					{/if}
 				</p>
 			</div>
@@ -61,13 +71,15 @@
 				<div class="prep-card glass-card">
 					<div class="prep-card-icon">🍲</div>
 					<h3>
-						{#if langState.current === 'ua'}1. Продукти та посуд{:else}1. Продукты и посуда{/if}
+						{#if langState.current === 'ua'}1. Продукти та посуд{:else if langState.current === 'ru'}1. Продукты и посуда{:else}1. Food & tableware{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
 							Сховайте відкриті продукти харчування, посуд, столові прибори у герметичні пакети або приберіть у холодильник та закриті шафи.
-						{:else}
+						{:else if langState.current === 'ru'}
 							Спрячьте открытые продукты, посуду, столовые приборы в герметичные пакеты или уберите в холодильник и закрытые шкафы.
+						{:else}
+							Pack open food products, dishes, and cutlery into sealed bags or store them in the refrigerator and closed cabinets.
 						{/if}
 					</p>
 				</div>
@@ -75,13 +87,15 @@
 				<div class="prep-card glass-card">
 					<div class="prep-card-icon">🐾</div>
 					<h3>
-						{#if langState.current === 'ua'}2. Домашні улюбленці{:else}2. Домашние питомцы{/if}
+						{#if langState.current === 'ua'}2. Домашні улюбленці{:else if langState.current === 'ru'}2. Домашние питомцы{:else}2. Pets & animals{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
 							Коти, собаки, птахи мають покинути приміщення на час обробки (на 2-3 години). Акваріуми щільно закрийте та вимкніть компресор.
-						{:else}
+						{:else if langState.current === 'ru'}
 							Кошки, собаки, птицы должны покинуть помещение на время обработки (на 2-3 часа). Аквариумы плотно закройте и выключите компрессор.
+						{:else}
+							Cats, dogs, and birds should leave premises during treatment (for 2-3 hours). Cover aquariums tightly and turn off air compressors.
 						{/if}
 					</p>
 				</div>
@@ -89,13 +103,15 @@
 				<div class="prep-card glass-card">
 					<div class="prep-card-icon">🚪</div>
 					<h3>
-						{#if langState.current === 'ua'}3. Доступ до плінтусів{:else}3. Доступ к плинтусам{/if}
+						{#if langState.current === 'ua'}3. Доступ до плінтусів{:else if langState.current === 'ru'}3. Доступ к плинтусам{:else}3. Access to baseboards{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
 							По можливості відсуньте меблі від стін на 15–20 см, звільніть доступ до кутів, вентиляційних решіток та стояків комунікацій.
-						{:else}
+						{:else if langState.current === 'ru'}
 							По возможности отодвиньте мебель от стен на 15–20 см, освободите доступ к углам, вентиляционным решеткам и стоякам.
+						{:else}
+							Move furniture 15–20 cm away from walls if possible, clearing access to corners, ventilation grilles, and utility risers.
 						{/if}
 					</p>
 				</div>
@@ -103,13 +119,15 @@
 				<div class="prep-card glass-card">
 					<div class="prep-card-icon">🪟</div>
 					<h3>
-						{#if langState.current === 'ua'}4. Провітрювання після{:else}4. Проветривание после{/if}
+						{#if langState.current === 'ua'}4. Провітрювання після{:else if langState.current === 'ru'}4. Проветривание после{:else}4. Airing out afterwards{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
 							Після закінчення експозиції відкрийте вікна на 30–40 хвилин для наскрізного провітрювання. Протріть вологою ганчіркою робочі поверхні столів.
-						{:else}
+						{:else if langState.current === 'ru'}
 							После окончания экспозиции откройте окна на 30–40 минут для проветривания. Протрите влажной тканью контактные поверхности столов.
+						{:else}
+							After the exposure period, open windows for 30–40 minutes for thorough ventilation. Wipe table work surfaces with a damp cloth.
 						{/if}
 					</p>
 				</div>
@@ -119,29 +137,33 @@
 			<div class="prep-action-banner glass-card-dark">
 				<div>
 					<div class="prep-banner-badge">
-						{#if langState.current === 'ua'}Консультація технолога{:else}Консультация технолога{/if}
+						{#if langState.current === 'ua'}Консультація технолога{:else if langState.current === 'ru'}Консультация технолога{:else}Technologist consultation{/if}
 					</div>
 					<h3>
 						{#if langState.current === 'ua'}
 							Маєте нестандартний об'єкт або складні умови?
-						{:else}
+						{:else if langState.current === 'ru'}
 							Нестандартный объект или сложные условия?
+						{:else}
+							Have a non-standard facility or complex conditions?
 						{/if}
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
-							Наш дезінфектор проконсультує вас телефоном, підбере оптимальний безпечний препарат та узгодить зручний час виїзду бригади.
+							Наш спеціаліст проконсультує вас телефоном, підбере оптимальний безпечний препарат та узгодить зручний час виїзду бригади.
+						{:else if langState.current === 'ru'}
+							Наш специалист проконсультирует по телефону, подберет оптимальный безопасный препарат и согласует удобное время выезда.
 						{:else}
-							Наш дезинфектор проконсультирует по телефону, подберет оптимальный безопасный препарат и согласует удобное время выезда.
+							Our specialist will consult you by phone, choose the optimal safe preparation, and coordinate a convenient arrival time.
 						{/if}
 					</p>
 				</div>
 				<button
 					type="button"
 					class="btn btn-primary btn-lg"
-					onclick={() => orderModal.open({ serviceTitle: 'Консультація технолога перед виїздом' })}
+					onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Консультація спеціаліста перед виїздом' : langState.current === 'ru' ? 'Консультация специалиста перед выездом' : 'Specialist consultation before arrival' })}
 				>
-					{#if langState.current === 'ua'}Отримати інструктаж{:else}Получить инструктаж{/if}
+					{#if langState.current === 'ua'}Отримати інструктаж{:else if langState.current === 'ru'}Получить инструктаж{:else}Get instructions{/if}
 				</button>
 			</div>
 		</div>

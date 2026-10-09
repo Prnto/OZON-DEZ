@@ -37,7 +37,13 @@
 				<div class="status-indicator">
 					<span class="live-pulse"></span>
 					<span class="status-text">
-						{#if langState.current === 'ua'}Оператор на зв'язку 24/7{:else}Оператор на связи 24/7{/if}
+						{#if langState.current === 'ua'}
+							Черговий спеціаліст
+						{:else if langState.current === 'ru'}
+							Дежурный специалист
+						{:else}
+							Specialist on duty
+						{/if}
 					</span>
 				</div>
 				<button type="button" class="menu-close-btn" onclick={closeWidget} aria-label="Закрити меню">
@@ -46,7 +52,41 @@
 			</div>
 
 			<div class="menu-items">
-				<!-- Direct Phone Call -->
+				<!-- Quick Specialist Call (Modal) -->
+				<button
+					type="button"
+					class="menu-item call-action"
+					onclick={() => {
+						closeWidget();
+						orderModal.open({ serviceTitle: currentContent.modal.defaultTitle });
+					}}
+					role="menuitem"
+				>
+					<div class="item-icon-wrap call-icon">⚡</div>
+					<div class="item-content">
+						<span class="item-title">
+							{#if langState.current === 'ua'}
+								Виклик спеціаліста
+							{:else if langState.current === 'ru'}
+								Вызов специалиста
+							{:else}
+								Call a specialist
+							{/if}
+						</span>
+						<span class="item-detail">
+							{#if langState.current === 'ua'}
+								Швидкий виїзд від 30 хв
+							{:else if langState.current === 'ru'}
+								Срочный выезд от 30 мин
+							{:else}
+								Fast dispatch from 30 min
+							{/if}
+						</span>
+					</div>
+					<span class="item-arrow">→</span>
+				</button>
+
+				<!-- Direct Mobile Call -->
 				<a
 					href="tel:{currentContent.phones.mobile}"
 					class="menu-item phone-action"
@@ -56,14 +96,20 @@
 					<div class="item-icon-wrap phone-icon">📞</div>
 					<div class="item-content">
 						<span class="item-title">
-							{#if langState.current === 'ua'}Зателефонувати зараз{:else}Позвонить сейчас{/if}
+							{#if langState.current === 'ua'}
+								Мобільний зв'язок
+							{:else if langState.current === 'ru'}
+								Мобильная связь
+							{:else}
+								Mobile Phone
+							{/if}
 						</span>
 						<span class="item-detail">{currentContent.phones.mobileDisplay}</span>
 					</div>
 					<span class="item-arrow">→</span>
 				</a>
 
-				<!-- Telegram Bot / Chat -->
+				<!-- Telegram Chat named OZON-DEZ (without 'Заявки') -->
 				<a
 					href="https://t.me/ozon_dez_lead_bot"
 					target="_blank"
@@ -74,9 +120,15 @@
 				>
 					<div class="item-icon-wrap tg-icon">✈️</div>
 					<div class="item-content">
-						<span class="item-title">Telegram-чат</span>
+						<span class="item-title">OZON-DEZ</span>
 						<span class="item-detail">
-							{#if langState.current === 'ua'}Миттєва відповідь оператора{:else}Мгновенный ответ оператора{/if}
+							{#if langState.current === 'ua'}
+								Telegram-чат із фахівцем
+							{:else if langState.current === 'ru'}
+								Telegram-чат со специалистом
+							{:else}
+								Telegram chat with specialist
+							{/if}
 						</span>
 					</div>
 					<span class="item-arrow">→</span>
@@ -95,25 +147,37 @@
 					<div class="item-content">
 						<span class="item-title">Viber</span>
 						<span class="item-detail">
-							{#if langState.current === 'ua'}Чат у месенджері{:else}Чат в мессенджере{/if}
+							{#if langState.current === 'ua'}
+								Чат у месенджері
+							{:else if langState.current === 'ru'}
+								Чат в мессенджере
+							{:else}
+								Viber messenger chat
+							{/if}
 						</span>
 					</div>
 					<span class="item-arrow">→</span>
 				</a>
 
-				<!-- Direct Call (+380508797335) -->
+				<!-- Landline / City Office Call -->
 				<a
-					href="tel:+380508797335"
-					class="menu-item call-action"
+					href="tel:{currentContent.phones.landline}"
+					class="menu-item office-action"
 					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap call-icon">📞</div>
+					<div class="item-icon-wrap call-icon">☎️</div>
 					<div class="item-content">
 						<span class="item-title">
-							{#if langState.current === 'ua'}Здійснити виклик{:else}Совершить вызов{/if}
+							{#if langState.current === 'ua'}
+								Міський / Офіс
+							{:else if langState.current === 'ru'}
+								Городской / Офис
+							{:else}
+								Office / Landline
+							{/if}
 						</span>
-						<span class="item-detail">+38 (050) 879-73-35</span>
+						<span class="item-detail">{currentContent.phones.landlineDisplay}</span>
 					</div>
 					<span class="item-arrow">→</span>
 				</a>
@@ -128,7 +192,7 @@
 		class:active={isOpen}
 		onclick={toggleWidget}
 		aria-expanded={isOpen}
-		aria-label={langState.current === 'ua' ? 'Швидкий зв’язок та виклик майстра' : 'Быстрая связь и вызов мастера'}
+		aria-label={langState.current === 'ua' ? 'Швидкий зв’язок та виклик спеціаліста' : langState.current === 'ru' ? 'Быстрая связь и вызов специалиста' : 'Quick contact & specialist call'}
 	>
 		<span class="ring-pulse"></span>
 		<span class="trigger-icon" aria-hidden="true">

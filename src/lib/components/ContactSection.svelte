@@ -161,7 +161,15 @@
 								<span class="badge-pulse-dot"></span>
 								<div>
 									<strong>{currentContent.address.actual}</strong>
-									<div class="location-sub-text">м. Чорноморськ (Іллічівськ) • Виїзд на об'єкт від 30 хв</div>
+									<div class="location-sub-text">
+										{#if langState.current === 'ua'}
+											м. Чорноморськ • Виїзд на об'єкт від 30 хв
+										{:else if langState.current === 'ru'}
+											г. Черноморск • Выезд на объект от 30 мин
+										{:else}
+											Chornomorsk • On-site arrival from 30 min
+										{/if}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -233,7 +241,7 @@
 										</optgroup>
 									{/each}
 									<option value="HACCP B2B">
-										{#if langState.current === 'ua'}Договір для бізнесу (HACCP){:else}Договор для бизнеса (HACCP){/if}
+										{#if langState.current === 'ua'}Договір для бізнесу (HACCP){:else if langState.current === 'ru'}Договор для бизнеса (HACCP){:else}Business contract (HACCP){/if}
 									</option>
 								</select>
 							</div>

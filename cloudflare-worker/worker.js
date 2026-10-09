@@ -15,8 +15,8 @@ const ADMIN_CHAT_ID = '341806822';
 const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const TEMP_PHONE = '+380636672653';
 const TEMP_PHONE_DISPLAY = '+38 (063) 667-26-53';
-const CALL_PHONE = '+380508797335';
-const CALL_PHONE_DISPLAY = '+38 (050) 879-73-35';
+const CALL_PHONE = '+380636672653';
+const CALL_PHONE_DISPLAY = '+38 (063) 667-26-53';
 
 function escapeHtml(text) {
 	return (text || '')
@@ -59,7 +59,7 @@ function getMainMenu() {
 					{ text: '🧮 Калькулятор у чаті', callback_data: 'calc_start' }
 				],
 				[
-					{ text: '📞 Здійснити виклик', callback_data: 'call_doctor' }
+					{ text: '📞 Виклик спеціаліста', callback_data: 'call_specialist' }
 				],
 				[
 					{ text: '🌐 Відкрити сайт', web_app: { url: 'https://prnto.github.io/OZON-DEZ/' } },
@@ -305,22 +305,22 @@ export default {
 							}
 						});
 					}
-				} else if (data === 'call_doctor') {
+				} else if (data === 'call_doctor' || data === 'call_specialist') {
 					await api('sendContact', {
 						chat_id: chatId,
 						phone_number: CALL_PHONE,
 						first_name: 'ТОВ «ОЗОН-ДЕЗ»',
-						last_name: 'Здійснити виклик'
+						last_name: 'Виклик спеціаліста'
 					});
 
 					await api('sendMessage', {
 						chat_id: chatId,
-						text: `📞 <b>Здійснити виклик ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
+						text: `📞 <b>Виклик спеціаліста ТОВ «ОЗОН-ДЕЗ»</b>\n\n` +
 							`Натисніть на картку вище (кнопка <b>«Зателефонувати / Позвонить»</b>) або наберіть номер напряму:\n\n` +
 							`📱 <b><a href="tel:${CALL_PHONE}">${CALL_PHONE_DISPLAY}</a></b>\n` +
 							`📱 <b>${CALL_PHONE}</b>\n\n` +
 							`☎️ Офіс: <b>(04868) 6-03-08</b>\n` +
-							`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-А</b>`,
+							`📍 Офіс: <b>м. Чорноморськ, просп. Миру, 8-а</b>`,
 						parse_mode: 'HTML',
 						reply_markup: {
 							inline_keyboard: [
@@ -434,7 +434,7 @@ export default {
 								[{ text: `📝 Замовити за ${price} грн`, callback_data: `ord_c:${objKey}:${srvKey}:${areaKey}` }],
 								[{ text: '🔄 Перерахувати заново', callback_data: 'calc_start' }],
 								[
-									{ text: '📞 Здійснити виклик', callback_data: 'call_doctor' },
+									{ text: '📞 Виклик спеціаліста', callback_data: 'call_specialist' },
 									{ text: '🏠 Меню', callback_data: 'menu_main' }
 								]
 							]
@@ -452,7 +452,7 @@ export default {
 					const price = calculatePrice(objKey, srvKey, areaKey);
 					await sendOrderPrompt(chatId, srvName, `🏢 Об'єкт: <b>${objName}</b>, Площа: <b>${areaLabel}</b>\n💰 Сума: <b>${price} грн</b>`);
 				} else if (data === 'order_emergency') {
-					await sendOrderPrompt(chatId, 'Здійснити виклик');
+					await sendOrderPrompt(chatId, 'Виклик спеціаліста');
 				}
 
 				return new Response('OK', { status: 200 });
@@ -500,7 +500,7 @@ export default {
 					await api('sendMessage', {
 						chat_id: chatId,
 						text: `✅ <b>Дякуємо за звернення!</b>\n\n` +
-							`Ваше повідомлення передано черговому лікарю-дезінфектологу ТОВ «ОЗОН-ДЕЗ».\n` +
+							`Ваше повідомлення передано черговому спеціалісту ТОВ «ОЗОН-ДЕЗ».\n` +
 							`Ми зв'яжемося з вами найближчим часом.\n\n` +
 							`📞 Для термінового виклику або консультації телефонуйте:\n` +
 							`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b> (цілодобово 24/7).`,

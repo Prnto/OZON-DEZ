@@ -13,13 +13,15 @@
 		<!-- Section Header -->
 		<div class="b2b-intro-block">
 			<div class="section-badge dark-accent">
-				{#if langState.current === 'ua'}Регламент НАССР & Пест-Контроль{:else}Регламент НАССР & Пест-Контроль{/if}
+				{#if langState.current === 'ua'}Регламент НАССР & Пест-Контроль{:else if langState.current === 'ru'}Регламент НАССР & Пест-Контроль{:else}HACCP & Pest Control Protocol{/if}
 			</div>
 			<h2 class="b2b-section-heading">
 				{#if langState.current === 'ua'}
 					Комплексна програма санітарного аудиту та захисту підприємств
-				{:else}
+				{:else if langState.current === 'ru'}
 					Комплексная программа санитарного аудита и защиты предприятий
+				{:else}
+					Comprehensive sanitary audit and enterprise protection program
 				{/if}
 			</h2>
 			<div class="b2b-paragraphs">

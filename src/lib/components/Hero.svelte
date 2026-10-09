@@ -2,81 +2,94 @@
 	import { resolve } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
-	import { orderModal } from '../state/modal.svelte';
 
 	let currentContent = $derived(contentMap[langState.current]);
-
-	function handleChipClick(chipText: string) {
-		orderModal.open({ serviceTitle: chipText });
-	}
 </script>
 
 <section id="hero" class="hero-section">
 	<div class="container hero-container">
 		<div class="hero-content">
-			<!-- Saffron Spark Kicker Label from Design_2.md -->
-			<div class="hero-kicker">
-				<span class="kicker-spark">✦</span>
-				<span class="kicker-text">ОФІЦІЙНА СЛУЖБА • ЧОРНОМОРСЬК ТА ОДЕСА</span>
+			<!-- Верхній бейдж довіри -->
+			<div class="hero-badge">
+				<span class="badge-icon">🛡️</span>
+				<span>
+					{#if langState.current === 'ua'}
+						15 РОКІВ ДОСВІДУ • ЧОРНОМОРСЬК, ОДЕСА ТА ОБЛАСТЬ
+					{:else if langState.current === 'ru'}
+						15 ЛЕТ ОПЫТА • ЧЕРНОМОРСК, ОДЕССА И ОБЛАСТЬ
+					{:else}
+						15 YEARS OF EXPERIENCE • CHORNOMORSK, ODESA & REGION
+					{/if}
+				</span>
 			</div>
 
-			<!-- Sculptural Display Headline (Weight 400, Negative Tracking) -->
+			<!-- Головний заголовок -->
 			<h1 class="hero-title">
-				{currentContent.hero.titleMain}
-				<span class="hero-title-accent">{currentContent.hero.titleHighlight}</span>
+				{#if langState.current === 'ua'}
+					Професійна дезінсекція, дератизація, дезінфекція та озонування
+				{:else if langState.current === 'ru'}
+					Профессиональная дезинсекция, дератизация, дезинфекция и озонирование
+				{:else}
+					Professional Disinsection, Deratization, Disinfection and Ozonation
+				{/if}
 			</h1>
 
-			<!-- Ultra-light Airy Body Copy from Design_2.md -->
-			<p class="hero-body">
-				{currentContent.hero.subtitle}
+			<!-- Опис на основі даних замовника -->
+			<p class="hero-description">
+				{#if langState.current === 'ua'}
+					ТОВ «ОЗОН-ДЕЗ» — служба санітарної безпеки для фізичних та юридичних осіб.
+					Знищення комах (тарганів, бліх, кліщів, комарів), гризунів (щурів, мишей),
+					знезараження поверхонь, ємностей і води, а також комплексний Пест-контроль.
+				{:else if langState.current === 'ru'}
+					ООО «ОЗОН-ДЕЗ» — служба санитарной безопасности для физических и юридических лиц.
+					Уничтожение насекомых (тараканов, блох, клещей, комаров), грызунов (крыс, мышей),
+					обеззараживание поверхностей, емкостей и воды, а также комплексный Пест-контроль.
+				{:else}
+					LLC "OZON-DEZ" — sanitary safety service for individuals and businesses.
+					Extermination of insects (cockroaches, fleas, ticks, mosquitoes), rodents (rats, mice),
+					sanitization of surfaces, tanks and water, as well as comprehensive Pest Control.
+				{/if}
 			</p>
 
-			<!-- Quick Pains / Problem Chips -->
-			<div class="hero-chips-wrap">
-				<span class="chips-label">{currentContent.hero.quickPainsLabel}</span>
-				<div class="chips-list">
-					{#each currentContent.hero.quickPains as pain}
-						<button
-							type="button"
-							class="pain-chip"
-							onclick={() => handleChipClick(pain)}
-						>
-							<span class="chip-dot"></span>
-							{pain}
-						</button>
-					{/each}
-				</div>
+			<!-- Перелік використовуваних технологій -->
+			<div class="hero-features-list">
+				<span class="feature-item">✓ {#if langState.current === 'ua'}Препарати, зареєстровані в Україні{:else if langState.current === 'ru'}Препараты, зарегистрированные в Украине{:else}Preparations registered in Ukraine{/if}</span>
+				<span class="feature-item">✓ {#if langState.current === 'ua'}Генератори холодного та гарячого туману{:else if langState.current === 'ru'}Генераторы холодного и горячего тумана{:else}Cold and thermal fog generators{/if}</span>
+				<span class="feature-item">✓ {#if langState.current === 'ua'}Професійні озонатори{:else if langState.current === 'ru'}Профессиональные озонаторы{:else}Professional ozone generators{/if}</span>
+				<span class="feature-item">✓ {#if langState.current === 'ua'}Кваліфіковані спеціалісти{:else if langState.current === 'ru'}Квалифицированные специалисты{:else}Qualified specialists{/if}</span>
 			</div>
 
-			<!-- Actions: Electric Iris Pill Button + Secondary Ghost Button -->
+			<!-- Кнопки дій (CTA) -->
 			<div class="hero-actions">
-				<a href={resolve('/calculator')} class="btn btn-primary btn-lg">
-					<span>{currentContent.hero.ctaPrimary}</span>
-					<span class="btn-arrow-symbol">↗</span>
-				</a>
 				<a
-					href="tel:+380508797335"
-					class="btn btn-secondary btn-lg"
+					href="tel:{currentContent.phones.mobile}"
+					class="btn btn-primary"
+					title={langState.current === 'ua' ? 'Замовити виїзд' : langState.current === 'ru' ? 'Заказать выезд' : 'Order dispatch'}
 				>
-					<span>📞 {currentContent.hero.ctaSecondary}</span>
+					<span>📞</span>
+					<span>{#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
+				</a>
+				<a href={resolve('/calculator')} class="btn btn-secondary">
+					<span>🧮</span>
+					<span>{#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
 				</a>
 			</div>
 
-			<!-- Minimalist Trust Row -->
-			<div class="hero-trust-row">
-				<div class="trust-item">
-					<span class="trust-val">{currentContent.hero.stats.stat1Val}</span>
-					<span class="trust-lbl">{currentContent.hero.stats.stat1Label}</span>
+			<!-- Фактоїди внизу першого екрана -->
+			<div class="hero-stats">
+				<div class="stat-item">
+					<strong class="stat-number">15 {#if langState.current === 'ua'}років{:else if langState.current === 'ru'}лет{:else}years{/if}</strong>
+					<span class="stat-label">{#if langState.current === 'ua'}практичного досвіду{:else if langState.current === 'ru'}практического опыта{:else}practical experience{/if}</span>
 				</div>
-				<div class="trust-divider"></div>
-				<div class="trust-item">
-					<span class="trust-val">{currentContent.hero.stats.stat2Val}</span>
-					<span class="trust-lbl">{currentContent.hero.stats.stat2Sub}</span>
+				<div class="stat-divider"></div>
+				<div class="stat-item">
+					<strong class="stat-number">B2C &amp; B2B</strong>
+					<span class="stat-label">{#if langState.current === 'ua'}для населення та підприємств{:else if langState.current === 'ru'}для населения и предприятий{:else}for residents and business{/if}</span>
 				</div>
-				<div class="trust-divider"></div>
-				<div class="trust-item">
-					<span class="trust-val">{currentContent.hero.stats.stat3Val}</span>
-					<span class="trust-lbl">{currentContent.hero.stats.stat3Sub}</span>
+				<div class="stat-divider"></div>
+				<div class="stat-item">
+					<strong class="stat-number">100%</strong>
+					<span class="stat-label">{#if langState.current === 'ua'}сертифіковані препарати{:else if langState.current === 'ru'}сертифицированные препараты{:else}certified preparations{/if}</span>
 				</div>
 			</div>
 		</div>
@@ -100,6 +113,7 @@
 		width: 100%;
 		max-width: 980px;
 		margin: 0 auto;
+		padding: 0 1.25rem;
 	}
 
 	.hero-content {
@@ -110,122 +124,84 @@
 		z-index: 2;
 	}
 
-	.hero-kicker {
+	.hero-badge {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.55rem;
-		padding: 0.4rem 1rem;
+		padding: 0.45rem 1.1rem;
 		border-radius: var(--radius-tags);
-		background: rgba(255, 184, 41, 0.08);
-		border: 1px solid var(--color-saffron-border);
-		color: var(--color-saffron-spark);
-		font-size: 12px;
-		font-weight: 600;
+		background: rgba(2, 132, 199, 0.1);
+		border: 1px solid rgba(2, 132, 199, 0.35);
+		color: #38bdf8;
+		font-size: 13px;
+		font-weight: 700;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
-		margin-bottom: 1.6rem;
+		margin-bottom: 1.5rem;
 	}
 
-	.kicker-spark {
-		color: var(--color-saffron-spark);
-		font-size: 13px;
+	.badge-icon {
+		font-size: 14px;
 	}
 
 	.hero-title {
-		font-size: clamp(2.4rem, 4.8vw, 4.4rem);
-		font-weight: 400;
-		line-height: 1.08;
-		letter-spacing: -0.04em;
+		font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+		font-weight: 800;
+		line-height: 1.15;
+		letter-spacing: -0.03em;
 		color: var(--color-bone-white);
 		margin-bottom: 1.4rem;
 		max-width: 900px;
 	}
 
-	.hero-title-accent {
-		color: #bfa6ff;
-		display: block;
-	}
-
-	.hero-body {
-		font-size: clamp(1.05rem, 1.4vw, 1.22rem);
-		font-weight: 300;
+	.hero-description {
+		font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+		font-weight: 350;
 		line-height: 1.65;
 		color: var(--color-ash-gray);
-		max-width: 740px;
-		margin-bottom: 2rem;
+		max-width: 780px;
+		margin-bottom: 1.8rem;
 	}
 
-	/* Chips */
-	.hero-chips-wrap {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.65rem;
-		margin-bottom: 2.2rem;
-	}
-
-	.chips-label {
-		display: block;
-		font-size: 12px;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--color-ash-gray);
-		font-weight: 500;
-	}
-
-	.chips-list {
+	.hero-features-list {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 0.55rem;
-		max-width: 760px;
+		gap: 0.75rem 1.25rem;
+		margin-bottom: 2.2rem;
+		max-width: 840px;
 	}
 
-	.pain-chip {
+	.feature-item {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.55rem;
-		padding: 0.45rem 1rem;
+		padding: 0.4rem 0.95rem;
 		border-radius: var(--radius-tags);
 		background: var(--color-surface);
 		border: 1px solid var(--color-void-border);
 		color: var(--color-silver-mist);
-		font-size: 13px;
-		font-weight: 400;
-		cursor: pointer;
-		transition: all var(--transition-fast);
+		font-size: 13.5px;
+		font-weight: 500;
 	}
 
-	.chip-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--color-electric-iris);
-	}
-
-	.pain-chip:hover {
-		border-color: var(--color-saffron-spark);
-		color: var(--color-bone-white);
-		background: var(--color-surface-hover);
-		transform: translateY(-1px);
-	}
-
-	/* Actions */
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 1rem;
-		margin-bottom: 2.8rem;
+		margin-bottom: 2.6rem;
 	}
 
-	.btn-arrow-symbol {
-		font-size: 16px;
-		margin-left: 0.2rem;
+	.hero-actions .btn {
+		font-size: 1rem;
+		font-weight: 700;
+		padding: 0.9rem 1.8rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
-	/* Trust Row */
-	.hero-trust-row {
+	.hero-stats {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -233,44 +209,43 @@
 		padding-top: 1.8rem;
 		border-top: 1px solid var(--color-void-border);
 		width: 100%;
-		max-width: 680px;
+		max-width: 720px;
 	}
 
-	.trust-item {
+	.stat-item {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
 	}
 
-	.trust-val {
-		font-size: 1.4rem;
-		font-weight: 400;
+	.stat-number {
+		font-size: 1.55rem;
+		font-weight: 800;
 		color: var(--color-bone-white);
-		letter-spacing: -0.03em;
-		font-family: var(--font-heading);
+		letter-spacing: -0.02em;
 	}
 
-	.trust-lbl {
-		font-size: 12px;
+	.stat-label {
+		font-size: 12.5px;
 		color: var(--color-ash-gray);
 		margin-top: 0.2rem;
-		font-weight: 300;
+		font-weight: 400;
 	}
 
-	.trust-divider {
+	.stat-divider {
 		width: 1px;
-		height: 32px;
+		height: 36px;
 		background: var(--color-void-border);
 	}
 
 	@media (max-width: 640px) {
-		.hero-trust-row {
+		.hero-stats {
 			flex-direction: column;
-			gap: 1.2rem;
+			gap: 1rem;
 		}
 
-		.trust-divider {
+		.stat-divider {
 			width: 60px;
 			height: 1px;
 		}
@@ -278,29 +253,47 @@
 		.hero-actions {
 			flex-direction: column;
 			width: 100%;
-			max-width: 340px;
+			max-width: 320px;
 		}
 
 		.hero-actions .btn {
 			width: 100%;
 			justify-content: center;
 		}
+
+		.hero-features-list {
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+		}
 	}
 
 	/* Light Mode Adjustments */
-	:global(html[data-theme="light"]) .hero-title-accent {
-		color: #6d3ef7;
+	:global(html[data-theme="light"]) .hero-badge {
+		background: rgba(2, 132, 199, 0.08);
+		border-color: rgba(2, 132, 199, 0.3);
+		color: #0284c7;
 	}
 
-	:global(html[data-theme="light"]) .pain-chip {
+	:global(html[data-theme="light"]) .hero-title {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .hero-description {
+		color: #475569;
+	}
+
+	:global(html[data-theme="light"]) .feature-item {
 		background: #ffffff;
-		border-color: rgba(15, 23, 42, 0.1);
+		border-color: #e2e8f0;
 		color: #334155;
 	}
 
-	:global(html[data-theme="light"]) .pain-chip:hover {
-		background: #f1f5f9;
-		border-color: var(--color-saffron-spark);
+	:global(html[data-theme="light"]) .stat-number {
 		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .stat-label {
+		color: #64748b;
 	}
 </style>

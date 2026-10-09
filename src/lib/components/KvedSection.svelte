@@ -18,7 +18,7 @@
 			{#each kved.items as item}
 				<div class="kved-card glass-card">
 					<div class="kved-code-tag">
-						<span>КВЕД</span>
+						<span>{langState.current === 'en' ? 'NACE Code' : 'КВЕД'}</span>
 						<strong>{item.code}</strong>
 					</div>
 					<h4 class="kved-title">{item.title}</h4>

@@ -18,8 +18,10 @@
 					<div class="water-kved-tag">
 						{#if langState.current === 'ua'}
 							Забір, очищення та безпечне постачання води
-						{:else}
+						{:else if langState.current === 'ru'}
 							Забор, очистка и безопасная поставка воды
+						{:else}
+							Water intake, purification, and safe supply
 						{/if}
 					</div>
 					<p class="water-desc">{water.description}</p>
