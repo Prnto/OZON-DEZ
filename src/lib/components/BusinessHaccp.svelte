@@ -45,17 +45,6 @@
 
 		<!-- Trust, Stats & Direct Call to Action Bar -->
 		<div class="b2b-cta-bar glass-card-dark">
-			<div class="b2b-stats-cluster">
-				<div class="b2b-stat-pill">
-					<span class="stat-num">{b2b.stats.stat1Val}</span>
-					<span class="stat-lbl">{b2b.stats.stat1Text}</span>
-				</div>
-				<div class="b2b-stat-pill">
-					<span class="stat-num">{b2b.stats.stat2Val}</span>
-					<span class="stat-lbl">{b2b.stats.stat2Text}</span>
-				</div>
-			</div>
-
 			<div class="b2b-cta-actions">
 				<button
 					type="button"
@@ -176,53 +165,11 @@
 		border-radius: var(--radius-cards);
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 		gap: 2.5rem;
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		box-shadow: none;
-	}
-
-	@media (max-width: 960px) {
-		.b2b-cta-bar {
-			flex-direction: column;
-			align-items: flex-start;
-			padding: 2rem 1.5rem;
-		}
-	}
-
-	.b2b-stats-cluster {
-		display: flex;
-		align-items: center;
-		gap: 1.25rem;
-		flex-wrap: wrap;
-	}
-
-	.b2b-stat-pill {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		background: var(--color-surface-hover);
-		border: 1px solid var(--border-subtle);
-		padding: 0.85rem 1.4rem;
-		border-radius: var(--radius-pill);
-	}
-
-	.b2b-stat-pill .stat-num {
-		font-family: var(--font-heading);
-		font-size: 2rem;
-		font-weight: 400;
-		color: var(--color-electric-iris);
-		line-height: 1;
-		letter-spacing: -0.03em;
-	}
-
-	.b2b-stat-pill .stat-lbl {
-		font-size: 0.82rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
-		max-width: 170px;
-		line-height: 1.35;
 	}
 
 	.b2b-cta-actions {
@@ -230,13 +177,12 @@
 		align-items: center;
 		gap: 1rem;
 		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	@media (max-width: 600px) {
-		.b2b-stats-cluster {
-			width: 100%;
-			flex-direction: column;
-			align-items: stretch;
+		.b2b-cta-bar {
+			padding: 1.8rem 1.4rem;
 		}
 		.b2b-cta-actions {
 			width: 100%;

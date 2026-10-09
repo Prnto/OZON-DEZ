@@ -337,31 +337,6 @@
 				</article>
 
 			</div>
-
-			<!-- Нижня інформаційна плашка про стандарти -->
-			<div class="services-footer-banner glass-card">
-				<div class="banner-item">
-					<span class="banner-icon">🛡️</span>
-					<div>
-						<strong>{#if langState.current === 'ua'}15 років досвіду{:else if langState.current === 'ru'}15 лет опыта{:else}15 Years Experience{/if}</strong>
-						<span>{#if langState.current === 'ua'}Кваліфіковані спеціалісти санітарної служби{:else if langState.current === 'ru'}Квалифицированные специалисты санитарной службы{:else}Qualified sanitary service specialists{/if}</span>
-					</div>
-				</div>
-				<div class="banner-item">
-					<span class="banner-icon">📋</span>
-					<div>
-						<strong>{#if langState.current === 'ua'}Офіційний договір{:else if langState.current === 'ru'}Официальный договор{:else}Official Contract{/if}</strong>
-						<span>{#if langState.current === 'ua'}Повний пакет актів і сертифікатів МОЗ України{:else if langState.current === 'ru'}Полный пакет актов и сертификатов МОЗ Украины{:else}Full package of certificates and acts{/if}</span>
-					</div>
-				</div>
-				<div class="banner-item">
-					<span class="banner-icon">⚙️</span>
-					<div>
-						<strong>{#if langState.current === 'ua'}Сучасне оснащення{:else if langState.current === 'ru'}Современное оснащение{:else}Modern Equipment{/if}</strong>
-						<span>{#if langState.current === 'ua'}Холодний / гарячий туман, озонатори, акумуляторні обприскувачі{:else if langState.current === 'ru'}Холодный / горячий туман, озонаторы, опрыскиватели{:else}Cold & thermal fog, ozonators, battery sprayers{/if}</span>
-					</div>
-				</div>
-			</div>
 		</div>
 	</section>
 
@@ -575,60 +550,9 @@
 		color: #ffffff;
 	}
 
-	/* Нижня плашка гарантій */
-	.services-footer-banner {
-		background: var(--color-surface);
-		border: 1px solid var(--color-void-border);
-		border-radius: 16px;
-		padding: 24px 32px;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 24px;
-	}
-
-	:global(html[data-theme="light"]) .services-footer-banner {
-		background: #ffffff;
-		border-color: #e2e8f0;
-	}
-
-	.banner-item {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-
-	.banner-icon {
-		font-size: 2.2rem;
-		line-height: 1;
-	}
-
-	.banner-item strong {
-		display: block;
-		color: var(--color-bone-white);
-		font-size: 1rem;
-		margin-bottom: 2px;
-	}
-
-	:global(html[data-theme="light"]) .banner-item strong {
-		color: #0f172a;
-	}
-
-	.banner-item span {
-		font-size: 0.85rem;
-		color: var(--color-ash-gray);
-	}
-
-	:global(html[data-theme="light"]) .banner-item span {
-		color: #64748b;
-	}
-
 	@media (max-width: 640px) {
 		.services-grid {
 			grid-template-columns: 1fr;
-		}
-		.services-footer-banner {
-			grid-template-columns: 1fr;
-			padding: 20px;
 		}
 	}
 </style>
