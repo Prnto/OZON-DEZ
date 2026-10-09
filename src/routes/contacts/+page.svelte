@@ -424,13 +424,15 @@
 		opacity: 0.08;
 		pointer-events: none;
 		filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.25));
-		transition: opacity var(--transition-fast), transform var(--transition-normal);
+		transform: scale(1) rotate(0deg) translate(0, 0);
+		transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: transform, opacity;
 		z-index: 0;
 	}
 
 	.geo-city-card:hover .card-crest-watermark {
-		opacity: 0.18;
-		transform: scale(1.1) rotate(-4deg);
+		opacity: 0.2;
+		transform: scale(1.14) rotate(-5deg) translate(-2px, -2px);
 	}
 
 	.city-crest-badge {
