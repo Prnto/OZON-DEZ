@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { asset } from '$app/paths';
+	import { asset, resolve } from '$app/paths';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -102,6 +102,22 @@
 					</div>
 				{/each}
 			</div>
+
+			<!-- Direct Specialist Call & Online Calculator Actions -->
+			<div class="services-actions">
+				<a
+					href="tel:{currentContent.phones.mobile}"
+					class="btn btn-primary btn-lg"
+					title={langState.current === 'ua' ? 'Замовити виїзд' : langState.current === 'ru' ? 'Заказать выезд' : 'Order dispatch'}
+				>
+					<span>📞</span>
+					<span>{#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
+				</a>
+				<a href={resolve('/calculator')} class="btn btn-secondary btn-lg">
+					<span>🧮</span>
+					<span>{#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -111,8 +127,7 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
-		padding: clamp(3.5rem, 6vh, 5.5rem) 0;
-		border-top: 1px solid var(--color-void-border);
+		padding: clamp(4.5rem, 7vh, 6.5rem) 0 clamp(3.5rem, 6vh, 5.5rem);
 		border-bottom: 1px solid var(--color-void-border);
 	}
 
@@ -327,5 +342,34 @@
 		line-height: 1.55;
 		margin: 0;
 		font-weight: 300;
+	}
+
+	/* Services Action Buttons */
+	.services-actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.25rem;
+		margin-top: 2.8rem;
+		flex-wrap: wrap;
+	}
+
+	.services-actions .btn {
+		min-height: 52px;
+		padding: 0.85rem 2.2rem;
+		font-size: 1.05rem;
+	}
+
+	@media (max-width: 640px) {
+		.services-actions {
+			flex-direction: column;
+			width: 100%;
+			gap: 0.85rem;
+		}
+
+		.services-actions .btn {
+			width: 100%;
+			justify-content: center;
+		}
 	}
 </style>

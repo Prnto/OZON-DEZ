@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Hero from '#lib/components/Hero.svelte';
 	import AboutCompany from '#lib/components/AboutCompany.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 
@@ -16,9 +15,6 @@
 </svelte:head>
 
 <div class="homepage">
-	<!-- Hero Section -->
-	<Hero />
-
 	<!-- Official Company Profile & Core 5 Directions -->
 	<AboutCompany />
 
