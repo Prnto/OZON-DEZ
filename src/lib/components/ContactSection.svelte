@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Buildings, MapPin, Scales, PhoneCall, Clock, Lightning, CheckCircle, PaperPlaneRight, ShieldCheck } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -49,7 +50,7 @@
 			<div class="contacts-info-column">
 				<div class="info-card glass-card">
 					<div class="info-card-header">
-						<div class="header-icon">🏢</div>
+						<div class="header-icon"><Buildings size={24} weight="duotone" /></div>
 						<div>
 							<h3 class="info-company-name">{currentContent.companyName}</h3>
 							<div class="info-company-sub">{currentContent.companyNameAlt}</div>
@@ -59,7 +60,7 @@
 					<div class="details-list">
 						<!-- Actual Address -->
 						<div class="detail-row">
-							<div class="detail-icon">📍</div>
+							<div class="detail-icon"><MapPin size={20} weight="duotone" /></div>
 							<div>
 								<span class="detail-label">{contacts.labels.actual}</span>
 								<div class="detail-val">{currentContent.address.actual}</div>
@@ -68,7 +69,7 @@
 
 						<!-- Legal Address -->
 						<div class="detail-row">
-							<div class="detail-icon">⚖️</div>
+							<div class="detail-icon"><Scales size={20} weight="duotone" /></div>
 							<div>
 								<span class="detail-label">{contacts.labels.legal}</span>
 								<div class="detail-val">{currentContent.address.legal}</div>
@@ -77,7 +78,7 @@
 
 						<!-- Phones -->
 						<div class="detail-row">
-							<div class="detail-icon">📞</div>
+							<div class="detail-icon"><PhoneCall size={20} weight="duotone" /></div>
 							<div>
 								<span class="detail-label">{contacts.labels.phones}</span>
 								<div class="phone-links">
@@ -95,14 +96,14 @@
 
 						<!-- Schedule -->
 						<div class="detail-row">
-							<div class="detail-icon">🕒</div>
+							<div class="detail-icon"><Clock size={20} weight="duotone" /></div>
 							<div>
 								<span class="detail-label">{contacts.labels.schedule}</span>
 								<div class="detail-val">
 									<strong>{currentContent.workingHours.days}:</strong> {currentContent.workingHours.hours}
 								</div>
-								<div class="schedule-status-sub">
-									⚡ {currentContent.workingHours.status}
+								<div class="schedule-status-sub" style="display: flex; align-items: center; gap: 0.35rem;">
+									<Lightning size={14} weight="fill" /> {currentContent.workingHours.status}
 								</div>
 							</div>
 						</div>
@@ -162,7 +163,7 @@
 
 					{#if isSuccess}
 						<div class="contact-success-state">
-							<div class="success-check-icon">✓</div>
+							<div class="success-check-icon"><CheckCircle size={36} weight="fill" /></div>
 							<h3>{contacts.form.successTitle}</h3>
 							<p>{contacts.form.successDesc}</p>
 							<button
@@ -229,16 +230,18 @@
 								></textarea>
 							</div>
 
-							<button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" disabled={isSubmitting}>
+							<button type="submit" class="btn btn-primary btn-lg" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;" disabled={isSubmitting}>
 								{#if isSubmitting}
 									...
 								{:else}
-									{contacts.form.submitBtn}
+									<PaperPlaneRight size={18} weight="bold" />
+									<span>{contacts.form.submitBtn}</span>
 								{/if}
 							</button>
 
-							<div class="form-disclaimer">
-								{contacts.form.disclaimer}
+							<div class="form-disclaimer" style="display: flex; align-items: flex-start; gap: 0.35rem;">
+								<ShieldCheck size={14} weight="bold" style="flex-shrink: 0; margin-top: 2px;" />
+								<span>{contacts.form.disclaimer}</span>
 							</div>
 						</form>
 					{/if}

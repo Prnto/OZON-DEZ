@@ -292,31 +292,31 @@ export const contentMap: Record<Lang, ContentData> = {
 					num: '01',
 					title: 'Дезінсекція',
 					desc: 'Знищення синантропних комах: тарганів, бліх, комарів, кліщів тощо з бар’єрним ефектом.',
-					icon: '🪳'
+					icon: 'pest'
 				},
 				{
 					num: '02',
 					title: 'Дератизація',
 					desc: 'Знищення гризунів (щурів та мишей) у приміщеннях і на прилеглих територіях.',
-					icon: '🐀'
+					icon: 'rodent'
 				},
 				{
 					num: '03',
 					title: 'Дезінфекція',
 					desc: 'Знезараження поверхонь, ємностей та питної води сертифікованими розчинами.',
-					icon: '🧪'
+					icon: 'disinfection'
 				},
 				{
 					num: '04',
 					title: 'Озонування',
 					desc: 'Глибока екологічна санація приміщень, ємностей для зберігання води та харчової продукції газом O₃.',
-					icon: '💨'
+					icon: 'ozone'
 				},
 				{
 					num: '05',
 					title: 'Пест-контроль',
 					desc: 'Комплекс заходів з виявлення, моніторингу, регулювання чисельності та знищення шкідливих організмів (HACCP).',
-					icon: '📋'
+					icon: 'haccp'
 				}
 			],
 			audienceTitle: 'Фізичним та юридичним особам',
@@ -355,11 +355,11 @@ export const contentMap: Record<Lang, ContentData> = {
 			],
 			quickPainsLabel: 'Основні послуги санітарної безпеки:',
 			quickPains: [
-				'🪳 Дезінсекція (таргани, блохи, кліщі)',
-				'🐀 Дератизація (щури, миші)',
-				'🧪 Дезінфекція (поверхні, ємності, вода)',
-				'💨 Озонування (приміщення та ємності)',
-				'📋 Пест-контроль (HACCP)'
+				'Дезінсекція (таргани, блохи, кліщі)',
+				'Дератизація (щури, миші)',
+				'Дезінфекція (поверхні, ємності, вода)',
+				'Озонування (приміщення та ємності)',
+				'Пест-контроль (HACCP)'
 			],
 			ctaPrimary: 'Розрахувати вартість',
 			ctaSecondary: 'Виклик спеціаліста',
@@ -396,10 +396,10 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Чому технологія озонування (O₃) перевершує звичайну хімію?',
 				desc: 'Озон у 300 разів активніший за хлор, але на відміну від хімічних розчинів, він повністю перетворюється назад на чистий атмосферний кисень через 30–40 хвилин.',
 				benefits: [
-					{ icon: '💨', title: '100% проникнення', desc: 'Газ заповнює найглибші пори бетону, текстилю та систем вентиляції.' },
-					{ icon: '🧬', title: 'Знищує 99.9% патогенів', desc: 'Окислює та миттєво руйнує білкові оболонки мікроорганізмів і спори цвілі.' },
-					{ icon: '🌿', title: 'Абсолютно екологічно', desc: 'Жодної токсичної плівки на меблях, посуді або іграшках.' },
-					{ icon: '🌿', title: 'Усуває стійкі запахи', desc: 'Розщеплює молекули сирості, тютюну та ремонту на молекулярному рівні.' }
+					{ icon: 'ozone', title: '100% проникнення', desc: 'Газ заповнює найглибші пори бетону, текстилю та систем вентиляції.' },
+					{ icon: 'dna', title: 'Знищує 99.9% патогенів', desc: 'Окислює та миттєво руйнує білкові оболонки мікроорганізмів і спори цвілі.' },
+					{ icon: 'eco', title: 'Абсолютно екологічно', desc: 'Жодної токсичної плівки на меблях, посуді або іграшках.' },
+					{ icon: 'eco', title: 'Усуває стійкі запахи', desc: 'Розщеплює молекули сирості, тютюну та ремонту на молекулярному рівні.' }
 				],
 				cta: 'Замовити озонування об’єкта'
 			}
@@ -588,7 +588,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			],
 			cta: 'Замовити дезінфекцію води',
 			badgeOverlay: {
-				shield: '🛡️ ДСанПіН Контроль',
+				shield: 'ДСанПіН Контроль',
 				clean: '100% захист від біоплівок та легіонели'
 			}
 		},
@@ -688,7 +688,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				namePlaceholder: 'Ваше ім’я',
 				phonePlaceholder: 'Номер телефону (напр. 063 667-26-53)',
 				submitBtn: 'Замовити виїзд спеціаліста за',
-				privacy: '🔒 Ваші дані конфіденційні та не передаються третім особам.',
+				privacy: 'Ваші дані конфіденційні та не передаються третім особам.',
 				successTitle: 'Повідомлення прийнято!',
 				successDesc: 'Ми зафіксували для вас ціну. Черговий спеціаліст зателефонує вам протягом 5 хвилин.',
 				callNow: 'Зателефонувати зараз:'
@@ -739,7 +739,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Локація: м. Чорноморськ',
 				subtitle: 'просп. Миру, 8-а • Виїзні бригади по всій Одеській області',
 				btn: 'Відкрити в Google Maps ↗',
-				routeCities: '🗺️ Чорноморськ • Одеса • Овідіополь • Великодолинське'
+				routeCities: 'Чорноморськ • Одеса • Овідіополь • Великодолинське'
 			},
 			form: {
 				nameLbl: 'Ваше ім’я або назва компанії:',
@@ -748,15 +748,15 @@ export const contentMap: Record<Lang, ContentData> = {
 				serviceLbl: 'Необхідна послуга:',
 				commentLbl: 'Коментар або площа об’єкта:',
 				commentPlaceholder: 'Вкажіть площу, адресу або специфіку проблеми...',
-				submitBtn: '🚀 Викликати спеціаліста',
-				disclaimer: '🛡️ Натискаючи кнопку, ви даєте згоду на обробку персональних даних для зв’язку.',
+				submitBtn: 'Викликати спеціаліста',
+				disclaimer: 'Натискаючи кнопку, ви даєте згоду на обробку персональних даних для зв’язку.',
 				successTitle: 'Повідомлення успішно відправлено!',
 				successDesc: 'Дякуємо за звернення. Наш спеціаліст зателефонує вам найближчим часом для узгодження деталей.',
 				againBtn: 'Надіслати ще одне звернення'
 			}
 		},
 		modal: {
-			topTag: '⚡ OZON-DEZ',
+			topTag: 'OZON-DEZ',
 			defaultTitle: 'Виклик спеціаліста',
 			sub: 'Залиште ваш контакт — черговий спеціаліст розрахує точну вартість і запропонує найближчий зручний час виїзду.',
 			nameLbl: 'Ваше ім’я:',
@@ -767,7 +767,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			commentLbl: 'Опис проблеми або площа:',
 			commentPlaceholder: 'Наприклад: 2-кімнатна квартира, виявили тарганів на кухні...',
 			submitBtn: 'Викликати спеціаліста та отримати розрахунок',
-			privacy: '🔒 Конфіденційно. Працюємо згідно із санітарними регламентами України.',
+			privacy: 'Конфіденційно. Працюємо згідно із санітарними регламентами України.',
 			successTitle: 'Звернення прийнято!',
 			successText: 'Дякуємо! Наш спеціаліст зв’яжеться з вами протягом 5 хвилин для уточнення деталей.',
 			urgentText: 'Потрібна термінова консультація просто зараз?',
@@ -816,31 +816,31 @@ export const contentMap: Record<Lang, ContentData> = {
 					num: '01',
 					title: 'Дезинсекция',
 					desc: 'Уничтожение синантропных насекомых: тараканов, блох, комаров, клещей и др. с барьерным эффектом.',
-					icon: '🪳'
+					icon: 'pest'
 				},
 				{
 					num: '02',
 					title: 'Дератизация',
 					desc: 'Уничтожение грызунов (крыс и мышей) в помещениях и на прилегающих территориях.',
-					icon: '🐀'
+					icon: 'rodent'
 				},
 				{
 					num: '03',
 					title: 'Дезинфекция',
 					desc: 'Обеззараживание поверхностей, емкостей и питьевой воды сертифицированными составами.',
-					icon: '🧪'
+					icon: 'disinfection'
 				},
 				{
 					num: '04',
 					title: 'Озонирование',
 					desc: 'Глубокая эко-санация помещений, емкостей для хранения воды и пищевой продукции газом O₃.',
-					icon: '💨'
+					icon: 'ozone'
 				},
 				{
 					num: '05',
 					title: 'Пест-контроль',
 					desc: 'Комплекс мер по выявлению, мониторингу, регулированию численности и уничтожению вредителей (HACCP).',
-					icon: '📋'
+					icon: 'haccp'
 				}
 			],
 			audienceTitle: 'Физическим и юридическим лицам',
@@ -879,11 +879,11 @@ export const contentMap: Record<Lang, ContentData> = {
 			],
 			quickPainsLabel: 'Основные услуги санитарной безопасности:',
 			quickPains: [
-				'🪳 Дезинсекция (тараканы, блохи, клещи)',
-				'🐀 Дератизация (крысы, мыши)',
-				'🧪 Дезинфекция (поверхности, емкости, вода)',
-				'💨 Озонирование (помещения и емкости)',
-				'📋 Пест-контроль (HACCP)'
+				'Дезинсекция (тараканы, блохи, клещи)',
+				'Дератизация (крысы, мыши)',
+				'Дезинфекция (поверхности, емкости, вода)',
+				'Озонирование (помещения и емкости)',
+				'Пест-контроль (HACCP)'
 			],
 			ctaPrimary: 'Рассчитать стоимость',
 			ctaSecondary: 'Вызов специалиста',
@@ -920,10 +920,10 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Почему технология озонирования (O₃) превосходит обычную химию?',
 				desc: 'Озон в 300 раз активнее хлора, но в отличие от химических растворов, он полностью превращается обратно в чистый кислород через 30–40 минут.',
 				benefits: [
-					{ icon: '💨', title: '100% проникновение', desc: 'Газ заполняет глубочайшие поры бетона, текстиля и систем вентиляции.' },
-					{ icon: '🧬', title: 'Убивает 99.9% патогенов', desc: 'Окисляет и мгновенно разрушает белковые оболочки патогенов и споры плесени.' },
-					{ icon: '🌿', title: 'Абсолютно экологично', desc: 'Никакой токсичной пленки на мебели, посуде или игрушках.' },
-					{ icon: '🌿', title: 'Устраняет стойкие запахи', desc: 'Расщепляет молекулы сырости, табака и ремонта на молекулярном уровне.' }
+					{ icon: 'ozone', title: '100% проникновение', desc: 'Газ заполняет глубочайшие поры бетона, текстиля и систем вентиляции.' },
+					{ icon: 'dna', title: 'Убивает 99.9% патогенов', desc: 'Окисляет и мгновенно разрушает белковые оболочки патогенов и споры плесени.' },
+					{ icon: 'eco', title: 'Абсолютно экологично', desc: 'Никакой токсичной пленки на мебели, посуде или игрушках.' },
+					{ icon: 'eco', title: 'Устраняет стойкие запахи', desc: 'Расщепляет молекулы сырости, табака и ремонта на молекулярном уровне.' }
 				],
 				cta: 'Заказать озонирование объекта'
 			}
@@ -1112,7 +1112,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			],
 			cta: 'Заказать дезинфекцию воды',
 			badgeOverlay: {
-				shield: '🛡️ СанПиН Контроль',
+				shield: 'СанПиН Контроль',
 				clean: '100% защита от биопленок и легионеллы'
 			}
 		},
@@ -1212,7 +1212,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				namePlaceholder: 'Ваше имя',
 				phonePlaceholder: 'Номер телефона (напр. 063 667-26-53)',
 				submitBtn: 'Заказать выезд специалиста за',
-				privacy: '🔒 Ваши данные конфиденциальны и не передаются третьим лицам.',
+				privacy: 'Ваши данные конфиденциальны и не передаются третьим лицам.',
 				successTitle: 'Обращение принято!',
 				successDesc: 'Мы зафиксировали для вас цену. Дежурный специалист перезвонит вам в течение 5 минут.',
 				callNow: 'Позвонить сейчас:'
@@ -1263,7 +1263,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Локация: г. Черноморск',
 				subtitle: 'просп. Мира, 8-а • Выездные бригады по всей Одесской области',
 				btn: 'Открыть в Google Maps ↗',
-				routeCities: '🗺️ Черноморск • Одесса • Овидиополь • Великодолинское'
+				routeCities: 'Черноморск • Одесса • Овидиополь • Великодолинское'
 			},
 			form: {
 				nameLbl: 'Ваше имя или название компании:',
@@ -1272,15 +1272,15 @@ export const contentMap: Record<Lang, ContentData> = {
 				serviceLbl: 'Необходимая услуга:',
 				commentLbl: 'Комментарий или площадь объекта:',
 				commentPlaceholder: 'Укажите площадь, адрес или специфику проблемы...',
-				submitBtn: '🚀 Вызвать специалиста',
-				disclaimer: '🛡️ Нажимая кнопку, вы даете согласие на обработку персональных данных для связи.',
+				submitBtn: 'Вызвать специалиста',
+				disclaimer: 'Нажимая кнопку, вы даете согласие на обработку персональных данных для связи.',
 				successTitle: 'Обращение успешно отправлено!',
 				successDesc: 'Благодарим за обращение. Наш специалист перезвонит вам в ближайшее время для согласования деталей.',
 				againBtn: 'Отправить еще одно обращение'
 			}
 		},
 		modal: {
-			topTag: '⚡ OZON-DEZ',
+			topTag: 'OZON-DEZ',
 			defaultTitle: 'Вызов специалиста',
 			sub: 'Оставьте контакт — дежурный специалист рассчитает точную стоимость и предложит ближайшее удобное время выезда.',
 			nameLbl: 'Ваше имя:',
@@ -1291,7 +1291,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			commentLbl: 'Описание проблемы или площадь:',
 			commentPlaceholder: 'Например: 2-комнатная квартира, обнаружили тараканов на кухне...',
 			submitBtn: 'Вызвать специалиста и получить расчет',
-			privacy: '🔒 Конфиденциально. Работаем по санитарным регламентам Украины.',
+			privacy: 'Конфиденциально. Работаем по санитарным регламентам Украины.',
 			successTitle: 'Обращение принято!',
 			successText: 'Спасибо! Наш специалист свяжется с вами в течение 5 минут для уточнения деталей выезда.',
 			urgentText: 'Нужна срочная консультация прямо сейчас?',
@@ -1340,31 +1340,31 @@ export const contentMap: Record<Lang, ContentData> = {
 					num: '01',
 					title: 'Disinsection',
 					desc: 'Extermination of synanthropic insects: cockroaches, fleas, mosquitoes, ticks, etc. with residual barrier defense.',
-					icon: '🪳'
+					icon: 'pest'
 				},
 				{
 					num: '02',
 					title: 'Deratization',
 					desc: 'Eradication of rodents (rats and mice) across indoor facilities and exterior perimeters.',
-					icon: '🐀'
+					icon: 'rodent'
 				},
 				{
 					num: '03',
 					title: 'Disinfection',
 					desc: 'Sanitization of surfaces, storage tanks, and drinking water using certified class-4 safe solutions.',
-					icon: '🧪'
+					icon: 'disinfection'
 				},
 				{
 					num: '04',
 					title: 'Ozonation',
 					desc: 'Deep eco-sanitization of premises, water storage tanks, and food products with gaseous ozone O₃.',
-					icon: '💨'
+					icon: 'ozone'
 				},
 				{
 					num: '05',
 					title: 'Pest Control',
 					desc: 'Integrated system for detection, monitoring, population regulation, and eradication of pests (HACCP standard).',
-					icon: '📋'
+					icon: 'haccp'
 				}
 			],
 			audienceTitle: 'For Private Individuals & Commercial Entities',
@@ -1403,11 +1403,11 @@ export const contentMap: Record<Lang, ContentData> = {
 			],
 			quickPainsLabel: 'Core sanitary safety services:',
 			quickPains: [
-				'🪳 Disinsection (cockroaches, fleas, ticks)',
-				'🐀 Deratization (rats, mice)',
-				'🧪 Disinfection (surfaces, tanks, water)',
-				'💨 Ozonation (premises and containers)',
-				'📋 Pest Control (HACCP)'
+				'Disinsection (cockroaches, fleas, ticks)',
+				'Deratization (rats, mice)',
+				'Disinfection (surfaces, tanks, water)',
+				'Ozonation (premises and containers)',
+				'Pest Control (HACCP)'
 			],
 			ctaPrimary: 'Calculate Cost',
 			ctaSecondary: 'Call a specialist',
@@ -1444,10 +1444,10 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Why Ozonation (O₃) Outperforms Conventional Chemicals',
 				desc: 'Ozone is 300 times more active than chlorine, yet reverts entirely back into clean atmospheric oxygen within 30–40 minutes.',
 				benefits: [
-					{ icon: '💨', title: '100% Penetration', desc: 'Gas fills micro-pores in concrete, fabrics, and ventilation shafts.' },
-					{ icon: '🧬', title: 'Destroys 99.9% Pathogens', desc: 'Instantly oxidizes and dismantles viral protein envelopes and mold spores.' },
-					{ icon: '🌿', title: 'Completely Eco-Friendly', desc: 'Zero toxic chemical residues on furniture, cookware, or toys.' },
-					{ icon: '🌿', title: 'Eliminates Stubborn Odors', desc: 'Decomposes molecules of dampness, tobacco, and renovation odors at the molecular level.' }
+					{ icon: 'ozone', title: '100% Penetration', desc: 'Gas fills micro-pores in concrete, fabrics, and ventilation shafts.' },
+					{ icon: 'dna', title: 'Destroys 99.9% Pathogens', desc: 'Instantly oxidizes and dismantles viral protein envelopes and mold spores.' },
+					{ icon: 'eco', title: 'Completely Eco-Friendly', desc: 'Zero toxic chemical residues on furniture, cookware, or toys.' },
+					{ icon: 'eco', title: 'Eliminates Stubborn Odors', desc: 'Decomposes molecules of dampness, tobacco, and renovation odors at the molecular level.' }
 				],
 				cta: 'Order Facility Ozonation'
 			}
@@ -1636,7 +1636,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			],
 			cta: 'Order Water Disinfection',
 			badgeOverlay: {
-				shield: '🛡️ Sanitary Control',
+				shield: 'Sanitary Control',
 				clean: '100% defense against biofilms and Legionella'
 			}
 		},
@@ -1736,7 +1736,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				namePlaceholder: 'Your name',
 				phonePlaceholder: 'Phone number (e.g. 063 667-26-53)',
 				submitBtn: 'Book specialist visit for',
-				privacy: '🔒 Your data is confidential and never shared with third parties.',
+				privacy: 'Your data is confidential and never shared with third parties.',
 				successTitle: 'Inquiry Received!',
 				successDesc: 'We have locked in your price. An on-duty specialist will call you back within 5 minutes.',
 				callNow: 'Call Now:'
@@ -1787,7 +1787,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Location: Chornomorsk',
 				subtitle: '8-A Myru Ave. • Mobile dispatch teams throughout Odesa region',
 				btn: 'Open in Google Maps ↗',
-				routeCities: '🗺️ Chornomorsk • Odesa • Ovidiopol • Velykodolynske'
+				routeCities: 'Chornomorsk • Odesa • Ovidiopol • Velykodolynske'
 			},
 			form: {
 				nameLbl: 'Your Name or Company Name:',
@@ -1796,15 +1796,15 @@ export const contentMap: Record<Lang, ContentData> = {
 				serviceLbl: 'Required Service:',
 				commentLbl: 'Comment or Facility Area:',
 				commentPlaceholder: 'Specify area in sq meters, address, or pest issue...',
-				submitBtn: '🚀 Call a specialist',
-				disclaimer: '🛡️ By submitting, you agree to the processing of personal data for communication.',
+				submitBtn: 'Call a specialist',
+				disclaimer: 'By submitting, you agree to the processing of personal data for communication.',
 				successTitle: 'Inquiry Successfully Sent!',
 				successDesc: 'Thank you for reaching out. Our specialist will call you shortly to confirm the details.',
 				againBtn: 'Send Another Inquiry'
 			}
 		},
 		modal: {
-			topTag: '⚡ OZON-DEZ',
+			topTag: 'OZON-DEZ',
 			defaultTitle: 'Call a specialist',
 			sub: 'Leave your contact info — an on-duty specialist will calculate the exact cost and schedule the earliest convenient time.',
 			nameLbl: 'Your Name:',
@@ -1815,7 +1815,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			commentLbl: 'Problem description or area:',
 			commentPlaceholder: 'E.g. 2-room apartment, cockroaches detected in the kitchen...',
 			submitBtn: 'Call a specialist & get estimate',
-			privacy: '🔒 Confidential. Operating in full compliance with Ukrainian sanitary regulations.',
+			privacy: 'Confidential. Operating in full compliance with Ukrainian sanitary regulations.',
 			successTitle: 'Inquiry Received!',
 			successText: 'Thank you! Our specialist will reach out within 5 minutes to confirm dispatch details.',
 			urgentText: 'Need urgent emergency help right now?',

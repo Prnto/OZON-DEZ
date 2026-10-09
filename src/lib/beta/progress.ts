@@ -76,7 +76,7 @@ export function generateReport(params: {
 	// Group: Fails first
 	const failed = checks.filter((c) => marks[c.id]?.vote === 'fail');
 	if (failed.length > 0) {
-		lines.push('🚨 ВИЯВЛЕНІ ДЕФЕКТИ [НЕ ПРАЦЮЄ]:');
+		lines.push('[!] ВИЯВЛЕНІ ДЕФЕКТИ [НЕ ПРАЦЮЄ]:');
 		for (const c of failed) {
 			const m = marks[c.id];
 			const stale = m?.version !== version ? ` (позначено на іншій версії: ${m?.version})` : '';
@@ -92,7 +92,7 @@ export function generateReport(params: {
 	// Group: Unclear
 	const unclear = checks.filter((c) => marks[c.id]?.vote === 'unclear');
 	if (unclear.length > 0) {
-		lines.push('⚠️ НЕ ЗРОЗУМІЛО / СУМНІВНІ ПУНКТИ:');
+		lines.push('[?] НЕ ЗРОЗУМІЛО / СУМНІВНІ ПУНКТИ:');
 		for (const c of unclear) {
 			lines.push(`[НЕ ЗРОЗУМІЛО] ${c.id} (${c.category[lang]}): ${c.text[lang]}`);
 		}
@@ -102,7 +102,7 @@ export function generateReport(params: {
 	// Group: Passed
 	const ok = checks.filter((c) => marks[c.id]?.vote === 'ok');
 	if (ok.length > 0) {
-		lines.push('✅ ПІДТВЕРДЖЕНО [ПРАЦЮЄ]:');
+		lines.push('[+] ПІДТВЕРДЖЕНО [ПРАЦЮЄ]:');
 		for (const c of ok) {
 			lines.push(`[OK] ${c.id}: ${c.text[lang]}`);
 		}

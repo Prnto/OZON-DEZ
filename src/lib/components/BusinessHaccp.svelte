@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { ClipboardText, FolderSimple, PhoneCall } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -34,7 +35,9 @@
 		<div class="points-grid">
 			{#each b2b.points as pt}
 				<div class="point-item glass-card">
-					<div class="point-icon-box">📋</div>
+					<div class="point-icon-box">
+						<ClipboardText size={24} weight="duotone" />
+					</div>
 					<div class="point-content">
 						<h3 class="point-title">{pt.title}</h3>
 						<p class="point-desc">{pt.desc}</p>
@@ -49,16 +52,19 @@
 				<button
 					type="button"
 					class="btn btn-primary btn-lg"
+					style="display: inline-flex; align-items: center; gap: 0.45rem;"
 					onclick={() =>
 						orderModal.open({
 							serviceTitle: b2b.cta,
 							serviceCategory: 'HoReCa & HACCP'
 						})}
 				>
-					<span>📁 {b2b.cta}</span>
+					<FolderSimple size={18} weight="bold" />
+					<span>{b2b.cta}</span>
 				</button>
-				<a href="tel:{currentContent.phones.mobile}" class="btn btn-outline-white btn-lg">
-					<span>📞 {b2b.consultBtn}</span>
+				<a href="tel:{currentContent.phones.mobile}" class="btn btn-outline-white btn-lg" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+					<PhoneCall size={18} weight="bold" />
+					<span>{b2b.consultBtn}</span>
 				</a>
 			</div>
 		</div>

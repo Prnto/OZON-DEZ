@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { X, Lightning, ArrowRight } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -46,8 +47,8 @@
 						{/if}
 					</span>
 				</div>
-				<button type="button" class="menu-close-btn" onclick={closeWidget} aria-label="Закрити меню">
-					✕
+				<button type="button" class="menu-close-btn" onclick={closeWidget} aria-label="Закрити меню" style="display: flex; align-items: center; justify-content: center;">
+					<X size={16} weight="bold" />
 				</button>
 			</div>
 
@@ -62,7 +63,7 @@
 					}}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap call-icon">⚡</div>
+					<div class="item-icon-wrap call-icon" style="display: flex; align-items: center; justify-content: center;"><Lightning size={16} weight="fill" /></div>
 					<div class="item-content">
 						<span class="item-title">
 							{#if langState.current === 'ua'}
@@ -83,7 +84,7 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow">→</span>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</button>
 
 				<!-- Direct Mobile Call -->
@@ -110,7 +111,7 @@
 						</span>
 						<span class="item-detail">{currentContent.phones.mobileDisplay}</span>
 					</div>
-					<span class="item-arrow">→</span>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- Telegram Chat named OZON-DEZ (without 'Заявки') -->
@@ -139,7 +140,7 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow">→</span>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- Instagram (Coming soon stub) -->
@@ -175,7 +176,7 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow">→</span>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</button>
 
 				<!-- Viber -->
@@ -204,7 +205,7 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow">→</span>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- Landline / City Office Call -->
@@ -231,7 +232,7 @@
 						</span>
 						<span class="item-detail">{currentContent.phones.landlineDisplay}</span>
 					</div>
-					<span class="item-arrow">→</span>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 			</div>
 		</div>
@@ -249,7 +250,7 @@
 		<span class="ring-pulse"></span>
 		<span class="trigger-icon" aria-hidden="true">
 			{#if isOpen}
-				✕
+				<X size={20} weight="bold" />
 			{:else}
 				<svg class="trigger-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
 					<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>

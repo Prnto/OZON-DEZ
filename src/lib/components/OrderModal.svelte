@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { X, CheckCircle, PhoneCall } from 'phosphor-svelte';
 	import { orderModal } from '../state/modal.svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
@@ -80,21 +81,23 @@
 			aria-modal="true"
 			tabindex="-1"
 		>
-			<button type="button" class="close-btn" onclick={handleClose} aria-label={modalData.closeBtn}>
-				✕
+			<button type="button" class="close-btn" onclick={handleClose} aria-label={modalData.closeBtn} style="display: flex; align-items: center; justify-content: center;">
+				<X size={18} weight="bold" />
 			</button>
 
 			{#if isSubmitted}
 				<div class="modal-success">
-					<div class="modal-success-badge">✓</div>
+					<div class="modal-success-badge" style="display: flex; align-items: center; justify-content: center;">
+						<CheckCircle size={36} weight="fill" />
+					</div>
 					<h3 class="modal-success-title">{modalData.successTitle}</h3>
 					<p class="modal-success-p">
 						{modalData.successText} (<strong>{clientPhone}</strong>).
 					</p>
 					<div class="direct-call-box">
 						<span>{modalData.urgentText}</span>
-						<a href="tel:{currentContent.phones.mobile}" class="btn btn-primary" style="margin-top: 0.6rem;">
-							📞 {currentContent.phones.mobileDisplay}
+						<a href="tel:{currentContent.phones.mobile}" class="btn btn-primary" style="margin-top: 0.6rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;">
+							<PhoneCall size={18} weight="bold" /> {currentContent.phones.mobileDisplay}
 						</a>
 					</div>
 					<button type="button" class="btn btn-secondary btn-sm" style="margin-top: 1.5rem;" onclick={handleClose}>

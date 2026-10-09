@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PhoneCall, MagnifyingGlass, ClipboardText, ShieldCheck, Trophy, Lightbulb } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -25,11 +26,17 @@
 
 					<div class="step-card-content">
 						<div class="step-icon-emoji">
-							{#if item.step === 1}📞
-							{:else if item.step === 2}🔍
-							{:else if item.step === 3}📋
-							{:else if item.step === 4}🛡️
-							{:else}🏆{/if}
+							{#if item.step === 1}
+								<PhoneCall size={32} weight="duotone" color="var(--color-electric-iris)" />
+							{:else if item.step === 2}
+								<MagnifyingGlass size={32} weight="duotone" color="var(--color-electric-iris)" />
+							{:else if item.step === 3}
+								<ClipboardText size={32} weight="duotone" color="var(--color-electric-iris)" />
+							{:else if item.step === 4}
+								<ShieldCheck size={32} weight="duotone" color="var(--color-electric-iris)" />
+							{:else}
+								<Trophy size={32} weight="duotone" color="var(--color-electric-iris)" />
+							{/if}
 						</div>
 						<h3 class="step-card-title">{item.title}</h3>
 						<p class="step-card-desc">{item.desc}</p>
@@ -41,7 +48,9 @@
 		<!-- Preparation Tips Highlight Banner -->
 		<div class="prep-tips-box glass-card">
 			<div class="prep-tips-left">
-				<div class="prep-icon">💡</div>
+				<div class="prep-icon" style="display: flex; align-items: center; justify-content: center; color: var(--color-saffron-spark);">
+					<Lightbulb size={36} weight="duotone" />
+				</div>
 				<div>
 					<h4 class="prep-title">{work.prepBanner.title}</h4>
 					<p class="prep-desc">{work.prepBanner.desc}</p>

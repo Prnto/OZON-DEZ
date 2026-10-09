@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Calculator, Buildings, House, Coffee, Package, Drop, Clock, ShieldCheck, Flask, MapPin, PhoneCall, CheckCircle, Lightning } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -83,15 +84,15 @@
 	function getObjectName(key: ObjectKey, lang: string): string {
 		switch (key) {
 			case 'apartment':
-				return lang === 'ua' ? '🏢 Квартира' : lang === 'ru' ? '🏢 Квартира' : '🏢 Apartment';
+				return lang === 'ua' ? 'Квартира' : lang === 'ru' ? 'Квартира' : 'Apartment';
 			case 'house':
-				return lang === 'ua' ? '🏡 Приватний будинок' : lang === 'ru' ? '🏡 Частный дом' : '🏡 Private house';
+				return lang === 'ua' ? 'Приватний будинок' : lang === 'ru' ? 'Частный дом' : 'Private house';
 			case 'commercial':
-				return lang === 'ua' ? '☕ Ресторан / HoReCa / Офіс' : lang === 'ru' ? '☕ Ресторан / HoReCa / Офис' : '☕ Restaurant / HoReCa / Office';
+				return lang === 'ua' ? 'Ресторан / HoReCa / Офіс' : lang === 'ru' ? 'Ресторан / HoReCa / Офис' : 'Restaurant / HoReCa / Office';
 			case 'storage':
-				return lang === 'ua' ? '📦 Склад / Виробництво / Підвал' : lang === 'ru' ? '📦 Склад / Производство / Подвал' : '📦 Warehouse / Facility / Basement';
+				return lang === 'ua' ? 'Склад / Виробництво / Підвал' : lang === 'ru' ? 'Склад / Производство / Подвал' : 'Warehouse / Facility / Basement';
 			case 'tank':
-				return lang === 'ua' ? '💧 Резервуар / Ємність води' : lang === 'ru' ? '💧 Резервуар / Емкость воды' : '💧 Tank / Water reservoir';
+				return lang === 'ua' ? 'Резервуар / Ємність води' : lang === 'ru' ? 'Резервуар / Емкость воды' : 'Tank / Water reservoir';
 		}
 	}
 
@@ -143,8 +144,9 @@
 <section class="calc-section" id="calculator">
 	<div class="calc-container">
 		<div class="calc-header">
-			<span class="calc-tag">
-				🧮 {#if langState.current === 'ua'}ОНЛАЙН РОЗРАХУНОК{:else if langState.current === 'ru'}ОНЛАЙН РАСЧЕТ{:else}ONLINE CALCULATION{/if}
+			<span class="calc-tag" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+				<Calculator size={13} weight="bold" />
+				<span>{#if langState.current === 'ua'}ОНЛАЙН РОЗРАХУНОК{:else if langState.current === 'ru'}ОНЛАЙН РАСЧЕТ{:else}ONLINE CALCULATION{/if}</span>
 			</span>
 			<h2 class="calc-title">
 				{#if langState.current === 'ua'}
@@ -202,24 +204,24 @@
 						<div class="calc-radio-group">
 							<label class="radio-card" class:checked={selectedObject === 'apartment'}>
 								<input type="radio" name="objectType" value="apartment" bind:group={selectedObject} />
-								<span class="radio-label">🏢 {#if langState.current === 'ua'}Квартира{:else if langState.current === 'ru'}Квартира{:else}Apartment{/if}</span>
+								<span class="radio-label" style="display: inline-flex; align-items: center; gap: 0.35rem;"><Buildings size={16} weight="duotone" /> {#if langState.current === 'ua'}Квартира{:else if langState.current === 'ru'}Квартира{:else}Apartment{/if}</span>
 							</label>
 							<label class="radio-card" class:checked={selectedObject === 'house'}>
 								<input type="radio" name="objectType" value="house" bind:group={selectedObject} />
-								<span class="radio-label">🏡 {#if langState.current === 'ua'}Приватний будинок{:else if langState.current === 'ru'}Частный дом{:else}Private house{/if}</span>
+								<span class="radio-label" style="display: inline-flex; align-items: center; gap: 0.35rem;"><House size={16} weight="duotone" /> {#if langState.current === 'ua'}Приватний будинок{:else if langState.current === 'ru'}Частный дом{:else}Private house{/if}</span>
 							</label>
 							<label class="radio-card" class:checked={selectedObject === 'commercial'}>
 								<input type="radio" name="objectType" value="commercial" bind:group={selectedObject} />
-								<span class="radio-label">☕ {#if langState.current === 'ua'}Ресторан / HoReCa / Офіс{:else if langState.current === 'ru'}Ресторан / HoReCa / Офис{:else}HoReCa / Office{/if}</span>
+								<span class="radio-label" style="display: inline-flex; align-items: center; gap: 0.35rem;"><Coffee size={16} weight="duotone" /> {#if langState.current === 'ua'}Ресторан / HoReCa / Офіс{:else if langState.current === 'ru'}Ресторан / HoReCa / Офис{:else}HoReCa / Office{/if}</span>
 							</label>
 							<label class="radio-card" class:checked={selectedObject === 'storage'}>
 								<input type="radio" name="objectType" value="storage" bind:group={selectedObject} />
-								<span class="radio-label">📦 {#if langState.current === 'ua'}Склад / Виробництво / Підвал{:else if langState.current === 'ru'}Склад / Производство / Подвал{:else}Storage / Facility{/if}</span>
+								<span class="radio-label" style="display: inline-flex; align-items: center; gap: 0.35rem;"><Package size={16} weight="duotone" /> {#if langState.current === 'ua'}Склад / Виробництво / Підвал{:else if langState.current === 'ru'}Склад / Производство / Подвал{:else}Storage / Facility{/if}</span>
 							</label>
 							{#if isTankAvailable}
 								<label class="radio-card" class:checked={selectedObject === 'tank'}>
 									<input type="radio" name="objectType" value="tank" bind:group={selectedObject} />
-									<span class="radio-label">💧 {#if langState.current === 'ua'}Резервуар / Ємність води{:else if langState.current === 'ru'}Резервуар / Емкость воды{:else}Tank / Reservoir{/if}</span>
+									<span class="radio-label" style="display: inline-flex; align-items: center; gap: 0.35rem;"><Drop size={16} weight="duotone" /> {#if langState.current === 'ua'}Резервуар / Ємність води{:else if langState.current === 'ru'}Резервуар / Емкость воды{:else}Tank / Reservoir{/if}</span>
 								</label>
 							{/if}
 						</div>
@@ -290,26 +292,26 @@
 
 						<ul class="summary-list">
 							<li>
-								<span>⏱ {#if langState.current === 'ua'}Орієнтовний час обробки:{:else if langState.current === 'ru'}Ориентировочное время обработки:{:else}Estimated duration:{/if}</span>
+								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><Clock size={16} weight="duotone" /> {#if langState.current === 'ua'}Орієнтовний час обробки:{:else if langState.current === 'ru'}Ориентировочное время обработки:{:else}Estimated duration:{/if}</span>
 								<strong>{timeDisplay}</strong>
 							</li>
 							<li>
-								<span>🛡 {#if langState.current === 'ua'}Гарантія:{:else if langState.current === 'ru'}Гарантия:{:else}Warranty:{/if}</span>
+								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><ShieldCheck size={16} weight="duotone" /> {#if langState.current === 'ua'}Гарантія:{:else if langState.current === 'ru'}Гарантия:{:else}Warranty:{/if}</span>
 								<strong>{#if langState.current === 'ua'}Офіційний договір{:else if langState.current === 'ru'}Официальный договор{:else}Official contract{/if}</strong>
 							</li>
 							<li>
-								<span>🧪 {#if langState.current === 'ua'}Препарати:{:else if langState.current === 'ru'}Препараты:{:else}Preparations:{/if}</span>
+								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><Flask size={16} weight="duotone" /> {#if langState.current === 'ua'}Препарати:{:else if langState.current === 'ru'}Препараты:{:else}Preparations:{/if}</span>
 								<strong>{#if langState.current === 'ua'}Сертифіковані МОЗ України{:else if langState.current === 'ru'}Сертифицированные МОЗ Украины{:else}Ministry of Health certified{/if}</strong>
 							</li>
 							<li>
-								<span>📍 {#if langState.current === 'ua'}Виїзд:{:else if langState.current === 'ru'}Выезд:{:else}Dispatch area:{/if}</span>
+								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><MapPin size={16} weight="duotone" /> {#if langState.current === 'ua'}Виїзд:{:else if langState.current === 'ru'}Выезд:{:else}Dispatch area:{/if}</span>
 								<strong>{#if langState.current === 'ua'}Чорноморськ, Одеса та область{:else if langState.current === 'ru'}Черноморск, Одесса и область{:else}Chornomorsk, Odesa & region{/if}</strong>
 							</li>
 						</ul>
 
 						<div class="summary-cta">
 							<a href="tel:{currentContent.phones.mobile}" class="btn-calc-submit">
-								<span>📞</span>
+								<span><PhoneCall size={16} weight="bold" /></span>
 								<span>
 									{#if langState.current === 'ua'}Замовити за цією ціною{:else if langState.current === 'ru'}Заказать по этой цене{:else}Order at this price{/if}
 								</span>
@@ -330,8 +332,8 @@
 						<!-- Quick callback submit -->
 						<div class="calc-lead-section">
 							{#if isSuccess}
-								<div class="lead-success-badge">
-									✓ {#if langState.current === 'ua'}Заявку надіслано! Спеціаліст зв'яжеться з вами.{:else if langState.current === 'ru'}Заявка отправлена! Специалист свяжется с вами.{:else}Request sent! Our specialist will contact you.{/if}
+								<div class="lead-success-badge" style="display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+									<CheckCircle size={18} weight="fill" /> {#if langState.current === 'ua'}Заявку надіслано! Спеціаліст зв'яжеться з вами.{:else if langState.current === 'ru'}Заявка отправлена! Специалист свяжется с вами.{:else}Request sent! Our specialist will contact you.{/if}
 								</div>
 							{:else}
 								<form onsubmit={handleSubmitOrder} class="quick-lead-form">
@@ -343,8 +345,8 @@
 											required
 											class="lead-input"
 										/>
-										<button type="submit" class="lead-btn" disabled={isSubmitting}>
-											{#if isSubmitting}...{:else}⚡ {#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}{/if}
+										<button type="submit" class="lead-btn" disabled={isSubmitting} style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
+											{#if isSubmitting}...{:else}<Lightning size={16} weight="fill" /> {#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}{/if}
 										</button>
 									</div>
 								</form>

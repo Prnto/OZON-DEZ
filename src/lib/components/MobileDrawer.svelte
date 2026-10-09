@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { Moon, Sun, PhoneCall, Phone, Clock, Lightning } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { themeState } from '../state/theme.svelte';
 	import { contentMap } from '../data/content';
@@ -74,7 +75,7 @@
 							class:active={themeState.current === 'dark'}
 							onclick={() => themeState.setTheme('dark')}
 						>
-							🌙 {#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}
+							<Moon size={14} weight="bold" /> {#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}
 						</button>
 						<button
 							type="button"
@@ -82,7 +83,7 @@
 							class:active={themeState.current === 'light'}
 							onclick={() => themeState.setTheme('light')}
 						>
-							☀️ {#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}
+							<Sun size={14} weight="bold" /> {#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}
 						</button>
 					</div>
 				</div>
@@ -110,25 +111,25 @@
 			<div class="mobile-contacts-box">
 				<div class="mobile-phones">
 					<a href="tel:{currentContent.phones.mobile}" class="mobile-phone">
-						📞 {currentContent.phones.mobileDisplay}
+						<PhoneCall size={18} weight="bold" /> {currentContent.phones.mobileDisplay}
 					</a>
 					<a href="tel:{currentContent.phones.landline}" class="mobile-phone-sub">
-						☎️ {currentContent.phones.landlineDisplay}
+						<Phone size={16} weight="bold" /> {currentContent.phones.landlineDisplay}
 					</a>
 				</div>
 				<div class="mobile-hours">
-					🕒 {currentContent.workingHours.days}: {currentContent.workingHours.hours}
+					<Clock size={15} weight="bold" /> {currentContent.workingHours.days}: {currentContent.workingHours.hours}
 				</div>
 				<button
 					type="button"
 					class="btn btn-primary"
-					style="width: 100%; margin-top: 1rem;"
+					style="width: 100%; margin-top: 1rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;"
 					onclick={() => {
 						onClose();
 						orderModal.open();
 					}}
 				>
-					⚡ {currentContent.nav.callBtn}
+					<Lightning size={16} weight="fill" /> {currentContent.nav.callBtn}
 				</button>
 			</div>
 		</div>

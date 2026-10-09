@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { Car, Flask, FileText, ArrowsClockwise } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import Calculator from '#lib/components/Calculator.svelte';
 	import FaqSection from '#lib/components/FaqSection.svelte';
@@ -69,7 +70,7 @@
 
 			<div class="transparency-grid">
 				<div class="t-card glass-card">
-					<div class="t-icon">🚗</div>
+					<div class="t-icon"><Car size={26} weight="duotone" /></div>
 					<h4>
 						{#if langState.current === 'ua'}Виїзд спеціаліста з обладнанням{:else if langState.current === 'ru'}Выезд специалиста с оборудованием{:else}Specialist arrival with equipment{/if}
 					</h4>
@@ -85,7 +86,7 @@
 				</div>
 
 				<div class="t-card glass-card">
-					<div class="t-icon">🧪</div>
+					<div class="t-icon"><Flask size={26} weight="duotone" /></div>
 					<h4>
 						{#if langState.current === 'ua'}Сертифіковані препарати МОЗ{:else if langState.current === 'ru'}Сертифицированные препараты Минздрава{:else}Certified Ministry of Health Preparations{/if}
 					</h4>
@@ -101,7 +102,7 @@
 				</div>
 
 				<div class="t-card glass-card">
-					<div class="t-icon">📝</div>
+					<div class="t-icon"><FileText size={26} weight="duotone" /></div>
 					<h4>
 						{#if langState.current === 'ua'}Акти та гарантійний договір{:else if langState.current === 'ru'}Акты и гарантийный договор{:else}Official Acts & Warranty Contract{/if}
 					</h4>
@@ -117,7 +118,7 @@
 				</div>
 
 				<div class="t-card glass-card">
-					<div class="t-icon">🔄</div>
+					<div class="t-icon"><ArrowsClockwise size={26} weight="duotone" /></div>
 					<h4>
 						{#if langState.current === 'ua'}Безкоштовний контрольний виїзд{:else if langState.current === 'ru'}Бесплатный контрольный выезд{:else}Free Follow-Up Inspection{/if}
 					</h4>

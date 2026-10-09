@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { PhoneCall, Calculator, Lightning } from 'phosphor-svelte';
 	import AboutCompany from '#lib/components/AboutCompany.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 	import { orderModal } from '../lib/state/modal.svelte';
@@ -44,10 +45,12 @@
 							Use our interactive calculator: select facility type, specify square meters, and get an instant fixed quote with a contract warranty.
 						{/if}
 					</p>
+
 					<div class="teaser-actions">
 						<button
 							type="button"
 							class="btn btn-primary btn-lg"
+							style="display: inline-flex; align-items: center; gap: 0.45rem;"
 							onclick={() =>
 								orderModal.open({
 									serviceTitle:
@@ -58,18 +61,21 @@
 											: 'Call a specialist'
 								})}
 						>
-							<span>📞 {#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
+							<PhoneCall size={18} weight="bold" />
+							<span>{#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
 						</button>
-						<a href={resolve('/calculator')} class="btn btn-secondary btn-lg">
-							<span>🧮 {#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
+						<a href={resolve('/calculator')} class="btn btn-secondary btn-lg" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+							<Calculator size={18} weight="bold" />
+							<span>{#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
 						</a>
 					</div>
 				</div>
 
 				<div class="teaser-right">
 					<div class="teaser-preview-box">
-						<div class="prev-header">
-							{#if langState.current === 'ua'}⚡ Приклад базових тарифів{:else if langState.current === 'ru'}⚡ Пример базовых тарифов{:else}⚡ Sample Standard Rates{/if}
+						<div class="prev-header" style="display: flex; align-items: center; gap: 0.35rem;">
+							<Lightning size={14} weight="fill" />
+							<span>{#if langState.current === 'ua'}Приклад базових тарифів{:else if langState.current === 'ru'}Пример базовых тарифов{:else}Sample Standard Rates{/if}</span>
 						</div>
 						<div class="prev-row">
 							<span>{#if langState.current === 'ua'}1-кімнатна квартира:{:else if langState.current === 'ru'}1-комнатная квартира:{:else}1-room apartment:{/if}</span>

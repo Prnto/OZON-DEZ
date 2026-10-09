@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { ArrowUpRight } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import ContactSection from '#lib/components/ContactSection.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -68,7 +69,7 @@
 				>
 					<div class="city-link-pill">
 						<span>{langState.current === 'ua' ? 'Офіційний сайт' : langState.current === 'ru' ? 'Официальный сайт' : 'Official Portal'}</span>
-						<span class="link-arrow">↗</span>
+						<span class="link-arrow" style="display: inline-flex; align-items: center;"><ArrowUpRight size={13} weight="bold" /></span>
 					</div>
 					<div
 						class="card-crest-watermark"
@@ -108,7 +109,7 @@
 				>
 					<div class="city-link-pill">
 						<span>{langState.current === 'ua' ? 'Офіційний сайт' : langState.current === 'ru' ? 'Официальный сайт' : 'Official Portal'}</span>
-						<span class="link-arrow">↗</span>
+						<span class="link-arrow" style="display: inline-flex; align-items: center;"><ArrowUpRight size={13} weight="bold" /></span>
 					</div>
 					<div
 						class="card-crest-watermark"
@@ -148,7 +149,7 @@
 				>
 					<div class="city-link-pill">
 						<span>{langState.current === 'ua' ? 'Офіційний сайт' : langState.current === 'ru' ? 'Официальный сайт' : 'Official Portal'}</span>
-						<span class="link-arrow">↗</span>
+						<span class="link-arrow" style="display: inline-flex; align-items: center;"><ArrowUpRight size={13} weight="bold" /></span>
 					</div>
 					<div
 						class="card-crest-watermark"
@@ -188,7 +189,7 @@
 				>
 					<div class="city-link-pill">
 						<span>{langState.current === 'ua' ? 'Офіційний сайт' : langState.current === 'ru' ? 'Официальный сайт' : 'Official Portal'}</span>
-						<span class="link-arrow">↗</span>
+						<span class="link-arrow" style="display: inline-flex; align-items: center;"><ArrowUpRight size={13} weight="bold" /></span>
 					</div>
 					<div
 						class="card-crest-watermark"
@@ -228,7 +229,7 @@
 				>
 					<div class="city-link-pill">
 						<span>{langState.current === 'ua' ? 'Офіційний сайт' : langState.current === 'ru' ? 'Официальный сайт' : 'Official Portal'}</span>
-						<span class="link-arrow">↗</span>
+						<span class="link-arrow" style="display: inline-flex; align-items: center;"><ArrowUpRight size={13} weight="bold" /></span>
 					</div>
 					<div
 						class="card-crest-watermark"
@@ -268,7 +269,7 @@
 				>
 					<div class="city-link-pill city-link-pill-map">
 						<span>Google Maps</span>
-						<span class="link-arrow">↗</span>
+						<span class="link-arrow" style="display: inline-flex; align-items: center;"><ArrowUpRight size={13} weight="bold" /></span>
 					</div>
 					<div
 						class="card-crest-watermark"

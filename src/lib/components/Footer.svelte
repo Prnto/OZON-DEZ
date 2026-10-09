@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { ArrowRight, ArrowUp } from 'phosphor-svelte';
 	import Logo from './Logo.svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
@@ -135,8 +136,9 @@
 					</span>
 				</div>
 				<div class="contact-cta">
-					<a href={resolve('/contacts')} class="inline-link">
-						{#if langState.current === 'ua'}Карта та маршрут до офісу →{:else if langState.current === 'ru'}Карта и маршрут к офису →{:else}Map & route to office →{/if}
+					<a href={resolve('/contacts')} class="inline-link" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+						<span>{#if langState.current === 'ua'}Карта та маршрут до офісу{:else if langState.current === 'ru'}Карта и маршрут к офису{:else}Map & route to office{/if}</span>
+						<ArrowRight size={14} weight="bold" />
 					</a>
 				</div>
 			</div>
@@ -152,8 +154,9 @@
 			<div class="footer-subtext">
 				{currentContent.address.city}
 			</div>
-			<button type="button" class="back-to-top" onclick={scrollToTop} aria-label="Вгору">
-				<span>↑ {#if langState.current === 'ua'}Вгору{:else if langState.current === 'ru'}Вверх{:else}Top{/if}</span>
+			<button type="button" class="back-to-top" onclick={scrollToTop} aria-label="Вгору" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+				<ArrowUp size={14} weight="bold" />
+				<span>{#if langState.current === 'ua'}Вгору{:else if langState.current === 'ru'}Вверх{:else}Top{/if}</span>
 			</button>
 		</div>
 	</div>

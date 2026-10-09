@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
+	import { ArrowRight, Sparkle } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -52,8 +53,8 @@
 	<div class="container">
 		<!-- Section Header -->
 		<div class="section-header">
-			<div class="section-badge saffron-badge">
-				<span>✦</span>
+			<div class="section-badge saffron-badge" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+				<Sparkle size={14} weight="fill" />
 				<span>{about.badge}</span>
 			</div>
 			<h2 class="section-title">
@@ -104,19 +105,21 @@
 									<span class="srv-icon-bubble">{srv.icon}</span>
 								{/if}
 							</div>
-							<span class="srv-card-arrow" aria-hidden="true">→</span>
+							<span class="srv-card-arrow" aria-hidden="true" style="display: inline-flex; align-items: center;"><ArrowRight size={16} weight="bold" /></span>
 						</div>
 						<h4 class="srv-card-title">{srv.title}</h4>
 						<p class="srv-card-desc">{srv.desc}</p>
-						<span class="srv-read-more">
-							{#if langState.current === 'ua'}
-								Детальніше
-							{:else if langState.current === 'ru'}
-								Подробнее
-							{:else}
-								Learn more
-							{/if}
-							→
+						<span class="srv-read-more" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+							<span>
+								{#if langState.current === 'ua'}
+									Детальніше
+								{:else if langState.current === 'ru'}
+									Подробнее
+								{:else}
+									Learn more
+								{/if}
+							</span>
+							<ArrowRight size={14} weight="bold" />
 						</span>
 					</a>
 				{/each}

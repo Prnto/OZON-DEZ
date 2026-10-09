@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { resolve, asset } from '$app/paths';
+	import { Bug, ShieldCheck, Flask, Wind, Buildings } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import FaqSection from '#lib/components/FaqSection.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -44,7 +45,7 @@
 
 <div class="services-page">
 	<PageHeader
-		badge={langState.current === 'ua' ? '✦ ПРОФЕСІЙНИЙ САНІТАРНИЙ ЗАХИСТ' : langState.current === 'ru' ? '✦ ПРОФЕССИОНАЛЬНАЯ САНИТАРНАЯ ЗАЩИТА' : '✦ PROFESSIONAL SANITARY DEFENSE'}
+		badge={langState.current === 'ua' ? 'ПРОФЕСІЙНИЙ САНІТАРНИЙ ЗАХИСТ' : langState.current === 'ru' ? 'ПРОФЕССИОНАЛЬНАЯ САНИТАРНАЯ ЗАЩИТА' : 'PROFESSIONAL SANITARY DEFENSE'}
 		title={langState.current === 'ua' ? 'Послуги санітарної безпеки для дому та бізнесу' : langState.current === 'ru' ? 'Услуги санитарной безопасности для дома и бизнеса' : 'Sanitary Safety Services for Home & Business'}
 		subtitle={langState.current === 'ua'
 			? 'Надаємо повний комплекс послуг фізичним і юридичним особам у Чорноморську, Одесі та Одеській області. Використовуємо виключно зареєстровані в Україні препарати, генератори туману та промислові озонатори.'
@@ -72,7 +73,7 @@
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
 							<span class="service-badge-pill">
-								🪳 {#if langState.current === 'ua'}Популярна послуга{:else if langState.current === 'ru'}Популярная услуга{:else}Popular Service{/if}
+								<Bug size={14} weight="fill" /> {#if langState.current === 'ua'}Популярна послуга{:else if langState.current === 'ru'}Популярная услуга{:else}Popular Service{/if}
 							</span>
 							<span class="service-price-tag">{#if langState.current === 'en'}from 900 UAH{:else}від 900 грн{/if}</span>
 						</div>
@@ -131,7 +132,7 @@
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
 							<span class="service-badge-pill">
-								🐀 {#if langState.current === 'ua'}Гарантія зачистки{:else if langState.current === 'ru'}Гарантия зачистки{:else}Guaranteed Eradication{/if}
+								<ShieldCheck size={14} weight="fill" /> {#if langState.current === 'ua'}Гарантія зачистки{:else if langState.current === 'ru'}Гарантия зачистки{:else}Guaranteed Eradication{/if}
 							</span>
 							<span class="service-price-tag">{#if langState.current === 'en'}from 950 UAH{:else}від 950 грн{/if}</span>
 						</div>
@@ -190,7 +191,7 @@
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
 							<span class="service-badge-pill">
-								🧴 {#if langState.current === 'ua'}Антимікробний захист{:else if langState.current === 'ru'}Антимикробная защита{:else}Antimicrobial Defense{/if}
+								<Flask size={14} weight="fill" /> {#if langState.current === 'ua'}Антимікробний захист{:else if langState.current === 'ru'}Антимикробная защита{:else}Antimicrobial Defense{/if}
 							</span>
 							<span class="service-price-tag">{#if langState.current === 'en'}from 850 UAH{:else}від 850 грн{/if}</span>
 						</div>
@@ -249,7 +250,7 @@
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
 							<span class="service-badge-pill highlight-pill">
-								💨 {#if langState.current === 'ua'}Технологія O₃{:else if langState.current === 'ru'}Технология O₃{:else}O₃ Technology{/if}
+								<Wind size={14} weight="fill" /> {#if langState.current === 'ua'}Технологія O₃{:else if langState.current === 'ru'}Технология O₃{:else}O₃ Technology{/if}
 							</span>
 							<span class="service-price-tag">{#if langState.current === 'en'}from 1,100 UAH{:else}від 1 100 грн{/if}</span>
 						</div>
@@ -309,7 +310,7 @@
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
 							<span class="service-badge-pill b2b-pill">
-								🏢 {#if langState.current === 'ua'}Для бізнесу & HACCP{:else if langState.current === 'ru'}Для бизнеса & HACCP{:else}For Business & HACCP{/if}
+								<Buildings size={14} weight="fill" /> {#if langState.current === 'ua'}Для бізнесу & HACCP{:else if langState.current === 'ru'}Для бизнеса & HACCP{:else}For Business & HACCP{/if}
 							</span>
 							<span class="service-price-tag">{#if langState.current === 'en'}from 1,600 UAH{:else}від 1 600 грн{/if}</span>
 						</div>

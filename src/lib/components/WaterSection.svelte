@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { Drop } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -29,7 +30,9 @@
 					<div class="water-points-list">
 						{#each water.points as point}
 							<div class="water-point">
-								<span class="water-dot">💧</span>
+								<span class="water-dot" style="display: inline-flex; align-items: center;">
+									<Drop size={14} weight="fill" color="var(--color-electric-iris)" />
+								</span>
 								<span>{point}</span>
 							</div>
 						{/each}
@@ -39,9 +42,11 @@
 						<button
 							type="button"
 							class="btn btn-primary btn-lg"
+							style="display: inline-flex; align-items: center; gap: 0.45rem;"
 							onclick={() => orderModal.open({ serviceTitle: water.title })}
 						>
-							<span>🚿 {water.cta}</span>
+							<Drop size={18} weight="bold" />
+							<span>{water.cta}</span>
 						</button>
 					</div>
 				</div>

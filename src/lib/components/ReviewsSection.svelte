@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { House, ForkKnife, Bug, Bed, MapPin, Check, FileText, Star } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 
 	let activeFilter = $state('all');
@@ -27,7 +28,7 @@
 					text: 'Боролися з тарганами понад півроку побутовими балончиками — нічого не допомагало. Спеціаліст ОЗОН-ДЕЗ приїхав у день дзвінка, провів обробку за 40 хвилин. Комахи зникли повністю на наступний день. Приємно вразило, що немає запаху і безпечно для нашого кота.',
 					rating: 5,
 					date: 'Серпень 2026',
-					icon: '🪳'
+					icon: 'bug'
 				},
 				{
 					id: 2,
@@ -39,7 +40,7 @@
 					text: 'Дуже вдячний за конфіденційність та професіоналізм. Спеціаліст приїхав у цивільному одязі, все пояснив, обробив дивани та щілини. Після першого ж сеансу укуси припинилися. Дякую за спокійний сон нашої родини!',
 					rating: 5,
 					date: 'Травень 2026',
-					icon: '🛏️'
+					icon: 'bed'
 				},
 				{
 					id: 3,
@@ -51,7 +52,7 @@
 					text: 'Працюємо з ТОВ «ОЗОН-ДЕЗ» за річним договором. Планові нічні обробки залу та кухні без їдкого хімічного запаху. Планову перевірку Держпродспоживслужби пройшли з першого разу — всі акти, карти розташування пасток і сертифікати надані в повному обсязі.',
 					rating: 5,
 					date: 'Вересень 2026',
-					icon: '🍽️'
+					icon: 'haccp'
 				}
 			]
 		},
@@ -78,7 +79,7 @@
 					text: 'Боролись с тараканами более полугода бытовыми баллончиками — ничего не помогало. Специалист ОЗОН-ДЕЗ приехал в день звонка, провел обработку за 40 минут. Насекомые исчезли полностью на следующий день. Приятно удивило, что нет запаха и безопасно для кота.',
 					rating: 5,
 					date: 'Август 2026',
-					icon: '🪳'
+					icon: 'bug'
 				},
 				{
 					id: 2,
@@ -90,7 +91,7 @@
 					text: 'Очень благодарен за конфиденциальность и профессионализм. Специалист приехал в гражданской одежде, все объяснил, обработал диваны и плинтуса. После первого же сеанса укусы прекратились. Спасибо за спокойный сон семьи!',
 					rating: 5,
 					date: 'Май 2026',
-					icon: '🛏️'
+					icon: 'bed'
 				},
 				{
 					id: 3,
@@ -102,7 +103,7 @@
 					text: 'Работаем с ООО «ОЗОН-ДЕЗ» по годовому договору. Плановые ночные обработки зала и кухни без едкого запаха. Плановую проверку Госпродпотребслужбы прошли с первого раза — все акты, карты расстановки ловушек и сертификаты предоставлены в полном объеме.',
 					rating: 5,
 					date: 'Сентябрь 2026',
-					icon: '🍽️'
+					icon: 'haccp'
 				}
 			]
 		},
@@ -129,7 +130,7 @@
 					text: 'We fought cockroaches for six months using retail spray cans — nothing helped. An OZON-DEZ specialist arrived the same day and completed the treatment in 40 minutes. Insects vanished completely next day. Very pleased that there was no smell and it was safe for our cat.',
 					rating: 5,
 					date: 'August 2026',
-					icon: '🪳'
+					icon: 'bug'
 				},
 				{
 					id: 2,
@@ -141,7 +142,7 @@
 					text: 'Extremely grateful for confidentiality and professionalism. The specialist arrived in casual clothes, explained everything clearly, and treated the rooms. Bites ceased after the very first session. Thank you for our family peace of mind!',
 					rating: 5,
 					date: 'May 2026',
-					icon: '🛏️'
+					icon: 'bed'
 				},
 				{
 					id: 3,
@@ -153,7 +154,7 @@
 					text: 'We have cooperated with LLC "OZON-DEZ" under an annual contract. Scheduled nighttime kitchen and hall treatments without pungent chemical smells. Passed state food inspections on the first attempt with all log sheets, trap maps, and certificates provided.',
 					rating: 5,
 					date: 'September 2026',
-					icon: '🍽️'
+					icon: 'haccp'
 				}
 			]
 		}
@@ -191,16 +192,20 @@
 				class="filter-tab-btn"
 				class:active={activeFilter === 'b2c'}
 				onclick={() => (activeFilter = 'b2c')}
+				style="display: inline-flex; align-items: center; gap: 0.35rem;"
 			>
-				🏠 {currentData.filterB2C}
+				<House size={16} weight="bold" />
+				<span>{currentData.filterB2C}</span>
 			</button>
 			<button
 				type="button"
 				class="filter-tab-btn"
 				class:active={activeFilter === 'haccp'}
 				onclick={() => (activeFilter = 'haccp')}
+				style="display: inline-flex; align-items: center; gap: 0.35rem;"
 			>
-				🍽️ {currentData.filterHaccp}
+				<ForkKnife size={16} weight="bold" />
+				<span>{currentData.filterHaccp}</span>
 			</button>
 		</div>
 
@@ -210,16 +215,34 @@
 				<div class="review-card glass-card">
 					<div class="review-card-top">
 						<div class="review-author-box">
-							<div class="author-avatar">{item.icon}</div>
+							<div class="author-avatar">
+								{#if item.icon === 'bug'}
+									<Bug size={22} weight="duotone" color="var(--color-electric-iris)" />
+								{:else if item.icon === 'bed'}
+									<Bed size={22} weight="duotone" color="var(--color-electric-iris)" />
+								{:else}
+									<ForkKnife size={22} weight="duotone" color="var(--color-electric-iris)" />
+								{/if}
+							</div>
 							<div>
 								<div class="author-name">{item.author}</div>
 								<div class="author-role">{item.role}</div>
-								<div class="author-city">📍 {item.city}</div>
+								<div class="author-city" style="display: flex; align-items: center; gap: 0.25rem;">
+									<MapPin size={12} weight="fill" />
+									<span>{item.city}</span>
+								</div>
 							</div>
 						</div>
 						<div class="review-rating-badge">
-							<span class="stars">{'★'.repeat(item.rating)}</span>
-							<span class="verified-tag">✓ {currentData.verifiedBadge}</span>
+							<span class="stars" style="display: inline-flex; align-items: center; gap: 2px;">
+								{#each Array(item.rating) as _}
+									<Star size={13} weight="fill" color="var(--color-saffron-spark)" />
+								{/each}
+							</span>
+							<span class="verified-tag" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+								<Check size={12} weight="bold" />
+								<span>{currentData.verifiedBadge}</span>
+							</span>
 						</div>
 					</div>
 
@@ -233,7 +256,10 @@
 
 					<div class="review-card-footer">
 						<span class="review-date">{item.date}</span>
-						<span class="review-contract-note">📄 Офіційний акт виконаних робіт</span>
+						<span class="review-contract-note" style="display: inline-flex; align-items: center; gap: 0.3rem;">
+							<FileText size={13} weight="bold" />
+							<span>Офіційний акт виконаних робіт</span>
+						</span>
 					</div>
 				</div>
 			{/each}

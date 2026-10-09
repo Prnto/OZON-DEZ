@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { CookingPot, PawPrint, Door, Wind } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import HowWeWork from '#lib/components/HowWeWork.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -69,7 +70,7 @@
 
 			<div class="prep-cards-grid">
 				<div class="prep-card glass-card">
-					<div class="prep-card-icon">🍲</div>
+					<div class="prep-card-icon"><CookingPot size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}1. Продукти та посуд{:else if langState.current === 'ru'}1. Продукты и посуда{:else}1. Food & tableware{/if}
 					</h3>
@@ -85,7 +86,7 @@
 				</div>
 
 				<div class="prep-card glass-card">
-					<div class="prep-card-icon">🐾</div>
+					<div class="prep-card-icon"><PawPrint size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}2. Домашні улюбленці{:else if langState.current === 'ru'}2. Домашние питомцы{:else}2. Pets & animals{/if}
 					</h3>
@@ -101,7 +102,7 @@
 				</div>
 
 				<div class="prep-card glass-card">
-					<div class="prep-card-icon">🚪</div>
+					<div class="prep-card-icon"><Door size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}3. Доступ до плінтусів{:else if langState.current === 'ru'}3. Доступ к плинтусам{:else}3. Access to baseboards{/if}
 					</h3>
@@ -117,7 +118,7 @@
 				</div>
 
 				<div class="prep-card glass-card">
-					<div class="prep-card-icon">🪟</div>
+					<div class="prep-card-icon"><Wind size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}4. Провітрювання після{:else if langState.current === 'ru'}4. Проветривание после{:else}4. Airing out afterwards{/if}
 					</h3>

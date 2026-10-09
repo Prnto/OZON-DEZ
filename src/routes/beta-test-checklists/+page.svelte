@@ -2,6 +2,7 @@
 	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
+	import { Globe, ArrowSquareOut, Link, ClipboardText, Check, Warning, Trash, Flask, X, Question, SkipForward } from 'phosphor-svelte';
 	import { BETA_TABS } from '../../lib/beta/checklist';
 	import {
 		doneOnVersion,
@@ -196,8 +197,9 @@
 					data-testid="beta-lang-btn"
 					onclick={toggleLang}
 					title="Перемкнути мову чеклиста"
+					style="display: inline-flex; align-items: center; gap: 0.35rem;"
 				>
-					🌐 {checklistLang.toUpperCase()}
+					<Globe size={15} weight="bold" /> {checklistLang.toUpperCase()}
 				</button>
 				<a
 					href={resolve('/')}
@@ -205,8 +207,9 @@
 					class="btn-beta-home"
 					target="_blank"
 					rel="noreferrer"
+					style="display: inline-flex; align-items: center; gap: 0.35rem;"
 				>
-					↗ {checklistLang === 'uk' ? 'Відкрити сайт' : 'Open Website'}
+					<ArrowSquareOut size={15} weight="bold" /> {checklistLang === 'uk' ? 'Відкрити сайт' : 'Open Website'}
 				</a>
 			</div>
 		</div>
@@ -224,8 +227,9 @@
 						rel="noreferrer"
 						class="beta-screen-badge"
 						data-testid="beta-screen-{routePath.replace('/', '') || 'root'}-link"
+						style="display: inline-flex; align-items: center; gap: 0.35rem;"
 					>
-						🔗 {routePath === '/' ? 'Головна (/)' : routePath}
+						<Link size={13} weight="bold" /> {routePath === '/' ? 'Головна (/)' : routePath}
 					</a>
 				{/each}
 			</div>
@@ -362,19 +366,20 @@
 				class="btn-report-export"
 				data-testid="beta-report-btn"
 				onclick={copyReport}
+				style="display: inline-flex; align-items: center; gap: 0.35rem;"
 			>
-				📋 {checklistLang === 'uk' ? 'Копіювати звіт у буфер' : 'Copy Report to Clipboard'}
+				<ClipboardText size={16} weight="bold" /> {checklistLang === 'uk' ? 'Копіювати звіт у буфер' : 'Copy Report to Clipboard'}
 			</button>
 
 			{#if reportCopied}
-				<span class="report-status-badge success" data-testid="beta-report-hint">
-					✓ {checklistLang === 'uk' ? 'Звіт скопійовано!' : 'Report copied!'}
+				<span class="report-status-badge success" data-testid="beta-report-hint" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+					<Check size={16} weight="bold" /> {checklistLang === 'uk' ? 'Звіт скопійовано!' : 'Report copied!'}
 				</span>
 			{/if}
 
 			{#if reportFailed}
-				<span class="report-status-badge fail" data-testid="beta-report-failed-hint">
-					⚠️ {checklistLang === 'uk' ? 'Буфер недоступний. Скопіюйте текст нижче:' : 'Clipboard unavailable. Copy manually below:'}
+				<span class="report-status-badge fail" data-testid="beta-report-failed-hint" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+					<Warning size={16} weight="fill" /> {checklistLang === 'uk' ? 'Буфер недоступний. Скопіюйте текст нижче:' : 'Clipboard unavailable. Copy manually below:'}
 				</span>
 			{/if}
 		</div>
@@ -386,11 +391,12 @@
 				class:armed={armedClear}
 				data-testid="beta-clear-btn"
 				onclick={handleClear}
+				style="display: inline-flex; align-items: center; gap: 0.35rem;"
 			>
 				{#if armedClear}
-					⚠️ {checklistLang === 'uk' ? 'Підтвердіть: стерти всі позначки?' : 'Confirm: erase all marks?'}
+					<Warning size={16} weight="fill" /> {checklistLang === 'uk' ? 'Підтвердіть: стерти всі позначки?' : 'Confirm: erase all marks?'}
 				{:else}
-					🗑️ {checklistLang === 'uk' ? 'Скинути позначки' : 'Reset Marks'}
+					<Trash size={16} weight="bold" /> {checklistLang === 'uk' ? 'Скинути позначки' : 'Reset Marks'}
 				{/if}
 			</button>
 		</div>
@@ -430,8 +436,8 @@
 				{check.category[checklistLang]}
 			</div>
 			{#if check.negative}
-				<span class="boundary-pill">
-					{checklistLang === 'uk' ? '⚠️ Межа / Ліміт' : '⚠️ Boundary'}
+				<span class="boundary-pill" style="display: inline-flex; align-items: center; gap: 0.3rem;">
+					<Warning size={13} weight="fill" /> {checklistLang === 'uk' ? 'Межа / Ліміт' : 'Boundary'}
 				</span>
 			{/if}
 			{#if isStale}
@@ -446,8 +452,8 @@
 		</p>
 
 		{#if check.coverage === 'covered' && check.test}
-			<div class="check-test-file">
-				🧪 {check.test}
+			<div class="check-test-file" style="display: flex; align-items: center; gap: 0.35rem;">
+				<Flask size={14} weight="bold" /> {check.test}
 			</div>
 		{/if}
 
@@ -463,8 +469,8 @@
 					data-testid="beta-vote-{tId}-{v}-btn"
 					onclick={() => handleVote(check.id, v)}
 				>
-					<span class="vote-icon">
-						{#if v === 'ok'}✓{:else if v === 'fail'}✕{:else if v === 'unclear'}?{:else}⏭{/if}
+					<span class="vote-icon" style="display: inline-flex; align-items: center;">
+						{#if v === 'ok'}<Check size={14} weight="bold" />{:else if v === 'fail'}<X size={14} weight="bold" />{:else if v === 'unclear'}<Question size={14} weight="bold" />{:else}<SkipForward size={14} weight="bold" />{/if}
 					</span>
 					<span class="vote-label">{voteLabels[checklistLang][v]}</span>
 				</button>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { CheckCircle, XCircle, Target, Check } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
@@ -75,7 +76,7 @@
 
 					<div class="comparison-cards">
 						<div class="comp-card good">
-							<div class="comp-badge">✅ {#if langState.current === 'en'}Ozone (O₃){:else}Озон (O₃){/if}</div>
+							<div class="comp-badge" style="display: flex; align-items: center; gap: 0.35rem;"><CheckCircle size={16} weight="fill" /> {#if langState.current === 'en'}Ozone (O₃){:else}Озон (O₃){/if}</div>
 							<ul>
 								<li>{#if langState.current === 'ua'}100% проникнення в пори бетону і тканини{:else if langState.current === 'ru'}100% проникновение в поры бетона и ткани{:else}100% penetration into concrete pores and fabrics{/if}</li>
 								<li>{#if langState.current === 'ua'}Розпадається на чистий кисень (O₂) за 30-40 хв{:else if langState.current === 'ru'}Распадается на чистый кислород (O₂) за 30-40 мин{:else}Decomposes into pure oxygen (O₂) in 30-40 min{/if}</li>
@@ -85,7 +86,7 @@
 						</div>
 
 						<div class="comp-card bad">
-							<div class="comp-badge bad-b">❌ {#if langState.current === 'ua'}Звичайна побутова хімія{:else if langState.current === 'ru'}Обычная бытовая химия{:else}Standard Household Chemicals{/if}</div>
+							<div class="comp-badge bad-b" style="display: flex; align-items: center; gap: 0.35rem;"><XCircle size={16} weight="fill" /> {#if langState.current === 'ua'}Звичайна побутова хімія{:else if langState.current === 'ru'}Обычная бытовая химия{:else}Standard Household Chemicals{/if}</div>
 							<ul>
 								<li>{#if langState.current === 'ua'}Покриває лише зовнішню поверхню{:else if langState.current === 'ru'}Покрывает только внешнюю поверхность{:else}Covers only surface layer{/if}</li>
 								<li>{#if langState.current === 'ua'}Токсичні випари хлору тримаються цілодобово{:else if langState.current === 'ru'}Токсичные испарения хлора держатся сутками{:else}Toxic chlorine vapors linger for days{/if}</li>
@@ -170,7 +171,7 @@
 							{#if srv.badge}
 								<span class="srv-tag-badge">{srv.badge}</span>
 							{/if}
-							<span class="srv-target-pill">🎯 {srv.target}</span>
+							<span class="srv-target-pill" style="display: inline-flex; align-items: center; gap: 0.35rem;"><Target size={14} weight="bold" /> {srv.target}</span>
 						</div>
 
 						<h3 class="srv-card-heading">{srv.title}</h3>
@@ -183,7 +184,7 @@
 						<ul class="srv-feats">
 							{#each srv.features as feat}
 								<li>
-									<span class="feat-check">✓</span>
+									<span class="feat-check" style="display: inline-flex; align-items: center;"><Check size={14} weight="bold" /></span>
 									<span>{feat}</span>
 								</li>
 							{/each}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { MapPin, Clock, Phone, Moon, Sun } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { themeState } from '../state/theme.svelte';
 	import { contentMap } from '../data/content';
@@ -10,12 +11,12 @@
 	<div class="top-bar-container">
 		<div class="top-bar-left">
 			<span class="top-info-item">
-				<span class="top-icon">📍</span>
+				<span class="top-icon"><MapPin size={13} weight="bold" /></span>
 				<span class="top-text">{currentContent.address.city}</span>
 			</span>
 			<span class="top-bar-divider">|</span>
 			<span class="top-info-item">
-				<span class="top-icon">🕒</span>
+				<span class="top-icon"><Clock size={13} weight="bold" /></span>
 				<span class="top-text">{currentContent.workingHours.days}: {currentContent.workingHours.hours}</span>
 			</span>
 		</div>
@@ -24,7 +25,7 @@
 			<!-- Landline & Mobile in pill badges with capsule border -->
 			<div class="top-phones-cluster">
 				<a href="tel:{currentContent.phones.landline}" class="top-phone-pill" title="Міський / Офіс">
-					<span class="top-icon">☎️</span>
+					<span class="top-icon"><Phone size={13} weight="bold" /></span>
 					<span>{currentContent.phones.landlineDisplay}</span>
 				</a>
 				<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill highlight" title="Мобільний зв'язок">
@@ -43,7 +44,7 @@
 					onclick={() => themeState.setTheme('dark')}
 					title="Темна тема"
 				>
-					<span class="theme-icon">🌙</span>
+					<span class="theme-icon"><Moon size={13} weight="bold" /></span>
 					<span class="theme-label">{#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}</span>
 				</button>
 				<button
@@ -53,7 +54,7 @@
 					onclick={() => themeState.setTheme('light')}
 					title="Світла тема"
 				>
-					<span class="theme-icon">☀️</span>
+					<span class="theme-icon"><Sun size={13} weight="bold" /></span>
 					<span class="theme-label">{#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}</span>
 				</button>
 			</div>

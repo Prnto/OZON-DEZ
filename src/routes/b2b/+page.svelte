@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
+	import { CookingPot, Storefront, Package, Bread, Check } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import BusinessHaccp from '#lib/components/BusinessHaccp.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -59,7 +60,7 @@
 
 			<div class="industries-grid">
 				<div class="ind-card glass-card">
-					<div class="ind-icon">🍽️</div>
+					<div class="ind-icon"><CookingPot size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}HoReCa (Ресторани & Готелі){:else if langState.current === 'ru'}HoReCa (Рестораны & Отели){:else}HoReCa (Restaurants & Hotels){/if}
 					</h3>
@@ -73,13 +74,13 @@
 						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>{#if langState.current === 'ua'}Моніторинг пасток за графіком{:else if langState.current === 'ru'}Мониторинг ловушек по графику{:else}Scheduled trap monitoring{/if}</li>
-						<li>{#if langState.current === 'ua'}Без запаху та слідів на інвентарі{:else if langState.current === 'ru'}Без запаха и следов на инвентаре{:else}No odor or residue on equipment{/if}</li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Моніторинг пасток за графіком{:else if langState.current === 'ru'}Мониторинг ловушек по графику{:else}Scheduled trap monitoring{/if}</span></li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Без запаху та слідів на інвентарі{:else if langState.current === 'ru'}Без запаха и следов на инвентаре{:else}No odor or residue on equipment{/if}</span></li>
 					</ul>
 				</div>
 
 				<div class="ind-card glass-card">
-					<div class="ind-icon">🏬</div>
+					<div class="ind-icon"><Storefront size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}Супермаркети та Торгові мережі{:else if langState.current === 'ru'}Супермаркеты и Торговые сети{:else}Supermarkets & Retail Chains{/if}
 					</h3>
@@ -93,13 +94,13 @@
 						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>{#if langState.current === 'ua'}Контейнери з ключем безпеки{:else if langState.current === 'ru'}Контейнеры с ключом безопасности{:else}Tamper-resistant bait stations with keys{/if}</li>
-						<li>{#if langState.current === 'ua'}Журнал обліку для інспекцій{:else if langState.current === 'ru'}Журнал учета для инспекций{:else}Official pest control log for state audits{/if}</li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Контейнери з ключем безпеки{:else if langState.current === 'ru'}Контейнеры с ключом безопасности{:else}Tamper-resistant bait stations with keys{/if}</span></li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Журнал обліку для інспекцій{:else if langState.current === 'ru'}Журнал учета для инспекций{:else}Official pest control log for state audits{/if}</span></li>
 					</ul>
 				</div>
 
 				<div class="ind-card glass-card">
-					<div class="ind-icon">📦</div>
+					<div class="ind-icon"><Package size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}Логістичні центри та Склади{:else if langState.current === 'ru'}Логистические центры и Склады{:else}Logistics Centers & Warehouses{/if}
 					</h3>
@@ -113,13 +114,13 @@
 						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>{#if langState.current === 'ua'}Карта точок контролю об'єкта{:else if langState.current === 'ru'}Карта точек контроля объекта{:else}Comprehensive control point layout map{/if}</li>
-						<li>{#if langState.current === 'ua'}Офіційні протоколи дератизації{:else if langState.current === 'ru'}Официальные протоколы дератизации{:else}Certified deratization protocols{/if}</li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Карта точок контролю об'єкта{:else if langState.current === 'ru'}Карта точек контроля объекта{:else}Comprehensive control point layout map{/if}</span></li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Офіційні протоколи дератизації{:else if langState.current === 'ru'}Официальные протоколы дератизации{:else}Certified deratization protocols{/if}</span></li>
 					</ul>
 				</div>
 
 				<div class="ind-card glass-card">
-					<div class="ind-icon">🥖</div>
+					<div class="ind-icon"><Bread size={28} weight="duotone" /></div>
 					<h3>
 						{#if langState.current === 'ua'}Харчові виробництва{:else if langState.current === 'ru'}Пищевые производства{:else}Food Processing Plants{/if}
 					</h3>
@@ -133,8 +134,8 @@
 						{/if}
 					</p>
 					<ul class="ind-list">
-						<li>{#if langState.current === 'ua'}Індивідуальний регламент санації{:else if langState.current === 'ru'}Индивидуальный регламент санации{:else}Customized sanitation protocol{/if}</li>
-						<li>{#if langState.current === 'ua'}Персональний спеціаліст-аудитор{:else if langState.current === 'ru'}Персональный специалист-аудитор{:else}Dedicated specialist auditor{/if}</li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Індивідуальний регламент санації{:else if langState.current === 'ru'}Индивидуальный регламент санации{:else}Customized sanitation protocol{/if}</span></li>
+						<li><Check size={14} weight="bold" color="var(--color-electric-iris)" /> <span>{#if langState.current === 'ua'}Персональний спеціаліст-аудитор{:else if langState.current === 'ru'}Персональный специалист-аудитор{:else}Dedicated specialist auditor{/if}</span></li>
 					</ul>
 				</div>
 			</div>
@@ -245,10 +246,10 @@
 		padding-top: 0.9rem;
 	}
 
-	.ind-list li::before {
-		content: '✔ ';
-		color: var(--color-electric-iris);
-		font-weight: 600;
+	.ind-list li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.45rem;
 	}
 
 	.b2b-doc-banner {
