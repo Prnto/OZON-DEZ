@@ -7,6 +7,7 @@
 	import ConstellationCanvas from '#lib/components/ConstellationCanvas.svelte';
 	import { langState } from '../lib/state/language.svelte';
 	import { contentMap } from '../lib/data/content';
+	import { page, navigating } from '$app/state';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
@@ -78,12 +79,21 @@
 </svelte:head>
 
 <div class="site-layout">
+	<!-- Top navigation progress bar during page transitions -->
+	{#if navigating.to}
+		<div class="route-progress-bar" aria-hidden="true"></div>
+	{/if}
+
 	<!-- Persistent Constellation Canvas across all pages and full scroll height -->
 	<ConstellationCanvas mode="fullpage" />
 
 	<Header />
 	<main class="site-main">
-		{@render children()}
+		{#key page.url.pathname}
+			<div class="page-transition-wrapper">
+				{@render children()}
+			</div>
+		{/key}
 	</main>
 	<Footer />
 	<OrderModal />
@@ -91,6 +101,28 @@
 </div>
 
 <style>
+	.route-progress-bar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: linear-gradient(90deg, #8052ff, #06b6d4, #8052ff);
+		background-size: 200% 100%;
+		z-index: 99999;
+		animation: routeProgressGlow 0.8s infinite linear;
+		box-shadow: 0 0 12px rgba(128, 82, 255, 0.9), 0 0 6px rgba(6, 182, 212, 0.7);
+	}
+
+	@keyframes routeProgressGlow {
+		0% {
+			background-position: 100% 0;
+		}
+		100% {
+			background-position: -100% 0;
+		}
+	}
+
 	.site-layout {
 		min-height: 100vh;
 		display: flex;
@@ -101,8 +133,39 @@
 
 	.site-main {
 		flex: 1;
+		display: flex;
+		flex-direction: column;
 		position: relative;
 		z-index: 1;
 		background: transparent;
+	}
+
+	.page-transition-wrapper {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		animation: pageFadeSlide 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
+		will-change: opacity, transform;
+	}
+
+	@keyframes pageFadeSlide {
+		0% {
+			opacity: 0;
+			transform: translateY(14px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.page-transition-wrapper {
+			animation: none;
+		}
+		.route-progress-bar {
+			display: none;
+		}
 	}
 </style>
