@@ -113,6 +113,27 @@ if (routeErrors === 0) {
 	logSuccess(`Маршрутизація валідна: відсутні компоненти без '+' у src/routes`);
 }
 
+// 5. ПЕРЕВІРКА: Гігієна кореня від сміттєвих файлів та тимчасових тек (DOCUMENTATION-v10 § 1.1)
+const rootEntries = fs.readdirSync('.');
+const FORBIDDEN_ROOT_DIRS = /^(?:delete|deleted|temp|tmp|trash|test\d+)$/i;
+const FORBIDDEN_ROOT_FILES = /^(?:notes.*\.txt|.*-old\..*|.*_final\..*)$/i;
+
+let hygieneErrors = 0;
+for (const entry of rootEntries) {
+	if (entry.startsWith('.')) continue;
+	const isDir = fs.statSync(entry).isDirectory();
+	if (isDir && FORBIDDEN_ROOT_DIRS.test(entry)) {
+		logError(`Тимчасова тека в корені репозиторію: ${entry}. Перенесіть у .private/.temp/ або видаліть!`);
+		hygieneErrors++;
+	} else if (!isDir && FORBIDDEN_ROOT_FILES.test(entry)) {
+		logError(`Заборонений суфікс або тимчасовий файл у корені: ${entry}`);
+		hygieneErrors++;
+	}
+}
+if (hygieneErrors === 0) {
+	logSuccess(`Гігієна кореня дотримана: відсутні тимчасові сміттєві файли та теки`);
+}
+
 console.log('\n----------------------------------------');
 if (errorsCount > 0) {
 	console.error(`💥 Перевірка структури завершилась із помилками: ${errorsCount}`);

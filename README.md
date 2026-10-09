@@ -1,56 +1,91 @@
-# sv
+# ТОВ «ОЗОН-ДЕЗ» — Веб-портал санітарної безпеки
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Офіційний веб-сайт компанії **ТОВ «ОЗОН-ДЕЗ»** (м. Чорноморськ, Одеська область).  
+Професійний санітарно-епідеміологічний захист для приватних клієнтів та бізнесу: дезінсекція, дератизація, дезінфекція, озонування газом $O_3$, очищення систем водопостачання та пест-контроль за стандартами HACCP.
 
-## Creating a project
+* **Публічна адреса:** [https://prnto.github.io/OZON-DEZ/](https://prnto.github.io/OZON-DEZ/)
+* **Базовий офіс:** Україна, Одеська обл., м. Чорноморськ, просп. Миру, 8-а
+* **Контактні телефони:** `+38 (063) 667-26-53`, `(04868) 6-03-08`
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project
-npx sv create my-app
+## 🛠 Технічний стек
+
+* **Фреймворк:** [SvelteKit 2](https://svelte.dev/) + [Svelte 5](https://svelte.dev/) (сучасна модель реактивності Runes)
+* **Мова:** TypeScript
+* **Іконки:** [Phosphor Icons for Svelte](https://github.com/dundalek/phosphor-svelte) (`phosphor-svelte`) — 100% SVG
+* **Стилі:** Чистий Vanilla CSS з глобальною дизайн-системою токенів (`src/app.css`)
+* **Анімації та візуали:** Glassmorphism, зоряне поле Canvas (`ConstellationCanvas`), WebP зображення високої оптимізації
+* **Адаптер збірки:** `@sveltejs/adapter-static` для статичного хостингу (GitHub Pages)
+* **Інтеграція сповіщень:** Telegram Bot API через Cloudflare Worker
+
+---
+
+## 🧭 Структура проєкту
+
+```text
+OZON-DEZ/
+├── PROJECT-CONTEXT.md       # Єдине джерело бізнес- та технічного контексту
+├── AGENTS.md                # Правила та карта проєкту для ШІ-асистентів
+├── scripts/
+│   └── check-structure.js   # Автоматичний архітектурний гейт перевірки коду
+├── src/
+│   ├── app.css              # Дизайн-система: токени, кольори, типографіка, сітки
+│   ├── app.html             # HTML-шаблон сторінки
+│   ├── lib/
+│   │   ├── components/      # Незалежні UI-компоненти (Header, Footer, Calculator тощо)
+│   │   ├── data/content.ts  # Централізований текстовий контент і переклади (UA / RU / EN)
+│   │   ├── services/        # Інтеграції (відправка лідів у Telegram)
+│   │   └── state/           # Реактивний стан Runes (мовний селектор, модальні вікна)
+│   └── routes/              # Сторінки сайту SvelteKit (+page.svelte)
+│       ├── +page.svelte     # Головна сторінка
+│       ├── services/        # 5 напрямків санітарного захисту
+│       ├── ozone/           # Озонування O3
+│       ├── b2b/             # Пест-контроль для ресторанів і підприємств (HACCP)
+│       ├── water/           # Знезараження водопровідних систем і резервуарів
+│       ├── how-we-work/     # Регламент робіт та пам'ятка клієнту
+│       ├── calculator/      # Інтерактивний розрахунок вартості
+│       ├── contacts/        # Контакти, реквізити, карта та міста обслуговування
+│       └── beta-test-checklists/ # Інтерактивна система бета-тестування
+└── static/
+    ├── images/              # Оптимізовані WebP фото та векторні SVG-іконки
+    └── robots.txt           # SEO індексація
 ```
 
-To recreate this project with the same configuration:
+---
 
-```sh
-# recreate this project
-npx sv@1.1.1 create --template minimal --types ts --install npm .
+## 🚀 Команди розробки
+
+### Встановлення залежностей
+```bash
+npm install
 ```
 
-## Adding features
-
-Add features to your project with `sv add`:
-
-```sh
-npx sv add
-```
-
-For example, to add Tailwind CSS:
-
-```sh
-npx sv add tailwindcss
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+### Запуск локального сервера розробки
+```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+### Перевірка структури та типів (Обов'язковий гейт)
+```bash
+npm run check
+```
+> Запускає `scripts/check-structure.js` (перевірка рун, відсутність компонентів-сиріт, чистота static) та `svelte-check`.
 
-To create a production version of your app:
-
-```sh
+### Збірка для продакшну
+```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+### Попередній перегляд зібраного проєкту
+```bash
+npm run preview
+```
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+---
+
+## 📄 Документація та правила
+
+Детальні інструкції та правила розробки зафіксовані у:
+* [PROJECT-CONTEXT.md](PROJECT-CONTEXT.md) — повна специфікація проєкту, кольори, тарифи та послуги.
+* [AGENTS.md](AGENTS.md) — інструкція для ШІ-асистентів під час внесення змін.
