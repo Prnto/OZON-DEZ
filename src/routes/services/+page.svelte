@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { resolve, asset } from '$app/paths';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import FaqSection from '#lib/components/FaqSection.svelte';
@@ -7,6 +8,20 @@
 	import { orderModal } from '../../lib/state/modal.svelte';
 
 	let currentContent = $derived(contentMap[langState.current]);
+
+	onMount(() => {
+		if (typeof window !== 'undefined' && window.location.hash) {
+			const hash = window.location.hash.replace('#', '');
+			const target = document.getElementById(hash) || document.getElementById(hash.replace('-', '_')) || document.getElementById(hash.replace('_', '-'));
+			if (target) {
+				setTimeout(() => {
+					target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					target.classList.add('card-highlight-pulse');
+					setTimeout(() => target.classList.remove('card-highlight-pulse'), 2500);
+				}, 200);
+			}
+		}
+	});
 </script>
 
 <svelte:head>
@@ -282,7 +297,8 @@
 				</article>
 
 				<!-- Картка 5: Пест-контроль -->
-				<article class="service-card glass-card service-card-b2b" id="pest_control">
+				<article class="service-card glass-card service-card-b2b" id="pest-control">
+					<span id="pest_control" style="position: absolute; top: -110px; visibility: hidden;" aria-hidden="true"></span>
 					<div class="service-card-media">
 						<img
 							src={asset('images/warehouse-logistics-dez.jpg')}
@@ -370,11 +386,27 @@
 		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 		background: var(--color-surface);
 		border: 1px solid var(--color-void-border);
+		scroll-margin-top: 110px;
 	}
 
 	:global(html[data-theme="light"]) .service-card {
 		background: #ffffff;
 		border-color: #e2e8f0;
+	}
+
+	@keyframes cardPulse {
+		0%, 100% {
+			border-color: var(--color-void-border);
+		}
+		50% {
+			border-color: #38bdf8;
+			box-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
+			transform: translateY(-4px);
+		}
+	}
+
+	:global(.card-highlight-pulse) {
+		animation: cardPulse 1.2s ease-in-out 2;
 	}
 
 	.service-card:hover {

@@ -1,11 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
-  <circle cx="24" cy="24" r="22" fill="rgba(16, 185, 129, 0.12)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <!-- Shield outline -->
-  <path d="M24 6 L38 12 V23 C38 31.5 32 38.5 24 41 C16 38.5 10 31.5 10 23 V12 L24 6 Z" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2.5" stroke-linejoin="round"/>
-  <!-- Medical Sanitize Cross with Central Droplet -->
-  <path d="M24 14 V32 M15 23 H33" stroke="#34d399" stroke-width="3.5" stroke-linecap="round"/>
-  <circle cx="24" cy="23" r="3.5" fill="#ffffff"/>
-  <!-- Clean spark stars -->
-  <path d="M34 11 L35 8 L36 11 L39 12 L36 13 L35 16 L34 13 L31 12 Z" fill="#6ee7b7"/>
-  <path d="M13 32 L14 30 L15 32 L17 33 L15 34 L14 36 L13 34 L11 33 Z" fill="#6ee7b7"/>
+  <!-- Emerald Sanitary Glow Background -->
+  <circle cx="24" cy="24" r="22" fill="rgba(16, 185, 129, 0.14)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
+
+  <!-- Bold Protective Sanitary Shield -->
+  <path d="M 24 6 
+           C 29 8.5, 36 9.5, 39 11.5 
+           C 39 21, 37 32, 24 41 
+           C 11 32, 9 21, 9 11.5 
+           C 12 9.5, 19 8.5, 24 6 Z" 
+        fill="rgba(16, 185, 129, 0.22)" 
+        stroke="#10b981" 
+        stroke-width="2.6" 
+        stroke-linejoin="round"/>
+
+  <!-- Bright Medical Sanitation Cross (Prominent White) -->
+  <path d="M 21.5 14 H 26.5 V 21.5 H 34 V 26.5 H 26.5 V 34 H 21.5 V 26.5 H 14 V 21.5 H 21.5 Z" 
+        fill="#ffffff" 
+        stroke="#34d399" 
+        stroke-width="1" 
+        stroke-linejoin="round"/>
+
+  <!-- Sparkling Cleanliness Stars (✨ Disinfection Shine) -->
+  <path d="M 36 8 L 37.2 11.2 L 40.5 12 L 37.2 12.8 L 36 16 L 34.8 12.8 L 31.5 12 L 34.8 11.2 Z" fill="#6ee7b7"/>
+  <path d="M 12 32 L 13 34.2 L 15.5 35 L 13 35.8 L 12 38 L 11 35.8 L 8.5 35 L 11 34.2 Z" fill="#6ee7b7"/>
+  <circle cx="37" cy="28" r="1.5" fill="#a7f3d0"/>
+  <circle cx="11" cy="18" r="1.5" fill="#a7f3d0"/>
 </svg>

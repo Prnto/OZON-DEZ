@@ -2,7 +2,7 @@
 	import { resolve } from '$app/paths';
 	import AboutCompany from '#lib/components/AboutCompany.svelte';
 	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
-
+	import { orderModal } from '../lib/state/modal.svelte';
 	import { langState } from '../lib/state/language.svelte';
 	import { contentMap } from '../lib/data/content';
 
@@ -45,11 +45,23 @@
 						{/if}
 					</p>
 					<div class="teaser-actions">
-						<a href={resolve('/calculator')} class="btn btn-primary btn-lg">
-							<span>🧮 {#if langState.current === 'ua'}Відкрити онлайн-калькулятор{:else if langState.current === 'ru'}Открыть онлайн-калькулятор{:else}Open Online Calculator{/if}</span>
-						</a>
-						<a href={resolve('/how-we-work')} class="btn btn-secondary btn-lg">
-							<span>⚙️ {#if langState.current === 'ua'}Як ми працюємо{:else if langState.current === 'ru'}Как мы работаем{:else}How We Work{/if}</span>
+						<button
+							type="button"
+							class="btn btn-primary btn-lg"
+							onclick={() =>
+								orderModal.open({
+									serviceTitle:
+										langState.current === 'ua'
+											? 'Виклик спеціаліста'
+											: langState.current === 'ru'
+											? 'Вызов специалиста'
+											: 'Call a specialist'
+								})}
+						>
+							<span>📞 {#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
+						</button>
+						<a href={resolve('/calculator')} class="btn btn-secondary btn-lg">
+							<span>🧮 {#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
 						</a>
 					</div>
 				</div>

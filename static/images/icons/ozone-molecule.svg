@@ -1,17 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
-  <circle cx="24" cy="24" r="22" fill="rgba(128, 82, 255, 0.12)" stroke="#8052ff" stroke-width="1.2" stroke-opacity="0.4"/>
-  <!-- Active ionization orbital ring -->
-  <ellipse cx="24" cy="24" rx="17" ry="9" stroke="#8052ff" stroke-width="1.5" stroke-dasharray="3 3" transform="rotate(-25 24 24)"/>
-  <!-- Molecular Bonds -->
-  <line x1="21" y1="16" x2="17" y2="25" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round"/>
-  <line x1="27" y1="16" x2="31" y2="25" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round"/>
-  <!-- 3 Oxygen Atoms (O3 Triatomic) -->
-  <circle cx="24" cy="12" r="5.5" fill="#8052ff" stroke="#c084fc" stroke-width="1.5"/>
-  <circle cx="14" cy="28" r="5.5" fill="#8052ff" stroke="#c084fc" stroke-width="1.5"/>
-  <circle cx="34" cy="28" r="5.5" fill="#8052ff" stroke="#c084fc" stroke-width="1.5"/>
-  <circle cx="24" cy="12" r="2" fill="#ffffff"/>
-  <circle cx="14" cy="28" r="2" fill="#ffffff"/>
-  <circle cx="34" cy="28" r="2" fill="#ffffff"/>
-  <!-- O3 Badge Label -->
-  <text x="24" y="41" text-anchor="middle" fill="#c084fc" font-family="system-ui, sans-serif" font-weight="800" font-size="9" letter-spacing="0.05em">O₃ GAS</text>
+  <!-- Glowing Violet Atmospheric Aura -->
+  <circle cx="24" cy="24" r="22" fill="rgba(128, 82, 255, 0.16)" stroke="#8052ff" stroke-width="1.2" stroke-opacity="0.45"/>
+
+  <!-- Orbital Ionization Rings -->
+  <ellipse cx="24" cy="24" rx="19" ry="10" stroke="#a855f7" stroke-width="1.4" stroke-dasharray="4 3" transform="rotate(-30 24 24)"/>
+  <ellipse cx="24" cy="24" rx="19" ry="10" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 4" transform="rotate(35 24 24)"/>
+
+  <!-- 3 Interconnected Oxygen Atoms (O₃ Triad Structure) -->
+  <!-- Molecular Covalent Bonds -->
+  <line x1="24" y1="11" x2="14" y2="28" stroke="#c084fc" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="24" y1="11" x2="34" y2="28" stroke="#c084fc" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="14" y1="28" x2="34" y2="28" stroke="#818cf8" stroke-width="1.8" stroke-dasharray="2 2" stroke-linecap="round"/>
+
+  <!-- Atom 1 (Top Oxygen) -->
+  <circle cx="24" cy="11" r="6.2" fill="#8052ff" stroke="#e9d5ff" stroke-width="1.6"/>
+  <circle cx="24" cy="11" r="2.4" fill="#ffffff"/>
+
+  <!-- Atom 2 (Left Oxygen) -->
+  <circle cx="14" cy="28" r="6.2" fill="#8052ff" stroke="#e9d5ff" stroke-width="1.6"/>
+  <circle cx="14" cy="28" r="2.4" fill="#ffffff"/>
+
+  <!-- Atom 3 (Right Oxygen) -->
+  <circle cx="34" cy="28" r="6.2" fill="#8052ff" stroke="#e9d5ff" stroke-width="1.6"/>
+  <circle cx="34" cy="28" r="2.4" fill="#ffffff"/>
+
+  <!-- Active Oxygen Gas Ionization Sparkles -->
+  <circle cx="8" cy="16" r="1.5" fill="#38bdf8"/>
+  <circle cx="40" cy="16" r="1.5" fill="#38bdf8"/>
+  <path d="M 24 20 L 25 22 L 27 23 L 25 24 L 24 26 L 23 24 L 21 23 L 23 22 Z" fill="#ffffff"/>
+
+  <!-- Crystal-Clear Bold Typography Badge: O₃ -->
+  <rect x="14" y="36.5" width="20" height="9" rx="4.5" fill="#581c87" stroke="#c084fc" stroke-width="1"/>
+  <text x="24" y="43.5" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="7.5" letter-spacing="0.08em">O₃ GAS</text>
 </svg>
