@@ -74,24 +74,6 @@
 					<span>{#if langState.current === 'ua'}Розрахувати вартість{:else if langState.current === 'ru'}Рассчитать стоимость{:else}Calculate cost{/if}</span>
 				</a>
 			</div>
-
-			<!-- Фактоїди внизу першого екрана -->
-			<div class="hero-stats">
-				<div class="stat-item">
-					<strong class="stat-number">15 {#if langState.current === 'ua'}років{:else if langState.current === 'ru'}лет{:else}years{/if}</strong>
-					<span class="stat-label">{#if langState.current === 'ua'}практичного досвіду{:else if langState.current === 'ru'}практического опыта{:else}practical experience{/if}</span>
-				</div>
-				<div class="stat-divider"></div>
-				<div class="stat-item">
-					<strong class="stat-number">B2C &amp; B2B</strong>
-					<span class="stat-label">{#if langState.current === 'ua'}для населення та підприємств{:else if langState.current === 'ru'}для населения и предприятий{:else}for residents and business{/if}</span>
-				</div>
-				<div class="stat-divider"></div>
-				<div class="stat-item">
-					<strong class="stat-number">100%</strong>
-					<span class="stat-label">{#if langState.current === 'ua'}сертифіковані препарати{:else if langState.current === 'ru'}сертифицированные препараты{:else}certified preparations{/if}</span>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -201,55 +183,7 @@
 		gap: 0.5rem;
 	}
 
-	.hero-stats {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: clamp(1rem, 3vw, 2.5rem);
-		padding-top: 1.8rem;
-		border-top: 1px solid var(--color-void-border);
-		width: 100%;
-		max-width: 720px;
-	}
-
-	.stat-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-
-	.stat-number {
-		font-size: 1.55rem;
-		font-weight: 800;
-		color: var(--color-bone-white);
-		letter-spacing: -0.02em;
-	}
-
-	.stat-label {
-		font-size: 12.5px;
-		color: var(--color-ash-gray);
-		margin-top: 0.2rem;
-		font-weight: 400;
-	}
-
-	.stat-divider {
-		width: 1px;
-		height: 36px;
-		background: var(--color-void-border);
-	}
-
 	@media (max-width: 640px) {
-		.hero-stats {
-			flex-direction: column;
-			gap: 1rem;
-		}
-
-		.stat-divider {
-			width: 60px;
-			height: 1px;
-		}
-
 		.hero-actions {
 			flex-direction: column;
 			width: 100%;
@@ -287,13 +221,5 @@
 		background: #ffffff;
 		border-color: #e2e8f0;
 		color: #334155;
-	}
-
-	:global(html[data-theme="light"]) .stat-number {
-		color: #0f172a;
-	}
-
-	:global(html[data-theme="light"]) .stat-label {
-		color: #64748b;
 	}
 </style>
