@@ -104,7 +104,7 @@
 			: langState.current === 'ru'
 			? `Добрый день! Интересует услуга: ${srvName}.\nОбъект: ${objName}, площадь: ${area} м².\nОриентировочная стоимость на сайте: ${calculatedPrice} грн.`
 			: `Hello! Interested in service: ${srvName}.\nFacility: ${objName}, area: ${area} m².\nEstimated quote from website: ${calculatedPrice} ${currency}.`;
-		return `https://t.me/ozon_dez_lead_bot?start=calc`;
+		return `https://t.me/OZON_DEZ_bot?start=calc`;
 	});
 
 	async function handleSubmitOrder(e: Event) {

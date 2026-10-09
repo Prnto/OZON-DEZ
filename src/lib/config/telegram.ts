@@ -29,5 +29,6 @@ export const TELEGRAM_CONFIG = {
 		return resolveSecureToken();
 	},
 	chatId: '341806822',
+	botUsername: 'OZON_DEZ_bot',
 	enabled: true
 };

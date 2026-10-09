@@ -115,7 +115,7 @@
 
 				<!-- Telegram Chat named OZON-DEZ (without 'Заявки') -->
 				<a
-					href="https://t.me/ozon_dez_lead_bot"
+					href="https://t.me/OZON_DEZ_bot"
 					target="_blank"
 					rel="noreferrer"
 					class="menu-item tg-action"
