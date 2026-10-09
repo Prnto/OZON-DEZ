@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
-	import { Sparkle, PhoneCall, Calculator, ShieldCheck, Clock, Flask, Lightning, CheckCircle } from 'phosphor-svelte';
+	import { PhoneCall, Calculator, ShieldCheck, Clock, Flask, Lightning, CheckCircle } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { orderModal } from '../state/modal.svelte';
@@ -11,61 +11,8 @@
 
 <section id="hero" class="hero-section">
 	<div class="container hero-container">
-		<!-- Top Trust Badge -->
-		<div class="hero-header-box">
-			<div class="section-badge hero-badge saffron-badge" style="display: inline-flex; align-items: center; gap: 0.35rem;">
-				<Sparkle size={14} weight="fill" />
-				<span>{hero.badge}</span>
-			</div>
-
-			<h1 class="hero-title">
-				<span class="hero-title-main">{hero.titleMain}</span>
-				<span class="hero-title-sub">{hero.titleHighlight}</span>
-			</h1>
-
-			<p class="hero-subtitle">
-				{hero.subtitle}
-			</p>
-
-			<!-- Quick CTAs -->
-			<div class="hero-actions">
-				<button
-					type="button"
-					class="btn btn-primary btn-lg"
-					data-testid="hero-call-btn"
-					onclick={() =>
-						orderModal.open({
-							serviceTitle:
-								langState.current === 'ua'
-									? 'Виклик спеціаліста'
-									: langState.current === 'ru'
-									? 'Вызов специалиста'
-									: 'Call a specialist'
-						})}
-				>
-					<Lightning size={18} weight="fill" />
-					<span>{hero.ctaPrimary}</span>
-				</button>
-
-				<a
-					href={resolve('/calculator')}
-					class="btn btn-secondary btn-lg"
-					data-testid="hero-calc-link"
-				>
-					<Calculator size={18} weight="bold" />
-					<span>{hero.ctaSecondary}</span>
-				</a>
-
-				<a
-					href="tel:{currentContent.phones.mobile}"
-					class="btn btn-ghost btn-lg hero-phone-cta"
-					data-testid="hero-phone-link"
-				>
-					<PhoneCall size={18} weight="bold" />
-					<span>{currentContent.phones.mobileDisplay}</span>
-				</a>
-			</div>
-		</div>
+		<!-- Semantic accessible H1 for SEO -->
+		<h1 class="sr-only">{hero.titleMain} {hero.titleHighlight} — {currentContent.companyName}</h1>
 
 		<!-- Promotional Hero Visual Showcase -->
 		<div class="hero-banner-wrapper">
@@ -107,6 +54,45 @@
 			</div>
 		</div>
 
+		<!-- Quick CTAs placed directly below the promotional banner -->
+		<div class="hero-actions">
+			<button
+				type="button"
+				class="btn btn-primary btn-lg"
+				data-testid="hero-call-btn"
+				onclick={() =>
+					orderModal.open({
+						serviceTitle:
+							langState.current === 'ua'
+								? 'Виклик спеціаліста'
+								: langState.current === 'ru'
+								? 'Вызов специалиста'
+								: 'Call a specialist'
+					})}
+			>
+				<Lightning size={18} weight="fill" />
+				<span>{hero.ctaPrimary}</span>
+			</button>
+
+			<a
+				href={resolve('/calculator')}
+				class="btn btn-secondary btn-lg"
+				data-testid="hero-calc-link"
+			>
+				<Calculator size={18} weight="bold" />
+				<span>{hero.ctaSecondary}</span>
+			</a>
+
+			<a
+				href="tel:{currentContent.phones.mobile}"
+				class="btn btn-ghost btn-lg hero-phone-cta"
+				data-testid="hero-phone-link"
+			>
+				<PhoneCall size={18} weight="bold" />
+				<span>{currentContent.phones.mobileDisplay}</span>
+			</a>
+		</div>
+
 		<!-- 3 Core Triggers / Value Props -->
 		<div class="hero-triggers-grid">
 			{#each hero.triggers as trg, idx}
@@ -129,7 +115,7 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
-		padding: clamp(2.5rem, 5vh, 4.5rem) 0 clamp(3.5rem, 6vh, 5rem);
+		padding: clamp(1.5rem, 3.5vh, 2.5rem) 0 clamp(3rem, 5vh, 4.5rem);
 		border-bottom: 1px solid var(--color-void-border);
 		overflow: hidden;
 	}
@@ -138,57 +124,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 2.2rem;
-	}
-
-	.hero-header-box {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		max-width: 960px;
-		margin: 0 auto;
-	}
-
-	.hero-badge {
-		margin-bottom: 1.25rem;
-	}
-
-	.hero-title {
-		font-size: clamp(2.1rem, 4.4vw, 3.6rem);
-		font-weight: 800;
-		line-height: 1.15;
-		letter-spacing: -0.03em;
-		color: var(--color-bone-white);
-		margin-bottom: 1.2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.hero-title-sub {
-		color: var(--color-electric-iris);
-		background: linear-gradient(135deg, #a78bfa 0%, #8052ff 50%, #6366f1 100%);
-		-webkit-background-clip: text;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	:global(html[data-theme="light"]) .hero-title-sub {
-		color: #6366f1;
-		background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
-		-webkit-background-clip: text;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.hero-subtitle {
-		font-size: clamp(1rem, 1.35vw, 1.18rem);
-		font-weight: 350;
-		line-height: 1.65;
-		color: var(--color-ash-gray);
-		max-width: 820px;
-		margin-bottom: 2rem;
+		gap: 1.8rem;
 	}
 
 	.hero-actions {
