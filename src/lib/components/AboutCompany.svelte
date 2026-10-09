@@ -14,28 +14,28 @@
 		'01': {
 			icon: 'images/icons/stop-cockroach.svg',
 			bg: 'images/pest-cockroaches.webp',
-			accentColor: '#ef4444',
+			accentColor: '#a3e635',
 			badgeClass: 'badge-pest',
 			targetId: 'disinsection'
 		},
 		'02': {
 			icon: 'images/icons/stop-rodent.svg',
 			bg: 'images/deratization-rodents.webp',
-			accentColor: '#ef4444',
+			accentColor: '#38bdf8',
 			badgeClass: 'badge-rodent',
 			targetId: 'deratization'
 		},
 		'03': {
 			icon: 'images/icons/disinfection-shield.svg',
 			bg: 'images/hero-disinfection.webp',
-			accentColor: '#10b981',
+			accentColor: '#38bdf8',
 			badgeClass: 'badge-disinfection',
 			targetId: 'disinfection'
 		},
 		'04': {
 			icon: 'images/icons/ozone-molecule.svg',
 			bg: 'images/ozone-bg.webp',
-			accentColor: '#8052ff',
+			accentColor: '#a855f7',
 			badgeClass: 'badge-ozone',
 			targetId: 'ozonation'
 		},
@@ -299,25 +299,55 @@
 		transform: scale(1.08);
 	}
 
-	.srv-icon-badge.badge-pest,
+	.srv-icon-badge.badge-pest {
+		background: rgba(163, 230, 53, 0.12);
+		border-color: rgba(163, 230, 53, 0.45);
+		box-shadow: 0 0 14px rgba(163, 230, 53, 0.2);
+	}
+
 	.srv-icon-badge.badge-rodent {
-		background: rgba(239, 68, 68, 0.12);
-		border-color: rgba(239, 68, 68, 0.45);
+		background: rgba(56, 189, 248, 0.12);
+		border-color: rgba(56, 189, 248, 0.45);
+		box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
 	}
 
 	.srv-icon-badge.badge-disinfection {
-		background: rgba(16, 185, 129, 0.12);
-		border-color: rgba(16, 185, 129, 0.45);
+		background: rgba(56, 189, 248, 0.12);
+		border-color: rgba(56, 189, 248, 0.45);
+		box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
 	}
 
 	.srv-icon-badge.badge-ozone {
-		background: rgba(128, 82, 255, 0.12);
-		border-color: rgba(128, 82, 255, 0.45);
+		background: rgba(168, 85, 247, 0.12);
+		border-color: rgba(168, 85, 247, 0.45);
+		box-shadow: 0 0 14px rgba(168, 85, 247, 0.2);
 	}
 
 	.srv-icon-badge.badge-haccp {
 		background: rgba(245, 158, 11, 0.12);
 		border-color: rgba(245, 158, 11, 0.45);
+		box-shadow: 0 0 14px rgba(245, 158, 11, 0.2);
+	}
+
+	.service-pill-card:hover .srv-icon-badge.badge-pest {
+		border-color: rgba(163, 230, 53, 0.85);
+		box-shadow: 0 0 22px rgba(163, 230, 53, 0.45);
+	}
+
+	.service-pill-card:hover .srv-icon-badge.badge-rodent,
+	.service-pill-card:hover .srv-icon-badge.badge-disinfection {
+		border-color: rgba(56, 189, 248, 0.85);
+		box-shadow: 0 0 22px rgba(56, 189, 248, 0.45);
+	}
+
+	.service-pill-card:hover .srv-icon-badge.badge-ozone {
+		border-color: rgba(168, 85, 247, 0.85);
+		box-shadow: 0 0 22px rgba(168, 85, 247, 0.45);
+	}
+
+	.service-pill-card:hover .srv-icon-badge.badge-haccp {
+		border-color: rgba(245, 158, 11, 0.85);
+		box-shadow: 0 0 22px rgba(245, 158, 11, 0.45);
 	}
 
 	.srv-card-arrow {
