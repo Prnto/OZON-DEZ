@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
+  <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="1.2" stroke-opacity="0.4"/>
+  <!-- Cockroach silhouette -->
+  <g fill="#cbd5e1">
+    <!-- Antennae -->
+    <path d="M22 13 C20 9, 14 7, 10 6" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <path d="M26 13 C28 9, 34 7, 38 6" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <!-- Head -->
+    <ellipse cx="24" cy="14.5" rx="3" ry="2.5"/>
+    <!-- Thorax -->
+    <ellipse cx="24" cy="19.5" rx="4.5" ry="3"/>
+    <!-- Abdomen -->
+    <ellipse cx="24" cy="28" rx="6" ry="8.5"/>
+    <!-- Legs Left -->
+    <path d="M20 17 L12 14 M20 20 L10 21 M20 25 L11 29" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <!-- Legs Right -->
+    <path d="M28 17 L36 14 M28 20 L38 21 M28 25 L37 29" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <!-- Cerci -->
+    <path d="M22 36 L19 40 M26 36 L29 40" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Red Stop Slash Ring -->
+  <circle cx="24" cy="24" r="18" stroke="#ef4444" stroke-width="3.2" fill="none"/>
+  <line x1="11.3" y1="11.3" x2="36.7" y2="36.7" stroke="#ef4444" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

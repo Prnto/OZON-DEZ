@@ -164,7 +164,11 @@
 					</div>
 
 					<div class="modal-action-row">
-						<button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" disabled={isSubmitting}>
+						<button
+							type="submit"
+							class="btn btn-primary modal-submit-btn"
+							disabled={isSubmitting}
+						>
 							{#if isSubmitting}
 								...
 							{:else}
@@ -385,6 +389,46 @@
 		font-weight: 300;
 		line-height: 1.55;
 		margin-bottom: 1.4rem;
+	}
+
+	.modal-action-row {
+		margin-top: 1.4rem;
+		margin-bottom: 0.85rem;
+		width: 100%;
+	}
+
+	.modal-submit-btn {
+		width: 100%;
+		white-space: normal !important;
+		word-break: normal;
+		overflow-wrap: break-word;
+		text-align: center;
+		padding: 0.95rem 1.4rem !important;
+		min-height: 52px;
+		height: auto !important;
+		line-height: 1.35;
+		font-size: 0.92rem;
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		box-shadow: 0 4px 18px rgba(128, 82, 255, 0.35);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: var(--radius-buttons);
+		transition: all var(--transition-fast);
+	}
+
+	.modal-submit-btn:hover:not(:disabled) {
+		box-shadow: 0 8px 24px rgba(128, 82, 255, 0.5);
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 480px) {
+		.modal-submit-btn {
+			font-size: 0.84rem;
+			padding: 0.85rem 1rem !important;
+			letter-spacing: 0.01em;
+		}
 	}
 
 	.direct-call-box {

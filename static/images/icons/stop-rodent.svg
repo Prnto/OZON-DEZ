@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
+  <circle cx="24" cy="24" r="22" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="1.2" stroke-opacity="0.4"/>
+  <!-- Rat / Mouse silhouette -->
+  <g fill="#cbd5e1">
+    <!-- Body -->
+    <path d="M13 29 C13 22, 19 18, 25 18 C31 18, 35 22, 35 27 C35 31, 31 33, 24 33 C18 33, 13 32, 13 29 Z"/>
+    <!-- Head & Nose -->
+    <path d="M17 25 C14 24, 9 24, 7 26 C9 28, 14 29, 17 28 Z"/>
+    <!-- Ear -->
+    <circle cx="19" cy="20" r="3.5"/>
+    <!-- Paws -->
+    <path d="M16 32 L15 35 M22 33 L22 36 M30 32 L31 35" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- Long Tail -->
+    <path d="M35 28 C39 28, 42 24, 41 18 C40.5 15, 37 13, 35 15" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <!-- Whiskers -->
+    <path d="M9 25 L5 23 M9 26 L4 26 M9 27 L5 29" stroke="#cbd5e1" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <!-- Red Stop Slash Ring -->
+  <circle cx="24" cy="24" r="18" stroke="#ef4444" stroke-width="3.2" fill="none"/>
+  <line x1="11.3" y1="11.3" x2="36.7" y2="36.7" stroke="#ef4444" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
