@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { BETA_TABS } from '#lib/beta/checklist';
+	import { BETA_TABS } from '../../lib/beta/checklist';
 	import {
 		doneOnVersion,
 		generateReport,
@@ -12,11 +11,13 @@
 		tid,
 		vote,
 		VOTES
-	} from '#lib/beta/progress';
-	import type { BetaCheck, ChecklistLang, Coverage, Marks, Vote } from '#lib/beta/types';
+	} from '../../lib/beta/progress';
+	import type { BetaCheck, ChecklistLang, Coverage, Marks, Vote } from '../../lib/beta/types';
 
 	const APP_VERSION = '0.0.1';
 	const STORAGE_KEY = 'ozon_dez_beta_checklist_marks';
+
+	const isBrowser = typeof window !== 'undefined';
 
 	let checklistLang = $state<ChecklistLang>('uk');
 	let marks = $state<Marks>({});
@@ -27,16 +28,16 @@
 	let reportFailed = $state(false);
 	let reportText = $state('');
 
-	const allChecks = $derived(BETA_TABS.flatMap((t) => t.checks));
-	const knownIds = $derived(new Set(allChecks.map((c) => c.id)));
+	const allChecks = $derived(BETA_TABS.flatMap((t: any) => t.checks));
+	const knownIds = $derived(new Set(allChecks.map((c: any) => c.id)));
 
 	// Read active tab from query parameter ?tab=... or default to first tab
 	let activeTabId = $state(BETA_TABS[0].id);
 
 	$effect(() => {
-		if (browser) {
+		if (typeof window !== 'undefined') {
 			const param = page.url.searchParams.get('tab');
-			if (param && BETA_TABS.some((t) => t.id === param)) {
+			if (param && BETA_TABS.some((t: any) => t.id === param)) {
 				activeTabId = param;
 			}
 		}
@@ -44,7 +45,7 @@
 
 	// Load stored marks on client mount safely
 	$effect(() => {
-		if (browser) {
+		if (typeof window !== 'undefined') {
 			try {
 				const raw = localStorage.getItem(STORAGE_KEY);
 				if (raw) {
@@ -58,8 +59,8 @@
 
 	function selectTab(id: string) {
 		activeTabId = id;
-		if (browser) {
-			const url = new URL(page.url);
+		if (typeof window !== 'undefined') {
+			const url = new URL(page.url.href);
 			url.searchParams.set('tab', id);
 			replaceState(url.href, page.state);
 		}
@@ -67,7 +68,7 @@
 
 	function handleVote(checkId: string, nextVote: Vote) {
 		marks = vote(marks, checkId, nextVote, APP_VERSION);
-		if (browser) {
+		if (typeof window !== 'undefined') {
 			try {
 				localStorage.setItem(STORAGE_KEY, JSON.stringify(marks));
 			} catch {
@@ -87,7 +88,7 @@
 		}
 		armedClear = false;
 		marks = {};
-		if (browser) {
+		if (isBrowser) {
 			try {
 				localStorage.removeItem(STORAGE_KEY);
 			} catch {
@@ -103,7 +104,7 @@
 			version: APP_VERSION,
 			lang: checklistLang,
 			theme: 'dark',
-			userAgent: browser ? navigator.userAgent : 'Server',
+			userAgent: isBrowser ? navigator.userAgent : 'Server',
 			checks: allChecks,
 			marks
 		});
@@ -111,7 +112,7 @@
 		reportCopied = false;
 		reportFailed = false;
 
-		if (browser && navigator.clipboard && navigator.clipboard.writeText) {
+		if (isBrowser && navigator.clipboard && navigator.clipboard.writeText) {
 			try {
 				await navigator.clipboard.writeText(reportText);
 				reportCopied = true;
@@ -131,16 +132,16 @@
 		checklistLang = checklistLang === 'uk' ? 'en' : 'uk';
 	}
 
-	const currentTab = $derived(BETA_TABS.find((t) => t.id === activeTabId) ?? BETA_TABS[0]);
+	const currentTab = $derived(BETA_TABS.find((t: any) => t.id === activeTabId) ?? BETA_TABS[0]);
 	const currentChecks = $derived(sortChecks(currentTab.checks));
 
 	const totalDone = $derived(doneOnVersion(allChecks, marks, APP_VERSION));
 	const currentTabDone = $derived(doneOnVersion(currentTab.checks, marks, APP_VERSION));
 
 	// Group checks by coverage level
-	const manualChecks = $derived(currentChecks.filter((c) => c.coverage === 'manual'));
-	const testableChecks = $derived(currentChecks.filter((c) => c.coverage === 'testable'));
-	const coveredChecks = $derived(currentChecks.filter((c) => c.coverage === 'covered'));
+	const manualChecks = $derived(currentChecks.filter((c: any) => c.coverage === 'manual'));
+	const testableChecks = $derived(currentChecks.filter((c: any) => c.coverage === 'testable'));
+	const coveredChecks = $derived(currentChecks.filter((c: any) => c.coverage === 'covered'));
 
 	const voteLabels: Record<ChecklistLang, Record<Vote, string>> = {
 		uk: {
@@ -218,7 +219,7 @@
 			<div class="beta-screens-chips">
 				{#each currentTab.routes as routePath}
 					<a
-						href={resolve(routePath)}
+						href={resolve(routePath as any)}
 						target="_blank"
 						rel="noreferrer"
 						class="beta-screen-badge"

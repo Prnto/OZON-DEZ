@@ -83,7 +83,7 @@
 						{#if meta?.bg}
 							<div
 								class="service-card-bg"
-								style="background-image: url('{asset(meta.bg)}');"
+								style="background-image: url('{asset(meta.bg as any)}');"
 								aria-hidden="true"
 							></div>
 							<div class="service-card-overlay" aria-hidden="true"></div>
@@ -93,7 +93,7 @@
 							<div class="srv-icon-badge {meta?.badgeClass || ''}">
 								{#if meta?.icon}
 									<img
-										src="{asset(meta.icon)}"
+										src="{asset(meta.icon as any)}"
 										alt="{srv.title}"
 										class="srv-icon-img"
 										width="44"
