@@ -10,16 +10,16 @@
 <div class="top-bar">
 	<div class="top-bar-container">
 		<div class="top-bar-left">
-			<span class="top-info-item">
+			<span class="top-info-item top-city-item">
 				<span class="top-icon"><MapPin size={13} weight="bold" /></span>
 				<span class="top-text">{currentContent.address.city}</span>
 			</span>
-			<span class="top-bar-divider">|</span>
-			<span class="top-info-item">
+			<span class="top-bar-divider top-hours-divider">|</span>
+			<span class="top-info-item top-hours-item">
 				<span class="top-icon"><Clock size={13} weight="bold" /></span>
 				<span class="top-text">{currentContent.workingHours.days}: {currentContent.workingHours.hours}</span>
 			</span>
-			<span class="top-bar-divider">|</span>
+			<span class="top-bar-divider top-email-divider">|</span>
 			<a href="mailto:{currentContent.email}" class="top-info-item top-email-link" title="Email: {currentContent.email}" data-testid="topbar-email-link">
 				<span class="top-icon"><EnvelopeSimple size={13} weight="bold" /></span>
 				<span class="top-text">{currentContent.email}</span>
@@ -156,28 +156,69 @@
 	.top-bar-container {
 		max-width: var(--container-width);
 		margin: 0 auto;
-		padding: 0.35rem clamp(0.75rem, 2vw, 1.5rem);
+		padding: 0.35rem clamp(0.5rem, 1.6vw, 1.5rem);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 0.75rem;
+		box-sizing: border-box;
+		width: 100%;
 	}
 
-	.top-bar-left,
+	.top-bar-left {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		white-space: nowrap;
+		flex-shrink: 1;
+		min-width: 0;
+	}
+
 	.top-bar-right {
 		display: flex;
 		align-items: center;
-		gap: 0.8rem;
+		gap: 0.65rem;
 		white-space: nowrap;
+		flex-shrink: 0; /* Guarantee controls & language switcher are never pushed off-screen */
 	}
 
-	@media (max-width: 860px) {
-		.top-bar-left {
+	/* Tablet & Laptop Adaptive Rules (preventing right-side overflow on smaller/laptop screens) */
+	@media (max-width: 1400px) {
+		.top-email-divider,
+		.top-email-link {
+			display: none !important;
+		}
+	}
+
+	@media (max-width: 1250px) {
+		.top-hours-divider,
+		.top-hours-item {
+			display: none !important;
+		}
+		.theme-segment-btn .theme-label {
 			display: none;
 		}
+		.theme-segment-btn {
+			padding: 0.2rem 0.45rem;
+		}
+	}
+
+	@media (max-width: 1050px) {
+		.top-bar-left {
+			display: none !important;
+		}
 		.top-bar-container {
-			justify-content: center;
+			justify-content: flex-end;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.top-bar-left {
+			display: none !important;
+		}
+		.top-bar-container {
 			padding: 0.35rem 0.65rem;
+			justify-content: stretch;
 		}
 		.top-bar-right {
 			width: 100%;
@@ -214,6 +255,15 @@
 			letter-spacing: -0.01em;
 			justify-content: center;
 			white-space: nowrap;
+		}
+		.theme-segment-btn .theme-label {
+			display: inline;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.theme-segment-btn .theme-label {
+			display: none;
 		}
 	}
 
