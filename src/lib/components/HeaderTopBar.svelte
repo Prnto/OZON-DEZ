@@ -323,13 +323,13 @@
 		letter-spacing: 0.01em;
 	}
 
-	/* Left phone pill: Red (Landline) - Dark mode */
+	/* Left phone pill: Red (Landline) - Dark mode: 3 bursts on load/refresh, then stops */
 	.top-phone-pill.phone-pill-red {
 		background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
 		border: 1px solid rgba(239, 68, 68, 0.55);
 		color: #fee2e2;
 		box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
-		animation: policeStrobeRedDark 3.5s ease-in-out infinite;
+		animation: policeStrobeRedDark 1.4s ease-in-out 3 normal forwards;
 	}
 
 	.top-phone-pill.phone-pill-red:hover {
@@ -340,13 +340,13 @@
 		transform: translateY(-1px);
 	}
 
-	/* Right phone pill: Blue (Mobile lifecell) - Dark mode */
+	/* Right phone pill: Blue (Mobile lifecell) - Dark mode: 3 bursts on load/refresh, then stops */
 	.top-phone-pill.phone-pill-blue {
 		background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 		border: 1px solid rgba(56, 189, 248, 0.55);
 		color: #e0f2fe;
 		box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
-		animation: policeStrobeBlueDark 3.5s ease-in-out infinite;
+		animation: policeStrobeBlueDark 1.4s ease-in-out 3 normal forwards;
 	}
 
 	.top-phone-pill.phone-pill-blue:hover {
@@ -357,7 +357,7 @@
 		transform: translateY(-1px);
 	}
 
-	/* Light mode adjustments — High contrast, crisp colors with synchronized strobe */
+	/* Light mode adjustments — High contrast, crisp colors with identical 3-cycle strobe logic */
 	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red,
 	:global(html.theme-light) .top-phone-pill.phone-pill-red,
 	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-red,
@@ -366,7 +366,7 @@
 		border: 1.5px solid #dc2626 !important;
 		color: #991b1b !important;
 		box-shadow: 0 1px 4px rgba(220, 38, 38, 0.12) !important;
-		animation: policeStrobeRedLight 3.5s ease-in-out infinite !important;
+		animation: policeStrobeRedLight 1.4s ease-in-out 3 normal forwards !important;
 	}
 
 	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red:hover,
@@ -386,8 +386,8 @@
 		background: #f0f9ff !important;
 		border: 1.5px solid #0284c7 !important;
 		color: #0369a1 !important;
-		box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12) !important;
-		animation: policeStrobeBlueLight 3.5s ease-in-out infinite !important;
+		box-shadow: 0 1px 4px rgba(220, 38, 38, 0.12) !important;
+		animation: policeStrobeBlueLight 1.4s ease-in-out 3 normal forwards !important;
 	}
 
 	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue:hover,
@@ -427,27 +427,27 @@
 		flex-shrink: 0;
 	}
 
-	/* Police Strobe Keyframes - Dark Mode */
+	/* Police Strobe Keyframes - Dark Mode: 3 cycles total on load/refresh, then stops */
 	@keyframes policeStrobeRedDark {
 		0%,
-		5%,
-		10% {
+		8%,
+		16% {
 			background: #ef4444;
 			border-color: #ffffff;
 			color: #ffffff;
 			box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.95), 0 0 32px 8px rgba(255, 68, 68, 0.6);
 			transform: scale(1.02);
 		}
-		2.5%,
-		7.5%,
-		12.5% {
+		4%,
+		12%,
+		20% {
 			background: rgba(220, 38, 38, 0.15);
 			border-color: rgba(239, 68, 68, 0.3);
 			color: #fecaca;
 			box-shadow: none;
 			transform: scale(1);
 		}
-		15%,
+		24%,
 		100% {
 			background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
 			border-color: rgba(239, 68, 68, 0.55);
@@ -459,32 +459,32 @@
 
 	@keyframes policeStrobeBlueDark {
 		0%,
-		17% {
+		24% {
 			background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 			border-color: rgba(56, 189, 248, 0.55);
 			color: #e0f2fe;
 			box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
 			transform: scale(1);
 		}
-		18%,
-		23%,
-		28% {
+		28%,
+		36%,
+		44% {
 			background: #0284c7;
 			border-color: #ffffff;
 			color: #ffffff;
 			box-shadow: 0 0 18px 4px rgba(2, 132, 199, 0.95), 0 0 32px 8px rgba(56, 189, 248, 0.6);
 			transform: scale(1.02);
 		}
-		20.5%,
-		25.5%,
-		30.5% {
+		32%,
+		40%,
+		48% {
 			background: rgba(2, 132, 199, 0.15);
 			border-color: rgba(56, 189, 248, 0.3);
 			color: #bae6fd;
 			box-shadow: none;
 			transform: scale(1);
 		}
-		32%,
+		52%,
 		100% {
 			background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 			border-color: rgba(56, 189, 248, 0.55);
@@ -494,69 +494,69 @@
 		}
 	}
 
-	/* Police Strobe Keyframes - Light Mode (Biosciences Palette) */
+	/* Police Strobe Keyframes - Light Mode (Biosciences): 3 cycles total on load/refresh, then stops */
 	@keyframes policeStrobeRedLight {
 		0%,
-		5%,
-		10% {
+		8%,
+		16% {
 			background: #dc2626 !important;
 			border-color: #ffffff !important;
 			color: #ffffff !important;
 			box-shadow: 0 0 16px 4px rgba(220, 38, 38, 0.8), 0 0 26px 6px rgba(220, 38, 38, 0.4) !important;
 			transform: scale(1.02);
 		}
-		2.5%,
-		7.5%,
-		12.5% {
+		4%,
+		12%,
+		20% {
 			background: #fee2e2 !important;
 			border-color: #ef4444 !important;
 			color: #991b1b !important;
 			box-shadow: none !important;
 			transform: scale(1);
 		}
-		15%,
+		24%,
 		100% {
 			background: #fef2f2 !important;
 			border-color: #dc2626 !important;
 			color: #991b1b !important;
-			box-shadow: 0 1px 4px rgba(220, 38, 38, 0.15) !important;
+			box-shadow: 0 1px 4px rgba(220, 38, 38, 0.12) !important;
 			transform: scale(1);
 		}
 	}
 
 	@keyframes policeStrobeBlueLight {
 		0%,
-		17% {
+		24% {
 			background: #f0f9ff !important;
 			border-color: #0284c7 !important;
 			color: #0369a1 !important;
-			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.15) !important;
+			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12) !important;
 			transform: scale(1);
 		}
-		18%,
-		23%,
-		28% {
+		28%,
+		36%,
+		44% {
 			background: #0284c7 !important;
 			border-color: #ffffff !important;
 			color: #ffffff !important;
 			box-shadow: 0 0 16px 4px rgba(2, 132, 199, 0.8), 0 0 26px 6px rgba(56, 189, 248, 0.4) !important;
 			transform: scale(1.02);
 		}
-		20.5%,
-		25.5%,
-		30.5% {
+		32%,
+		40%,
+		48% {
 			background: #e0f2fe !important;
 			border-color: #38bdf8 !important;
 			color: #0369a1 !important;
 			box-shadow: none !important;
 			transform: scale(1);
 		}
-		32%,
+		52%,
 		100% {
 			background: #f0f9ff !important;
 			border-color: #0284c7 !important;
 			color: #0369a1 !important;
-			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.15) !important;
+			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12) !important;
 			transform: scale(1);
 		}
 	}
