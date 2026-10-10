@@ -246,45 +246,45 @@
 	:global(html.theme-light) .calc-teaser-card,
 	:global(body[data-theme="light"]) .calc-teaser-card,
 	:global([data-theme="light"]) .calc-teaser-card {
-		background: rgba(255, 255, 255, 0.85);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
 	}
 
 	:global(html[data-theme="light"]) .teaser-heading,
 	:global(html.theme-light) .teaser-heading,
 	:global(body[data-theme="light"]) .teaser-heading,
 	:global([data-theme="light"]) .teaser-heading {
-		color: #0f172a !important;
+		color: #222f30 !important;
 	}
 
 	:global(html[data-theme="light"]) .teaser-sub,
 	:global(html.theme-light) .teaser-sub,
 	:global(body[data-theme="light"]) .teaser-sub,
 	:global([data-theme="light"]) .teaser-sub {
-		color: #475569 !important;
+		color: #4d5757 !important;
 	}
 
 	:global(html[data-theme="light"]) .teaser-preview-box {
-		background: rgba(241, 245, 249, 0.65);
-		border-color: rgba(15, 23, 42, 0.08);
+		background: #e7e8e1;
+		border-color: #c9cbbe;
 	}
 
 	:global(html[data-theme="light"]) .prev-header {
-		color: #92400e;
-		border-bottom-color: rgba(15, 23, 42, 0.08);
+		color: #b45309;
+		border-bottom-color: #c9cbbe;
 	}
 
 	:global(html[data-theme="light"]) .prev-row {
-		color: #475569;
+		color: #4d5757;
 	}
 
 	:global(html[data-theme="light"]) .prev-row strong {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	:global(html[data-theme="light"]) .prev-footnote {
-		color: #64748b;
-		border-top-color: rgba(15, 23, 42, 0.1);
+		color: #4d5757;
+		border-top-color: #c9cbbe;
 	}
 </style>

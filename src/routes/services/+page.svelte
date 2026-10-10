@@ -45,7 +45,6 @@
 
 <div class="services-page">
 	<PageHeader
-		badge={langState.current === 'ua' ? 'ПРОФЕСІЙНИЙ САНІТАРНИЙ ЗАХИСТ' : langState.current === 'ru' ? 'ПРОФЕССИОНАЛЬНАЯ САНИТАРНАЯ ЗАЩИТА' : 'PROFESSIONAL SANITARY DEFENSE'}
 		title={langState.current === 'ua' ? 'Послуги санітарної безпеки для дому та бізнесу' : langState.current === 'ru' ? 'Услуги санитарной безопасности для дома и бизнеса' : 'Sanitary Safety Services for Home & Business'}
 		subtitle={langState.current === 'ua'
 			? 'Надаємо повний комплекс послуг фізичним і юридичним особам у Чорноморську, Одесі та Одеській області. Використовуємо виключно зареєстровані в Україні препарати, генератори туману та промислові озонатори.'
@@ -391,32 +390,16 @@
 	}
 
 	:global(html[data-theme="light"]) .service-card {
-		background: rgba(255, 255, 255, 0.85);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+		background: #ffffff;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
 	}
 
-	@keyframes cardPulse {
-		0%, 100% {
-			border-color: var(--color-void-border);
-		}
-		50% {
-			border-color: #38bdf8;
-			box-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
-			transform: translateY(-4px);
-		}
-	}
-
-	:global(.card-highlight-pulse) {
-		animation: cardPulse 1.2s ease-in-out 2;
-	}
-
-	.service-card:hover {
-		transform: translateY(-4px);
-		border-color: #0284c7;
-		box-shadow: 0 16px 30px -10px rgba(2, 132, 199, 0.2);
+	:global(html[data-theme="light"]) .service-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
 	}
 
 	.service-card-media {
@@ -498,7 +481,7 @@
 	}
 
 	:global(html[data-theme="light"]) .service-title {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	.service-subtitle {
@@ -509,7 +492,7 @@
 	}
 
 	:global(html[data-theme="light"]) .service-subtitle {
-		color: #0284c7;
+		color: #15846e;
 	}
 
 	.service-text {
@@ -520,7 +503,7 @@
 	}
 
 	:global(html[data-theme="light"]) .service-text {
-		color: #64748b;
+		color: #4d5757;
 	}
 
 	.service-features {
@@ -536,7 +519,7 @@
 	}
 
 	:global(html[data-theme="light"]) .service-features {
-		border-color: #f1f5f9;
+		border-color: #c9cbbe;
 	}
 
 	.service-features li {
@@ -545,7 +528,7 @@
 	}
 
 	:global(html[data-theme="light"]) .service-features li {
-		color: #334155;
+		color: #354243;
 	}
 
 	.service-features strong {
@@ -554,7 +537,7 @@
 	}
 
 	:global(html[data-theme="light"]) .service-features strong {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	.service-card-footer {

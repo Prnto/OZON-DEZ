@@ -30,11 +30,17 @@
 			<div class="hero-text-block">
 				<div class="hero-badge">
 					{#if langState.current === 'ua'}
-						ТОВ «ОЗОН-ДЕЗ» • СЛУЖБА САНІТАРНОЇ БЕЗПЕКИ
+						<span class="hero-brand-name">ТОВ «<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»</span>
+						<span class="hero-badge-divider">•</span>
+						<span>СЛУЖБА САНІТАРНОЇ БЕЗПЕКИ</span>
 					{:else if langState.current === 'ru'}
-						ООО «ОЗОН-ДЕЗ» • СЛУЖБА САНИТАРНОЙ БЕЗОПАСНОСТИ
+						<span class="hero-brand-name">ООО «<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»</span>
+						<span class="hero-badge-divider">•</span>
+						<span>СЛУЖБА САНИТАРНОЙ БЕЗОПАСНОСТИ</span>
 					{:else}
-						OZON-DEZ LLC • SANITARY DEFENSE SERVICE
+						<span class="hero-brand-name">LLC «<span class="brand-ozon">OZON</span><span class="brand-sep">-</span><span class="brand-dez">DEZ</span>»</span>
+						<span class="hero-badge-divider">•</span>
+						<span>SANITARY DEFENSE SERVICE</span>
 					{/if}
 				</div>
 
@@ -120,10 +126,6 @@
 		background: #000000;
 	}
 
-	:global(html[data-theme="light"]) .hero-banner-full {
-		background: transparent;
-	}
-
 	.hero-banner-media {
 		position: absolute;
 		inset: 0;
@@ -131,6 +133,7 @@
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
+		background: #000000;
 	}
 
 	.hero-banner-img {
@@ -139,35 +142,24 @@
 		object-fit: cover;
 		object-position: center 36%;
 		display: block;
-		opacity: 0.9;
-		filter: contrast(1.04) saturate(1.04);
-		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-	}
-
-	:global(html[data-theme="light"]) .hero-banner-img {
 		opacity: 0.95;
 		filter: contrast(1.05) saturate(1.08);
+		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.hero-banner-full:hover .hero-banner-img {
 		transform: scale(1.015);
 	}
 
-	/* Matte dimmed overlay to ensure crystal clear typography readability */
+	/* Dark cinematic overlay ensuring crisp photo and high contrast typography in both themes */
 	.hero-banner-overlay {
 		position: absolute;
 		inset: 0;
 		z-index: 1;
 		background:
-			linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.35) 100%),
-			linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 45%);
+			linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.52) 48%, rgba(0, 0, 0, 0.15) 100%),
+			linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 45%);
 		pointer-events: none;
-	}
-
-	:global(html[data-theme="light"]) .hero-banner-overlay {
-		background:
-			linear-gradient(90deg, rgba(244, 246, 249, 0.65) 0%, rgba(244, 246, 249, 0.32) 45%, rgba(244, 246, 249, 0.04) 100%),
-			linear-gradient(to top, rgba(244, 246, 249, 0.3) 0%, transparent 45%);
 	}
 
 	/* Content container floating over banner */
@@ -186,23 +178,45 @@
 	.hero-badge {
 		display: inline-flex;
 		align-items: center;
-		padding: 0.28rem 0.85rem;
+		gap: 0.55rem;
+		padding: 0.35rem 0.95rem;
 		border-radius: var(--radius-full);
-		background: rgba(2, 132, 199, 0.18);
-		border: 1px solid rgba(2, 132, 199, 0.45);
-		color: #38bdf8;
-		font-size: 0.76rem;
-		font-weight: 700;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
+		background: rgba(15, 23, 42, 0.85);
+		border: 1px solid rgba(255, 255, 255, 0.22);
+		color: #ffffff;
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
 		margin-bottom: 0.85rem;
 		backdrop-filter: blur(8px);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 	}
 
-	:global(html[data-theme="light"]) .hero-badge {
-		background: #e0f2fe;
-		border-color: #7dd3fc;
-		color: #0369a1;
+	.hero-brand-name {
+		font-weight: 800;
+		font-size: 0.98rem;
+		letter-spacing: -0.01em;
+	}
+
+	.hero-brand-name .brand-ozon {
+		color: #00E640;
+		font-weight: 800;
+	}
+
+	.hero-brand-name .brand-sep {
+		color: #FFA000;
+		margin: 0 1.5px;
+		font-weight: 800;
+	}
+
+	.hero-brand-name .brand-dez {
+		color: #008F45;
+		font-weight: 800;
+	}
+
+	.hero-badge-divider {
+		color: rgba(255, 255, 255, 0.35);
+		font-size: 0.75rem;
 	}
 
 	.hero-main-title {
@@ -210,36 +224,39 @@
 		font-weight: 600;
 		line-height: 1.2;
 		letter-spacing: -0.03em;
-		color: var(--color-bone-white);
+		color: #ffffff !important;
 		margin-bottom: 0.75rem;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-	}
-
-	:global(html[data-theme="light"]) .hero-main-title,
-	:global(html.theme-light) .hero-main-title,
-	:global(body[data-theme="light"]) .hero-main-title,
-	:global([data-theme="light"]) .hero-main-title {
-		color: #0f172a !important;
-		text-shadow: 0 1px 16px rgba(255, 255, 255, 0.95), 0 0 24px rgba(255, 255, 255, 0.85);
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
 	}
 
 	.hero-main-desc {
 		font-size: clamp(0.92rem, 1.3vw, 1.05rem);
 		line-height: 1.55;
-		color: var(--color-silver-mist);
-		font-weight: 300;
+		color: #f1f5f9 !important;
+		font-weight: 400;
 		margin-bottom: 1.5rem;
 		max-width: 580px;
-		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5) !important;
 	}
 
-	:global(html[data-theme="light"]) .hero-main-desc,
-	:global(html.theme-light) .hero-main-desc,
-	:global(body[data-theme="light"]) .hero-main-desc,
-	:global([data-theme="light"]) .hero-main-desc {
-		color: #1e293b !important;
-		font-weight: 500;
-		text-shadow: 0 1px 12px rgba(255, 255, 255, 0.95);
+	.hero-btn-sub {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		font-size: 0.92rem;
+		border-radius: var(--radius-full);
+		background: rgba(255, 255, 255, 0.12) !important;
+		border: 1px solid rgba(255, 255, 255, 0.28) !important;
+		color: #ffffff !important;
+		backdrop-filter: blur(8px);
+	}
+
+	.hero-btn-sub:hover {
+		background: rgba(255, 255, 255, 0.22) !important;
+		border-color: rgba(255, 255, 255, 0.5) !important;
+		color: #ffffff !important;
+		transform: translateY(-2px);
 	}
 
 	.hero-cta-group {

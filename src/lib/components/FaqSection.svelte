@@ -15,9 +15,6 @@
 <section id="faq" class="section faq-section">
 	<div class="container">
 		<div class="section-header">
-			<div class="section-badge">
-				{#if langState.current === 'ua'}Відповіді на запитання{:else if langState.current === 'ru'}Ответы на вопросы{:else}Frequently Asked Questions{/if}
-			</div>
 			<h2 class="section-title">{faq.title}</h2>
 			<p class="section-subtitle">{faq.subtitle}</p>
 		</div>

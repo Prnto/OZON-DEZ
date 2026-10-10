@@ -16,29 +16,20 @@
 	<div class="container footer-grid">
 		<!-- Колонка 1: Про компанію -->
 		<div class="footer-col footer-about">
-			<a href={resolve('/')} class="footer-logo">
-				<Logo variant="light" />
-				<div class="logo-subtext">
-					{#if langState.current === 'ua'}
-						САНІТАРНА СЛУЖБА • 15 РОКІВ ДОСВІДУ
-					{:else if langState.current === 'ru'}
-						САНИТАРНАЯ СЛУЖБА • 15 ЛЕТ ОПЫТА
-					{:else}
-						SANITARY SERVICE • 15 YEARS EXPERIENCE
-					{/if}
-				</div>
-			</a>
+			<div class="footer-logo">
+				<Logo variant="light" showTagline={true} />
+			</div>
 			<p class="footer-desc">
 				{#if langState.current === 'ua'}
-					ТОВ «ОЗОН-ДЕЗ» — професійні санітарні послуги для фізичних та юридичних осіб.
+					ТОВ «<strong class="brand-ozon">ОЗОН</strong><span class="brand-sep">-</span><strong class="brand-dez">ДЕЗ</strong>» — професійні санітарні послуги для фізичних та юридичних осіб.
 					Комплексна дезінсекція, дератизація, дезінфекція, озонування та Пест-контроль 
 					у Чорноморську, Одесі та по всій Одеській області.
 				{:else if langState.current === 'ru'}
-					ООО «ОЗОН-ДЕЗ» — профессиональные санитарные услуги для физических и юридических лиц.
+					ООО «<strong class="brand-ozon">ОЗОН</strong><span class="brand-sep">-</span><strong class="brand-dez">ДЕЗ</strong>» — профессиональные санитарные услуги для физических и юридических лиц.
 					Комплексная дезинсекция, дератизация, дезинфекция, озонирование и Пест-контроль 
 					в Черноморске, Одессе и по всей Одесской области.
 				{:else}
-					LLC "OZON-DEZ" — professional sanitary services for individuals and legal entities.
+					LLC «<strong class="brand-ozon">OZON</strong><span class="brand-sep">-</span><strong class="brand-dez">DEZ</strong>» — professional sanitary services for individuals and legal entities.
 					Comprehensive disinsection, deratization, disinfection, ozonation, and Pest Control 
 					in Chornomorsk, Odesa, and throughout the Odesa region.
 				{/if}
@@ -179,8 +170,8 @@
 	}
 
 	:global(html[data-theme="light"]) .site-footer {
-		background: #f8fafc;
-		border-color: #e2e8f0;
+		background: #222f30;
+		border-color: #c9cbbe;
 	}
 
 	.footer-grid {
@@ -216,13 +207,6 @@
 		gap: 0.35rem;
 	}
 
-	.logo-subtext {
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		color: #0284c7;
-		text-transform: uppercase;
-	}
 
 	.footer-desc {
 		font-size: 0.88rem;
@@ -231,8 +215,36 @@
 		margin: 1.1rem 0 1.4rem;
 	}
 
+	.footer-desc .brand-ozon {
+		color: #00E640;
+		font-weight: 800;
+	}
+
+	.footer-desc .brand-sep {
+		color: #FFA000;
+		margin: 0 1.5px;
+		font-weight: 800;
+	}
+
+	.footer-desc .brand-dez {
+		color: #008F45;
+		font-weight: 800;
+	}
+
 	:global(html[data-theme="light"]) .footer-desc {
-		color: #64748b;
+		color: #c9cbbe;
+	}
+
+	:global(html[data-theme="light"]) .footer-desc .brand-ozon {
+		color: #00C835;
+	}
+
+	:global(html[data-theme="light"]) .footer-desc .brand-sep {
+		color: #D97706;
+	}
+
+	:global(html[data-theme="light"]) .footer-desc .brand-dez {
+		color: #007A3B;
 	}
 
 	.footer-badges {
@@ -252,9 +264,9 @@
 	}
 
 	:global(html[data-theme="light"]) .badge {
-		background: #ffffff;
-		border-color: #cbd5e1;
-		color: #334155;
+		background: rgba(255, 255, 255, 0.08);
+		border-color: #4d5757;
+		color: #ffffff;
 	}
 
 	.footer-heading {
@@ -267,7 +279,7 @@
 	}
 
 	:global(html[data-theme="light"]) .footer-heading {
-		color: #0f172a;
+		color: #ffffff;
 	}
 
 	.footer-links {
@@ -287,7 +299,7 @@
 	}
 
 	:global(html[data-theme="light"]) .footer-links a {
-		color: #475569;
+		color: #c9cbbe;
 	}
 
 	.footer-links a:hover {
@@ -295,7 +307,7 @@
 	}
 
 	:global(html[data-theme="light"]) .footer-links a:hover {
-		color: #0284c7;
+		color: #cef79e;
 	}
 
 	.contact-details {
@@ -320,7 +332,7 @@
 	}
 
 	:global(html[data-theme="light"]) .label {
-		color: #0284c7;
+		color: #cef79e;
 	}
 
 	.val-phone {
@@ -332,7 +344,7 @@
 	}
 
 	:global(html[data-theme="light"]) .val-phone {
-		color: #0f172a;
+		color: #ffffff;
 	}
 
 	.val-phone:hover {
@@ -345,7 +357,7 @@
 	}
 
 	:global(html[data-theme="light"]) .val-address {
-		color: #475569;
+		color: #c9cbbe;
 	}
 
 	.val-time {
@@ -354,7 +366,7 @@
 	}
 
 	:global(html[data-theme="light"]) .val-time {
-		color: #64748b;
+		color: #c9cbbe;
 	}
 
 	.inline-link {
@@ -368,7 +380,7 @@
 	}
 
 	:global(html[data-theme="light"]) .inline-link {
-		color: #0284c7;
+		color: #cef79e;
 	}
 
 	.inline-link:hover {
@@ -381,7 +393,7 @@
 	}
 
 	:global(html[data-theme="light"]) .footer-bottom {
-		border-color: #e2e8f0;
+		border-color: #4d5757;
 	}
 
 	.footer-bottom-content {
@@ -404,7 +416,7 @@
 
 	:global(html[data-theme="light"]) .footer-copy,
 	:global(html[data-theme="light"]) .footer-subtext {
-		color: #64748b;
+		color: #c9cbbe;
 	}
 
 	.back-to-top {
@@ -420,13 +432,14 @@
 	}
 
 	:global(html[data-theme="light"]) .back-to-top {
-		background: #ffffff;
-		border-color: #cbd5e1;
-		color: #334155;
+		background: #151f20;
+		border-color: #4d5757;
+		color: #ffffff;
 	}
 
-	.back-to-top:hover {
-		border-color: #0284c7;
-		color: #0284c7;
+	:global(html[data-theme="light"]) .back-to-top:hover {
+		background: #cef79e;
+		border-color: #cef79e;
+		color: #222f30;
 	}
 </style>

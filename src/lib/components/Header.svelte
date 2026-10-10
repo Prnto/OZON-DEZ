@@ -136,9 +136,9 @@
 	:global(html.theme-light) .header-wrapper,
 	:global(body[data-theme="light"]) .header-wrapper,
 	:global([data-theme="light"]) .header-wrapper {
-		background: rgba(255, 255, 255, 0.96) !important;
-		border-bottom-color: rgba(15, 23, 42, 0.08) !important;
-		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+		background: rgba(247, 247, 245, 0.96) !important;
+		border-bottom-color: #c9cbbe !important;
+		box-shadow: none !important;
 	}
 
 	.header-wrapper.scrolled {
@@ -149,7 +149,7 @@
 	:global(html.theme-light) .header-wrapper.scrolled,
 	:global(body[data-theme="light"]) .header-wrapper.scrolled,
 	:global([data-theme="light"]) .header-wrapper.scrolled {
-		border-bottom-color: rgba(15, 23, 42, 0.12) !important;
+		border-bottom-color: #c9cbbe !important;
 	}
 
 	/* Main Navigation Bar */
@@ -222,7 +222,7 @@
 	}
 
 	:global(html[data-theme="light"]) .top-tapbar {
-		border-top-color: rgba(15, 23, 42, 0.06);
+		border-top-color: #c9cbbe;
 	}
 
 	.top-tapbar::-webkit-scrollbar {
@@ -247,7 +247,7 @@
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn {
-		color: #475569;
+		color: #4d5757;
 	}
 
 	.tapbar-btn:hover {
@@ -257,9 +257,9 @@
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn:hover {
-		color: #0f172a;
-		background: #f1f5f9;
-		border-color: rgba(15, 23, 42, 0.1);
+		color: #222f30;
+		background: #e7e8e1;
+		border-color: #c9cbbe;
 	}
 
 	.tapbar-btn.active {
@@ -270,9 +270,10 @@
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn.active {
-		color: var(--color-electric-iris);
-		background: rgba(2, 132, 199, 0.1);
-		border-color: var(--color-electric-iris);
+		color: #222f30 !important;
+		background: #cef79e !important;
+		border-color: #b8eb83 !important;
+		font-weight: 600;
 	}
 
 	/* Hamburger Button */
@@ -293,7 +294,7 @@
 
 	:global(html[data-theme="light"]) .burger-btn {
 		background: #ffffff;
-		border-color: rgba(15, 23, 42, 0.12);
+		border-color: #c9cbbe;
 	}
 
 	.burger-btn:hover {
@@ -302,8 +303,8 @@
 	}
 
 	:global(html[data-theme="light"]) .burger-btn:hover {
-		background: #f1f5f9;
-		border-color: rgba(15, 23, 42, 0.25);
+		background: #e7e8e1;
+		border-color: #222f30;
 	}
 
 	.burger-btn span {
@@ -315,7 +316,7 @@
 	}
 
 	:global(html[data-theme="light"]) .burger-btn span {
-		background-color: #0f172a;
+		background-color: #222f30;
 	}
 
 	.burger-btn.open span:nth-child(1) {

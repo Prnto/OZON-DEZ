@@ -352,17 +352,45 @@
 	}
 
 	:global(html[data-theme="light"]) .review-service-pill {
-		background: #f1f5f9;
-		border-color: rgba(15, 23, 42, 0.08);
-		color: #334155;
+		background: #e7e8e1;
+		border-color: #c9cbbe;
+		color: #354243;
 	}
 
 	:global(html[data-theme="light"]) .review-card {
-		background: rgba(255, 255, 255, 0.85);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+		background: #ffffff;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .review-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .verified-tag {
+		color: #222f30;
+		background: #eafadb;
+		border: 1px solid #b8eb83;
+	}
+
+	:global(html[data-theme="light"]) .author-name {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .author-role {
+		color: #4d5757;
+	}
+
+	:global(html[data-theme="light"]) .author-avatar {
+		background: #e7e8e1;
+		border-color: #c9cbbe;
+	}
+
+	:global(html[data-theme="light"]) .review-quote {
+		color: #354243;
 	}
 
 	.review-service-pill span {

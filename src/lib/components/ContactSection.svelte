@@ -46,7 +46,10 @@
 					<div class="info-card-header">
 						<div class="header-icon"><Buildings size={24} weight="duotone" /></div>
 						<div>
-							<h3 class="info-company-name">{currentContent.companyName}</h3>
+							<h3 class="info-company-name">
+								{#if langState.current === 'ua'}ТОВ{:else if langState.current === 'ru'}ООО{:else}LLC{/if}
+								«<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»
+							</h3>
 							<div class="info-company-sub">{currentContent.companyNameAlt}</div>
 						</div>
 					</div>
@@ -92,13 +95,13 @@
 							<div>
 								<span class="detail-label">{contacts.labels.phones}</span>
 								<div class="phone-links">
-									<a href="tel:{currentContent.phones.mobile}" class="contact-phone-link">
-										<strong>{currentContent.phones.mobileDisplay}</strong>
-										<span class="phone-badge">{contacts.labels.mobileBadge}</span>
+									<a href="tel:{currentContent.phones.mobile}" class="contact-phone-link" data-testid="contact-phone-mobile">
+										<strong class="phone-num-bold">{currentContent.phones.mobileDisplay}</strong>
+										<span class="phone-carrier-label">lifecell</span>
 									</a>
-									<a href="tel:{currentContent.phones.landline}" class="contact-phone-link secondary">
-										<span>{currentContent.phones.landlineDisplay}</span>
-										<span class="phone-badge-sec">{contacts.labels.cityBadge}</span>
+									<a href="tel:{currentContent.phones.landline}" class="contact-phone-link" data-testid="contact-phone-landline">
+										<strong class="phone-num-bold">{currentContent.phones.landlineDisplay}</strong>
+										<span class="phone-carrier-label">{contacts.labels.cityBadge}</span>
 									</a>
 								</div>
 							</div>
@@ -358,10 +361,61 @@
 	}
 
 	.info-company-name {
-		font-size: 1.25rem;
-		font-weight: 500;
+		font-size: 1.35rem;
+		font-weight: 700;
 		letter-spacing: -0.02em;
 		color: var(--color-bone-white);
+	}
+
+	.info-company-name .brand-ozon {
+		color: #00E640;
+		font-weight: 800;
+	}
+
+	.info-company-name .brand-sep {
+		color: #FFA000;
+		margin: 0 1.5px;
+		font-weight: 800;
+	}
+
+	.info-company-name .brand-dez {
+		color: #008F45;
+		font-weight: 800;
+	}
+
+	:global(html[data-theme="light"]) .info-company-name {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .info-company-name .brand-ozon {
+		color: #00C835;
+	}
+
+	:global(html[data-theme="light"]) .info-company-name .brand-sep {
+		color: #D97706;
+	}
+
+	:global(html[data-theme="light"]) .info-company-name .brand-dez {
+		color: #007A3B;
+	}
+
+	.phone-carrier-label {
+		font-size: 0.88rem;
+		font-weight: 400;
+		color: var(--color-ash-gray);
+		border: none;
+		background: transparent;
+		padding: 0;
+		line-height: 1;
+		transition: color var(--transition-fast);
+	}
+
+	.contact-phone-link:hover .phone-carrier-label {
+		color: var(--color-electric-iris);
+	}
+
+	:global(html[data-theme="light"]) .phone-carrier-label {
+		color: #64748b;
 	}
 
 	.info-company-sub {
@@ -409,52 +463,38 @@
 	.phone-links {
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
-		margin-top: 0.2rem;
+		gap: 0.55rem;
+		margin-top: 0.25rem;
 	}
 
 	.contact-phone-link {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.65rem;
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--color-bone-white);
-		font-family: var(--font-heading);
+		gap: 0.75rem;
 		text-decoration: none;
-		letter-spacing: -0.02em;
-		transition: color var(--transition-fast);
+		transition: color var(--transition-fast), transform var(--transition-fast);
 	}
 
 	.contact-phone-link:hover {
 		color: var(--color-electric-iris);
+		transform: translateX(2px);
 	}
 
-	.contact-phone-link.secondary {
-		font-size: 0.9rem;
-		color: var(--color-ash-gray);
+	.phone-num-bold {
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: var(--color-bone-white);
+		font-family: var(--font-heading);
+		letter-spacing: -0.015em;
+		line-height: 1.25;
 	}
 
-	.phone-badge {
-		font-size: 0.68rem;
-		background: rgba(2, 132, 199, 0.15);
-		color: #38bdf8;
-		border: 1px solid rgba(2, 132, 199, 0.3);
-		padding: 0.15rem 0.55rem;
-		border-radius: var(--radius-pill);
-		font-weight: 600;
-		font-family: var(--font-body);
+	:global(html[data-theme="light"]) .phone-num-bold {
+		color: #0f172a;
 	}
 
-	.phone-badge-sec {
-		font-size: 0.68rem;
-		background: rgba(255, 255, 255, 0.05);
-		color: var(--color-ash-gray);
-		padding: 0.15rem 0.55rem;
-		border-radius: var(--radius-pill);
-		font-weight: 500;
-		font-family: var(--font-body);
-	}
+
+
 
 	.contact-email-link {
 		color: var(--color-bone-white);

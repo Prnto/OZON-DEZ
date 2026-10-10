@@ -12,37 +12,37 @@
 		{ icon: string; bg: string; accentColor: string; badgeClass: string; targetId: string }
 	> = {
 		'01': {
-			icon: 'images/icons/stop-cockroach.svg',
+			icon: 'images/badges/badge-disinsection.webp',
 			bg: 'images/pest-cockroaches.webp',
-			accentColor: '#a3e635',
+			accentColor: '#ef4444',
 			badgeClass: 'badge-pest',
 			targetId: 'disinsection'
 		},
 		'02': {
-			icon: 'images/icons/stop-rodent.svg',
+			icon: 'images/badges/badge-deratization.webp',
 			bg: 'images/deratization-rodents.webp',
-			accentColor: '#38bdf8',
+			accentColor: '#ef4444',
 			badgeClass: 'badge-rodent',
 			targetId: 'deratization'
 		},
 		'03': {
-			icon: 'images/icons/disinfection-shield.svg',
+			icon: 'images/badges/badge-disinfection.webp',
 			bg: 'images/hero-disinfection.webp',
-			accentColor: '#38bdf8',
+			accentColor: '#ef4444',
 			badgeClass: 'badge-disinfection',
 			targetId: 'disinfection'
 		},
 		'04': {
-			icon: 'images/icons/ozone-molecule.svg',
+			icon: 'images/badges/badge-ozonation.webp',
 			bg: 'images/ozone-bg.webp',
-			accentColor: '#a855f7',
+			accentColor: '#ef4444',
 			badgeClass: 'badge-ozone',
 			targetId: 'ozonation'
 		},
 		'05': {
-			icon: 'images/icons/pest-haccp.svg',
+			icon: 'images/badges/badge-pest-control.webp',
 			bg: 'images/b2b-haccp-audit.webp',
-			accentColor: '#f59e0b',
+			accentColor: '#ef4444',
 			badgeClass: 'badge-haccp',
 			targetId: 'pest-control'
 		}
@@ -54,7 +54,15 @@
 		<!-- Section Header -->
 		<div class="section-header">
 			<h2 class="section-title">
-				<span class="welcome-line">{about.welcome}</span>
+				<span class="welcome-line">
+					{#if langState.current === 'ua'}
+						Вас вітає ТОВ «<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»!
+					{:else if langState.current === 'ru'}
+						Вас приветствует ООО «<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»!
+					{:else}
+						Welcome to LLC «<span class="brand-ozon">OZON</span><span class="brand-sep">-</span><span class="brand-dez">DEZ</span>»!
+					{/if}
+				</span>
 				<span class="title-main">{about.title}</span>
 			</h2>
 			<p class="section-subtitle">
@@ -65,19 +73,19 @@
 			</p>
 		</div>
 
-		<!-- 5 Core Services Grid -->
+		<!-- 5 Core Services Grid: 3 on row 1, 2 centered on row 2 -->
 		<div class="services-overview-block">
 			<h3 class="overview-block-heading">{about.servicesTitle}</h3>
 			<div class="five-services-grid">
-				{#each about.services as srv}
+				{#each about.services as srv, idx}
 					{@const meta = serviceMeta[srv.num]}
 					<a
 						href="{resolve('/services')}#{meta?.targetId || 'services'}"
-						class="service-pill-card glass-card"
+						class="service-pill-card glass-card service-card-{srv.num}"
 						title="{srv.title}"
 						data-testid="about-service-{meta?.targetId || srv.num}-link"
 					>
-						<!-- Thematic Background Photography with Dark Protective Overlay -->
+						<!-- Thematic Background Photography with Smooth Zoom & Brighten on Hover -->
 						{#if meta?.bg}
 							<div
 								class="service-card-bg"
@@ -94,8 +102,8 @@
 										src="{asset(meta.icon as any)}"
 										alt="{srv.title}"
 										class="srv-icon-img"
-										width="44"
-										height="44"
+										width="104"
+										height="104"
 										loading="lazy"
 									/>
 								{:else}
@@ -153,7 +161,7 @@
 	:global(html.theme-light) .title-main,
 	:global(body[data-theme="light"]) .title-main,
 	:global([data-theme="light"]) .title-main {
-		color: #0f172a !important;
+		color: #222f30 !important;
 	}
 
 	.section-lead-body {
@@ -169,7 +177,7 @@
 	:global(html.theme-light) .section-lead-body,
 	:global(body[data-theme="light"]) .section-lead-body,
 	:global([data-theme="light"]) .section-lead-body {
-		color: #475569 !important;
+		color: #4d5757 !important;
 	}
 
 	/* 5 Services Grid */
@@ -190,150 +198,202 @@
 	:global(html.theme-light) .overview-block-heading,
 	:global(body[data-theme="light"]) .overview-block-heading,
 	:global([data-theme="light"]) .overview-block-heading {
-		color: #0f172a !important;
+		color: #222f30 !important;
 	}
 
 	.five-services-grid {
 		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		gap: 1.1rem;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1.5rem;
+		max-width: 1160px;
+		margin: 0 auto;
 	}
 
-	@media (max-width: 1080px) {
-		.five-services-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
+	.service-card-01 {
+		grid-column: span 2;
 	}
 
-	@media (max-width: 760px) {
+	.service-card-02 {
+		grid-column: span 2;
+	}
+
+	.service-card-03 {
+		grid-column: span 2;
+	}
+
+	.service-card-04 {
+		grid-column: 2 / span 2;
+	}
+
+	.service-card-05 {
+		grid-column: 4 / span 2;
+	}
+
+	@media (max-width: 960px) {
 		.five-services-grid {
 			grid-template-columns: repeat(2, 1fr);
+			gap: 1.25rem;
+		}
+
+		.service-card-01,
+		.service-card-02,
+		.service-card-03,
+		.service-card-04 {
+			grid-column: auto;
+		}
+
+		.service-card-05 {
+			grid-column: 1 / -1;
+			max-width: 480px;
+			margin: 0 auto;
+			width: 100%;
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (max-width: 600px) {
 		.five-services-grid {
 			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.service-card-05 {
+			grid-column: auto;
+			max-width: 100%;
 		}
 	}
 
 	.service-pill-card {
 		position: relative;
 		overflow: hidden;
-		padding: 1.6rem 1.3rem;
+		padding: 2.2rem 1.8rem;
 		border-radius: var(--radius-cards);
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 0.85rem;
 		isolation: isolate;
-		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 		text-decoration: none;
 		color: inherit;
 		cursor: pointer;
 	}
 
 	.service-pill-card:hover {
-		transform: translateY(-5px);
+		transform: translateY(-4px);
 		border-color: rgba(56, 189, 248, 0.6);
-		box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.2);
+		background: var(--color-surface-hover);
+		box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(56, 189, 248, 0.2);
 	}
 
+	/* Thematic photography: zooms smoothly and brightens on hover (like city cards) */
 	.service-card-bg {
 		position: absolute;
 		inset: 0;
 		background-size: cover;
 		background-position: center;
-		opacity: 0.16;
-		filter: saturate(1.2) contrast(1.1);
-		transition: opacity var(--transition-fast), transform 0.4s ease-out;
+		opacity: 0.12;
+		filter: saturate(1.1) contrast(1.05) brightness(0.9);
+		transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 		z-index: 0;
 		pointer-events: none;
+		will-change: transform, opacity, filter;
 	}
 
 	.service-pill-card:hover .service-card-bg {
 		opacity: 0.32;
-		transform: scale(1.08);
+		transform: scale(1.12);
+		filter: saturate(1.25) contrast(1.15) brightness(1.25);
 	}
 
 	.service-card-overlay {
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(180deg, rgba(8, 10, 16, 0.78) 0%, rgba(8, 10, 16, 0.95) 100%);
+		background: linear-gradient(180deg, rgba(8, 10, 16, 0.72) 0%, rgba(8, 10, 16, 0.94) 100%);
 		z-index: 1;
 		pointer-events: none;
 	}
 
 	:global(html[data-theme="light"]) .service-pill-card {
-		background: rgba(255, 255, 255, 0.75);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+		background: #ffffff;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .service-pill-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
 	}
 
 	:global(html[data-theme="light"]) .service-card-overlay {
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.9) 100%);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.92) 100%);
 	}
 
 	:global(html[data-theme="light"]) .service-card-bg {
-		opacity: 0.16;
+		opacity: 0.12;
 	}
 
 	:global(html[data-theme="light"]) .service-pill-card:hover .service-card-bg {
 		opacity: 0.28;
+		transform: scale(1.12);
+		filter: saturate(1.2) contrast(1.1) brightness(1.1);
 	}
 
 	.pill-card-top {
 		position: relative;
 		z-index: 2;
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		width: 100%;
+		margin-bottom: 0.5rem;
 	}
 
 	.srv-icon-badge {
-		width: 56px;
-		height: 56px;
-		min-width: 56px;
-		min-height: 56px;
+		width: 106px;
+		height: 106px;
+		min-width: 106px;
+		min-height: 106px;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 50%;
-		background: rgba(220, 38, 38, 0.08);
-		border: 1px solid rgba(220, 38, 38, 0.25);
-		padding: 2px;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-		backdrop-filter: blur(8px);
-		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+		background: transparent;
+		border: none;
+		padding: 0;
+		filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.4));
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+		overflow: hidden;
 	}
 
 	.service-pill-card:hover .srv-icon-badge {
-		transform: scale(1.1);
-		border-color: rgba(220, 38, 38, 0.6);
-		box-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
+		transform: scale(1.08);
+		filter: drop-shadow(0 10px 24px rgba(220, 38, 38, 0.45));
 	}
 
 	:global(html[data-theme="light"]) .srv-icon-badge {
-		background: rgba(254, 226, 226, 0.7);
-		border-color: rgba(239, 68, 68, 0.35);
-		box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+		background: transparent;
+		border: none;
+		filter: drop-shadow(0 4px 14px rgba(220, 38, 38, 0.22));
 	}
 
 	.srv-icon-img {
-		width: 48px;
-		height: 48px;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 		display: block;
-		filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
 	}
 
 	.srv-card-arrow {
-		width: 30px;
-		height: 30px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 32px;
+		height: 32px;
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
@@ -350,52 +410,115 @@
 		background: #38bdf8;
 		color: #0b0f19;
 		border-color: #38bdf8;
-		transform: translateX(3px);
+		transform: translate(2px, -2px);
 	}
 
-	.srv-icon-img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+	:global(html[data-theme="light"]) .srv-card-arrow {
+		background: #cef79e;
+		border: 1px solid #b8eb83;
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .service-pill-card:hover .srv-card-arrow {
+		background: #bbf47b;
+		border-color: #222f30;
+		color: #222f30;
+		transform: translate(2px, -2px);
 	}
 
 	.srv-card-title {
 		position: relative;
 		z-index: 2;
-		font-size: 1.15rem;
+		font-size: 1.25rem;
 		font-weight: 700;
 		color: var(--color-bone-white);
 		margin: 0;
 		letter-spacing: -0.01em;
 	}
 
+	:global(html[data-theme="light"]) .srv-card-title {
+		color: #222f30 !important;
+	}
+
 	.srv-card-desc {
 		position: relative;
 		z-index: 2;
-		font-size: 0.85rem;
+		font-size: 0.88rem;
 		color: var(--color-ash-gray);
-		line-height: 1.55;
+		line-height: 1.6;
 		margin: 0;
 		font-weight: 300;
+	}
+
+	:global(html[data-theme="light"]) .srv-card-desc {
+		color: #4d5757 !important;
 	}
 
 	.srv-read-more {
 		position: relative;
 		z-index: 2;
 		margin-top: auto;
-		padding-top: 0.6rem;
-		font-size: 0.8rem;
+		padding-top: 0.85rem;
+		font-size: 0.85rem;
 		font-weight: 600;
 		color: #38bdf8;
 		display: inline-flex;
 		align-items: center;
-		gap: 4px;
+		gap: 5px;
 		transition: transform 0.2s ease, color 0.2s ease;
 	}
 
 	.service-pill-card:hover .srv-read-more {
 		color: #7dd3fc;
 		transform: translateX(4px);
+	}
+
+	:global(html[data-theme="light"]) .srv-read-more {
+		color: #222f30 !important;
+	}
+
+	:global(html[data-theme="light"]) .service-pill-card:hover .srv-read-more {
+		color: #15846e !important;
+	}
+
+	.welcome-line {
+		display: block;
+		font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+		font-weight: 700;
+		color: var(--color-bone-white);
+		margin-bottom: 0.35rem;
+		letter-spacing: -0.01em;
+	}
+
+	.welcome-line .brand-ozon {
+		color: #00E640;
+		font-weight: 800;
+	}
+
+	.welcome-line .brand-sep {
+		color: #FFA000;
+		margin: 0 1.5px;
+		font-weight: 800;
+	}
+
+	.welcome-line .brand-dez {
+		color: #008F45;
+		font-weight: 800;
+	}
+
+	:global(html[data-theme="light"]) .welcome-line {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .welcome-line .brand-ozon {
+		color: #00C835;
+	}
+
+	:global(html[data-theme="light"]) .welcome-line .brand-sep {
+		color: #D97706;
+	}
+
+	:global(html[data-theme="light"]) .welcome-line .brand-dez {
+		color: #007A3B;
 	}
 </style>

@@ -11,9 +11,16 @@ class ThemeState {
 			if (saved === 'light' || saved === 'dark') {
 				this.current = saved;
 			} else {
-				this.current = 'dark';
+				const docTheme = document.documentElement.getAttribute('data-theme') as Theme | null;
+				this.current = docTheme === 'light' ? 'light' : 'dark';
 			}
 			this.applyTheme(this.current);
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', () => {
+					this.applyTheme(this.current);
+				});
+			}
 		}
 	}
 

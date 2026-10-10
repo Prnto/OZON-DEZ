@@ -143,27 +143,6 @@
 
 <section class="calc-section" id="calculator">
 	<div class="calc-container">
-		<div class="calc-header">
-			<h2 class="calc-title">
-				{#if langState.current === 'ua'}
-					Розрахуйте орієнтовну ціну послуги за 30 секунд з урахуванням типу об’єкта та площі
-				{:else if langState.current === 'ru'}
-					Рассчитайте ориентировочную цену услуги за 30 секунд с учетом типа объекта и площади
-				{:else}
-					Calculate Estimated Service Cost in 30 Seconds by Facility Type & Area
-				{/if}
-			</h2>
-			<p class="calc-subtitle">
-				{#if langState.current === 'ua'}
-					Оберіть послугу, тип об'єкта та площу. Точну фіксовану ціну спеціаліст озвучить перед початком робіт.
-				{:else if langState.current === 'ru'}
-					Выберите услугу, тип объекта и площадь. Точную фиксированную цену специалист озвучит перед началом работ.
-				{:else}
-					Select service, facility type, and area. Exact fixed price is announced by our specialist before work begins.
-				{/if}
-			</p>
-		</div>
-
 		<div class="calc-card">
 			<div class="calc-grid">
 				<!-- Ліва колонка: Параметри -->
@@ -370,7 +349,7 @@
 
 <style>
 	.calc-section {
-		padding: 5rem 1.25rem;
+		padding: clamp(2.5rem, 4.5vh, 3.8rem) 1.25rem clamp(3.5rem, 6vh, 5rem);
 		background: transparent;
 		color: var(--color-bone-white);
 	}
@@ -378,38 +357,6 @@
 	.calc-container {
 		max-width: 1040px;
 		margin: 0 auto;
-	}
-
-	.calc-header {
-		text-align: center;
-		margin-bottom: 2.2rem;
-	}
-
-	.calc-title {
-		font-size: clamp(1.35rem, 2.3vw, 1.85rem);
-		font-weight: 500;
-		letter-spacing: -0.025em;
-		line-height: 1.3;
-		margin: 0 auto 12px auto;
-		max-width: 820px;
-		color: var(--color-bone-white);
-	}
-
-	:global(html[data-theme="light"]) .calc-title {
-		color: #0f172a;
-	}
-
-	.calc-subtitle {
-		color: var(--color-silver-mist);
-		font-size: clamp(0.88rem, 1.1vw, 0.98rem);
-		max-width: 680px;
-		margin: 0 auto;
-		line-height: 1.55;
-		font-weight: 300;
-	}
-
-	:global(html[data-theme="light"]) .calc-subtitle {
-		color: #64748b;
 	}
 
 	.calc-card {
@@ -422,8 +369,8 @@
 
 	:global(html[data-theme="light"]) .calc-card {
 		background: #ffffff;
-		border-color: #e2e8f0;
-		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
 	}
 
 	.calc-grid {
@@ -446,7 +393,7 @@
 	}
 
 	:global(html[data-theme="light"]) .calc-label {
-		color: #1e293b;
+		color: #222f30;
 	}
 
 	.calc-label-row {
@@ -462,7 +409,7 @@
 	}
 
 	:global(html[data-theme="light"]) .calc-range-value {
-		color: #0284c7;
+		color: #15846e;
 	}
 
 	.calc-select {
@@ -479,9 +426,9 @@
 	}
 
 	:global(html[data-theme="light"]) .calc-select {
-		border-color: #cbd5e1;
-		background-color: #f8fafc;
-		color: #0f172a;
+		border-color: #c9cbbe;
+		background-color: #ffffff;
+		color: #222f30;
 	}
 
 	.calc-select:focus {
@@ -489,7 +436,7 @@
 	}
 
 	:global(html[data-theme="light"]) .calc-select:focus {
-		border-color: #0284c7;
+		border-color: #222f30;
 		background-color: #ffffff;
 	}
 
@@ -512,9 +459,9 @@
 	}
 
 	:global(html[data-theme="light"]) .radio-card {
-		border-color: #e2e8f0;
-		background: #f8fafc;
-		color: #334155;
+		border-color: #c9cbbe;
+		background: #ffffff;
+		color: #354243;
 	}
 
 	.radio-card:hover {
@@ -522,7 +469,7 @@
 	}
 
 	:global(html[data-theme="light"]) .radio-card:hover {
-		border-color: #94a3b8;
+		border-color: #222f30;
 	}
 
 	.radio-card input {
@@ -537,8 +484,9 @@
 	}
 
 	:global(html[data-theme="light"]) .radio-card.checked {
-		background: #e0f2fe;
-		color: #0f172a;
+		border-color: #222f30;
+		background: #eafadb;
+		color: #222f30;
 	}
 
 	.calc-range {
@@ -603,8 +551,8 @@
 	}
 
 	:global(html[data-theme="light"]) .calc-summary {
-		background: #f1f5f9;
-		border-color: #e2e8f0;
+		background: #e7e8e1;
+		border: 1px solid #c9cbbe;
 	}
 
 	.summary-caption {
@@ -616,7 +564,7 @@
 	}
 
 	:global(html[data-theme="light"]) .summary-caption {
-		color: #64748b;
+		color: #4d5757;
 	}
 
 	.summary-price {
@@ -632,7 +580,7 @@
 	}
 
 	:global(html[data-theme="light"]) .price-from {
-		color: #64748b;
+		color: #4d5757;
 	}
 
 	.price-val {
@@ -643,7 +591,7 @@
 	}
 
 	:global(html[data-theme="light"]) .price-val {
-		color: #0284c7;
+		color: #222f30;
 	}
 
 	.price-currency {
@@ -653,7 +601,7 @@
 	}
 
 	:global(html[data-theme="light"]) .price-currency {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	.summary-list {
@@ -670,7 +618,7 @@
 	}
 
 	:global(html[data-theme="light"]) .summary-list {
-		border-color: #e2e8f0;
+		border-color: #c9cbbe;
 	}
 
 	.summary-list li {
@@ -681,7 +629,7 @@
 	}
 
 	:global(html[data-theme="light"]) .summary-list li {
-		color: #334155;
+		color: #354243;
 	}
 
 	.summary-list strong {
@@ -690,7 +638,7 @@
 	}
 
 	:global(html[data-theme="light"]) .summary-list strong {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	.summary-cta {
@@ -735,10 +683,20 @@
 		transition: all 0.2s;
 	}
 
+	:global(html[data-theme="light"]) .btn-calc-submit {
+		background: #222f30;
+		color: #ffffff;
+	}
+
+	:global(html[data-theme="light"]) .btn-calc-submit:hover {
+		background: #151f20;
+		color: #cef79e;
+	}
+
 	:global(html[data-theme="light"]) .btn-calc-tg {
 		background: #ffffff;
-		color: #475569;
-		border-color: #cbd5e1;
+		color: #222f30;
+		border: 1px solid #c9cbbe;
 	}
 
 	.btn-calc-tg:hover {
@@ -748,9 +706,9 @@
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg:hover {
-		background: #f0f9ff;
-		border-color: #0284c7;
-		color: #0284c7;
+		background: #e7e8e1;
+		border-color: #222f30;
+		color: #222f30;
 	}
 
 	.calc-lead-section {
@@ -803,6 +761,18 @@
 		color: #ffffff;
 	}
 
+	:global(html[data-theme="light"]) .lead-btn {
+		background: #0284c7;
+		color: #ffffff;
+		border-color: #0284c7;
+	}
+
+	:global(html[data-theme="light"]) .lead-btn:hover {
+		background: #0369a1;
+		border-color: #0369a1;
+		color: #ffffff;
+	}
+
 	.lead-success-badge {
 		background: rgba(16, 185, 129, 0.15);
 		border: 1px solid #10b981;
@@ -811,6 +781,12 @@
 		border-radius: 8px;
 		font-size: 0.85rem;
 		text-align: center;
+	}
+
+	:global(html[data-theme="light"]) .lead-success-badge {
+		background: #ecfdf5;
+		border-color: #10b981;
+		color: #047857;
 	}
 
 	.summary-note {

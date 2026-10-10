@@ -31,7 +31,6 @@
 
 <div class="contacts-page">
 	<PageHeader
-		badge={c.badge}
 		title={c.title}
 		subtitle={c.subtitle}
 		crumbs={[{ label: currentContent.nav.contacts }]}
@@ -486,5 +485,54 @@
 		color: var(--color-ash-gray);
 		font-weight: 300;
 		line-height: 1.6;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card {
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .city-crest-badge {
+		background: #e7e8e1;
+		border-color: #c9cbbe;
+		box-shadow: none;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card h4 {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card p {
+		color: #4d5757;
+	}
+
+	:global(html[data-theme="light"]) .city-link-pill {
+		color: #222f30;
+		background: #e7e8e1;
+		border: 1px solid #c9cbbe;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card:hover .city-link-pill {
+		color: #ffffff;
+		background: #222f30;
+		border-color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .city-link-pill-map {
+		color: #222f30;
+		background: #eafadb;
+		border: 1px solid #cef79e;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card:hover .city-link-pill-map {
+		color: #222f30;
+		background: #cef79e;
+		border-color: #b8eb83;
 	}
 </style>

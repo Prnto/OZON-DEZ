@@ -31,7 +31,6 @@
 
 <div class="how-we-work-page">
 	<PageHeader
-		badge={work.badge}
 		title={work.title}
 		subtitle={work.subtitle}
 		crumbs={[{ label: currentContent.nav.howWeWork }]}
@@ -300,14 +299,39 @@
 	}
 
 	:global(html[data-theme="light"]) .prep-card {
-		background: rgba(255, 255, 255, 0.8);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .prep-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .prep-card h3 {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .prep-card p {
+		color: #4d5757;
+	}
+
+	:global(html[data-theme="light"]) .prep-card-icon {
+		color: #15846e;
 	}
 
 	:global(html[data-theme="light"]) .prep-action-banner {
-		background: rgba(255, 255, 255, 0.85);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .prep-action-banner h3 {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .prep-action-banner p {
+		color: #4d5757;
 	}
 </style>

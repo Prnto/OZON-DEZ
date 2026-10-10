@@ -566,6 +566,51 @@
 		flex-shrink: 0;
 	}
 
+	:global(html[data-theme="light"]) .widget-menu {
+		background: #ffffff;
+		border-color: rgba(15, 23, 42, 0.12);
+		box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+	}
+
+	:global(html[data-theme="light"]) .menu-item {
+		background: #f8fafc;
+		border-color: #e2e8f0;
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .menu-item:hover {
+		background: #f1f5f9;
+		border-color: #0284c7;
+	}
+
+	:global(html[data-theme="light"]) .item-title {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .item-detail {
+		color: #475569;
+	}
+
+	:global(html[data-theme="light"]) .item-icon-wrap {
+		background: #ffffff;
+		border-color: #cbd5e1;
+	}
+
+	:global(html[data-theme="light"]) .phone-icon {
+		color: #059669;
+		background: #ecfdf5;
+	}
+
+	:global(html[data-theme="light"]) .office-icon {
+		color: #b45309;
+		background: #fffbeb;
+	}
+
+	:global(html[data-theme="light"]) .email-icon {
+		color: #0284c7;
+		background: #f0f9ff;
+	}
+
 	@media (max-width: 480px) {
 		.floating-widget-wrapper {
 			bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom, 0px)));

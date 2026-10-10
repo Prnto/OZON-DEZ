@@ -59,72 +59,76 @@
 					</div>
 				</a>
 			</div>
-			<span class="top-bar-divider">|</span>
 
-			<!-- Explicit Dual Theme Switcher (Dark / Light) -->
-			<div class="theme-segmented-ctrl" role="group" aria-label="Тема сайту">
-				<button
-					type="button"
-					class="theme-segment-btn"
-					class:active={themeState.current === 'dark'}
-					aria-pressed={themeState.current === 'dark'}
-					onclick={() => themeState.setTheme('dark')}
-					title="Темна тема"
-					data-testid="theme-dark-btn"
-				>
-					<span class="theme-icon"><Moon size={13} weight="bold" /></span>
-					<span class="theme-label">{#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}</span>
-				</button>
-				<button
-					type="button"
-					class="theme-segment-btn"
-					class:active={themeState.current === 'light'}
-					aria-pressed={themeState.current === 'light'}
-					onclick={() => themeState.setTheme('light')}
-					title="Світла тема"
-					data-testid="theme-light-btn"
-				>
-					<span class="theme-icon"><Sun size={13} weight="bold" /></span>
-					<span class="theme-label">{#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}</span>
-				</button>
-			</div>
+			<!-- Switchers Cluster: Theme & Language (spreads evenly on mobile) -->
+			<div class="top-switchers-cluster">
+				<span class="top-bar-divider top-divider-desktop">|</span>
 
-			<span class="top-bar-divider">|</span>
+				<!-- Explicit Dual Theme Switcher (Dark / Light) -->
+				<div class="theme-segmented-ctrl" role="group" aria-label="Тема сайту">
+					<button
+						type="button"
+						class="theme-segment-btn"
+						class:active={themeState.current === 'dark'}
+						aria-pressed={themeState.current === 'dark'}
+						onclick={() => themeState.setTheme('dark')}
+						title="Темна тема"
+						data-testid="theme-dark-btn"
+					>
+						<span class="theme-icon"><Moon size={13} weight="bold" /></span>
+						<span class="theme-label">{#if langState.current === 'ua'}Темна{:else if langState.current === 'ru'}Темная{:else}Dark{/if}</span>
+					</button>
+					<button
+						type="button"
+						class="theme-segment-btn"
+						class:active={themeState.current === 'light'}
+						aria-pressed={themeState.current === 'light'}
+						onclick={() => themeState.setTheme('light')}
+						title="Світла тема"
+						data-testid="theme-light-btn"
+					>
+						<span class="theme-icon"><Sun size={13} weight="bold" /></span>
+						<span class="theme-label">{#if langState.current === 'ua'}Світла{:else if langState.current === 'ru'}Светлая{:else}Light{/if}</span>
+					</button>
+				</div>
 
-			<!-- Language Switcher: 3 Languages (UA / RU / EN) -->
-			<div class="lang-segmented-ctrl" role="group" aria-label="Мова сайту">
-				<button
-					type="button"
-					class="lang-segment-btn"
-					class:active={langState.current === 'ua'}
-					aria-pressed={langState.current === 'ua'}
-					onclick={() => langState.setLang('ua')}
-					data-testid="lang-ua-btn"
-				>
-					UA
-				</button>
-				<span class="lang-divider">/</span>
-				<button
-					type="button"
-					class="lang-segment-btn"
-					class:active={langState.current === 'ru'}
-					aria-pressed={langState.current === 'ru'}
-					onclick={() => langState.setLang('ru')}
-					data-testid="lang-ru-btn"
-				>
-					RU
-				</button>
-				<span class="lang-divider">/</span>
-				<button
-					type="button"
-					class="lang-segment-btn"
-					class:active={langState.current === 'en'}
-					aria-pressed={langState.current === 'en'}
-					onclick={() => langState.setLang('en')}
-					data-testid="lang-en-btn"
-				>
-					EN
-				</button>
+				<span class="top-bar-divider">|</span>
+
+				<!-- Language Switcher: 3 Languages (UA / RU / EN) -->
+				<div class="lang-segmented-ctrl" role="group" aria-label="Мова сайту">
+					<button
+						type="button"
+						class="lang-segment-btn"
+						class:active={langState.current === 'ua'}
+						aria-pressed={langState.current === 'ua'}
+						onclick={() => langState.setLang('ua')}
+						data-testid="lang-ua-btn"
+					>
+						UA
+					</button>
+					<span class="lang-divider">/</span>
+					<button
+						type="button"
+						class="lang-segment-btn"
+						class:active={langState.current === 'ru'}
+						aria-pressed={langState.current === 'ru'}
+						onclick={() => langState.setLang('ru')}
+						data-testid="lang-ru-btn"
+					>
+						RU
+					</button>
+					<span class="lang-divider">/</span>
+					<button
+						type="button"
+						class="lang-segment-btn"
+						class:active={langState.current === 'en'}
+						aria-pressed={langState.current === 'en'}
+						onclick={() => langState.setLang('en')}
+						data-testid="lang-en-btn"
+					>
+						EN
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -144,9 +148,9 @@
 	:global(html.theme-light) .top-bar,
 	:global(body[data-theme="light"]) .top-bar,
 	:global([data-theme="light"]) .top-bar {
-		background: #ffffff !important;
-		color: #64748b !important;
-		border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+		background: #f7f7f5 !important;
+		color: #4d5757 !important;
+		border-bottom-color: #c9cbbe !important;
 	}
 
 	.top-bar-container {
@@ -167,27 +171,49 @@
 		white-space: nowrap;
 	}
 
-	@media (max-width: 920px) {
+	@media (max-width: 860px) {
 		.top-bar-left {
 			display: none;
 		}
 		.top-bar-container {
-			justify-content: flex-end;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.top-bar-container {
-			padding: 0.3rem 0.65rem;
-			gap: 0.4rem;
-		}
-		.top-phone-pill {
-			font-size: 0.72rem;
-			gap: 0.2rem;
-			padding: 0.2rem 0.5rem;
+			justify-content: center;
+			padding: 0.35rem 0.65rem;
 		}
 		.top-bar-right {
-			gap: 0.4rem;
+			width: 100%;
+			display: flex;
+			flex-direction: column-reverse;
+			align-items: stretch;
+			gap: 0.35rem;
+			white-space: normal;
+		}
+		.top-switchers-cluster {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 2px;
+		}
+		.top-divider-desktop {
+			display: none !important;
+		}
+		.top-phones-cluster {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 6px;
+		}
+		.top-phone-pill {
+			width: 100%;
+			box-sizing: border-box;
+			min-height: 42px;
+			padding: 0.25rem 0.35rem;
+		}
+		.pill-num-line {
+			font-size: clamp(10.5px, 2.7vw, 12px);
+			letter-spacing: -0.01em;
+			justify-content: center;
+			white-space: nowrap;
 		}
 	}
 
@@ -225,6 +251,12 @@
 		color: rgba(15, 23, 42, 0.12);
 	}
 
+	.top-switchers-cluster {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
 	.top-phones-cluster {
 		display: inline-flex;
 		align-items: center;
@@ -243,6 +275,11 @@
 		white-space: nowrap;
 	}
 
+	.top-phone-pill * {
+		color: inherit;
+		fill: currentColor;
+	}
+
 	.pill-inner {
 		display: flex;
 		flex-direction: column;
@@ -250,6 +287,7 @@
 		justify-content: center;
 		gap: 1px;
 		line-height: 1.1;
+		width: 100%;
 	}
 
 	.pill-top-label {
@@ -278,19 +316,20 @@
 	.pill-num-line {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 0.35rem;
 		font-size: 12px;
 		font-weight: 700;
 		letter-spacing: 0.01em;
 	}
 
-	/* Left phone pill: Red */
+	/* Left phone pill: Red (Landline) - Dark mode */
 	.top-phone-pill.phone-pill-red {
 		background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
 		border: 1px solid rgba(239, 68, 68, 0.55);
 		color: #fee2e2;
 		box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
-		animation: policeStrobeRed 1.4s ease-in-out 3 normal forwards;
+		animation: policeStrobeRedDark 3.5s ease-in-out infinite;
 	}
 
 	.top-phone-pill.phone-pill-red:hover {
@@ -301,13 +340,13 @@
 		transform: translateY(-1px);
 	}
 
-	/* Right phone pill: Blue */
+	/* Right phone pill: Blue (Mobile lifecell) - Dark mode */
 	.top-phone-pill.phone-pill-blue {
 		background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 		border: 1px solid rgba(56, 189, 248, 0.55);
 		color: #e0f2fe;
 		box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
-		animation: policeStrobeBlue 1.4s ease-in-out 3 normal forwards;
+		animation: policeStrobeBlueDark 3.5s ease-in-out infinite;
 	}
 
 	.top-phone-pill.phone-pill-blue:hover {
@@ -318,33 +357,52 @@
 		transform: translateY(-1px);
 	}
 
-	/* Light mode adjustments */
-	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red {
-		background: linear-gradient(135deg, rgba(254, 226, 226, 0.95), rgba(254, 202, 202, 0.85));
-		border-color: rgba(239, 68, 68, 0.5);
-		color: #b91c1c;
-		box-shadow: 0 1px 4px rgba(220, 38, 38, 0.15);
+	/* Light mode adjustments — High contrast, crisp colors with synchronized strobe */
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red,
+	:global(html.theme-light) .top-phone-pill.phone-pill-red,
+	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-red,
+	:global([data-theme="light"]) .top-phone-pill.phone-pill-red {
+		background: #fef2f2 !important;
+		border: 1.5px solid #dc2626 !important;
+		color: #991b1b !important;
+		box-shadow: 0 1px 4px rgba(220, 38, 38, 0.12) !important;
+		animation: policeStrobeRedLight 3.5s ease-in-out infinite !important;
 	}
 
-	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red:hover {
-		background: #fee2e2;
-		border-color: rgba(220, 38, 38, 0.7);
-		color: #991b1b;
-		box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-red:hover,
+	:global(html.theme-light) .top-phone-pill.phone-pill-red:hover,
+	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-red:hover,
+	:global([data-theme="light"]) .top-phone-pill.phone-pill-red:hover {
+		background: #fee2e2 !important;
+		border-color: #b91c1c !important;
+		color: #7f1d1d !important;
+		box-shadow: 0 2px 8px rgba(220, 38, 38, 0.22) !important;
 	}
 
-	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue {
-		background: linear-gradient(135deg, rgba(224, 242, 254, 0.95), rgba(186, 230, 253, 0.85));
-		border-color: rgba(56, 189, 248, 0.5);
-		color: #0369a1;
-		box-shadow: 0 1px 4px rgba(2, 132, 199, 0.15);
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue,
+	:global(html.theme-light) .top-phone-pill.phone-pill-blue,
+	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-blue,
+	:global([data-theme="light"]) .top-phone-pill.phone-pill-blue {
+		background: #f0f9ff !important;
+		border: 1.5px solid #0284c7 !important;
+		color: #0369a1 !important;
+		box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12) !important;
+		animation: policeStrobeBlueLight 3.5s ease-in-out infinite !important;
 	}
 
-	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue:hover {
-		background: #dbeafe;
-		border-color: rgba(2, 132, 199, 0.7);
-		color: #0c4a6e;
-		box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue:hover,
+	:global(html.theme-light) .top-phone-pill.phone-pill-blue:hover,
+	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-blue:hover,
+	:global([data-theme="light"]) .top-phone-pill.phone-pill-blue:hover {
+		background: #e0f2fe !important;
+		border-color: #0369a1 !important;
+		color: #075985 !important;
+		box-shadow: 0 2px 8px rgba(2, 132, 199, 0.22) !important;
+	}
+
+	:global(html[data-theme="light"]) .pill-top-label,
+	:global(html.theme-light) .pill-top-label {
+		opacity: 1 !important;
 	}
 
 	/* Blue pulse dot inside mobile pill */
@@ -352,6 +410,11 @@
 		background-color: #38bdf8;
 		box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
 		animation: pulseDotBlue 2s infinite;
+	}
+
+	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue .phone-pulse-dot {
+		background-color: #0284c7 !important;
+		box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7) !important;
 	}
 
 	.phone-pulse-dot {
@@ -364,27 +427,27 @@
 		flex-shrink: 0;
 	}
 
-	/* Police Strobe Keyframes: 3 flashes on Red, then 3 flashes on Blue, then Pause. Repeats 3 times, then stops. */
-	@keyframes policeStrobeRed {
+	/* Police Strobe Keyframes - Dark Mode */
+	@keyframes policeStrobeRedDark {
 		0%,
-		8%,
-		16% {
+		5%,
+		10% {
 			background: #ef4444;
 			border-color: #ffffff;
 			color: #ffffff;
 			box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.95), 0 0 32px 8px rgba(255, 68, 68, 0.6);
 			transform: scale(1.02);
 		}
-		4%,
-		12%,
-		20% {
+		2.5%,
+		7.5%,
+		12.5% {
 			background: rgba(220, 38, 38, 0.15);
 			border-color: rgba(239, 68, 68, 0.3);
 			color: #fecaca;
 			box-shadow: none;
 			transform: scale(1);
 		}
-		24%,
+		15%,
 		100% {
 			background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
 			border-color: rgba(239, 68, 68, 0.55);
@@ -394,34 +457,34 @@
 		}
 	}
 
-	@keyframes policeStrobeBlue {
+	@keyframes policeStrobeBlueDark {
 		0%,
-		24% {
+		17% {
 			background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 			border-color: rgba(56, 189, 248, 0.55);
 			color: #e0f2fe;
 			box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
 			transform: scale(1);
 		}
-		28%,
-		36%,
-		44% {
+		18%,
+		23%,
+		28% {
 			background: #0284c7;
 			border-color: #ffffff;
 			color: #ffffff;
 			box-shadow: 0 0 18px 4px rgba(2, 132, 199, 0.95), 0 0 32px 8px rgba(56, 189, 248, 0.6);
 			transform: scale(1.02);
 		}
-		32%,
-		40%,
-		48% {
+		20.5%,
+		25.5%,
+		30.5% {
 			background: rgba(2, 132, 199, 0.15);
 			border-color: rgba(56, 189, 248, 0.3);
 			color: #bae6fd;
 			box-shadow: none;
 			transform: scale(1);
 		}
-		52%,
+		32%,
 		100% {
 			background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 			border-color: rgba(56, 189, 248, 0.55);
@@ -431,10 +494,77 @@
 		}
 	}
 
+	/* Police Strobe Keyframes - Light Mode (Biosciences Palette) */
+	@keyframes policeStrobeRedLight {
+		0%,
+		5%,
+		10% {
+			background: #dc2626 !important;
+			border-color: #ffffff !important;
+			color: #ffffff !important;
+			box-shadow: 0 0 16px 4px rgba(220, 38, 38, 0.8), 0 0 26px 6px rgba(220, 38, 38, 0.4) !important;
+			transform: scale(1.02);
+		}
+		2.5%,
+		7.5%,
+		12.5% {
+			background: #fee2e2 !important;
+			border-color: #ef4444 !important;
+			color: #991b1b !important;
+			box-shadow: none !important;
+			transform: scale(1);
+		}
+		15%,
+		100% {
+			background: #fef2f2 !important;
+			border-color: #dc2626 !important;
+			color: #991b1b !important;
+			box-shadow: 0 1px 4px rgba(220, 38, 38, 0.15) !important;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes policeStrobeBlueLight {
+		0%,
+		17% {
+			background: #f0f9ff !important;
+			border-color: #0284c7 !important;
+			color: #0369a1 !important;
+			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.15) !important;
+			transform: scale(1);
+		}
+		18%,
+		23%,
+		28% {
+			background: #0284c7 !important;
+			border-color: #ffffff !important;
+			color: #ffffff !important;
+			box-shadow: 0 0 16px 4px rgba(2, 132, 199, 0.8), 0 0 26px 6px rgba(56, 189, 248, 0.4) !important;
+			transform: scale(1.02);
+		}
+		20.5%,
+		25.5%,
+		30.5% {
+			background: #e0f2fe !important;
+			border-color: #38bdf8 !important;
+			color: #0369a1 !important;
+			box-shadow: none !important;
+			transform: scale(1);
+		}
+		32%,
+		100% {
+			background: #f0f9ff !important;
+			border-color: #0284c7 !important;
+			color: #0369a1 !important;
+			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.15) !important;
+			transform: scale(1);
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.top-phone-pill.phone-pill-red,
 		.top-phone-pill.phone-pill-blue {
-			animation: none;
+			animation: none !important;
 		}
 	}
 
@@ -480,8 +610,8 @@
 	}
 
 	:global(html[data-theme="light"]) .theme-segmented-ctrl {
-		background: rgba(15, 23, 42, 0.05);
-		border-color: rgba(15, 23, 42, 0.12);
+		background: #e7e8e1;
+		border-color: #c9cbbe;
 	}
 
 	.theme-segment-btn {
@@ -511,17 +641,17 @@
 	}
 
 	:global(html[data-theme="light"]) .theme-segment-btn {
-		color: #64748b;
+		color: #4d5757;
 	}
 
 	:global(html[data-theme="light"]) .theme-segment-btn:hover {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	:global(html[data-theme="light"]) .theme-segment-btn.active {
-		background: #0284c7;
+		background: #222f30;
 		color: #ffffff;
-		box-shadow: 0 1px 4px rgba(2, 132, 199, 0.25);
+		box-shadow: none;
 	}
 
 	.theme-icon {
@@ -548,8 +678,8 @@
 	}
 
 	:global(html[data-theme="light"]) .lang-segmented-ctrl {
-		border-color: rgba(15, 23, 42, 0.12);
-		background: rgba(15, 23, 42, 0.05);
+		border-color: #c9cbbe;
+		background: #e7e8e1;
 	}
 
 	.lang-segment-btn {
@@ -568,11 +698,11 @@
 	}
 
 	:global(html[data-theme="light"]) .lang-segment-btn {
-		color: #64748b;
+		color: #4d5757;
 	}
 
 	:global(html[data-theme="light"]) .lang-segment-btn:hover {
-		color: #0f172a;
+		color: #222f30;
 	}
 
 	.lang-segment-btn.active {
@@ -581,11 +711,16 @@
 	}
 
 	:global(html[data-theme="light"]) .lang-segment-btn.active {
-		color: #0284c7;
+		color: #222f30;
+		font-weight: 700;
 	}
 
 	.lang-divider {
 		color: rgba(255, 255, 255, 0.2);
 		font-size: 0.7rem;
+	}
+
+	:global(html[data-theme="light"]) .lang-divider {
+		color: #c9cbbe;
 	}
 </style>

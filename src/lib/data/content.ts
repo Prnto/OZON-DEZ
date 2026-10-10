@@ -378,7 +378,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		nav: {
 			services: 'Послуги',
 			ozone: 'Озонування O₃',
-			b2b: 'Бізнесу & HACCP',
+			b2b: 'Для бізнесу',
 			agro: 'Агросектор',
 			water: 'Очистка води',
 			howWeWork: 'Як працюємо',
@@ -650,8 +650,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			guaranteeText: 'ТОВ «ОЗОН-ДЕЗ» використовує зареєстровані в Україні препарати, діє власна служба технологічного контролю згідно з вимогами Держпродспоживслужби та регламентів МОЗ України.'
 		},
 		calculator: {
-			title: 'Онлайн-калькулятор вартості обробки',
-			subtitle: 'Розрахуйте орієнтовну ціну послуги за 30 секунд з урахуванням типу об’єкта та площі',
+			title: 'Онлайн-калькулятор вартості',
+			subtitle: 'Оберіть послугу, тип об’єкта та площу для швидкого розрахунку вартості за 30 секунд. Точну ціну озвучить спеціаліст.',
 			step1: 'Оберіть тип вашого об’єкта:',
 			step2: 'Вид обробки чи послуги:',
 			step3: 'Площа обробки (м²):',
@@ -732,7 +732,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				actual: 'Офіс компанії:',
 				legal: 'Юридична адреса:',
 				phones: 'Телефони для зв’язку:',
-				mobileBadge: 'Мобільний',
+				mobileBadge: 'Лайф',
 				cityBadge: 'Міський / Офіс',
 				schedule: 'Режим роботи офісу:',
 				messengers: 'Швидкий зв’язок у месенджерах:'
@@ -903,7 +903,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		nav: {
 			services: 'Услуги',
 			ozone: 'Озонирование O₃',
-			b2b: 'Для бизнеса & HACCP',
+			b2b: 'Для бизнеса',
 			agro: 'Агросектор',
 			water: 'Очистка воды',
 			howWeWork: 'Как работаем',
@@ -1175,8 +1175,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			guaranteeText: 'ООО «ОЗОН-ДЕЗ» использует зарегистрированные в Украине препараты, действует собственная служба технологического контроля по требованиям Госпродпотребслужбы и регламентам МОЗ Украины.'
 		},
 		calculator: {
-			title: 'Онлайн-калькулятор стоимости обработки',
-			subtitle: 'Узнайте примерную стоимость за 30 секунд в зависимости от типа объекта и площади',
+			title: 'Онлайн-калькулятор стоимости',
+			subtitle: 'Выберите услугу, тип объекта и площадь для быстрого расчета стоимости за 30 секунд. Точную цену озвучит специалист.',
 			step1: 'Выберите тип вашего объекта:',
 			step2: 'Вид обработки или услуги:',
 			step3: 'Площадь обработки (м²):',
@@ -1257,8 +1257,8 @@ export const contentMap: Record<Lang, ContentData> = {
 				actual: 'Офис компании:',
 				legal: 'Юридический адрес:',
 				phones: 'Телефоны для связи:',
-				mobileBadge: 'Мобильный',
-				cityBadge: 'Городской офис',
+				mobileBadge: 'Лайф',
+				cityBadge: 'Городской / Офис',
 				schedule: 'Режим работы офиса:',
 				messengers: 'Быстрая связь в мессенджерах:'
 			},
@@ -1428,7 +1428,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		nav: {
 			services: 'Services',
 			ozone: 'Ozonation O₃',
-			b2b: 'Business & HACCP',
+			b2b: 'For Business',
 			agro: 'Agri-sector',
 			water: 'Water Treatment',
 			howWeWork: 'How We Work',
@@ -1700,8 +1700,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			guaranteeText: 'LLC "OZON-DEZ" exclusively applies preparations registered in Ukraine, operating our own quality control oversight aligned with State Service on Food Safety and MoH regulations.'
 		},
 		calculator: {
-			title: 'Online Treatment Cost Calculator',
-			subtitle: 'Estimate the cost of service in 30 seconds based on facility type and square meters',
+			title: 'Online Price Calculator',
+			subtitle: 'Select service, facility type, and area for an instant price estimate in 30 seconds. Fixed transparent rates.',
 			step1: 'Choose your object type:',
 			step2: 'Type of treatment or service:',
 			step3: 'Treatment area (m²):',
@@ -1782,8 +1782,8 @@ export const contentMap: Record<Lang, ContentData> = {
 				actual: 'Company Office:',
 				legal: 'Legal Address:',
 				phones: 'Contact Numbers:',
-				mobileBadge: 'Mobile',
-				cityBadge: 'City Office',
+				mobileBadge: 'lifecell',
+				cityBadge: 'City / Office',
 				schedule: 'Office Working Hours:',
 				messengers: 'Instant Messengers:'
 			},

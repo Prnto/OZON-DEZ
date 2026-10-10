@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
-	import { CookingPot, Storefront, Package, Bread, Check } from 'phosphor-svelte';
+	import { CookingPot, Storefront, Package, Bread, Check, FolderSimple, PhoneCall } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import BusinessHaccp from '#lib/components/BusinessHaccp.svelte';
 	import { langState } from '../../lib/state/language.svelte';
@@ -31,16 +31,13 @@
 
 <div class="b2b-page">
 	<PageHeader
-		badge={b2b.badge}
 		title={b2b.title}
 		subtitle={b2b.subtitle}
 		crumbs={[{ label: currentContent.nav.b2b }]}
 		imageSrc={asset('images/b2b-haccp-audit.webp')}
 	/>
 
-	<BusinessHaccp />
-
-	<!-- Industry segments section -->
+	<!-- Industry segments section placed first below header banner -->
 	<section class="section industries-section">
 		<div class="container">
 			<div class="section-header">
@@ -168,7 +165,7 @@
 			<div class="b2b-doc-banner glass-card-dark">
 				<div class="doc-banner-content">
 					<div class="section-badge dark">
-						{#if langState.current === 'ua'}Юридичний захист{:else if langState.current === 'ru'}Юридическая защита{:else}Legal protection{/if}
+						{#if langState.current === 'ua'}Юридичний захист & B2B{:else if langState.current === 'ru'}Юридическая защита & B2B{:else}Legal Protection & B2B{/if}
 					</div>
 					<h3>
 						{#if langState.current === 'ua'}
@@ -181,24 +178,56 @@
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
-							Укладаючи офіційний договір з ТОВ «ОЗОН-ДЕЗ», ви отримуєте затверджену програму пест-контролю, карти розміщення пасток, сертифікати якості на всі препарати та акти виконаних робіт із мокрими печатками.
+							Офіційний договір із ТОВ «ОЗОН-ДЕЗ», програма пест-контролю HACCP, карти розміщення пасток, сертифікати якості на препарати та акти виконаних робіт із мокрими печатками для 100% захисту перед інспекціями.
 						{:else if langState.current === 'ru'}
-							Заключая официальный договор с ООО «ОЗОН-ДЕЗ», вы получаете утвержденную программу пест-контроля, карты размещения станций, сертификаты на препараты и официальные акты с мокрыми печатями.
+							Официальный договор с ООО «ОЗОН-ДЕЗ», программа пест-контроля HACCP, схемы расстановки ловушек, сертификаты на препараты и акты с мокрыми печатями для 100% защиты перед инспекциями.
 						{:else}
-							By signing an official contract with LLC "OZON-DEZ", you receive an approved pest control program, trap layout maps, certificates of quality for all preparations, and stamped acts of completed work.
+							Official contract with LLC "OZON-DEZ", HACCP pest control program, trap layout maps, certificates of quality, and stamped acts for complete inspection readiness.
 						{/if}
 					</p>
 				</div>
-				<button
-					type="button"
-					class="btn btn-primary btn-lg"
-					onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Запит комерційної пропозиції HACCP' : langState.current === 'ru' ? 'Запрос коммерческого предложения HACCP' : 'HACCP Commercial Proposal Request' })}
-				>
-					{#if langState.current === 'ua'}Отримати зразок договору та КП{:else if langState.current === 'ru'}Получить образец договора и КП{:else}Get contract sample & proposal{/if}
-				</button>
+				<div class="b2b-banner-actions">
+					<button
+						type="button"
+						class="btn btn-primary btn-lg"
+						onclick={() => orderModal.open({
+							serviceTitle: langState.current === 'ua' ? 'Отримати комерційну пропозицію та зразок договору B2B' : langState.current === 'ru' ? 'Получить коммерческое предложение и образец договора B2B' : 'Get B2B commercial proposal & contract sample',
+							serviceCategory: 'HoReCa & HACCP'
+						})}
+					>
+						<FolderSimple size={18} weight="bold" />
+						<span>
+							{#if langState.current === 'ua'}
+								Отримати комерційну пропозицію B2B
+							{:else if langState.current === 'ru'}
+								Получить коммерческое предложение B2B
+							{:else}
+								Get B2B commercial proposal
+							{/if}
+						</span>
+					</button>
+					<a
+						href="tel:{currentContent.phones.mobile}"
+						class="btn btn-outline-white btn-lg"
+					>
+						<PhoneCall size={18} weight="bold" />
+						<span>
+							{#if langState.current === 'ua'}
+								Консультація спеціаліста
+							{:else if langState.current === 'ru'}
+								Консультация специалиста
+							{:else}
+								Specialist consultation
+							{/if}
+						</span>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
+
+	<!-- Detailed HACCP audit program and standards -->
+	<BusinessHaccp />
 </div>
 
 <style>
@@ -326,44 +355,96 @@
 		padding: 2.5rem 3rem;
 		border-radius: var(--radius-cards);
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2.5rem;
+		flex-direction: column;
+		gap: 1.75rem;
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
-		box-shadow: none;
+		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 	}
 
-	@media (max-width: 900px) {
-		.b2b-doc-banner {
-			flex-direction: column;
-			align-items: flex-start;
-			padding: 2rem 1.5rem;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.b2b-doc-banner {
-			padding: 1.5rem 1.15rem;
-		}
-		.b2b-doc-banner .btn {
-			width: 100%;
-		}
+	.doc-banner-content {
+		max-width: 840px;
 	}
 
 	.doc-banner-content h3 {
-		font-size: 1.45rem;
+		font-size: clamp(1.35rem, 2.5vw, 1.75rem);
 		font-weight: 400;
 		letter-spacing: -0.03em;
 		color: var(--color-bone-white);
-		margin-bottom: 0.6rem;
+		margin: 0.85rem 0 0.5rem;
 	}
 
 	.doc-banner-content p {
-		font-size: 0.9rem;
+		font-size: 0.95rem;
 		line-height: 1.6;
 		color: var(--color-ash-gray);
 		font-weight: 300;
-		max-width: 700px;
+	}
+
+	.b2b-banner-actions {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 640px) {
+		.b2b-doc-banner {
+			padding: 1.75rem 1.25rem;
+		}
+		.b2b-banner-actions {
+			flex-direction: column;
+			width: 100%;
+			gap: 0.85rem;
+		}
+		.b2b-banner-actions .btn {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+
+	:global(html[data-theme="light"]) .b2b-doc-banner {
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .doc-banner-content h3 {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .doc-banner-content p {
+		color: #4d5757;
+	}
+
+	:global(html[data-theme="light"]) .ind-card {
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .ind-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .ind-card h3 {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .ind-card p {
+		color: #4d5757;
+	}
+
+	:global(html[data-theme="light"]) .ind-list {
+		color: #4d5757;
+		border-top-color: #c9cbbe;
+	}
+
+	:global(html[data-theme="light"]) .ind-icon-floating {
+		background: #e7e8e1;
+		border-color: #c9cbbe;
+		color: #15846e;
+		box-shadow: none;
 	}
 </style>

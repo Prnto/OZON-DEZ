@@ -13,17 +13,25 @@
 		<meta property="og:description" content="15 років досвіду в дезінфекції, дезінсекції, озонуванні та пест-контролі HACCP у Чорноморську, Одесі та Одеській області. Офіс: просп. Миру, 8-А." />
 		<meta property="og:image" content="%sveltekit.assets%/images/pest-cockroaches.webp" />
 
-		<!-- Prevent theme flash on initial load -->
+		<!-- Prevent theme flash and ensure rock-solid persistence on initial load -->
 		<script>
-			try {
-				var savedTheme = localStorage.getItem('ozon_dez_theme') || 'dark';
-				document.documentElement.setAttribute('data-theme', savedTheme);
-				if (savedTheme === 'light') {
-					document.documentElement.classList.add('theme-light');
-				} else {
-					document.documentElement.classList.add('theme-dark');
-				}
-			} catch (e) {}
+			(function() {
+				try {
+					var savedTheme = localStorage.getItem('ozon_dez_theme') || 'dark';
+					document.documentElement.setAttribute('data-theme', savedTheme);
+					if (savedTheme === 'light') {
+						document.documentElement.classList.add('theme-light');
+						document.documentElement.classList.remove('theme-dark');
+					} else {
+						document.documentElement.classList.add('theme-dark');
+						document.documentElement.classList.remove('theme-light');
+					}
+					var metaTheme = document.querySelector('meta[name="theme-color"]');
+					if (metaTheme) {
+						metaTheme.setAttribute('content', savedTheme === 'light' ? '#f4f6f9' : '#000000');
+					}
+				} catch (e) {}
+			})();
 		</script>
 
 		<!-- Google Fonts -->
@@ -34,6 +42,17 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
+		<script>
+			try {
+				var t = localStorage.getItem('ozon_dez_theme') || 'dark';
+				document.body.setAttribute('data-theme', t);
+				if (t === 'light') {
+					document.body.classList.add('theme-light');
+				} else {
+					document.body.classList.add('theme-dark');
+				}
+			} catch (e) {}
+		</script>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

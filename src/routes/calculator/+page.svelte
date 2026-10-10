@@ -31,7 +31,6 @@
 
 <div class="calculator-page">
 	<PageHeader
-		badge={langState.current === 'ua' ? 'Прозорий прайс-розрахунок' : langState.current === 'ru' ? 'Прозрачный прайс-расчет' : 'Transparent Price Estimation'}
 		title={calc.title}
 		subtitle={calc.subtitle}
 		crumbs={[{ label: currentContent.nav.calculator }]}
@@ -45,9 +44,6 @@
 	<section class="section pricing-transparency-section">
 		<div class="container">
 			<div class="section-header">
-				<div class="section-badge">
-					{#if langState.current === 'ua'}Гарантія чесної ціни{:else if langState.current === 'ru'}Гарантия честной цены{:else}Honest Price Guarantee{/if}
-				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
 						Що вже входить у розраховану вартість?
@@ -214,8 +210,21 @@
 	}
 
 	:global(html[data-theme="light"]) .t-card {
-		background: rgba(255, 255, 255, 0.8);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+		background: #ffffff;
+		border: 1px solid #c9cbbe;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .t-card:hover {
+		border-color: #222f30;
+		box-shadow: none !important;
+	}
+
+	:global(html[data-theme="light"]) .t-card h4 {
+		color: #222f30;
+	}
+
+	:global(html[data-theme="light"]) .t-card p {
+		color: #4d5757;
 	}
 </style>
