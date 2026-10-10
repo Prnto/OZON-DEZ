@@ -18,7 +18,7 @@
 	--color-bone-white: #ffffff;
 	--color-ash-gray: #9a9a9a;
 	--color-silver-mist: #bdbdbd;
-	--color-electric-iris: #8052ff;
+	--color-electric-iris: #0284c7;
 	--color-saffron-spark: #ffb829;
 	--color-deep-verdant: #15846e;
 
@@ -26,7 +26,7 @@
 	--color-void-elevated: #070707;
 	--color-void-card: #0d0d0d;
 	--color-void-border: rgba(255, 255, 255, 0.08);
-	--color-iris-border: rgba(128, 82, 255, 0.25);
+	--color-iris-border: rgba(2, 132, 199, 0.35);
 	--color-saffron-border: rgba(255, 184, 41, 0.3);
 
 	/* Semantic mappings for component compatibility */
@@ -64,14 +64,14 @@ html[data-theme="light"], html.theme-light {
 	--color-bone-white: #1e293b;
 	--color-ash-gray: #586574;
 	--color-silver-mist: #334155;
-	--color-electric-iris: #6342e8;
+	--color-electric-iris: #0284c7;
 	--color-saffron-spark: #b45309;
 	--color-deep-verdant: #0f766e;
 
 	--color-void-elevated: #ffffff;
 	--color-void-card: #ffffff;
 	--color-void-border: rgba(15, 23, 42, 0.08);
-	--color-iris-border: rgba(99, 66, 232, 0.22);
+	--color-iris-border: rgba(2, 132, 199, 0.3);
 	--color-saffron-border: rgba(180, 83, 9, 0.22);
 
 	--bg-page: var(--color-void);

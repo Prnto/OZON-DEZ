@@ -258,14 +258,14 @@
 
 	.tapbar-btn.active {
 		color: #ffffff;
-		background: rgba(128, 82, 255, 0.15);
+		background: rgba(2, 132, 199, 0.16);
 		border-color: var(--color-electric-iris);
 		font-weight: 600;
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn.active {
 		color: var(--color-electric-iris);
-		background: rgba(128, 82, 255, 0.1);
+		background: rgba(2, 132, 199, 0.1);
 		border-color: var(--color-electric-iris);
 	}
 

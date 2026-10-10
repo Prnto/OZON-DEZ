@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Calculator, Buildings, House, Coffee, Package, Drop, Clock, ShieldCheck, Flask, MapPin, PhoneCall, CheckCircle, Lightning } from 'phosphor-svelte';
+	import { Buildings, House, Coffee, Package, Drop, Clock, ShieldCheck, Flask, MapPin, PhoneCall, CheckCircle, Lightning } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -144,26 +144,22 @@
 <section class="calc-section" id="calculator">
 	<div class="calc-container">
 		<div class="calc-header">
-			<span class="calc-tag" style="display: inline-flex; align-items: center; gap: 0.35rem;">
-				<Calculator size={13} weight="bold" />
-				<span>{#if langState.current === 'ua'}ОНЛАЙН РОЗРАХУНОК{:else if langState.current === 'ru'}ОНЛАЙН РАСЧЕТ{:else}ONLINE CALCULATION{/if}</span>
-			</span>
 			<h2 class="calc-title">
 				{#if langState.current === 'ua'}
-					Розрахуйте орієнтовну вартість обробки за 20 секунд
+					Розрахуйте орієнтовну ціну послуги за 30 секунд з урахуванням типу об’єкта та площі
 				{:else if langState.current === 'ru'}
-					Рассчитайте ориентировочную стоимость обработки за 20 секунд
+					Рассчитайте ориентировочную цену услуги за 30 секунд с учетом типа объекта и площади
 				{:else}
-					Calculate Estimated Treatment Cost in 20 Seconds
+					Calculate Estimated Service Cost in 30 Seconds by Facility Type & Area
 				{/if}
 			</h2>
 			<p class="calc-subtitle">
 				{#if langState.current === 'ua'}
 					Оберіть послугу, тип об'єкта та площу. Точну фіксовану ціну спеціаліст озвучить перед початком робіт.
 				{:else if langState.current === 'ru'}
-					Выберите услугу, тип объекта и площадь. Точную фиксированную цену специалист озвучит до начала работ.
+					Выберите услугу, тип объекта и площадь. Точную фиксированную цену специалист озвучит перед началом работ.
 				{:else}
-					Select service, facility type, and area. Exact fixed price is confirmed by our specialist prior to work.
+					Select service, facility type, and area. Exact fixed price is announced by our specialist before work begins.
 				{/if}
 			</p>
 		</div>
@@ -386,27 +382,16 @@
 
 	.calc-header {
 		text-align: center;
-		margin-bottom: 2.8rem;
-	}
-
-	.calc-tag {
-		display: inline-block;
-		font-size: 0.85rem;
-		font-weight: 700;
-		color: #38bdf8;
-		letter-spacing: 0.05em;
-		margin-bottom: 8px;
-	}
-
-	:global(html[data-theme="light"]) .calc-tag {
-		color: #0284c7;
+		margin-bottom: 2.2rem;
 	}
 
 	.calc-title {
-		font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-		font-weight: 800;
-		margin: 0 0 12px 0;
-		line-height: 1.25;
+		font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+		font-weight: 500;
+		letter-spacing: -0.025em;
+		line-height: 1.3;
+		margin: 0 auto 12px auto;
+		max-width: 820px;
 		color: var(--color-bone-white);
 	}
 
@@ -415,11 +400,12 @@
 	}
 
 	.calc-subtitle {
-		color: var(--color-ash-gray);
-		font-size: 1rem;
+		color: var(--color-silver-mist);
+		font-size: clamp(0.88rem, 1.1vw, 0.98rem);
 		max-width: 680px;
 		margin: 0 auto;
-		line-height: 1.6;
+		line-height: 1.55;
+		font-weight: 300;
 	}
 
 	:global(html[data-theme="light"]) .calc-subtitle {
@@ -738,11 +724,11 @@
 		justify-content: center;
 		gap: 8px;
 		text-align: center;
-		background: rgba(255, 255, 255, 0.05);
-		color: #38bdf8;
-		border: 1px solid var(--color-void-border);
-		font-weight: 600;
-		font-size: 0.9rem;
+		background: rgba(255, 255, 255, 0.04);
+		color: var(--color-silver-mist);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		font-weight: 500;
+		font-size: 0.88rem;
 		padding: 11px;
 		border-radius: 10px;
 		text-decoration: none;
@@ -751,16 +737,20 @@
 
 	:global(html[data-theme="light"]) .btn-calc-tg {
 		background: #ffffff;
-		color: #0284c7;
+		color: #475569;
 		border-color: #cbd5e1;
 	}
 
 	.btn-calc-tg:hover {
-		background: rgba(255, 255, 255, 0.1);
+		background: rgba(2, 132, 199, 0.12);
+		border-color: rgba(2, 132, 199, 0.4);
+		color: #38bdf8;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg:hover {
-		background: #e2e8f0;
+		background: #f0f9ff;
+		border-color: #0284c7;
+		color: #0284c7;
 	}
 
 	.calc-lead-section {
@@ -798,18 +788,19 @@
 	.lead-btn {
 		padding: 10px 14px;
 		border-radius: 8px;
-		border: none;
-		background: #0284c7;
-		color: #ffffff;
-		font-weight: 700;
+		border: 1px solid rgba(2, 132, 199, 0.4);
+		background: rgba(2, 132, 199, 0.18);
+		color: #e0f2fe;
+		font-weight: 600;
 		font-size: 0.85rem;
 		cursor: pointer;
 		white-space: nowrap;
-		transition: background 0.2s;
+		transition: background 0.2s, color 0.2s;
 	}
 
 	.lead-btn:hover {
-		background: #0369a1;
+		background: #0284c7;
+		color: #ffffff;
 	}
 
 	.lead-success-badge {

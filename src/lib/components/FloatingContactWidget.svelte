@@ -270,7 +270,8 @@
 
 	.floating-trigger-btn:hover {
 		transform: scale(1.05) translateY(-2px);
-		filter: brightness(1.1);
+		background: #0369a1;
+		box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
 	}
 
 	.floating-trigger-btn.active {
