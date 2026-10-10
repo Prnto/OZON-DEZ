@@ -382,7 +382,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			howWeWork: 'Як працюємо',
 			calculator: 'Калькулятор',
 			contacts: 'Контакти',
-			callBtn: 'Виклик спеціаліста'
+			callBtn: 'Замовити дзвінок'
 		},
 		servicesSection: {
 			badge: 'Каталог послуг компанії',
@@ -906,7 +906,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			howWeWork: 'Как работаем',
 			calculator: 'Калькулятор',
 			contacts: 'Контакты',
-			callBtn: 'Вызов специалиста'
+			callBtn: 'Заказать звонок'
 		},
 		servicesSection: {
 			badge: 'Каталог услуг компании',
@@ -1430,7 +1430,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			howWeWork: 'How We Work',
 			calculator: 'Calculator',
 			contacts: 'Contacts',
-			callBtn: 'Call a specialist'
+			callBtn: 'Request a call'
 		},
 		servicesSection: {
 			badge: 'Company Service Catalog',

@@ -1,34 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
-  <!-- Subtle HUD ambient glow -->
-  <circle cx="24" cy="24" r="17.5" fill="rgba(168, 85, 247, 0.1)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Subtle circular backdrop -->
+  <circle cx="32" cy="32" r="28" fill="rgba(255, 255, 255, 0.04)"/>
   
-  <!-- HUD Crosshair Reticle Ring -->
-  <circle cx="24" cy="24" r="17.5" stroke="#a855f7" stroke-width="2.4"/>
-  
-  <!-- Reticle Ticks (North, South, West, East) -->
-  <line x1="24" y1="2" x2="24" y2="9.5" stroke="#a855f7" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="24" y1="38.5" x2="24" y2="46" stroke="#a855f7" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="2" y1="24" x2="9.5" y2="24" stroke="#a855f7" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="38.5" y1="24" x2="46" y2="24" stroke="#a855f7" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- Outer Red Prohibition Ring -->
+  <circle cx="32" cy="32" r="27" stroke="#dc2626" stroke-width="4.5"/>
 
-  <!-- Ozone O3 Triatomic Molecule & Active Gas Halo -->
-  <g fill="#a855f7" stroke="#a855f7">
-    <!-- Chemical Bonds -->
-    <line x1="22.5" y1="20" x2="19" y2="26" stroke-width="2.2" stroke-linecap="round"/>
-    <line x1="25.5" y1="20" x2="29" y2="26" stroke-width="2.2" stroke-linecap="round"/>
-    <line x1="20" y1="28.5" x2="28" y2="28.5" stroke-width="1.2" stroke-dasharray="1.5 1.5" stroke-linecap="round"/>
+  <!-- Mold, Odor Waves, Mold Spores & O3 Ozone Active Oxygen Symbol Inside -->
+  <g fill="#e2e8f0" stroke="#e2e8f0">
+    <!-- Pungent Odor / Mold Fumes Waves (Bottom Left) -->
+    <path d="M16 48 C16 43, 20 42, 20 37 C20 33, 17 31, 18 27" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M21 50 C21 45, 25 44, 25 39 C25 35, 22 33, 23 29" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    
+    <!-- Mold Spore / Fungus head -->
+    <circle cx="21" cy="46" r="2.4"/>
+    <circle cx="16" cy="42" r="1.8"/>
 
-    <!-- Oxygen Atoms (O) -->
-    <circle cx="24" cy="18" r="4.2"/>
-    <circle cx="17.5" cy="28.5" r="4.2"/>
-    <circle cx="30.5" cy="28.5" r="4.2"/>
+    <!-- Active O3 Ozone Gas Molecule Structure (Top Right) -->
+    <circle cx="38" cy="22" r="3.2"/>
+    <circle cx="46" cy="27" r="3.2"/>
+    <circle cx="44" cy="18" r="2.8"/>
+    <!-- Bonds between Oxygen atoms -->
+    <line x1="40.5" y1="23.5" x2="43.5" y2="25.5" stroke-width="1.6"/>
+    <line x1="40" y1="20.5" x2="42" y2="19" stroke-width="1.6"/>
+    <line x1="44.8" y1="20.5" x2="45.5" y2="24" stroke-width="1.6"/>
 
-    <!-- Inner Nucleus Sparkles -->
-    <circle cx="24" cy="18" r="1.4" fill="#ffffff" stroke="none"/>
-    <circle cx="17.5" cy="28.5" r="1.4" fill="#ffffff" stroke="none"/>
-    <circle cx="30.5" cy="28.5" r="1.4" fill="#ffffff" stroke="none"/>
+    <!-- Subscript text O3 -->
+    <text x="35" y="38" font-size="9" font-family="system-ui, sans-serif" font-weight="800" fill="#e2e8f0" stroke="none">O₃</text>
   </g>
 
-  <!-- O3 Text Indicator in center -->
-  <text x="24" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="6.8" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">O₃</text>
+  <!-- Diagonal Red Prohibition Slash -->
+  <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="#dc2626" stroke-width="4.5" stroke-linecap="round"/>
 </svg>

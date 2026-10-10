@@ -1,37 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
-  <!-- Subtle HUD ambient glow -->
-  <circle cx="24" cy="24" r="17.5" fill="rgba(56, 189, 248, 0.1)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Subtle circular backdrop -->
+  <circle cx="32" cy="32" r="28" fill="rgba(255, 255, 255, 0.04)"/>
   
-  <!-- HUD Crosshair Reticle Ring -->
-  <circle cx="24" cy="24" r="17.5" stroke="#38bdf8" stroke-width="2.4"/>
-  
-  <!-- Reticle Ticks (North, South, West, East) -->
-  <line x1="24" y1="2" x2="24" y2="9.5" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="24" y1="38.5" x2="24" y2="46" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="2" y1="24" x2="9.5" y2="24" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="38.5" y1="24" x2="46" y2="24" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- Outer Red Prohibition Ring -->
+  <circle cx="32" cy="32" r="27" stroke="#dc2626" stroke-width="4.5"/>
 
-  <!-- Rat / Rodent Silhouette in HUD Cyan -->
-  <g fill="#38bdf8">
-    <!-- Rat Body & Head Profile -->
-    <path d="M 33 24.2
-             C 32 23.3 29.8 22 28.5 21
-             C 28.5 19.5 27.2 19 26.2 20.2
-             C 24 19.5 20.5 19 17.5 21.5
-             C 14.5 24 14 27.5 16 29.5
-             C 17.2 30.8 19 31 21 31
-             L 22 30.5
-             L 24 30.8
-             L 25 30
-             L 28.5 30.5
-             L 30 29.5
-             C 32 28 33.5 26.5 33 24.2 Z"/>
-    
-    <!-- Long Sweeping Rat Tail -->
-    <path d="M 15.5 27.8
-             C 13 28.5 11 31 11.2 33
-             C 11.4 34.5 13.5 35 14.8 33.8
-             C 15.8 32.8 14.8 31.8 14.2 32.2"
-          stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <!-- Rodents Inside (Silhouettes in Light Slate) -->
+  <g fill="#e2e8f0" stroke="#e2e8f0">
+    <!-- 1. Large Standing Rat (Center & Top Right) -->
+    <!-- Body -->
+    <path d="M36 24 C34 20, 36 15, 41 14 C44 14, 46 16, 45 19 C48 21, 48 27, 46 31 C43 36, 37 38, 33 37 C30 36, 29 33, 31 30 C33 27, 34 26, 36 24 Z" stroke-width="0.8"/>
+    <!-- Snout & Whiskers -->
+    <ellipse cx="43.5" cy="14" rx="2" ry="1.6"/>
+    <path d="M45 13 L49 11 M45 14 L49 14 M45 15 L48 17" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+    <!-- Ears -->
+    <circle cx="39.5" cy="13" r="1.5"/>
+    <circle cx="37" cy="14" r="1.3"/>
+    <!-- Front Paws -->
+    <path d="M41 24 L43 26" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+    <!-- Long Tail curving down and left -->
+    <path d="M30 35 C24 37, 20 42, 23 48 C25 51, 30 52, 34 50" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+    <!-- 2. Small Mouse (Bottom Left) -->
+    <ellipse cx="20" cy="40" rx="4.5" ry="3.2"/>
+    <ellipse cx="16" cy="40" rx="2" ry="1.4"/>
+    <circle cx="17.5" cy="38" r="1.2"/>
+    <path d="M24 41 C27 42, 28 45, 27 47" stroke-width="1.2" stroke-linecap="round" fill="none"/>
   </g>
+
+  <!-- Diagonal Red Prohibition Slash -->
+  <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="#dc2626" stroke-width="4.5" stroke-linecap="round"/>
 </svg>

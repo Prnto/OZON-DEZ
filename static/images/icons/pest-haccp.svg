@@ -1,30 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" width="48" height="48">
-  <!-- Subtle HUD ambient glow -->
-  <circle cx="24" cy="24" r="17.5" fill="rgba(245, 158, 11, 0.1)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Subtle circular backdrop -->
+  <circle cx="32" cy="32" r="28" fill="rgba(255, 255, 255, 0.04)"/>
   
-  <!-- HUD Crosshair Reticle Ring -->
-  <circle cx="24" cy="24" r="17.5" stroke="#f59e0b" stroke-width="2.4"/>
-  
-  <!-- Reticle Ticks (North, South, West, East) -->
-  <line x1="24" y1="2" x2="24" y2="9.5" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="24" y1="38.5" x2="24" y2="46" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="2" y1="24" x2="9.5" y2="24" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="38.5" y1="24" x2="46" y2="24" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- Outer Red Prohibition Ring -->
+  <circle cx="32" cy="32" r="27" stroke="#dc2626" stroke-width="4.5"/>
 
-  <!-- HACCP Pest Control Security Shield & Radar Cross -->
-  <g fill="#f59e0b">
-    <!-- Outer Shield Crest -->
-    <path d="M 24 14.5
-             L 32 17.5
-             C 32 24.5 28.5 29.5 24 32.5
-             C 19.5 29.5 16 24.5 16 17.5
-             Z"/>
-    
-    <!-- Verified Security Checkmark inside Shield -->
-    <path d="M 20.5 23 L 23 25.5 L 27.5 19.8"
-          stroke="#0b0f19" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- HACCP Facility Protection Shield & Controlled Pest Inside -->
+  <g fill="#e2e8f0" stroke="#e2e8f0">
+    <!-- HACCP Shield Contour (Center Right) -->
+    <path d="M42 16 L49 19 C49 27, 46 33, 42 36 C38 33, 35 27, 35 19 Z" stroke-width="1.6" fill="rgba(255, 255, 255, 0.08)"/>
+    <!-- Checkmark inside Shield -->
+    <path d="M39 26 L41 28 L46 22" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
-    <!-- HACCP Standard Label -->
-    <text x="24" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="4.2" font-weight="900" fill="#0b0f19" text-anchor="middle" letter-spacing="0.4">HACCP</text>
+    <!-- Pests Being Controlled on Commercial Site (Bottom Left) -->
+    <!-- Small Cockroach / Bug Silhouette -->
+    <ellipse cx="23" cy="38" rx="2.8" ry="4.2" transform="rotate(-20 23 38)"/>
+    <circle cx="21" cy="33" r="1.3"/>
+    <path d="M20 32 L16 30 M22 32 L22 28" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <path d="M20 37 L16 37 M20 40 L16 42" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <path d="M26 36 L29 36 M25 39 L28 42" stroke-width="1" stroke-linecap="round" fill="none"/>
+
+    <!-- Small Mouse Silhouette (Bottom) -->
+    <ellipse cx="30" cy="48" rx="4" ry="2.6"/>
+    <circle cx="26" cy="48" r="1.3"/>
+    <path d="M34 49 C37 50, 39 52, 38 54" stroke-width="1" stroke-linecap="round" fill="none"/>
   </g>
+
+  <!-- Diagonal Red Prohibition Slash -->
+  <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="#dc2626" stroke-width="4.5" stroke-linecap="round"/>
 </svg>

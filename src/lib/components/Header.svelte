@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Lightning } from 'phosphor-svelte';
+	import { PhoneCall } from 'phosphor-svelte';
 	import Logo from './Logo.svelte';
 	import HeaderTopBar from './HeaderTopBar.svelte';
 	import MobileDrawer from './MobileDrawer.svelte';
@@ -64,8 +64,8 @@
 						onclick={() => orderModal.open({ serviceTitle: currentContent.nav.callBtn })}
 						data-testid="header-call-btn"
 					>
-						<span class="cta-full-label"><Lightning size={14} weight="fill" /> {currentContent.nav.callBtn}</span>
-						<span class="cta-short-label"><Lightning size={14} weight="fill" /> {#if langState.current === 'ua'}Виклик{:else if langState.current === 'ru'}Вызов{:else}Call{/if}</span>
+						<span class="cta-full-label"><PhoneCall size={14} weight="bold" /> {currentContent.nav.callBtn}</span>
+						<span class="cta-short-label"><PhoneCall size={14} weight="bold" /> {#if langState.current === 'ua'}Дзвінок{:else if langState.current === 'ru'}Звонок{:else}Call{/if}</span>
 					</button>
 
 					<!-- Hamburger Toggle for Mobile Quick Call & Info -->

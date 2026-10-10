@@ -267,75 +267,39 @@
 	}
 
 	.srv-icon-badge {
-		width: 52px;
-		height: 52px;
-		min-width: 52px;
-		min-height: 52px;
+		width: 56px;
+		height: 56px;
+		min-width: 56px;
+		min-height: 56px;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 14px;
-		background: rgba(15, 23, 42, 0.7);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		padding: 4px;
-		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+		border-radius: 50%;
+		background: rgba(220, 38, 38, 0.08);
+		border: 1px solid rgba(220, 38, 38, 0.25);
+		padding: 2px;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 		backdrop-filter: blur(8px);
 		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 	}
 
 	.service-pill-card:hover .srv-icon-badge {
-		transform: scale(1.08);
+		transform: scale(1.1);
+		border-color: rgba(220, 38, 38, 0.6);
+		box-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
 	}
 
-	.srv-icon-badge.badge-pest {
-		background: rgba(163, 230, 53, 0.12);
-		border-color: rgba(163, 230, 53, 0.45);
-		box-shadow: 0 0 14px rgba(163, 230, 53, 0.2);
+	:global(html[data-theme="light"]) .srv-icon-badge {
+		background: rgba(254, 226, 226, 0.7);
+		border-color: rgba(239, 68, 68, 0.35);
+		box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
 	}
 
-	.srv-icon-badge.badge-rodent {
-		background: rgba(56, 189, 248, 0.12);
-		border-color: rgba(56, 189, 248, 0.45);
-		box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
-	}
-
-	.srv-icon-badge.badge-disinfection {
-		background: rgba(56, 189, 248, 0.12);
-		border-color: rgba(56, 189, 248, 0.45);
-		box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
-	}
-
-	.srv-icon-badge.badge-ozone {
-		background: rgba(168, 85, 247, 0.12);
-		border-color: rgba(168, 85, 247, 0.45);
-		box-shadow: 0 0 14px rgba(168, 85, 247, 0.2);
-	}
-
-	.srv-icon-badge.badge-haccp {
-		background: rgba(245, 158, 11, 0.12);
-		border-color: rgba(245, 158, 11, 0.45);
-		box-shadow: 0 0 14px rgba(245, 158, 11, 0.2);
-	}
-
-	.service-pill-card:hover .srv-icon-badge.badge-pest {
-		border-color: rgba(163, 230, 53, 0.85);
-		box-shadow: 0 0 22px rgba(163, 230, 53, 0.45);
-	}
-
-	.service-pill-card:hover .srv-icon-badge.badge-rodent,
-	.service-pill-card:hover .srv-icon-badge.badge-disinfection {
-		border-color: rgba(56, 189, 248, 0.85);
-		box-shadow: 0 0 22px rgba(56, 189, 248, 0.45);
-	}
-
-	.service-pill-card:hover .srv-icon-badge.badge-ozone {
-		border-color: rgba(168, 85, 247, 0.85);
-		box-shadow: 0 0 22px rgba(168, 85, 247, 0.45);
-	}
-
-	.service-pill-card:hover .srv-icon-badge.badge-haccp {
-		border-color: rgba(245, 158, 11, 0.85);
-		box-shadow: 0 0 22px rgba(245, 158, 11, 0.45);
+	.srv-icon-img {
+		width: 48px;
+		height: 48px;
+		display: block;
+		filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
 	}
 
 	.srv-card-arrow {

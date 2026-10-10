@@ -1,20 +1,15 @@
 <script lang="ts">
-	import { House, ForkKnife, Bug, Bed, MapPin, Check, FileText, Star } from 'phosphor-svelte';
+	import { ForkKnife, Bug, Bed, Star, MapPin, Check, FileText } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
-
-	let activeFilter = $state('all');
 
 	const reviewsData = {
 		ua: {
 			badge: 'Довіра та репутація',
 			title: 'Відгуки',
-			subtitle: 'Понад 380 успішно знезаражених об’єктів у Чорноморську, Одесі та області з юридичною гарантією якості.',
+			subtitle: 'Реальні відгуки мешканців та підприємств Чорноморська, Одеси та області про результати санітарної обробки з гарантією за договором.',
 			scoreBadge: '4.9 з 5',
 			scoreNote: 'середня оцінка на основі 380+ обробок',
 			guaranteeTitle: '100% юридична гарантія за договором',
-			filterAll: 'Всі об’єкти',
-			filterB2C: 'Квартири та будинки',
-			filterHaccp: 'HoReCa & Бізнес',
 			leaveReviewBtn: 'Замовити обробку з гарантією',
 			verifiedBadge: 'Перевірений клієнт',
 			items: [
@@ -59,13 +54,10 @@
 		ru: {
 			badge: 'Доверие и репутация',
 			title: 'Отзывы',
-			subtitle: 'Более 380 успешно обработанных объектов в Черноморске, Одессе и области с юридической гарантией качества.',
+			subtitle: 'Реальные отзывы жителей и предприятий Черноморска, Одессы и области о результатах санитарной обработки с гарантией по договору.',
 			scoreBadge: '4.9 из 5',
 			scoreNote: 'средняя оценка на основе 380+ обработок',
 			guaranteeTitle: '100% юридическая гарантия по договору',
-			filterAll: 'Все объекты',
-			filterB2C: 'Квартиры и дома',
-			filterHaccp: 'HoReCa & Бизнес',
 			leaveReviewBtn: 'Заказать обработку с гарантией',
 			verifiedBadge: 'Проверенный клиент',
 			items: [
@@ -110,13 +102,10 @@
 		en: {
 			badge: 'Trust & Reputation',
 			title: 'Reviews',
-			subtitle: 'Over 380 successfully treated facilities in Chornomorsk, Odesa, and region with official quality warranty.',
+			subtitle: 'Verified client reviews from residents and businesses across Chornomorsk and Odesa region with contractual guarantee.',
 			scoreBadge: '4.9 out of 5',
 			scoreNote: 'average rating based on 380+ treatments',
 			guaranteeTitle: '100% legal contract warranty',
-			filterAll: 'All Facilities',
-			filterB2C: 'Apartments & Houses',
-			filterHaccp: 'HoReCa & Business',
 			leaveReviewBtn: 'Order Treatment with Warranty',
 			verifiedBadge: 'Verified Client',
 			items: [
@@ -161,11 +150,6 @@
 	};
 
 	let currentData = $derived(reviewsData[langState.current]);
-
-	let filteredItems = $derived.by(() => {
-		if (activeFilter === 'all') return currentData.items;
-		return currentData.items.filter((item) => item.category === activeFilter);
-	});
 </script>
 
 <section id="reviews" class="section reviews-section">
@@ -175,48 +159,9 @@
 			<p class="section-subtitle">{currentData.subtitle}</p>
 		</div>
 
-
-		<!-- Filter Tabs -->
-		<div class="filter-tabs-row">
-			<button
-				type="button"
-				class="filter-tab-btn"
-				class:active={activeFilter === 'all'}
-				data-testid="reviews-filter-all-btn"
-				aria-pressed={activeFilter === 'all'}
-				onclick={() => (activeFilter = 'all')}
-			>
-				{currentData.filterAll}
-			</button>
-			<button
-				type="button"
-				class="filter-tab-btn"
-				class:active={activeFilter === 'b2c'}
-				data-testid="reviews-filter-b2c-btn"
-				aria-pressed={activeFilter === 'b2c'}
-				onclick={() => (activeFilter = 'b2c')}
-				style="display: inline-flex; align-items: center; gap: 0.35rem;"
-			>
-				<House size={16} weight="bold" />
-				<span>{currentData.filterB2C}</span>
-			</button>
-			<button
-				type="button"
-				class="filter-tab-btn"
-				class:active={activeFilter === 'haccp'}
-				data-testid="reviews-filter-haccp-btn"
-				aria-pressed={activeFilter === 'haccp'}
-				onclick={() => (activeFilter = 'haccp')}
-				style="display: inline-flex; align-items: center; gap: 0.35rem;"
-			>
-				<ForkKnife size={16} weight="bold" />
-				<span>{currentData.filterHaccp}</span>
-			</button>
-		</div>
-
 		<!-- Reviews Grid -->
 		<div class="reviews-grid">
-			{#each filteredItems as item (item.id)}
+			{#each currentData.items as item (item.id)}
 				<div class="review-card glass-card">
 					<div class="review-card-top">
 						<div class="review-author-box">
@@ -286,43 +231,6 @@
 		margin-bottom: 2rem;
 	}
 
-	/* Tabs */
-	.filter-tabs-row {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.55rem;
-		flex-wrap: wrap;
-		margin-bottom: 2rem;
-	}
-
-	.filter-tab-btn {
-		padding: 0.5rem 1.15rem;
-		min-height: 38px;
-		border-radius: var(--radius-pill);
-		border: 1px solid var(--border-subtle);
-		background: var(--color-surface);
-		color: var(--color-silver-mist);
-		font-size: 13px;
-		font-weight: 500;
-		cursor: pointer;
-		transition: all var(--transition-fast);
-		text-transform: uppercase;
-		letter-spacing: 0.025em;
-	}
-
-	.filter-tab-btn:hover {
-		border-color: rgba(255, 255, 255, 0.25);
-		color: var(--color-bone-white);
-		background: var(--color-surface-hover);
-	}
-
-	.filter-tab-btn.active {
-		background: var(--color-electric-iris);
-		border-color: var(--color-electric-iris);
-		color: #ffffff;
-		box-shadow: none;
-	}
 
 	/* Grid */
 	.reviews-grid {
