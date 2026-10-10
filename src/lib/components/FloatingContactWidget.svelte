@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { X, Lightning, ArrowRight } from 'phosphor-svelte';
+	import { X, ArrowRight } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
-	import { orderModal } from '../state/modal.svelte';
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let isOpen = $state(false);
@@ -37,15 +36,6 @@
 			<div class="menu-header">
 				<div class="status-indicator">
 					<span class="live-pulse"></span>
-					<span class="status-text">
-						{#if langState.current === 'ua'}
-							Черговий спеціаліст
-						{:else if langState.current === 'ru'}
-							Дежурный специалист
-						{:else}
-							Specialist on duty
-						{/if}
-					</span>
 				</div>
 				<button
 					type="button"
@@ -60,42 +50,35 @@
 			</div>
 
 			<div class="menu-items">
-				<!-- Quick Specialist Call (Modal) -->
-				<button
-					type="button"
-					class="menu-item call-action"
-					data-testid="floating-call-modal-btn"
-					onclick={() => {
-						closeWidget();
-						orderModal.open({ serviceTitle: currentContent.modal.defaultTitle });
-					}}
+				<!-- 1. Landline / City Office Call -->
+				<a
+					href="tel:{currentContent.phones.landline}"
+					class="menu-item office-action"
+					data-testid="floating-landline-link"
+					onclick={closeWidget}
 					role="menuitem"
 				>
-					<div class="item-icon-wrap call-icon" style="display: flex; align-items: center; justify-content: center;"><Lightning size={16} weight="fill" /></div>
+					<div class="item-icon-wrap office-icon">
+						<svg class="brand-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+							<path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+						</svg>
+					</div>
 					<div class="item-content">
 						<span class="item-title">
 							{#if langState.current === 'ua'}
-								Виклик спеціаліста
+								Міський / Офіс
 							{:else if langState.current === 'ru'}
-								Вызов специалиста
+								Городской / Офис
 							{:else}
-								Call a specialist
+								Office / Landline
 							{/if}
 						</span>
-						<span class="item-detail">
-							{#if langState.current === 'ua'}
-								Швидкий виїзд від 30 хв
-							{:else if langState.current === 'ru'}
-								Срочный выезд от 30 мин
-							{:else}
-								Fast dispatch from 30 min
-							{/if}
-						</span>
+						<span class="item-detail">{currentContent.phones.landlineDisplay}</span>
 					</div>
 					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
-				</button>
+				</a>
 
-				<!-- Direct Mobile Call -->
+				<!-- 2. Lifecell Mobile Call -->
 				<a
 					href="tel:{currentContent.phones.mobile}"
 					class="menu-item phone-action"
@@ -109,21 +92,43 @@
 						</svg>
 					</div>
 					<div class="item-content">
-						<span class="item-title">
-							{#if langState.current === 'ua'}
-								Мобільний зв'язок
-							{:else if langState.current === 'ru'}
-								Мобильная связь
-							{:else}
-								Mobile Phone
-							{/if}
-						</span>
+						<span class="item-title">Lifecell</span>
 						<span class="item-detail">{currentContent.phones.mobileDisplay}</span>
 					</div>
 					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
-				<!-- Telegram Chat named OZON-DEZ (without 'Заявки') -->
+				<!-- 3. Viber -->
+				<a
+					href="viber://chat?number=%2B380636672653"
+					target="_blank"
+					rel="noreferrer"
+					class="menu-item viber-action"
+					data-testid="floating-viber-link"
+					onclick={closeWidget}
+					role="menuitem"
+				>
+					<div class="item-icon-wrap viber-icon">
+						<svg class="brand-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+							<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
+						</svg>
+					</div>
+					<div class="item-content">
+						<span class="item-title">Viber</span>
+						<span class="item-detail">
+							{#if langState.current === 'ua'}
+								Чат у месенджері
+							{:else if langState.current === 'ru'}
+								Чат в мессенджере
+							{:else}
+								Viber messenger chat
+							{/if}
+						</span>
+					</div>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
+				</a>
+
+				<!-- 4. Telegram Chat named OZON-DEZ with 'Телеграм чат-бот' description -->
 				<a
 					href="https://t.me/OZON_DEZ_bot"
 					target="_blank"
@@ -135,25 +140,25 @@
 				>
 					<div class="item-icon-wrap tg-icon">
 						<svg class="brand-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-							<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.895-.964 4.57-1.36 6.69-.168.897-.5 1.197-.82 1.226-.697.065-1.226-.46-1.9-.902-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.481-.43-.01-1.257-.243-1.872-.443-.755-.245-1.355-.375-1.303-.792.027-.217.327-.439.9-.667 3.524-1.535 5.874-2.548 7.05-3.039 3.355-1.398 4.053-1.641 4.507-1.649.1 0 .323.024.468.141.122.099.156.232.169.327-.003.076.012.306-.013.447z"/>
+							<path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.673c.458 0 .661-.21.916-.457l2.199-2.138 4.574 3.38c.843.464 1.448.225 1.658-.783l2.997-14.127c.307-1.232-.47-1.79-1.207-1.516z"/>
 						</svg>
 					</div>
 					<div class="item-content">
 						<span class="item-title">OZON-DEZ</span>
 						<span class="item-detail">
 							{#if langState.current === 'ua'}
-								Telegram-чат із фахівцем
+								Телеграм чат-бот
 							{:else if langState.current === 'ru'}
-								Telegram-чат со специалистом
+								Телеграм чат-бот
 							{:else}
-								Telegram chat with specialist
+								Telegram chat bot
 							{/if}
 						</span>
 					</div>
 					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
-				<!-- Instagram (Coming soon stub) -->
+				<!-- 5. Instagram -->
 				<button
 					type="button"
 					class="menu-item insta-action"
@@ -189,64 +194,6 @@
 					</div>
 					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</button>
-
-				<!-- Viber -->
-				<a
-					href="viber://chat?number=%2B380636672653"
-					target="_blank"
-					rel="noreferrer"
-					class="menu-item viber-action"
-					data-testid="floating-viber-link"
-					onclick={closeWidget}
-					role="menuitem"
-				>
-					<div class="item-icon-wrap viber-icon">
-						<svg class="brand-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-							<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
-						</svg>
-					</div>
-					<div class="item-content">
-						<span class="item-title">Viber</span>
-						<span class="item-detail">
-							{#if langState.current === 'ua'}
-								Чат у месенджері
-							{:else if langState.current === 'ru'}
-								Чат в мессенджере
-							{:else}
-								Viber messenger chat
-							{/if}
-						</span>
-					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
-				</a>
-
-				<!-- Landline / City Office Call -->
-				<a
-					href="tel:{currentContent.phones.landline}"
-					class="menu-item office-action"
-					data-testid="floating-landline-link"
-					onclick={closeWidget}
-					role="menuitem"
-				>
-					<div class="item-icon-wrap office-icon">
-						<svg class="brand-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-							<path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
-						</svg>
-					</div>
-					<div class="item-content">
-						<span class="item-title">
-							{#if langState.current === 'ua'}
-								Міський / Офіс
-							{:else if langState.current === 'ru'}
-								Городской / Офис
-							{:else}
-								Office / Landline
-							{/if}
-						</span>
-						<span class="item-detail">{currentContent.phones.landlineDisplay}</span>
-					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
-				</a>
 			</div>
 		</div>
 	{/if}
@@ -429,13 +376,7 @@
 		50% { opacity: 0.4; }
 	}
 
-	.status-text {
-		font-size: 0.74rem;
-		font-weight: 600;
-		color: var(--color-silver-mist);
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-	}
+
 
 	.menu-close-btn {
 		background: transparent;
@@ -536,19 +477,7 @@
 		transform: translateX(2px);
 	}
 
-	.call-action {
-		border-color: rgba(128, 82, 255, 0.35);
-		background: rgba(128, 82, 255, 0.08);
-	}
 
-	.call-action:hover {
-		border-color: rgba(128, 82, 255, 0.7);
-		background: rgba(128, 82, 255, 0.16);
-	}
-
-	.call-icon {
-		background: rgba(128, 82, 255, 0.2);
-	}
 
 	.tg-icon {
 		color: #29b6f6;

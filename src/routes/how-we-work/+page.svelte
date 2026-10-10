@@ -45,9 +45,6 @@
 	<section class="section prep-guide-section">
 		<div class="container">
 			<div class="section-header">
-				<div class="section-badge">
-					{#if langState.current === 'ua'}Пам'ятка клієнту{:else if langState.current === 'ru'}Памятка клиенту{:else}Client memo{/if}
-				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
 						Як підготувати приміщення перед приїздом спеціаліста
