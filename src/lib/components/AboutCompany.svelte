@@ -149,6 +149,13 @@
 		display: block;
 	}
 
+	:global(html[data-theme="light"]) .title-main,
+	:global(html.theme-light) .title-main,
+	:global(body[data-theme="light"]) .title-main,
+	:global([data-theme="light"]) .title-main {
+		color: #0f172a !important;
+	}
+
 	.section-lead-body {
 		font-size: clamp(0.98rem, 1.3vw, 1.12rem);
 		color: var(--color-ash-gray);
@@ -156,6 +163,13 @@
 		max-width: 820px;
 		margin: 1.2rem auto 0;
 		font-weight: 300;
+	}
+
+	:global(html[data-theme="light"]) .section-lead-body,
+	:global(html.theme-light) .section-lead-body,
+	:global(body[data-theme="light"]) .section-lead-body,
+	:global([data-theme="light"]) .section-lead-body {
+		color: #475569 !important;
 	}
 
 	/* 5 Services Grid */
@@ -170,6 +184,13 @@
 		margin-bottom: 1.2rem;
 		text-align: center;
 		letter-spacing: -0.02em;
+	}
+
+	:global(html[data-theme="light"]) .overview-block-heading,
+	:global(html.theme-light) .overview-block-heading,
+	:global(body[data-theme="light"]) .overview-block-heading,
+	:global([data-theme="light"]) .overview-block-heading {
+		color: #0f172a !important;
 	}
 
 	.five-services-grid {

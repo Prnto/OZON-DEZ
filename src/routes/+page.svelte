@@ -242,10 +242,27 @@
 		line-height: 1.4;
 	}
 
-	:global(html[data-theme="light"]) .calc-teaser-card {
-		background: rgba(255, 255, 255, 0.75);
+	:global(html[data-theme="light"]) .calc-teaser-card,
+	:global(html.theme-light) .calc-teaser-card,
+	:global(body[data-theme="light"]) .calc-teaser-card,
+	:global([data-theme="light"]) .calc-teaser-card {
+		background: rgba(255, 255, 255, 0.85);
 		border-color: rgba(15, 23, 42, 0.08);
 		box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+	}
+
+	:global(html[data-theme="light"]) .teaser-heading,
+	:global(html.theme-light) .teaser-heading,
+	:global(body[data-theme="light"]) .teaser-heading,
+	:global([data-theme="light"]) .teaser-heading {
+		color: #0f172a !important;
+	}
+
+	:global(html[data-theme="light"]) .teaser-sub,
+	:global(html.theme-light) .teaser-sub,
+	:global(body[data-theme="light"]) .teaser-sub,
+	:global([data-theme="light"]) .teaser-sub {
+		color: #475569 !important;
 	}
 
 	:global(html[data-theme="light"]) .teaser-preview-box {

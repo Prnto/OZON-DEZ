@@ -118,8 +118,22 @@
 		color: #bfa6ff;
 	}
 
-	:global(html[data-theme="light"]) .brand-dez {
-		color: #6d3ef7;
+	:global(html[data-theme="light"]) .brand-name,
+	:global(html.theme-light) .brand-name,
+	:global(body[data-theme="light"]) .brand-name,
+	:global([data-theme="light"]) .brand-name,
+	:global(html[data-theme="light"]) .brand-ozon,
+	:global(html.theme-light) .brand-ozon,
+	:global(body[data-theme="light"]) .brand-ozon,
+	:global([data-theme="light"]) .brand-ozon {
+		color: #0f172a !important;
+	}
+
+	:global(html[data-theme="light"]) .brand-dez,
+	:global(html.theme-light) .brand-dez,
+	:global(body[data-theme="light"]) .brand-dez,
+	:global([data-theme="light"]) .brand-dez {
+		color: #0284c7 !important;
 	}
 
 	.brand-sub {
@@ -129,6 +143,13 @@
 		color: var(--color-ash-gray);
 		text-transform: uppercase;
 		margin-top: 1px;
+	}
+
+	:global(html[data-theme="light"]) .brand-sub,
+	:global(html.theme-light) .brand-sub,
+	:global(body[data-theme="light"]) .brand-sub,
+	:global([data-theme="light"]) .brand-sub {
+		color: #64748b !important;
 	}
 
 	@media (max-width: 1360px) and (min-width: 1240px) {

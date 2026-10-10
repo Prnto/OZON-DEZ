@@ -60,6 +60,7 @@ export interface ContentData {
 		landline: string;
 		landlineDisplay: string;
 	};
+	email: string;
 	address: {
 		actual: string;
 		legal: string;
@@ -270,6 +271,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			landline: '+380486860308',
 			landlineDisplay: '+38 (04868) 6-03-08'
 		},
+		email: 'ozon-dez2017@ukr.net',
 		address: {
 			actual: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
 			legal: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
@@ -794,6 +796,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			landline: '+380486860308',
 			landlineDisplay: '+38 (04868) 6-03-08'
 		},
+		email: 'ozon-dez2017@ukr.net',
 		address: {
 			actual: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
 			legal: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
@@ -1318,6 +1321,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			landline: '+380486860308',
 			landlineDisplay: '+38 (04868) 6-03-08'
 		},
+		email: 'ozon-dez2017@ukr.net',
 		address: {
 			actual: 'Odesa region, Chornomorsk, 8-A Myru Ave.',
 			legal: 'Odesa region, Chornomorsk, 8-A Myru Ave.',

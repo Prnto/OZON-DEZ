@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Moon, Sun, PhoneCall, Phone, Clock, Lightning } from 'phosphor-svelte';
+	import { Moon, Sun, PhoneCall, Phone, EnvelopeSimple, Clock, Lightning } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { themeState } from '../state/theme.svelte';
 	import { contentMap } from '../data/content';
@@ -167,6 +167,9 @@
 					</a>
 					<a href="tel:{currentContent.phones.landline}" class="mobile-phone-sub" data-testid="mobile-landline-link">
 						<Phone size={16} weight="bold" /> {currentContent.phones.landlineDisplay}
+					</a>
+					<a href="mailto:{currentContent.email}" class="mobile-email-link" data-testid="mobile-email-link">
+						<EnvelopeSimple size={16} weight="bold" /> {currentContent.email}
 					</a>
 				</div>
 				<div class="mobile-hours">
@@ -441,6 +444,20 @@
 
 	:global(html[data-theme="light"]) .mobile-phone-sub {
 		color: #64748b;
+	}
+
+	.mobile-email-link {
+		color: #38bdf8;
+		font-size: 0.9rem;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 0.2rem;
+	}
+
+	:global(html[data-theme="light"]) .mobile-email-link {
+		color: #0284c7;
 	}
 
 	.mobile-hours {

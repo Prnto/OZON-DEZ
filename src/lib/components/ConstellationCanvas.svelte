@@ -227,6 +227,15 @@
 		height: 100vh;
 		z-index: 0;
 		overflow: hidden;
+		background-color: #000000;
+		transition: background-color var(--transition-norm);
+	}
+
+	:global(html[data-theme="light"]) .constellation-wrapper.fullpage,
+	:global(html.theme-light) .constellation-wrapper.fullpage,
+	:global(body[data-theme="light"]) .constellation-wrapper.fullpage,
+	:global([data-theme="light"]) .constellation-wrapper.fullpage {
+		background-color: #f4f6f9 !important;
 	}
 
 	.constellation-wrapper.inline {

@@ -56,7 +56,11 @@
 	--border-subtle: rgba(255, 255, 255, 0.08);
 }
 
-html[data-theme="light"], html.theme-light {
+:root[data-theme="light"],
+html[data-theme="light"],
+html.theme-light,
+body[data-theme="light"],
+body.theme-light {
 	/* Light Mode Colors (Soft, Soothing, High-Legibility Slate & Iris) */
 	--color-void: #f4f6f9;
 	--color-surface: #ffffff;
@@ -74,8 +78,8 @@ html[data-theme="light"], html.theme-light {
 	--color-iris-border: rgba(2, 132, 199, 0.3);
 	--color-saffron-border: rgba(180, 83, 9, 0.22);
 
-	--bg-page: var(--color-void);
-	--bg-card: var(--color-surface);
+	--bg-page: #f4f6f9;
+	--bg-card: #ffffff;
 	--bg-card-subtle: #f8fafc;
 	--bg-dark-section: #eef2f6;
 	--bg-dark-card: #ffffff;
@@ -91,6 +95,16 @@ html[data-theme="light"], html.theme-light {
 	--border-light: rgba(15, 23, 42, 0.06);
 	--border-dark: rgba(15, 23, 42, 0.12);
 	--border-subtle: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"],
+html.theme-light,
+body[data-theme="light"],
+body.theme-light,
+html[data-theme="light"] body,
+html.theme-light body {
+	background-color: #f4f6f9 !important;
+	color: #334155 !important;
 }
 
 :root {
@@ -380,19 +394,26 @@ img {
 
 html[data-theme="light"] .btn-primary,
 html[data-theme="light"] .btn-aurora,
-html[data-theme="light"] .btn-iris {
-	background: transparent;
-	color: #0284c7;
+html[data-theme="light"] .btn-iris,
+html.theme-light .btn-primary,
+html.theme-light .btn-aurora,
+html.theme-light .btn-iris {
+	background: #0284c7;
+	color: #ffffff;
 	border-color: #0284c7;
+	box-shadow: 0 2px 10px rgba(2, 132, 199, 0.25);
 }
 
 html[data-theme="light"] .btn-primary:hover,
 html[data-theme="light"] .btn-aurora:hover,
-html[data-theme="light"] .btn-iris:hover {
-	background: #0284c7;
-	border-color: #0284c7;
+html[data-theme="light"] .btn-iris:hover,
+html.theme-light .btn-primary:hover,
+html.theme-light .btn-aurora:hover,
+html.theme-light .btn-iris:hover {
+	background: #0369a1;
+	border-color: #0369a1;
 	color: #ffffff;
-	box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+	box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
 }
 
 /* Ghost / Secondary Button from Design_2.md */
@@ -407,6 +428,20 @@ html[data-theme="light"] .btn-iris:hover {
 	color: var(--color-bone-white);
 	border-color: rgba(255, 255, 255, 0.28);
 	transform: translateY(-2px);
+}
+
+html[data-theme="light"] .btn-secondary,
+html.theme-light .btn-secondary {
+	background: rgba(15, 23, 42, 0.06);
+	color: #0f172a;
+	border: 1px solid rgba(15, 23, 42, 0.16);
+}
+
+html[data-theme="light"] .btn-secondary:hover,
+html.theme-light .btn-secondary:hover {
+	background: rgba(15, 23, 42, 0.12);
+	color: #0f172a;
+	border-color: rgba(15, 23, 42, 0.3);
 }
 
 .btn-outline-white {

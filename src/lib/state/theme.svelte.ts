@@ -43,6 +43,22 @@ class ThemeState {
 				document.documentElement.classList.add('theme-dark');
 				document.documentElement.classList.remove('theme-light');
 			}
+
+			if (document.body) {
+				document.body.setAttribute('data-theme', theme);
+				if (theme === 'light') {
+					document.body.classList.add('theme-light');
+					document.body.classList.remove('theme-dark');
+				} else {
+					document.body.classList.add('theme-dark');
+					document.body.classList.remove('theme-light');
+				}
+			}
+
+			const metaTheme = document.querySelector('meta[name="theme-color"]');
+			if (metaTheme) {
+				metaTheme.setAttribute('content', theme === 'light' ? '#f4f6f9' : '#000000');
+			}
 		}
 	}
 }

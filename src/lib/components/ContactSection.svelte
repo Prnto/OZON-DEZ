@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Buildings, MapPin, Scales, PhoneCall, Clock, Lightning, CheckCircle, PaperPlaneRight, ShieldCheck } from 'phosphor-svelte';
+	import { Buildings, MapPin, Scales, PhoneCall, EnvelopeSimple, Clock, Lightning, CheckCircle, PaperPlaneRight, ShieldCheck } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -99,6 +99,27 @@
 									<a href="tel:{currentContent.phones.landline}" class="contact-phone-link secondary">
 										<span>{currentContent.phones.landlineDisplay}</span>
 										<span class="phone-badge-sec">{contacts.labels.cityBadge}</span>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Official Email Address -->
+						<div class="detail-row">
+							<div class="detail-icon"><EnvelopeSimple size={20} weight="duotone" /></div>
+							<div>
+								<span class="detail-label">
+									{#if langState.current === 'ua'}
+										Електронна пошта:
+									{:else if langState.current === 'ru'}
+										Электронная почта:
+									{:else}
+										Official Email:
+									{/if}
+								</span>
+								<div class="email-links">
+									<a href="mailto:{currentContent.email}" class="contact-email-link" data-testid="contact-email-link">
+										<strong>{currentContent.email}</strong>
 									</a>
 								</div>
 							</div>
@@ -433,6 +454,29 @@
 		border-radius: var(--radius-pill);
 		font-weight: 500;
 		font-family: var(--font-body);
+	}
+
+	.contact-email-link {
+		color: var(--color-bone-white);
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: color var(--transition-fast);
+		display: inline-flex;
+		align-items: center;
+		padding: 0.2rem 0;
+	}
+
+	.contact-email-link:hover {
+		color: #0284c7;
+		text-decoration: underline;
+	}
+
+	:global(html[data-theme="light"]) .contact-email-link {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .contact-email-link:hover {
+		color: #0284c7;
 	}
 
 	.schedule-status-sub {

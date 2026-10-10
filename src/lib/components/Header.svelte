@@ -132,18 +132,24 @@
 		padding-top: env(safe-area-inset-top, 0);
 	}
 
-	:global(html[data-theme="light"]) .header-wrapper {
-		background: rgba(255, 255, 255, 0.94);
-		border-bottom-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+	:global(html[data-theme="light"]) .header-wrapper,
+	:global(html.theme-light) .header-wrapper,
+	:global(body[data-theme="light"]) .header-wrapper,
+	:global([data-theme="light"]) .header-wrapper {
+		background: rgba(255, 255, 255, 0.96) !important;
+		border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
 	}
 
 	.header-wrapper.scrolled {
 		border-bottom-color: rgba(255, 255, 255, 0.14);
 	}
 
-	:global(html[data-theme="light"]) .header-wrapper.scrolled {
-		border-bottom-color: rgba(15, 23, 42, 0.12);
+	:global(html[data-theme="light"]) .header-wrapper.scrolled,
+	:global(html.theme-light) .header-wrapper.scrolled,
+	:global(body[data-theme="light"]) .header-wrapper.scrolled,
+	:global([data-theme="light"]) .header-wrapper.scrolled {
+		border-bottom-color: rgba(15, 23, 42, 0.12) !important;
 	}
 
 	/* Main Navigation Bar */

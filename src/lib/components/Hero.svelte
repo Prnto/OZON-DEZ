@@ -215,8 +215,11 @@
 		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 	}
 
-	:global(html[data-theme="light"]) .hero-main-title {
-		color: #0f172a;
+	:global(html[data-theme="light"]) .hero-main-title,
+	:global(html.theme-light) .hero-main-title,
+	:global(body[data-theme="light"]) .hero-main-title,
+	:global([data-theme="light"]) .hero-main-title {
+		color: #0f172a !important;
 		text-shadow: 0 1px 16px rgba(255, 255, 255, 0.95), 0 0 24px rgba(255, 255, 255, 0.85);
 	}
 
@@ -230,8 +233,11 @@
 		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 	}
 
-	:global(html[data-theme="light"]) .hero-main-desc {
-		color: #1e293b;
+	:global(html[data-theme="light"]) .hero-main-desc,
+	:global(html.theme-light) .hero-main-desc,
+	:global(body[data-theme="light"]) .hero-main-desc,
+	:global([data-theme="light"]) .hero-main-desc {
+		color: #1e293b !important;
 		font-weight: 500;
 		text-shadow: 0 1px 12px rgba(255, 255, 255, 0.95);
 	}

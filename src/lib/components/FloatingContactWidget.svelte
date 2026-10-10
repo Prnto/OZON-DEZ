@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { X, ArrowRight } from 'phosphor-svelte';
+	import { X, ArrowRight, EnvelopeSimple } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -194,6 +194,32 @@
 					</div>
 					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</button>
+
+				<!-- 6. Official Email -->
+				<a
+					href="mailto:{currentContent.email}"
+					class="menu-item email-action"
+					data-testid="floating-email-link"
+					onclick={closeWidget}
+					role="menuitem"
+				>
+					<div class="item-icon-wrap email-icon">
+						<EnvelopeSimple size={18} weight="bold" />
+					</div>
+					<div class="item-content">
+						<span class="item-title">{currentContent.email}</span>
+						<span class="item-detail">
+							{#if langState.current === 'ua'}
+								Офіційна ел. пошта
+							{:else if langState.current === 'ru'}
+								Официальная эл. почта
+							{:else}
+								Official Company Email
+							{/if}
+						</span>
+					</div>
+					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
+				</a>
 			</div>
 		</div>
 	{/if}
@@ -523,6 +549,15 @@
 
 	.office-action:hover {
 		border-color: #f59e0b;
+	}
+
+	.email-icon {
+		color: #38bdf8;
+		background: rgba(2, 132, 199, 0.16);
+	}
+
+	.email-action:hover {
+		border-color: #0284c7;
 	}
 
 	.brand-svg,

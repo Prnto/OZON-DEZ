@@ -116,8 +116,12 @@
 					<a href="tel:{currentContent.phones.mobile}" class="val-phone">{currentContent.phones.mobileDisplay}</a>
 				</div>
 				<div class="contact-row">
-					<span class="label">{#if langState.current === 'ua'}Міський / мобільний:{:else if langState.current === 'ru'}Городской / мобильный:{:else}City / mobile:{/if}</span>
+					<span class="label">{#if langState.current === 'ua'}Міський / офіс:{:else if langState.current === 'ru'}Городской / офис:{:else}Office / landline:{/if}</span>
 					<a href="tel:{currentContent.phones.landline}" class="val-phone">{currentContent.phones.landlineDisplay}</a>
+				</div>
+				<div class="contact-row">
+					<span class="label">Email:</span>
+					<a href="mailto:{currentContent.email}" class="val-phone">{currentContent.email}</a>
 				</div>
 				<div class="contact-row">
 					<span class="label">{#if langState.current === 'ua'}Офіс:{:else if langState.current === 'ru'}Офис:{:else}Office:{/if}</span>
