@@ -321,7 +321,9 @@
 	/* Geo */
 	.geo-section {
 		background: transparent;
-		padding: var(--space-3xl) 0;
+		border-top: 1px solid var(--border-subtle);
+		padding: clamp(4.5rem, 8vh, 6.5rem) 0 clamp(4rem, 7vh, 6rem);
+		position: relative;
 	}
 
 	.geo-chips-grid {

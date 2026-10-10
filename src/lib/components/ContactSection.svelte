@@ -39,12 +39,6 @@
 
 <section id="contacts" class="section contacts-section">
 	<div class="container">
-		<div class="section-header">
-			<div class="section-badge">{contacts.badge}</div>
-			<h2 class="section-title">{contacts.title}</h2>
-			<p class="section-subtitle">{contacts.subtitle}</p>
-		</div>
-
 		<div class="contacts-grid">
 			<!-- Contact Information Cards -->
 			<div class="contacts-info-column">
@@ -58,23 +52,39 @@
 					</div>
 
 					<div class="details-list">
-						<!-- Actual Address -->
-						<div class="detail-row">
-							<div class="detail-icon"><MapPin size={20} weight="duotone" /></div>
-							<div>
-								<span class="detail-label">{contacts.labels.actual}</span>
-								<div class="detail-val">{currentContent.address.actual}</div>
+						<!-- Unified Address -->
+						{#if currentContent.address.actual === currentContent.address.legal}
+							<div class="detail-row">
+								<div class="detail-icon"><MapPin size={20} weight="duotone" /></div>
+								<div>
+									<span class="detail-label">
+										{#if langState.current === 'ua'}
+											Офіс та юридична адреса:
+										{:else if langState.current === 'ru'}
+											Офис и юридический адрес:
+										{:else}
+											Office & Legal Address:
+										{/if}
+									</span>
+									<div class="detail-val">{currentContent.address.actual}</div>
+								</div>
 							</div>
-						</div>
-
-						<!-- Legal Address -->
-						<div class="detail-row">
-							<div class="detail-icon"><Scales size={20} weight="duotone" /></div>
-							<div>
-								<span class="detail-label">{contacts.labels.legal}</span>
-								<div class="detail-val">{currentContent.address.legal}</div>
+						{:else}
+							<div class="detail-row">
+								<div class="detail-icon"><MapPin size={20} weight="duotone" /></div>
+								<div>
+									<span class="detail-label">{contacts.labels.actual}</span>
+									<div class="detail-val">{currentContent.address.actual}</div>
+								</div>
 							</div>
-						</div>
+							<div class="detail-row">
+								<div class="detail-icon"><Scales size={20} weight="duotone" /></div>
+								<div>
+									<span class="detail-label">{contacts.labels.legal}</span>
+									<div class="detail-val">{currentContent.address.legal}</div>
+								</div>
+							</div>
+						{/if}
 
 						<!-- Phones -->
 						<div class="detail-row">
@@ -102,8 +112,17 @@
 								<div class="detail-val">
 									<strong>{currentContent.workingHours.days}:</strong> {currentContent.workingHours.hours}
 								</div>
-								<div class="schedule-status-sub" style="display: flex; align-items: center; gap: 0.35rem;">
-									<Lightning size={14} weight="fill" /> {currentContent.workingHours.status}
+								<div class="schedule-status-sub">
+									<Lightning size={14} weight="fill" />
+									<span>
+										{#if langState.current === 'ua'}
+											Виїзди чергових бригад — за домовленістю
+										{:else if langState.current === 'ru'}
+											Выезды дежурных бригад — по договорённости
+										{:else}
+											Specialist team visits by appointment
+										{/if}
+									</span>
 								</div>
 							</div>
 						</div>
@@ -243,8 +262,8 @@
 								{/if}
 							</button>
 
-							<div class="form-disclaimer" style="display: flex; align-items: flex-start; gap: 0.35rem;">
-								<ShieldCheck size={14} weight="bold" style="flex-shrink: 0; margin-top: 2px;" />
+							<div class="form-disclaimer">
+								<ShieldCheck size={14} weight="bold" style="flex-shrink: 0;" />
 								<span>{contacts.form.disclaimer}</span>
 							</div>
 						</form>
@@ -258,15 +277,14 @@
 <style>
 	.contacts-section {
 		background: transparent;
-		border-top: 1px solid var(--border-subtle);
-		padding: var(--space-3xl) 0;
+		padding: clamp(2rem, 4vh, 3.5rem) 0 clamp(4rem, 7vh, 5.5rem);
 	}
 
 	.contacts-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 2.5rem;
-		align-items: start;
+		align-items: stretch;
 	}
 
 	@media (max-width: 960px) {
@@ -279,7 +297,13 @@
 	.contacts-info-column {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		height: 100%;
+	}
+
+	.contacts-form-column {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 
 	.info-card {
@@ -287,7 +311,11 @@
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
-		box-shadow: none;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	@media (max-width: 480px) {
@@ -307,6 +335,7 @@
 
 	.header-icon {
 		font-size: 2rem;
+		color: var(--color-electric-iris);
 	}
 
 	.info-company-name {
@@ -326,6 +355,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.3rem;
+		flex: 1;
 	}
 
 	.detail-row {
@@ -338,6 +368,7 @@
 		font-size: 1.25rem;
 		flex-shrink: 0;
 		margin-top: 2px;
+		color: var(--color-electric-iris);
 	}
 
 	.detail-label {
@@ -412,10 +443,13 @@
 		font-size: 0.8rem;
 		font-weight: 400;
 		color: var(--color-saffron-spark);
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
 	}
 
 	.messengers-row {
-		margin-top: 1.6rem;
+		margin-top: 1.8rem;
 		padding-top: 1.4rem;
 		border-top: 1px solid var(--border-subtle);
 	}
@@ -431,56 +465,62 @@
 	}
 
 	.mess-buttons {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 0.75rem;
-		flex-wrap: wrap;
+	}
+
+	@media (max-width: 480px) {
+		.mess-buttons {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.mess-btn {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 0.55rem;
-		padding: 0.65rem 1.35rem;
+		padding: 0.75rem 1rem;
 		border-radius: var(--radius-pill);
-		font-size: 0.9rem;
+		font-size: 0.88rem;
 		font-weight: 500;
 		text-decoration: none;
+		border: 1px solid var(--border-subtle);
+		background: var(--color-surface-hover);
+		color: var(--color-bone-white);
 		transition: all var(--transition-fast);
+		cursor: pointer;
+	}
+
+	.mess-btn:hover {
+		transform: translateY(-2px);
+	}
+
+	.mess-viber:hover {
+		background: rgba(115, 96, 242, 0.2);
+		border-color: rgba(115, 96, 242, 0.6);
+		color: #ffffff;
+		box-shadow: 0 4px 16px rgba(115, 96, 242, 0.25);
+	}
+
+	.mess-tg:hover {
+		background: rgba(0, 136, 204, 0.2);
+		border-color: rgba(0, 136, 204, 0.6);
+		color: #ffffff;
+		box-shadow: 0 4px 16px rgba(0, 136, 204, 0.25);
+	}
+
+	.mess-insta:hover {
+		background: rgba(220, 39, 67, 0.2);
+		border-color: rgba(220, 39, 67, 0.6);
+		color: #ffffff;
+		box-shadow: 0 4px 16px rgba(220, 39, 67, 0.25);
 	}
 
 	.mess-icon {
 		display: block;
 		flex-shrink: 0;
-	}
-
-	.mess-viber {
-		background: #7360f2;
-		color: #ffffff;
-	}
-
-	.mess-viber:hover {
-		background: #5e47ec;
-		transform: translateY(-1px);
-	}
-
-	.mess-tg {
-		background: #0088cc;
-		color: #ffffff;
-	}
-
-	.mess-tg:hover {
-		background: #0077b5;
-		transform: translateY(-1px);
-	}
-
-	.mess-insta {
-		background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-		color: #ffffff;
-	}
-
-	.mess-insta:hover {
-		opacity: 0.92;
-		transform: translateY(-1px);
 	}
 
 	/* Form Column */
@@ -489,7 +529,11 @@
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
-		box-shadow: none;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	@media (max-width: 640px) {
@@ -505,7 +549,7 @@
 	}
 
 	.form-card-header {
-		margin-bottom: 1.6rem;
+		margin-bottom: 1.4rem;
 	}
 
 	.form-title {
@@ -527,6 +571,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		flex: 1;
+		justify-content: space-between;
 	}
 
 	.input-field {
@@ -551,7 +597,7 @@
 		font-size: 15px;
 		font-family: var(--font-body);
 		outline: none;
-		transition: border-color var(--transition-fast);
+		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 	}
 
 	.styled-input::placeholder {
@@ -561,27 +607,44 @@
 
 	.styled-input:focus {
 		border-color: var(--color-electric-iris);
+		box-shadow: 0 0 0 3px rgba(128, 82, 255, 0.15);
 	}
 
 	.styled-select {
 		cursor: pointer;
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 256 256' fill='%239e9ea7'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 1rem center;
+		padding-right: 2.5rem;
 	}
 
 	.styled-textarea {
+		min-height: 85px;
+		max-height: 160px;
 		resize: vertical;
+		line-height: 1.5;
 	}
 
 	.form-disclaimer {
-		font-size: 0.72rem;
+		font-size: 0.74rem;
 		color: var(--color-ash-gray);
-		text-align: center;
-		margin-top: 0.4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		margin-top: 0.5rem;
 		font-weight: 300;
+		line-height: 1.4;
+		text-align: center;
 	}
 
 	.contact-success-state {
 		text-align: center;
 		padding: 2rem 1rem;
+		margin: auto 0;
 	}
 
 	.success-check-icon {

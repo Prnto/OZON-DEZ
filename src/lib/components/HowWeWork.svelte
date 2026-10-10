@@ -10,12 +10,6 @@
 
 <section id="how-we-work" class="section work-section">
 	<div class="container">
-		<div class="section-header">
-			<div class="section-badge">{work.badge}</div>
-			<h2 class="section-title">{work.title}</h2>
-			<p class="section-subtitle">{work.subtitle}</p>
-		</div>
-
 		<!-- Step Roadcards -->
 		<div class="steps-grid">
 			{#each work.steps as item}
@@ -70,7 +64,7 @@
 <style>
 	.work-section {
 		background: transparent;
-		padding: var(--space-3xl) 0;
+		padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3.5rem, 6vh, 5rem);
 	}
 
 	.steps-grid {
