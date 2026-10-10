@@ -3,7 +3,6 @@
 	import { PhoneCall, Calculator, Lightning } from 'phosphor-svelte';
 	import Hero from '#lib/components/Hero.svelte';
 	import AboutCompany from '#lib/components/AboutCompany.svelte';
-	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 	import { orderModal } from '../lib/state/modal.svelte';
 	import { langState } from '../lib/state/language.svelte';
 	import { contentMap } from '../lib/data/content';
@@ -117,9 +116,6 @@
 			</div>
 		</div>
 	</section>
-
-	<!-- Real Case Studies & Customer Reviews -->
-	<ReviewsSection />
 </div>
 
 <style>

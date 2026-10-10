@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
-	import { ArrowRight, Sparkle } from 'phosphor-svelte';
+	import { ArrowRight } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -53,10 +53,6 @@
 	<div class="container">
 		<!-- Section Header -->
 		<div class="section-header">
-			<div class="section-badge saffron-badge" style="display: inline-flex; align-items: center; gap: 0.35rem;">
-				<Sparkle size={14} weight="fill" />
-				<span>{about.badge}</span>
-			</div>
 			<h2 class="section-title">
 				<span class="welcome-line">{about.welcome}</span>
 				<span class="title-main">{about.title}</span>
@@ -138,15 +134,7 @@
 		border-bottom: 1px solid var(--color-void-border);
 	}
 
-	.saffron-badge {
-		background: rgba(255, 184, 41, 0.08);
-		border: 1px solid var(--color-saffron-border);
-		color: var(--color-saffron-spark);
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-weight: 600;
-	}
+
 
 	.welcome-line {
 		display: block;

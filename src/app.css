@@ -344,28 +344,55 @@ img {
 	touch-action: manipulation;
 }
 
-/* Primary Action Button: Filled Violet Pill #8052ff from Design_2.md */
+/* Action Button: Transparent outline resting; harmonious blue #0284c7 with glow on hover & tap */
 .btn-primary,
 .btn-aurora,
 .btn-iris {
-	background: var(--color-electric-iris);
-	color: #ffffff;
+	background: transparent;
+	color: var(--color-bone-white);
 	font-weight: 600;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 1.5px solid rgba(2, 132, 199, 0.55);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+	transition: all var(--transition-norm);
 }
 
 .btn-primary:hover,
 .btn-aurora:hover,
 .btn-iris:hover {
-	background: #9569ff;
+	background: #0284c7;
+	border-color: #0284c7;
 	color: #ffffff;
 	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
 }
 
 .btn-primary:active,
 .btn-aurora:active,
 .btn-iris:active {
+	background: #0369a1;
+	border-color: #0369a1;
+	color: #ffffff;
 	transform: translateY(0);
+	box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+}
+
+html[data-theme="light"] .btn-primary,
+html[data-theme="light"] .btn-aurora,
+html[data-theme="light"] .btn-iris {
+	background: transparent;
+	color: #0284c7;
+	border-color: #0284c7;
+}
+
+html[data-theme="light"] .btn-primary:hover,
+html[data-theme="light"] .btn-aurora:hover,
+html[data-theme="light"] .btn-iris:hover {
+	background: #0284c7;
+	border-color: #0284c7;
+	color: #ffffff;
+	box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
 }
 
 /* Ghost / Secondary Button from Design_2.md */

@@ -419,7 +419,7 @@
 		font-size: 0.92rem;
 		text-transform: uppercase;
 		letter-spacing: 0.025em;
-		box-shadow: 0 4px 18px rgba(128, 82, 255, 0.35);
+		box-shadow: 0 4px 18px rgba(2, 132, 199, 0.25);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -428,7 +428,7 @@
 	}
 
 	.modal-submit-btn:hover:not(:disabled) {
-		box-shadow: 0 8px 24px rgba(128, 82, 255, 0.5);
+		box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
 		transform: translateY(-2px);
 	}
 

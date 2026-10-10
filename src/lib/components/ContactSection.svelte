@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Buildings, MapPin, Scales, PhoneCall, Clock, Lightning, CheckCircle, PaperPlaneRight, ShieldCheck } from 'phosphor-svelte';
+	import { Buildings, MapPin, Scales, PhoneCall, Clock, Lightning, CheckCircle, PaperPlaneRight, ShieldCheck, TelegramLogo, InstagramLogo } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -134,38 +134,34 @@
 						<div class="mess-buttons">
 							<a
 								href="viber://chat?number=%2B380636672653"
-								class="mess-btn mess-viber"
+								class="mess-circle-btn mess-viber"
 								target="_blank"
 								rel="noreferrer"
-								title="Viber"
+								aria-label="Viber"
+								title="Viber: +38 (063) 667-26-53"
 							>
-								<svg class="mess-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+								<svg class="mess-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
 									<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
 								</svg>
-								<span>Viber</span>
 							</a>
 							<a
 								href="https://t.me/OZON_DEZ_bot"
-								class="mess-btn mess-tg"
+								class="mess-circle-btn mess-tg"
 								target="_blank"
 								rel="noreferrer"
-								title="Telegram"
+								aria-label="Telegram"
+								title="Telegram: @OZON_DEZ_bot"
 							>
-								<svg class="mess-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-									<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.895-.964 4.57-1.36 6.69-.168.897-.5 1.197-.82 1.226-.697.065-1.226-.46-1.9-.902-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.481-.43-.01-1.257-.243-1.872-.443-.755-.245-1.355-.375-1.303-.792.027-.217.327-.439.9-.667 3.524-1.535 5.874-2.548 7.05-3.039 3.355-1.398 4.053-1.641 4.507-1.649.1 0 .323.024.468.141.122.099.156.232.169.327-.003.076.012.306-.013.447z"/>
-								</svg>
-								<span>Telegram</span>
+								<TelegramLogo size={22} weight="fill" />
 							</a>
 							<button
 								type="button"
-								class="mess-btn mess-insta"
+								class="mess-circle-btn mess-insta"
+								aria-label="Instagram"
 								title={langState.current === 'ua' ? 'Офіційний Instagram (незабаром)' : langState.current === 'ru' ? 'Официальный Instagram (скоро)' : 'Official Instagram (coming soon)'}
 								onclick={() => alert(langState.current === 'ua' ? 'Офіційна Instagram-сторінка ТОВ «ОЗОН-ДЕЗ» у процесі оформлення та незабаром буде доступна!' : langState.current === 'ru' ? 'Официальная Instagram-страница ООО «ОЗОН-ДЕЗ» в процессе оформления и скоро будет доступна!' : 'Official Instagram page of LLC "OZON-DEZ" is coming soon!')}
 							>
-								<svg class="mess-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-									<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-								</svg>
-								<span>Instagram</span>
+								<InstagramLogo size={22} weight="fill" />
 							</button>
 						</div>
 					</div>
@@ -465,57 +461,68 @@
 	}
 
 	.mess-buttons {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.75rem;
+		display: flex;
+		align-items: center;
+		gap: 0.95rem;
+		flex-wrap: wrap;
 	}
 
-	@media (max-width: 480px) {
-		.mess-buttons {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.mess-btn {
+	.mess-circle-btn {
+		width: 48px;
+		height: 48px;
+		min-width: 48px;
+		min-height: 48px;
+		border-radius: 50%;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.55rem;
-		padding: 0.75rem 1rem;
-		border-radius: var(--radius-pill);
-		font-size: 0.88rem;
-		font-weight: 500;
-		text-decoration: none;
-		border: 1px solid var(--border-subtle);
-		background: var(--color-surface-hover);
-		color: var(--color-bone-white);
-		transition: all var(--transition-fast);
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.2);
 		cursor: pointer;
+		transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, filter 0.22s ease;
+		text-decoration: none;
+		outline: none;
+		padding: 0;
 	}
 
-	.mess-btn:hover {
-		transform: translateY(-2px);
+	.mess-circle-btn:hover {
+		transform: translateY(-3px) scale(1.08);
+	}
+
+	.mess-circle-btn:active {
+		transform: translateY(0) scale(0.95);
+	}
+
+	/* Authentic brand colors */
+	.mess-viber {
+		background: linear-gradient(135deg, #7b69f8 0%, #6350e4 100%);
+		box-shadow: 0 4px 14px rgba(115, 96, 242, 0.45);
 	}
 
 	.mess-viber:hover {
-		background: rgba(115, 96, 242, 0.2);
-		border-color: rgba(115, 96, 242, 0.6);
-		color: #ffffff;
-		box-shadow: 0 4px 16px rgba(115, 96, 242, 0.25);
+		box-shadow: 0 8px 24px rgba(115, 96, 242, 0.7);
+		filter: brightness(1.1);
+	}
+
+	.mess-tg {
+		background: linear-gradient(135deg, #2cb4eb 0%, #1f94ce 100%);
+		box-shadow: 0 4px 14px rgba(34, 158, 217, 0.45);
 	}
 
 	.mess-tg:hover {
-		background: rgba(0, 136, 204, 0.2);
-		border-color: rgba(0, 136, 204, 0.6);
-		color: #ffffff;
-		box-shadow: 0 4px 16px rgba(0, 136, 204, 0.25);
+		box-shadow: 0 8px 24px rgba(34, 158, 217, 0.7);
+		filter: brightness(1.1);
+	}
+
+	.mess-insta {
+		background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+		box-shadow: 0 4px 14px rgba(220, 39, 67, 0.45);
+		border-color: rgba(255, 255, 255, 0.3);
 	}
 
 	.mess-insta:hover {
-		background: rgba(220, 39, 67, 0.2);
-		border-color: rgba(220, 39, 67, 0.6);
-		color: #ffffff;
-		box-shadow: 0 4px 16px rgba(220, 39, 67, 0.25);
+		box-shadow: 0 8px 24px rgba(220, 39, 67, 0.7);
+		filter: brightness(1.1);
 	}
 
 	.mess-icon {
@@ -651,7 +658,8 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
-		background: var(--color-electric-iris);
+		background: #0284c7;
+		box-shadow: 0 4px 18px rgba(2, 132, 199, 0.4);
 		color: #ffffff;
 		display: flex;
 		align-items: center;

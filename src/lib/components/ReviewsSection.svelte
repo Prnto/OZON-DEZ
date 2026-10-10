@@ -7,8 +7,8 @@
 	const reviewsData = {
 		ua: {
 			badge: 'Довіра та репутація',
-			title: 'Реальні відгуки та виконані санітарні кейси',
-			subtitle: 'Понад 380 успішно знезаражених об’єктів у Чорноморську, Одесі та області: від затишних квартир та приватних осель до ресторанів і підприємств.',
+			title: 'Відгуки',
+			subtitle: 'Понад 380 успішно знезаражених об’єктів у Чорноморську, Одесі та області з юридичною гарантією якості.',
 			scoreBadge: '4.9 з 5',
 			scoreNote: 'середня оцінка на основі 380+ обробок',
 			guaranteeTitle: '100% юридична гарантія за договором',
@@ -58,8 +58,8 @@
 		},
 		ru: {
 			badge: 'Доверие и репутация',
-			title: 'Реальные отзывы и выполненные санитарные кейсы',
-			subtitle: 'Более 380 успешно обеззараженных объектов в Черноморске, Одессе и области: от квартир и частных домов до ресторанов и предприятий.',
+			title: 'Отзывы',
+			subtitle: 'Более 380 успешно обработанных объектов в Черноморске, Одессе и области с юридической гарантией качества.',
 			scoreBadge: '4.9 из 5',
 			scoreNote: 'средняя оценка на основе 380+ обработок',
 			guaranteeTitle: '100% юридическая гарантия по договору',
@@ -109,8 +109,8 @@
 		},
 		en: {
 			badge: 'Trust & Reputation',
-			title: 'Real Reviews & Completed Sanitary Cases',
-			subtitle: 'Over 380 successfully treated facilities in Chornomorsk, Odesa, and region: from private apartments and houses to restaurants and enterprises.',
+			title: 'Reviews',
+			subtitle: 'Over 380 successfully treated facilities in Chornomorsk, Odesa, and region with official quality warranty.',
 			scoreBadge: '4.9 out of 5',
 			scoreNote: 'average rating based on 380+ treatments',
 			guaranteeTitle: '100% legal contract warranty',
@@ -171,7 +171,6 @@
 <section id="reviews" class="section reviews-section">
 	<div class="container">
 		<div class="section-header">
-			<div class="section-badge">{currentData.badge}</div>
 			<h2 class="section-title">{currentData.title}</h2>
 			<p class="section-subtitle">{currentData.subtitle}</p>
 		</div>
@@ -279,8 +278,12 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
-		border-top: 1px solid var(--color-void-border);
-		border-bottom: 1px solid var(--color-void-border);
+		border-top: 1px solid var(--border-subtle);
+		padding: clamp(3rem, 5vh, 4.5rem) 0;
+	}
+
+	.reviews-section :global(.section-header) {
+		margin-bottom: 2rem;
 	}
 
 	/* Tabs */
@@ -290,14 +293,14 @@
 		justify-content: center;
 		gap: 0.55rem;
 		flex-wrap: wrap;
-		margin-bottom: 2.5rem;
+		margin-bottom: 2rem;
 	}
 
 	.filter-tab-btn {
-		padding: 0.55rem 1.25rem;
-		min-height: 42px;
-		border-radius: var(--radius-buttons);
-		border: 1px solid var(--color-void-border);
+		padding: 0.5rem 1.15rem;
+		min-height: 38px;
+		border-radius: var(--radius-pill);
+		border: 1px solid var(--border-subtle);
 		background: var(--color-surface);
 		color: var(--color-silver-mist);
 		font-size: 13px;
@@ -325,8 +328,8 @@
 	.reviews-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.5rem;
-		margin-bottom: 2.5rem;
+		gap: 1.25rem;
+		margin-bottom: 0;
 	}
 
 	@media (max-width: 1100px) {
@@ -342,17 +345,15 @@
 	}
 
 	.review-card {
-		padding: 1.6rem 1.5rem;
+		padding: 1.4rem 1.3rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-		background: rgba(13, 17, 28, 0.45);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		gap: 0.85rem;
+		background: var(--color-surface);
+		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-		box-shadow: none;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 	}
 
 	.review-card:hover {

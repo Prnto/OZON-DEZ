@@ -3,6 +3,7 @@
 	import { ArrowUpRight } from 'phosphor-svelte';
 	import PageHeader from '#lib/components/PageHeader.svelte';
 	import ContactSection from '#lib/components/ContactSection.svelte';
+	import ReviewsSection from '#lib/components/ReviewsSection.svelte';
 	import { langState } from '../../lib/state/language.svelte';
 	import { contentMap } from '../../lib/data/content';
 
@@ -44,16 +45,13 @@
 	<section class="section geo-section">
 		<div class="container">
 			<div class="section-header">
-				<div class="section-badge">
-					{#if langState.current === 'ua'}Географія виїздів{:else if langState.current === 'ru'}География выездов{:else}Service Geography{/if}
-				</div>
 				<h2 class="section-title">
 					{#if langState.current === 'ua'}
-						Де ми працюємо та виїжджаємо на об'єкти
+						Де ми працюємо
 					{:else if langState.current === 'ru'}
-						Где мы работаем и выезжаем на объекты
+						Где мы работаем
 					{:else}
-						Where we operate and deploy specialist teams
+						Where we operate
 					{/if}
 				</h2>
 			</div>
@@ -302,7 +300,8 @@
 		</div>
 	</section>
 
-	<!-- Licenses list -->
+	<!-- Customer Reviews Section (Compact) -->
+	<ReviewsSection />
 </div>
 
 <style>
