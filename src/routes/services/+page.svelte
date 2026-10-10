@@ -111,10 +111,10 @@
 						<div class="service-card-footer">
 							<button
 								type="button"
-								class="btn btn-outline"
+								class="btn btn-primary"
 								onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Дезінсекція: знищення комах' : langState.current === 'ru' ? 'Дезинсекция: уничтожение насекомых' : 'Disinsection: insect extermination' })}
 							>
-								{#if langState.current === 'ua'}Викликати спеціаліста →{:else if langState.current === 'ru'}Вызвать специалиста →{:else}Call a specialist →{/if}
+								{#if langState.current === 'ua'}Замовити дезінсекцію{:else if langState.current === 'ru'}Заказать дезинсекцию{:else}Order disinsection{/if}
 							</button>
 						</div>
 					</div>
@@ -170,10 +170,10 @@
 						<div class="service-card-footer">
 							<button
 								type="button"
-								class="btn btn-outline"
+								class="btn btn-primary"
 								onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Дератизація: знищення гризунів' : langState.current === 'ru' ? 'Дератизация: уничтожение грызунов' : 'Deratization: rodent extermination' })}
 							>
-								{#if langState.current === 'ua'}Викликати спеціаліста →{:else if langState.current === 'ru'}Вызвать специалиста →{:else}Call a specialist →{/if}
+								{#if langState.current === 'ua'}Замовити дератизацію{:else if langState.current === 'ru'}Заказать дератизацию{:else}Order deratization{/if}
 							</button>
 						</div>
 					</div>
@@ -229,10 +229,10 @@
 						<div class="service-card-footer">
 							<button
 								type="button"
-								class="btn btn-outline"
+								class="btn btn-primary"
 								onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Дезінфекція поверхонь та води' : langState.current === 'ru' ? 'Дезинфекция поверхностей и воды' : 'Disinfection of surfaces and water' })}
 							>
-								{#if langState.current === 'ua'}Викликати спеціаліста →{:else if langState.current === 'ru'}Вызвать специалиста →{:else}Call a specialist →{/if}
+								{#if langState.current === 'ua'}Замовити дезінфекцію{:else if langState.current === 'ru'}Заказать дезинфекцию{:else}Order disinfection{/if}
 							</button>
 						</div>
 					</div>
@@ -288,10 +288,10 @@
 						<div class="service-card-footer">
 							<button
 								type="button"
-								class="btn btn-outline"
+								class="btn btn-primary"
 								onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Озонування приміщень та тари' : langState.current === 'ru' ? 'Озонирование помещений и тары' : 'Ozonation of facilities & containers' })}
 							>
-								{#if langState.current === 'ua'}Замовити озонування →{:else if langState.current === 'ru'}Заказать озонирование →{:else}Order ozonation →{/if}
+								{#if langState.current === 'ua'}Замовити озонування{:else if langState.current === 'ru'}Заказать озонирование{:else}Order ozonation{/if}
 							</button>
 						</div>
 					</div>
@@ -346,8 +346,8 @@
 							</li>
 						</ul>
 						<div class="service-card-footer">
-							<a href={resolve('/b2b')} class="btn btn-primary" style="width: 100%; text-align: center;">
-								{#if langState.current === 'ua'}Замовити аудит об'єкта →{:else if langState.current === 'ru'}Заказать аудит объекта →{:else}Order facility audit →{/if}
+							<a href={resolve('/b2b')} class="btn btn-primary">
+								{#if langState.current === 'ua'}Замовити аудит об'єкта{:else if langState.current === 'ru'}Заказать аудит объекта{:else}Order facility audit{/if}
 							</a>
 						</div>
 					</div>
@@ -556,31 +556,15 @@
 
 	.service-card-footer {
 		margin-top: auto;
+		width: 100%;
 	}
 
-	.btn-outline {
-		display: block;
+	.service-card-footer .btn {
 		width: 100%;
 		text-align: center;
-		padding: 11px 16px;
-		border-radius: 10px;
-		border: 1.5px solid var(--color-void-border);
-		background: transparent;
-		color: var(--color-bone-white);
-		font-weight: 600;
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
-
-	:global(html[data-theme="light"]) .btn-outline {
-		border-color: #cbd5e1;
-		color: #0f172a;
-	}
-
-	.btn-outline:hover {
-		background: #0284c7;
-		border-color: #0284c7;
-		color: #ffffff;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	@media (max-width: 640px) {
