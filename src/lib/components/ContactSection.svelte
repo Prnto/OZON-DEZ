@@ -680,4 +680,22 @@
 		line-height: 1.55;
 		margin-bottom: 1.5rem;
 	}
+
+	:global(html[data-theme="light"]) .info-card {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+	}
+
+	:global(html[data-theme="light"]) .form-card {
+		background: rgba(255, 255, 255, 0.85);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+	}
+
+	:global(html[data-theme="light"]) .styled-input {
+		background: #f8fafc;
+		border-color: #cbd5e1;
+		color: #0f172a;
+	}
 </style>

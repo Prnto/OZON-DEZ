@@ -391,8 +391,11 @@
 	}
 
 	:global(html[data-theme="light"]) .service-card {
-		background: #ffffff;
-		border-color: #e2e8f0;
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
 	}
 
 	@keyframes cardPulse {

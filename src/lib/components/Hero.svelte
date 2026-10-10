@@ -103,6 +103,10 @@
 		overflow: hidden;
 	}
 
+	:global(html[data-theme="light"]) .hero-section {
+		background: transparent;
+	}
+
 	/* Edge-to-edge banner with balanced height (similar to services page header) */
 	.hero-banner-full {
 		position: relative;
@@ -114,6 +118,10 @@
 		overflow: hidden;
 		border-bottom: 1px solid var(--border-subtle);
 		background: #000000;
+	}
+
+	:global(html[data-theme="light"]) .hero-banner-full {
+		background: transparent;
 	}
 
 	.hero-banner-media {
@@ -136,6 +144,11 @@
 		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
+	:global(html[data-theme="light"]) .hero-banner-img {
+		opacity: 0.95;
+		filter: contrast(1.05) saturate(1.08);
+	}
+
 	.hero-banner-full:hover .hero-banner-img {
 		transform: scale(1.015);
 	}
@@ -153,8 +166,8 @@
 
 	:global(html[data-theme="light"]) .hero-banner-overlay {
 		background:
-			linear-gradient(90deg, rgba(244, 246, 249, 0.92) 0%, rgba(244, 246, 249, 0.72) 45%, rgba(244, 246, 249, 0.4) 100%),
-			linear-gradient(to top, rgba(244, 246, 249, 0.45) 0%, transparent 45%);
+			linear-gradient(90deg, rgba(244, 246, 249, 0.65) 0%, rgba(244, 246, 249, 0.32) 45%, rgba(244, 246, 249, 0.04) 100%),
+			linear-gradient(to top, rgba(244, 246, 249, 0.3) 0%, transparent 45%);
 	}
 
 	/* Content container floating over banner */
@@ -204,7 +217,7 @@
 
 	:global(html[data-theme="light"]) .hero-main-title {
 		color: #0f172a;
-		text-shadow: none;
+		text-shadow: 0 1px 16px rgba(255, 255, 255, 0.95), 0 0 24px rgba(255, 255, 255, 0.85);
 	}
 
 	.hero-main-desc {
@@ -218,8 +231,9 @@
 	}
 
 	:global(html[data-theme="light"]) .hero-main-desc {
-		color: #334155;
-		text-shadow: none;
+		color: #1e293b;
+		font-weight: 500;
+		text-shadow: 0 1px 12px rgba(255, 255, 255, 0.95);
 	}
 
 	.hero-cta-group {

@@ -194,4 +194,16 @@
 		font-weight: 300;
 		line-height: 1.55;
 	}
+
+	:global(html[data-theme="light"]) .step-card {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+	}
+
+	:global(html[data-theme="light"]) .prep-tips-box {
+		background: rgba(255, 255, 255, 0.85);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+	}
 </style>

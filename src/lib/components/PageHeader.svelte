@@ -94,13 +94,13 @@
 
 	:global(html[data-theme="light"]) .header-bg-overlay {
 		background:
-			linear-gradient(90deg, rgba(244, 246, 249, 0.94) 0%, rgba(244, 246, 249, 0.8) 50%, rgba(244, 246, 249, 0.35) 100%),
-			linear-gradient(to top, rgba(244, 246, 249, 0.3) 0%, transparent 40%);
+			linear-gradient(90deg, rgba(244, 246, 249, 0.65) 0%, rgba(244, 246, 249, 0.32) 50%, rgba(244, 246, 249, 0.04) 100%),
+			linear-gradient(to top, rgba(244, 246, 249, 0.25) 0%, transparent 40%);
 	}
 
 	:global(html[data-theme="light"]) .bg-img {
-		opacity: 0.92;
-		filter: contrast(1.04) saturate(1.08);
+		opacity: 0.95;
+		filter: contrast(1.05) saturate(1.1);
 	}
 
 	.header-glow {
@@ -113,6 +113,10 @@
 		background: radial-gradient(circle, rgba(128, 82, 255, 0.12), transparent 70%);
 		pointer-events: none;
 		z-index: 2;
+	}
+
+	:global(html[data-theme="light"]) .header-glow {
+		background: radial-gradient(circle, rgba(2, 132, 199, 0.08), transparent 70%);
 	}
 
 	.page-header-container {
@@ -144,12 +148,28 @@
 		color: var(--color-electric-iris);
 	}
 
+	:global(html[data-theme="light"]) .crumb-link {
+		color: #475569;
+		font-weight: 500;
+		text-shadow: 0 1px 6px rgba(255, 255, 255, 0.9);
+	}
+
 	.crumb-sep {
 		color: rgba(255, 255, 255, 0.2);
 	}
 
+	:global(html[data-theme="light"]) .crumb-sep {
+		color: #94a3b8;
+	}
+
 	.crumb-current {
 		color: var(--color-bone-white);
+	}
+
+	:global(html[data-theme="light"]) .crumb-current {
+		color: #0f172a;
+		font-weight: 600;
+		text-shadow: 0 1px 8px rgba(255, 255, 255, 0.9);
 	}
 
 	.page-title {
@@ -163,7 +183,9 @@
 	}
 
 	:global(html[data-theme="light"]) .page-title {
-		text-shadow: 0 1px 12px rgba(255, 255, 255, 0.85);
+		color: #0f172a;
+		font-weight: 600;
+		text-shadow: 0 1px 16px rgba(255, 255, 255, 0.95), 0 0 24px rgba(255, 255, 255, 0.85);
 	}
 
 	.page-subtitle {
@@ -176,8 +198,9 @@
 	}
 
 	:global(html[data-theme="light"]) .page-subtitle {
-		color: #334155;
-		text-shadow: 0 1px 8px rgba(255, 255, 255, 0.85);
+		color: #1e293b;
+		font-weight: 500;
+		text-shadow: 0 1px 12px rgba(255, 255, 255, 0.95), 0 0 16px rgba(255, 255, 255, 0.8);
 	}
 
 	@media (max-width: 768px) {

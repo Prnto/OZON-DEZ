@@ -358,6 +358,10 @@
 	}
 
 	:global(html[data-theme="light"]) .review-card {
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-color: rgba(15, 23, 42, 0.08);
 		box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 	}
 

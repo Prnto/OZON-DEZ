@@ -198,4 +198,16 @@
 			width: 100%;
 		}
 	}
+
+	:global(html[data-theme="light"]) .point-item {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+	}
+
+	:global(html[data-theme="light"]) .b2b-cta-bar {
+		background: rgba(255, 255, 255, 0.85);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+	}
 </style>

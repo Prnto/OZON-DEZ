@@ -245,16 +245,24 @@
 		pointer-events: none;
 	}
 
+	:global(html[data-theme="light"]) .service-pill-card {
+		background: rgba(255, 255, 255, 0.75);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+	}
+
 	:global(html[data-theme="light"]) .service-card-overlay {
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.98) 100%);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.9) 100%);
 	}
 
 	:global(html[data-theme="light"]) .service-card-bg {
-		opacity: 0.10;
+		opacity: 0.16;
 	}
 
 	:global(html[data-theme="light"]) .service-pill-card:hover .service-card-bg {
-		opacity: 0.22;
+		opacity: 0.28;
 	}
 
 	.pill-card-top {

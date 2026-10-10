@@ -268,7 +268,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			mobile: '+380636672653',
 			mobileDisplay: '+38 (063) 667-26-53',
 			landline: '+380486860308',
-			landlineDisplay: '(04868) 6-03-08'
+			landlineDisplay: '+38 (04868) 6-03-08'
 		},
 		address: {
 			actual: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
@@ -792,7 +792,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			mobile: '+380636672653',
 			mobileDisplay: '+38 (063) 667-26-53',
 			landline: '+380486860308',
-			landlineDisplay: '(04868) 6-03-08'
+			landlineDisplay: '+38 (04868) 6-03-08'
 		},
 		address: {
 			actual: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
@@ -1316,7 +1316,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			mobile: '+380636672653',
 			mobileDisplay: '+38 (063) 667-26-53',
 			landline: '+380486860308',
-			landlineDisplay: '(04868) 6-03-08'
+			landlineDisplay: '+38 (04868) 6-03-08'
 		},
 		address: {
 			actual: 'Odesa region, Chornomorsk, 8-A Myru Ave.',

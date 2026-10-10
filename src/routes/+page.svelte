@@ -241,4 +241,33 @@
 		border-top: 1px dashed var(--color-void-border);
 		line-height: 1.4;
 	}
+
+	:global(html[data-theme="light"]) .calc-teaser-card {
+		background: rgba(255, 255, 255, 0.75);
+		border-color: rgba(15, 23, 42, 0.08);
+		box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+	}
+
+	:global(html[data-theme="light"]) .teaser-preview-box {
+		background: rgba(241, 245, 249, 0.65);
+		border-color: rgba(15, 23, 42, 0.08);
+	}
+
+	:global(html[data-theme="light"]) .prev-header {
+		color: #92400e;
+		border-bottom-color: rgba(15, 23, 42, 0.08);
+	}
+
+	:global(html[data-theme="light"]) .prev-row {
+		color: #475569;
+	}
+
+	:global(html[data-theme="light"]) .prev-row strong {
+		color: #0f172a;
+	}
+
+	:global(html[data-theme="light"]) .prev-footnote {
+		color: #64748b;
+		border-top-color: rgba(15, 23, 42, 0.1);
+	}
 </style>
