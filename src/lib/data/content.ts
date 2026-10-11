@@ -285,9 +285,9 @@ export const contentMap: Record<Lang, ContentData> = {
 		aboutCompany: {
 			badge: 'ТОВ «ОЗОН-ДЕЗ» • 15 років досвіду',
 			title: 'Професійна санітарно-епідеміологічна безпека',
-			subtitle: 'Повний спектр дезінфекційних робіт та пест-контролю для населення та підприємств Одещини.',
+			subtitle: 'Повний комплекс дезінфекційних робіт та пест-контролю для населення і підприємств Одещини: професійне знищення комах, гризунів, вірусів та неприємних запахів за договором із гарантією результату.',
 			welcome: 'Вас вітає ТОВ «ОЗОН-ДЕЗ»!',
-			intro: 'Ми надаємо комплексні санітарно-профілактичні та винищувальні послуги фізичним і юридичним особам. За 15 років успішної діяльності сформовано команду атестованих фахівців, впроваджено сучасні європейські методики та регламенти МОЗ України і системи HACCP.',
+			intro: 'Надаємо комплексні санітарно-профілактичні та винищувальні послуги фізичним і юридичним особам. За 15 років успішної діяльності сформовано команду атестованих фахівців, впроваджено передові методики, препарати 4-го класу безпеки, регламенти МОЗ України та системи HACCP.',
 			servicesTitle: 'Наші ключові послуги:',
 			services: [
 				{
@@ -810,9 +810,9 @@ export const contentMap: Record<Lang, ContentData> = {
 		aboutCompany: {
 			badge: 'ООО «ОЗОН-ДЕЗ» • 15 лет опыта',
 			title: 'Профессиональная санитарно-эпидемиологическая безопасность',
-			subtitle: 'Полный комплекс дезинфекционных услуг и пест-контроля для населения и предприятий Одесского региона.',
+			subtitle: 'Полный комплекс дезинфекционных услуг и пест-контроля для населения и предприятий Одесского региона: профессиональное уничтожение насекомых, грызунов, вирусов и неприятных запахов по договору с гарантией результата.',
 			welcome: 'Вас приветствует ООО «ОЗОН-ДЕЗ»!',
-			intro: 'Мы предоставляем комплексные санитарно-профилактические и истребительные услуги физическим и юридическим лицам. За 15 лет успешной деятельности сформирована команда аттестованных специалистов, внедрены передовые методики, регламенты Минздрава Украины и системы HACCP.',
+			intro: 'Предоставляем комплексные санитарно-профилактические и истребительные услуги физическим и юридическим лицам. За 15 лет успешной деятельности сформирована команда аттестованных специалистов, внедрены передовые методики, препараты 4-го класса безопасности, регламенты Минздрава Украины и системы HACCP.',
 			servicesTitle: 'Наши ключевые услуги:',
 			services: [
 				{
@@ -1335,9 +1335,9 @@ export const contentMap: Record<Lang, ContentData> = {
 		aboutCompany: {
 			badge: 'LLC "OZON-DEZ" • 15 Years of Experience',
 			title: 'Professional Sanitary & Epidemiological Safety',
-			subtitle: 'Full spectrum of pest control, sanitization, and ozonation services for residential clients and businesses in Odesa region.',
+			subtitle: 'Comprehensive disinfection and pest-control services across Chornomorsk, Odesa, and region: professional extermination of insects, rodents, viruses, and odors under contract with guaranteed results.',
 			welcome: 'Welcome to LLC "OZON-DEZ"!',
-			intro: 'We provide comprehensive sanitary-preventive and extermination services to individuals and corporate entities. Backed by 15 years of continuous experience, our team of certified specialists implements cutting-edge European technologies, Ministry of Health regulations, and HACCP standards.',
+			intro: 'Providing complete preventive and extermination services for residential and commercial clients. Backed by 15 years of continuous experience with certified specialists, advanced methodologies, safety class 4 approved compounds, Ministry of Health regulations, and HACCP standards.',
 			servicesTitle: 'Our Core Services:',
 			services: [
 				{

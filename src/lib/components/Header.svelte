@@ -53,7 +53,38 @@
 			<!-- Row 1: Brand Logo & Actions -->
 			<div class="main-bar-top-row">
 				<div class="logo-box">
-					<Logo variant={themeState.current === 'dark' ? 'light' : 'dark'} />
+					<Logo variant={themeState.current === 'dark' ? 'light' : 'dark'} showTagline={false} />
+					<div class="header-spec-tagline" aria-label="Спеціалізація">
+						<span class="spec-word">
+							{#if langState.current === 'ua'}
+								Дезінсекція
+							{:else if langState.current === 'ru'}
+								Дезинсекция
+							{:else}
+								Disinsection
+							{/if}
+						</span>
+						<span class="spec-dot" aria-hidden="true">•</span>
+						<span class="spec-word">
+							{#if langState.current === 'ua'}
+								Дератизація
+							{:else if langState.current === 'ru'}
+								Дератизация
+							{:else}
+								Deratization
+							{/if}
+						</span>
+						<span class="spec-dot" aria-hidden="true">•</span>
+						<span class="spec-word">
+							{#if langState.current === 'ua'}
+								Дезінфекція
+							{:else if langState.current === 'ru'}
+								Дезинфекция
+							{:else}
+								Disinfection
+							{/if}
+						</span>
+					</div>
 				</div>
 
 				<div class="main-bar-actions">
@@ -176,6 +207,88 @@
 	.logo-box {
 		display: flex;
 		align-items: center;
+		gap: clamp(0.75rem, 1.6vw, 1.5rem);
+	}
+
+	.header-spec-tagline {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		padding: 0.35rem 0.95rem;
+		border-radius: var(--radius-full);
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		color: var(--color-bone-white);
+		font-size: 0.82rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		white-space: nowrap;
+		user-select: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		transition: all var(--transition-fast);
+	}
+
+	:global(html[data-theme="light"]) .header-spec-tagline,
+	:global(html.theme-light) .header-spec-tagline,
+	:global(body[data-theme="light"]) .header-spec-tagline,
+	:global([data-theme="light"]) .header-spec-tagline {
+		background: #ffffff !important;
+		border-color: #c9cbbe !important;
+		color: #222f30 !important;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+	}
+
+	.spec-word {
+		transition: color var(--transition-fast);
+	}
+
+	.spec-dot {
+		color: #00E640;
+		font-weight: 800;
+		font-size: 0.75rem;
+		opacity: 0.9;
+	}
+
+	:global(html[data-theme="light"]) .spec-dot,
+	:global(html.theme-light) .spec-dot,
+	:global(body[data-theme="light"]) .spec-dot,
+	:global([data-theme="light"]) .spec-dot {
+		color: #008F45 !important;
+	}
+
+	@media (max-width: 820px) and (min-width: 641px) {
+		.header-spec-tagline {
+			font-size: 0.74rem;
+			padding: 0.25rem 0.65rem;
+			gap: 0.4rem;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.logo-box {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.15rem;
+		}
+		.header-spec-tagline {
+			font-size: 0.62rem;
+			padding: 0;
+			background: transparent !important;
+			border: none !important;
+			box-shadow: none !important;
+			gap: 0.35rem;
+			color: var(--color-silver-mist);
+			letter-spacing: 0.03em;
+		}
+		:global(html[data-theme="light"]) .header-spec-tagline,
+		:global(html.theme-light) .header-spec-tagline,
+		:global(body[data-theme="light"]) .header-spec-tagline,
+		:global([data-theme="light"]) .header-spec-tagline {
+			color: #475569 !important;
+		}
+		.spec-dot {
+			font-size: 0.58rem;
+		}
 	}
 
 	.main-bar-actions {

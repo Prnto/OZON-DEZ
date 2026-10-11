@@ -53,7 +53,7 @@
 	<div class="container">
 		<!-- Section Header -->
 		<div class="section-header">
-			<h2 class="section-title">
+			<h1 class="section-title">
 				<span class="welcome-line">
 					{#if langState.current === 'ua'}
 						Вас вітає ТОВ «<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»!
@@ -64,7 +64,7 @@
 					{/if}
 				</span>
 				<span class="title-main">{about.title}</span>
-			</h2>
+			</h1>
 			<p class="section-subtitle">
 				{about.subtitle}
 			</p>
