@@ -474,24 +474,24 @@
 
 	.radio-card input {
 		margin-right: 10px;
-		accent-color: #00E640;
+		accent-color: #cef79e;
 	}
 
 	.radio-card.checked {
-		border-color: #00E640;
-		background: rgba(0, 230, 64, 0.15);
+		border-color: #cef79e;
+		background: rgba(206, 247, 158, 0.15);
 		color: var(--color-bone-white);
 	}
 
 	:global(html[data-theme="light"]) .radio-card.checked {
-		border-color: #008F45;
-		background: rgba(0, 143, 69, 0.1);
+		border-color: #222f30;
+		background: #eafadb;
 		color: #222f30;
 	}
 
 	.calc-range {
 		width: 100%;
-		accent-color: #00E640;
+		accent-color: #cef79e;
 		cursor: pointer;
 	}
 
@@ -652,20 +652,30 @@
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
-		background: #008F45;
+		background: transparent;
 		color: #ffffff;
 		font-weight: 700;
 		padding: 14px;
 		border-radius: 10px;
 		text-decoration: none;
-		transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+		transition: background 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 		font-size: 1rem;
-		border: 1.5px solid #00E640;
+		border: 1.5px solid rgba(206, 247, 158, 0.5);
 	}
 
 	.btn-calc-submit:hover {
-		background: #007036;
-		box-shadow: 0 6px 20px rgba(0, 230, 64, 0.35);
+		background: transparent;
+		border-color: #cef79e;
+		color: #ffffff;
+		box-shadow: 0 0 16px rgba(206, 247, 158, 0.35);
+		transform: translateY(-2px);
+	}
+
+	.btn-calc-submit:active {
+		background: #cef79e;
+		border-color: #b8eb83;
+		color: #151f20;
+		transform: translateY(0);
 	}
 
 	.btn-calc-tg {
@@ -686,14 +696,22 @@
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-submit {
-		background: #008F45;
-		border-color: #008F45;
-		color: #ffffff;
+		background: transparent;
+		border-color: #8ec94b;
+		color: #222f30;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-submit:hover {
-		background: #007036;
-		color: #ffffff;
+		background: transparent;
+		border-color: #65a30d;
+		color: #222f30;
+		box-shadow: 0 0 12px rgba(184, 235, 131, 0.35);
+	}
+
+	:global(html[data-theme="light"]) .btn-calc-submit:active {
+		background: #cef79e;
+		border-color: #b8eb83;
+		color: #222f30;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg {
@@ -703,15 +721,15 @@
 	}
 
 	.btn-calc-tg:hover {
-		background: rgba(0, 230, 64, 0.12);
-		border-color: rgba(0, 230, 64, 0.4);
-		color: #00E640;
+		background: transparent;
+		border-color: #cef79e;
+		color: #ffffff;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg:hover {
-		background: #e7e8e1;
-		border-color: #008F45;
-		color: #008F45;
+		background: transparent;
+		border-color: #8ec94b;
+		color: #222f30;
 	}
 
 	.calc-lead-section {

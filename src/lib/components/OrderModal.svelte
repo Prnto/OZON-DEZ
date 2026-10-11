@@ -345,8 +345,8 @@
 	}
 
 	.m-input:focus {
-		border-color: #00E640;
-		box-shadow: 0 0 0 3px rgba(0, 230, 64, 0.2);
+		border-color: #cef79e;
+		box-shadow: 0 0 0 3px rgba(206, 247, 158, 0.25);
 	}
 
 	.m-textarea {
@@ -375,8 +375,8 @@
 		width: 54px;
 		height: 54px;
 		border-radius: 50%;
-		background: #008F45;
-		color: #ffffff;
+		background: #cef79e;
+		color: #151f20;
 		font-size: 1.8rem;
 		font-weight: 700;
 		display: flex;
@@ -420,17 +420,29 @@
 		font-size: 0.92rem;
 		text-transform: uppercase;
 		letter-spacing: 0.025em;
-		box-shadow: 0 4px 18px rgba(0, 230, 64, 0.25);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: var(--radius-buttons);
 		transition: all var(--transition-fast);
+		background: transparent;
+		border: 1.5px solid rgba(206, 247, 158, 0.5);
+		color: #ffffff;
 	}
 
 	.modal-submit-btn:hover:not(:disabled) {
-		box-shadow: 0 8px 24px rgba(0, 230, 64, 0.45);
+		background: transparent;
+		border-color: #cef79e;
+		color: #ffffff;
+		box-shadow: 0 0 18px rgba(206, 247, 158, 0.38);
 		transform: translateY(-2px);
+	}
+
+	.modal-submit-btn:active:not(:disabled) {
+		background: #cef79e;
+		border-color: #b8eb83;
+		color: #151f20;
+		transform: translateY(0);
 	}
 
 	@media (max-width: 480px) {

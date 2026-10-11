@@ -693,13 +693,13 @@
 	}
 
 	.styled-input:focus {
-		border-color: #00E640;
-		box-shadow: 0 0 0 3px rgba(0, 230, 64, 0.2);
+		border-color: #cef79e;
+		box-shadow: 0 0 0 3px rgba(206, 247, 158, 0.25);
 	}
 
 	:global(html[data-theme="light"]) .styled-input:focus {
-		border-color: #008F45;
-		box-shadow: 0 0 0 3px rgba(0, 143, 69, 0.2);
+		border-color: #8ec94b;
+		box-shadow: 0 0 0 3px rgba(142, 201, 75, 0.2);
 	}
 
 	.styled-select {
@@ -743,9 +743,9 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
-		background: #008F45;
-		box-shadow: 0 4px 18px rgba(0, 230, 64, 0.4);
-		color: #ffffff;
+		background: #cef79e;
+		box-shadow: 0 4px 18px rgba(206, 247, 158, 0.4);
+		color: #151f20;
 		display: flex;
 		align-items: center;
 		justify-content: center;
