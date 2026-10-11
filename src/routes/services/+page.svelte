@@ -453,9 +453,9 @@
 	}
 
 	.highlight-pill {
-		background: rgba(206, 247, 158, 0.2);
-		border: 1px solid #cef79e;
-		color: #cef79e;
+		background: rgba(0, 200, 83, 0.18);
+		border: 1px solid #00E640;
+		color: #00E640;
 	}
 
 	.b2b-pill {
@@ -468,9 +468,16 @@
 		font-weight: 800;
 		padding: 4px 10px;
 		border-radius: 20px;
-		background: #cef79e;
-		color: #151f20;
-		border: 1px solid #b8eb83;
+		background: #008F45;
+		color: #ffffff;
+		border: 1px solid #00E640;
+	}
+
+	:global(html[data-theme="light"]) .service-price-tag,
+	:global([data-theme="light"]) .service-price-tag {
+		background: #cef79e !important;
+		color: #151f20 !important;
+		border-color: #b8eb83 !important;
 	}
 
 	.service-body {

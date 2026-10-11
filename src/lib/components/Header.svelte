@@ -419,8 +419,8 @@
 	.tapbar-btn:hover {
 		color: #ffffff;
 		background: transparent;
-		border-color: #cef79e;
-		box-shadow: 0 0 10px rgba(206, 247, 158, 0.35);
+		border-color: #00E640;
+		box-shadow: 0 0 10px rgba(0, 230, 64, 0.35);
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn:hover {
@@ -430,18 +430,39 @@
 	}
 
 	.tapbar-btn.active {
-		color: #151f20;
-		background: #cef79e;
-		border-color: #b8eb83;
-		box-shadow: 0 0 16px rgba(206, 247, 158, 0.5);
+		color: #ffffff;
+		background: #008F45;
+		border-color: #00E640;
+		box-shadow: 0 0 16px rgba(0, 230, 64, 0.45);
 		font-weight: 600;
 	}
 
-	:global(html[data-theme="light"]) .tapbar-btn.active {
+	.tapbar-btn:active {
+		color: #ffffff;
+		background: #008F45;
+		border-color: #00E640;
+	}
+
+	:global(html[data-theme="light"]) .tapbar-btn.active,
+	:global(html.theme-light) .tapbar-btn.active,
+	:global(body[data-theme="light"]) .tapbar-btn.active,
+	:global(body.theme-light) .tapbar-btn.active,
+	:global([data-theme="light"]) .tapbar-btn.active {
 		color: #222f30 !important;
 		background: #cef79e !important;
 		border-color: #b8eb83 !important;
+		box-shadow: 0 0 12px rgba(184, 235, 131, 0.4) !important;
 		font-weight: 600;
+	}
+
+	:global(html[data-theme="light"]) .tapbar-btn:active,
+	:global(html.theme-light) .tapbar-btn:active,
+	:global(body[data-theme="light"]) .tapbar-btn:active,
+	:global(body.theme-light) .tapbar-btn:active,
+	:global([data-theme="light"]) .tapbar-btn:active {
+		color: #222f30 !important;
+		background: #b8eb83 !important;
+		border-color: #8ec94b !important;
 	}
 
 	/* Hamburger Button */

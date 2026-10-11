@@ -2,6 +2,7 @@
 	import { X, CheckCircle, PhoneCall } from 'phosphor-svelte';
 	import { orderModal } from '../state/modal.svelte';
 	import { langState } from '../state/language.svelte';
+	import { themeState } from '../state/theme.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
 
@@ -175,13 +176,14 @@
 						<button
 							type="submit"
 							class="btn btn-primary modal-submit-btn"
+							class:theme-is-light={themeState.current === 'light'}
 							disabled={isSubmitting}
 							data-testid="order-submit-btn"
 						>
 							{#if isSubmitting}
 								...
 							{:else}
-								{modalData.submitBtn}
+								<span class="modal-submit-text">{modalData.submitBtn}</span>
 							{/if}
 						</button>
 					</div>
@@ -426,37 +428,77 @@
 		border-radius: var(--radius-buttons);
 		transition: all var(--transition-fast);
 		background: transparent;
-		border: 1.5px solid rgba(206, 247, 158, 0.5);
+		border: 1.5px solid rgba(0, 230, 64, 0.45);
 		color: #ffffff;
 	}
 
 	.modal-submit-btn:hover:not(:disabled) {
 		background: transparent;
-		border-color: #cef79e;
+		border-color: #00E640;
 		color: #ffffff;
-		box-shadow: 0 0 18px rgba(206, 247, 158, 0.38);
+		box-shadow: 0 0 18px rgba(0, 230, 64, 0.38);
 		transform: translateY(-2px);
 	}
 
 	.modal-submit-btn:active:not(:disabled) {
-		background: #cef79e;
-		border-color: #b8eb83;
-		color: #151f20;
+		background: #008F45;
+		border-color: #00E640;
+		color: #ffffff;
 		transform: translateY(0);
+		box-shadow: 0 0 20px rgba(0, 230, 64, 0.45);
 	}
 
-	:global(html[data-theme="light"]) .modal-submit-btn {
+	.modal-submit-text {
+		color: inherit;
+		display: inline-block;
+	}
+
+	/* Light theme: guaranteed lime green solid fill, dark high-contrast readable text */
+	:global(html[data-theme="light"]) .modal-submit-btn,
+	:global(html.theme-light) .modal-submit-btn,
+	:global(body[data-theme="light"]) .modal-submit-btn,
+	:global(body.theme-light) .modal-submit-btn,
+	:global([data-theme="light"]) .modal-submit-btn,
+	.modal-submit-btn.theme-is-light {
 		background: #cef79e !important;
 		color: #151f20 !important;
-		border-color: #b8eb83 !important;
-		font-weight: 700;
+		border: 1.5px solid #b8eb83 !important;
+		font-weight: 700 !important;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
 	}
 
-	:global(html[data-theme="light"]) .modal-submit-btn:hover:not(:disabled) {
+	:global(html[data-theme="light"]) .modal-submit-btn:hover:not(:disabled),
+	:global(html.theme-light) .modal-submit-btn:hover:not(:disabled),
+	:global(body[data-theme="light"]) .modal-submit-btn:hover:not(:disabled),
+	:global(body.theme-light) .modal-submit-btn:hover:not(:disabled),
+	:global([data-theme="light"]) .modal-submit-btn:hover:not(:disabled),
+	.modal-submit-btn.theme-is-light:hover:not(:disabled) {
 		background: #b8eb83 !important;
 		border-color: #8ec94b !important;
 		color: #151f20 !important;
-		box-shadow: 0 6px 20px rgba(184, 235, 131, 0.45);
+		box-shadow: 0 6px 20px rgba(184, 235, 131, 0.45) !important;
+		transform: translateY(-2px);
+	}
+
+	:global(html[data-theme="light"]) .modal-submit-btn:active:not(:disabled),
+	:global(html.theme-light) .modal-submit-btn:active:not(:disabled),
+	:global(body[data-theme="light"]) .modal-submit-btn:active:not(:disabled),
+	:global(body.theme-light) .modal-submit-btn:active:not(:disabled),
+	:global([data-theme="light"]) .modal-submit-btn:active:not(:disabled),
+	.modal-submit-btn.theme-is-light:active:not(:disabled) {
+		background: #8ec94b !important;
+		border-color: #71a938 !important;
+		color: #151f20 !important;
+		transform: translateY(0);
+	}
+
+	:global(html[data-theme="light"]) .modal-submit-text,
+	:global(html.theme-light) .modal-submit-text,
+	:global(body[data-theme="light"]) .modal-submit-text,
+	:global(body.theme-light) .modal-submit-text,
+	:global([data-theme="light"]) .modal-submit-text,
+	.modal-submit-btn.theme-is-light .modal-submit-text {
+		color: #151f20 !important;
 	}
 
 	@media (max-width: 480px) {

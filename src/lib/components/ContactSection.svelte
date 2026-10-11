@@ -788,14 +788,22 @@
 		color: #0f172a;
 	}
 
-	:global(html[data-theme="light"]) .form-card button[type="submit"] {
+	:global(html[data-theme="light"]) .form-card button[type="submit"],
+	:global(html.theme-light) .form-card button[type="submit"],
+	:global(body[data-theme="light"]) .form-card button[type="submit"],
+	:global(body.theme-light) .form-card button[type="submit"],
+	:global([data-theme="light"]) .form-card button[type="submit"] {
 		background: #cef79e !important;
 		color: #151f20 !important;
-		border-color: #b8eb83 !important;
+		border: 1.5px solid #b8eb83 !important;
 		font-weight: 700 !important;
 	}
 
-	:global(html[data-theme="light"]) .form-card button[type="submit"]:hover {
+	:global(html[data-theme="light"]) .form-card button[type="submit"]:hover,
+	:global(html.theme-light) .form-card button[type="submit"]:hover,
+	:global(body[data-theme="light"]) .form-card button[type="submit"]:hover,
+	:global(body.theme-light) .form-card button[type="submit"]:hover,
+	:global([data-theme="light"]) .form-card button[type="submit"]:hover {
 		background: #b8eb83 !important;
 		border-color: #8ec94b !important;
 		color: #151f20 !important;
