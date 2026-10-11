@@ -33,7 +33,7 @@
 		badge={water.badge}
 		title={water.title}
 		subtitle={water.subtitle}
-		crumbs={[{ label: currentContent.nav.water }]}
+		crumbs={[]}
 		imageSrc={asset('images/water-purification.webp')}
 	/>
 

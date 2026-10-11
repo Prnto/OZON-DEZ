@@ -33,7 +33,7 @@
 	<PageHeader
 		title={work.title}
 		subtitle={work.subtitle}
-		crumbs={[{ label: currentContent.nav.howWeWork }]}
+		crumbs={[]}
 		imageSrc={asset('images/how-we-work-bg.webp')}
 	/>
 

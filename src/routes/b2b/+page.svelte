@@ -33,8 +33,8 @@
 	<PageHeader
 		title={b2b.title}
 		subtitle={b2b.subtitle}
-		crumbs={[{ label: currentContent.nav.b2b }]}
-		imageSrc={asset('images/b2b-haccp-audit.webp')}
+		crumbs={[]}
+		imageSrc={asset('images/warehouse-logistics-dez.webp')}
 	/>
 
 	<!-- Industry segments section placed first below header banner -->

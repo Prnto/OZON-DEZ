@@ -47,11 +47,11 @@
 	<PageHeader
 		title={langState.current === 'ua' ? 'Послуги санітарної безпеки для дому та бізнесу' : langState.current === 'ru' ? 'Услуги санитарной безопасности для дома и бизнеса' : 'Sanitary Safety Services for Home & Business'}
 		subtitle={langState.current === 'ua'
-			? 'Надаємо повний комплекс послуг фізичним і юридичним особам у Чорноморську, Одесі та Одеській області. Використовуємо виключно зареєстровані в Україні препарати, генератори туману та промислові озонатори.'
+			? 'Повний комплекс дезінфекційних робіт у Чорноморську, Одесі та області: знищення комах, гризунів, вірусів та запахів. Сертифіковані препарати 4-го класу, генератори туману й гарантія за договором.'
 			: langState.current === 'ru'
-			? 'Предоставляем полный комплекс услуг физическим и юридическим лицам в Черноморске, Одессе и Одесской области. Используем исключительно зарегистрированные в Украине препараты, генераторы тумана и промышленные озонаторы.'
-			: 'We provide a complete range of services to individuals and businesses in Chornomorsk, Odesa, and the Odesa region. We use exclusively Ukraine-registered preparations, fog generators, and industrial ozone machines.'}
-		crumbs={[{ label: currentContent.nav.services }]}
+			? 'Полный комплекс дезинфекционных услуг в Черноморске, Одессе и области: уничтожение насекомых, грызунов, вирусов и запахов. Сертифицированные препараты 4-го класса, генераторы тумана и гарантия по договору.'
+			: 'Full range of disinfection services across Chornomorsk, Odesa, and region: extermination of insects, rodents, viruses, and odors with certified Class 4 solutions and contract warranty.'}
+		crumbs={[]}
 		imageSrc={asset('images/services-bg.webp')}
 	/>
 

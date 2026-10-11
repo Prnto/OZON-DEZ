@@ -33,7 +33,7 @@
 	<PageHeader
 		title={c.title}
 		subtitle={c.subtitle}
-		crumbs={[{ label: currentContent.nav.contacts }]}
+		crumbs={[]}
 		imageSrc={asset('images/contacts-bg.webp')}
 	/>
 

@@ -33,7 +33,7 @@
 	<PageHeader
 		title={calc.title}
 		subtitle={calc.subtitle}
-		crumbs={[{ label: currentContent.nav.calculator }]}
+		crumbs={[]}
 		imageSrc={asset('images/calculator-bg.webp')}
 	/>
 

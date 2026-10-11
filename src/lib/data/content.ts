@@ -542,8 +542,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		],
 		b2bSection: {
 			badge: 'Співпраця для бізнесу та підприємств',
-			title: 'Санітарна безпека B2B за стандартами HACCP',
-			subtitle: 'ТОВ «ОЗОН-ДЕЗ» пропонує довгострокове партнерство для HoReCa, харчових виробництв, магазинів та логістичних центрів Чорноморська та Одеської області.',
+			title: 'Санітарна безпека та пест-контроль B2B (HACCP)',
+			subtitle: 'Комплексний захист складів, супермаркетів, виробництв та закладів HoReCa: дезінсекція, дератизація, дезінфекція та озонування. Офіційний договір, регламенти НАССР і повний пакет документів для перевірок.',
 			content1: 'Розробляємо індивідуальні програми пест-контролю відповідно до міжнародної системи HACCP (ХАССП).',
 			content2: 'Надаємо повний пакет документів та актів виконаних робіт для успішного проходження перевірок Держпродспоживслужби.',
 			floatingTag: {
@@ -596,8 +596,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		howWeWork: {
 			badge: 'Прозорий та надійний регламент',
-			title: 'Як ми працюємо: 5 кроків до чистоти',
-			subtitle: 'Від звернення до захищеного об’єкта з юридичною гарантією якості',
+			title: 'Як ми працюємо: 5 простих кроків',
+			subtitle: 'Прозорий процес від дзвінка до захищеного об’єкта: підбір сертифікованих препаратів 4-го класу, виїзд спеціаліста, обробка та офіційний гарантійний акт.',
 			steps: [
 				{
 					step: 1,
@@ -651,7 +651,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		calculator: {
 			title: 'Онлайн-калькулятор вартості',
-			subtitle: 'Оберіть послугу, тип об’єкта та площу для швидкого розрахунку вартості за 30 секунд. Точну ціну озвучить спеціаліст.',
+			subtitle: 'Миттєвий розрахунок вартості дезінсекції, дератизації, дезінфекції та озонування від 850 грн. Оберіть послугу й параметри об’єкта для точної попередньої оцінки.',
 			step1: 'Оберіть тип вашого об’єкта:',
 			step2: 'Вид обробки чи послуги:',
 			step3: 'Площа обробки (м²):',
@@ -1067,8 +1067,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		],
 		b2bSection: {
 			badge: 'Сотрудничество для бизнеса и предприятий',
-			title: 'Санитарная безопасность B2B по стандартам HACCP',
-			subtitle: 'ООО «ОЗОН-ДЕЗ» предлагает долгосрочное сотрудничество для HoReCa (рестораны, отели, кафе), пищевых производств, магазинов и логистических центров Черноморска и Одесской области.',
+			title: 'Санитарная безопасность и пест-контроль B2B (HACCP)',
+			subtitle: 'Комплексная защита складов, супермаркетов, производств и заведений HoReCa: дезинсекция, дератизация, дезинфекция и озонирование. Официальный договор, регламенты HACCP и полный пакет документов для проверок.',
 			content1: 'Разрабатываем индивидуальные программы контроля вредителей в соответствии с международной системой HACCP (ХАССП).',
 			content2: 'Предоставляем полный пакет документов и актов выполненных работ для проверок Госпродпотребслужбы.',
 			floatingTag: {
@@ -1122,7 +1122,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		howWeWork: {
 			badge: 'Прозрачная и надежная схема',
 			title: 'Как мы работаем: 5 простых шагов',
-			subtitle: 'От вашего звонка до чистого и защищенного объекта с гарантией качества',
+			subtitle: 'Прозрачный процесс от звонка до защищенного объекта: подбор сертифицированных препаратов 4-го класса, выезд специалиста, обработка и официальный гарантийный акт.',
 			steps: [
 				{
 					step: 1,
@@ -1176,7 +1176,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		calculator: {
 			title: 'Онлайн-калькулятор стоимости',
-			subtitle: 'Выберите услугу, тип объекта и площадь для быстрого расчета стоимости за 30 секунд. Точную цену озвучит специалист.',
+			subtitle: 'Мгновенный расчет стоимости дезинсекции, дератизации, дезинфекции и озонирования от 850 грн. Выберите услугу и параметры объекта для точной предварительной оценки.',
 			step1: 'Выберите тип вашего объекта:',
 			step2: 'Вид обработки или услуги:',
 			step3: 'Площадь обработки (м²):',
@@ -1592,8 +1592,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		],
 		b2bSection: {
 			badge: 'Cooperation for Businesses and Enterprises',
-			title: 'B2B Sanitary Safety via HACCP Standards',
-			subtitle: 'LLC "OZON-DEZ" offers long-term partnerships for HoReCa, food production, retail, and logistics hubs in Chornomorsk and Odesa region.',
+			title: 'B2B Sanitary Safety & Pest Control (HACCP)',
+			subtitle: 'Comprehensive defense for warehouses, supermarkets, factories, and HoReCa: disinsection, deratization, disinfection, and ozonation under HACCP standards with full compliance documentation.',
 			content1: 'We engineer tailor-made pest control programs fully aligned with the international HACCP standard.',
 			content2: 'We supply a complete dossier of official documents, certificates, and inspection acts for regulatory peace of mind.',
 			floatingTag: {
@@ -1646,8 +1646,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		howWeWork: {
 			badge: 'Transparent and Reliable Workflow',
-			title: 'How We Work: 5 Steps to Guaranteed Safety',
-			subtitle: 'From your initial call to a fully protected facility with contract warranty',
+			title: 'How We Work: 5 Simple Steps',
+			subtitle: 'Transparent protocol from call to secured facility: certified Class 4 compounds, precision on-site treatment, and official warranty certificate.',
 			steps: [
 				{
 					step: 1,
@@ -1701,7 +1701,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		calculator: {
 			title: 'Online Price Calculator',
-			subtitle: 'Select service, facility type, and area for an instant price estimate in 30 seconds. Fixed transparent rates.',
+			subtitle: 'Instant estimate for disinsection, deratization, disinfection, and ozonation from 850 UAH. Select service and facility parameters for an exact preliminary estimate.',
 			step1: 'Choose your object type:',
 			step2: 'Type of treatment or service:',
 			step3: 'Treatment area (m²):',
