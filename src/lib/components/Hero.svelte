@@ -66,7 +66,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 38%;
+		object-position: center 50%;
 		display: block;
 		opacity: 1;
 		filter: contrast(1.05) saturate(1.06);
