@@ -54,8 +54,12 @@
 			<div class="main-bar-top-row">
 				<div class="logo-box">
 					<Logo variant={themeState.current === 'dark' ? 'light' : 'dark'} showTagline={false} />
-					<div class="header-spec-tagline" aria-label="Спеціалізація">
-						<span class="spec-word">
+					<div class="header-spec-tagline" aria-label="Спеціалізація та послуги">
+						<a
+							href="{resolve('/services')}#disinsection"
+							class="spec-link"
+							title="{langState.current === 'ua' ? 'Дезінсекція — переглянути опис' : langState.current === 'ru' ? 'Дезинсекция — смотреть описание' : 'Disinsection — view service'}"
+						>
 							{#if langState.current === 'ua'}
 								Дезінсекція
 							{:else if langState.current === 'ru'}
@@ -63,9 +67,13 @@
 							{:else}
 								Disinsection
 							{/if}
-						</span>
+						</a>
 						<span class="spec-dot" aria-hidden="true">•</span>
-						<span class="spec-word">
+						<a
+							href="{resolve('/services')}#deratization"
+							class="spec-link"
+							title="{langState.current === 'ua' ? 'Дератизація — переглянути опис' : langState.current === 'ru' ? 'Дератизация — смотреть описание' : 'Deratization — view service'}"
+						>
 							{#if langState.current === 'ua'}
 								Дератизація
 							{:else if langState.current === 'ru'}
@@ -73,9 +81,13 @@
 							{:else}
 								Deratization
 							{/if}
-						</span>
+						</a>
 						<span class="spec-dot" aria-hidden="true">•</span>
-						<span class="spec-word">
+						<a
+							href="{resolve('/services')}#disinfection"
+							class="spec-link"
+							title="{langState.current === 'ua' ? 'Дезінфекція — переглянути опис' : langState.current === 'ru' ? 'Дезинфекция — смотреть описание' : 'Disinfection — view service'}"
+						>
 							{#if langState.current === 'ua'}
 								Дезінфекція
 							{:else if langState.current === 'ru'}
@@ -83,7 +95,7 @@
 							{:else}
 								Disinfection
 							{/if}
-						</span>
+						</a>
 					</div>
 				</div>
 
@@ -213,19 +225,22 @@
 	.header-spec-tagline {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.55rem;
-		padding: 0.35rem 0.95rem;
+		gap: 0.7rem;
+		padding: 0.45rem 1.25rem;
 		border-radius: var(--radius-full);
-		background: rgba(255, 255, 255, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: var(--color-bone-white);
-		font-size: 0.82rem;
-		font-weight: 600;
-		letter-spacing: 0.02em;
-		white-space: nowrap;
+		background: rgba(11, 15, 25, 0.7);
+		border: 1px solid rgba(0, 230, 64, 0.32);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 14px rgba(0, 230, 64, 0.12);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
 		user-select: none;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		white-space: nowrap;
 		transition: all var(--transition-fast);
+	}
+
+	.header-spec-tagline:hover {
+		border-color: rgba(0, 230, 64, 0.6);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 230, 64, 0.22);
 	}
 
 	:global(html[data-theme="light"]) .header-spec-tagline,
@@ -233,20 +248,50 @@
 	:global(body[data-theme="light"]) .header-spec-tagline,
 	:global([data-theme="light"]) .header-spec-tagline {
 		background: #ffffff !important;
-		border-color: #c9cbbe !important;
-		color: #222f30 !important;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+		border: 1px solid rgba(0, 143, 69, 0.35) !important;
+		box-shadow: 0 2px 10px rgba(0, 143, 69, 0.1) !important;
 	}
 
-	.spec-word {
-		transition: color var(--transition-fast);
+	:global(html[data-theme="light"]) .header-spec-tagline:hover {
+		border-color: #008F45 !important;
+		box-shadow: 0 4px 16px rgba(0, 143, 69, 0.18) !important;
+	}
+
+	.spec-link {
+		font-size: clamp(0.92rem, 1.15vw, 1.05rem);
+		font-weight: 700;
+		color: #ffffff;
+		text-decoration: none;
+		letter-spacing: -0.01em;
+		padding: 0.1rem 0.25rem;
+		border-radius: 4px;
+		transition: color var(--transition-fast), transform var(--transition-fast);
+		display: inline-flex;
+		align-items: center;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+
+	.spec-link:hover {
+		color: #00E640;
+		transform: translateY(-1px);
+	}
+
+	:global(html[data-theme="light"]) .spec-link {
+		color: #1e293b !important;
+	}
+
+	:global(html[data-theme="light"]) .spec-link:hover {
+		color: #008F45 !important;
 	}
 
 	.spec-dot {
 		color: #00E640;
-		font-weight: 800;
-		font-size: 0.75rem;
-		opacity: 0.9;
+		font-weight: 900;
+		font-size: 0.95rem;
+		line-height: 1;
+		user-select: none;
+		text-shadow: 0 0 8px rgba(0, 230, 64, 0.6);
 	}
 
 	:global(html[data-theme="light"]) .spec-dot,
@@ -254,13 +299,20 @@
 	:global(body[data-theme="light"]) .spec-dot,
 	:global([data-theme="light"]) .spec-dot {
 		color: #008F45 !important;
+		text-shadow: none !important;
 	}
 
-	@media (max-width: 820px) and (min-width: 641px) {
+	@media (max-width: 860px) and (min-width: 641px) {
 		.header-spec-tagline {
-			font-size: 0.74rem;
-			padding: 0.25rem 0.65rem;
-			gap: 0.4rem;
+			font-size: 0.82rem;
+			padding: 0.35rem 0.85rem;
+			gap: 0.45rem;
+		}
+		.spec-link {
+			font-size: 0.85rem;
+		}
+		.spec-dot {
+			font-size: 0.8rem;
 		}
 	}
 
@@ -268,26 +320,27 @@
 		.logo-box {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 0.15rem;
+			gap: 0.18rem;
 		}
 		.header-spec-tagline {
-			font-size: 0.62rem;
 			padding: 0;
 			background: transparent !important;
 			border: none !important;
 			box-shadow: none !important;
+			backdrop-filter: none !important;
+			-webkit-backdrop-filter: none !important;
 			gap: 0.35rem;
-			color: var(--color-silver-mist);
-			letter-spacing: 0.03em;
 		}
-		:global(html[data-theme="light"]) .header-spec-tagline,
-		:global(html.theme-light) .header-spec-tagline,
-		:global(body[data-theme="light"]) .header-spec-tagline,
-		:global([data-theme="light"]) .header-spec-tagline {
+		.spec-link {
+			font-size: 0.72rem;
+			font-weight: 700;
+			color: #cbd5e1;
+		}
+		:global(html[data-theme="light"]) .spec-link {
 			color: #475569 !important;
 		}
 		.spec-dot {
-			font-size: 0.58rem;
+			font-size: 0.65rem;
 		}
 	}
 
