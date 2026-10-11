@@ -296,8 +296,8 @@
 
 	.floating-trigger-btn:hover {
 		transform: scale(1.05) translateY(-2px);
-		background: #0369a1;
-		box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
+		background: #008F45;
+		box-shadow: 0 8px 24px rgba(0, 230, 64, 0.45);
 	}
 
 	.floating-trigger-btn.active {
@@ -580,7 +580,7 @@
 
 	:global(html[data-theme="light"]) .menu-item:hover {
 		background: #f1f5f9;
-		border-color: #0284c7;
+		border-color: #008F45;
 	}
 
 	:global(html[data-theme="light"]) .item-title {

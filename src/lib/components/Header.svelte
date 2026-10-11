@@ -418,27 +418,28 @@
 
 	.tapbar-btn:hover {
 		color: #ffffff;
-		background: rgba(255, 255, 255, 0.06);
-		border-color: rgba(255, 255, 255, 0.1);
+		background: rgba(0, 230, 64, 0.14);
+		border-color: rgba(0, 230, 64, 0.5);
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn:hover {
-		color: #222f30;
-		background: #e7e8e1;
-		border-color: #c9cbbe;
+		color: #ffffff;
+		background: #008F45;
+		border-color: #008F45;
 	}
 
 	.tapbar-btn.active {
 		color: #ffffff;
-		background: rgba(2, 132, 199, 0.16);
-		border-color: var(--color-electric-iris);
+		background: rgba(0, 230, 64, 0.18);
+		border-color: #00E640;
+		box-shadow: 0 0 14px rgba(0, 230, 64, 0.25);
 		font-weight: 600;
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn.active {
-		color: #222f30 !important;
-		background: #cef79e !important;
-		border-color: #b8eb83 !important;
+		color: #ffffff !important;
+		background: #008F45 !important;
+		border-color: #008F45 !important;
 		font-weight: 600;
 	}
 

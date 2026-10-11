@@ -345,7 +345,8 @@
 	}
 
 	.m-input:focus {
-		border-color: var(--color-electric-iris);
+		border-color: #00E640;
+		box-shadow: 0 0 0 3px rgba(0, 230, 64, 0.2);
 	}
 
 	.m-textarea {
@@ -374,7 +375,7 @@
 		width: 54px;
 		height: 54px;
 		border-radius: 50%;
-		background: var(--color-electric-iris);
+		background: #008F45;
 		color: #ffffff;
 		font-size: 1.8rem;
 		font-weight: 700;
@@ -419,7 +420,7 @@
 		font-size: 0.92rem;
 		text-transform: uppercase;
 		letter-spacing: 0.025em;
-		box-shadow: 0 4px 18px rgba(2, 132, 199, 0.25);
+		box-shadow: 0 4px 18px rgba(0, 230, 64, 0.25);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -428,7 +429,7 @@
 	}
 
 	.modal-submit-btn:hover:not(:disabled) {
-		box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
+		box-shadow: 0 8px 24px rgba(0, 230, 64, 0.45);
 		transform: translateY(-2px);
 	}
 

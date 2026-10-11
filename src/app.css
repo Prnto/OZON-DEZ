@@ -424,38 +424,38 @@ body[data-theme="light"] .brand-dez {
 	touch-action: manipulation;
 }
 
-/* Action Button: Transparent outline resting; harmonious blue #0284c7 with glow on hover & tap */
+/* Action Button: Elegant green outline resting (like screenshot 2); rich green fill with glow on hover & tap; crisp white text */
 .btn-primary,
 .btn-aurora,
 .btn-iris {
 	background: transparent;
-	color: var(--color-bone-white);
+	color: #ffffff;
 	font-weight: 600;
-	border: 1.5px solid rgba(2, 132, 199, 0.55);
+	border: 1.5px solid rgba(0, 230, 64, 0.55);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15), 0 0 10px rgba(0, 230, 64, 0.1);
 	transition: all var(--transition-norm);
 }
 
 .btn-primary:hover,
 .btn-aurora:hover,
 .btn-iris:hover {
-	background: #0284c7;
-	border-color: #0284c7;
+	background: #008F45;
+	border-color: #00E640;
 	color: #ffffff;
 	transform: translateY(-2px);
-	box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
+	box-shadow: 0 8px 24px rgba(0, 230, 64, 0.4);
 }
 
 .btn-primary:active,
 .btn-aurora:active,
 .btn-iris:active {
-	background: #0369a1;
-	border-color: #0369a1;
+	background: #007036;
+	border-color: #00E640;
 	color: #ffffff;
 	transform: translateY(0);
-	box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+	box-shadow: 0 4px 14px rgba(0, 230, 64, 0.3);
 }
 
 html[data-theme="light"] .btn-primary,
@@ -464,10 +464,10 @@ html[data-theme="light"] .btn-iris,
 html.theme-light .btn-primary,
 html.theme-light .btn-aurora,
 html.theme-light .btn-iris {
-	background: #222f30;
-	color: #ffffff;
-	border: 1px solid #222f30;
-	box-shadow: none;
+	background: transparent;
+	color: #151f20;
+	border: 1.5px solid #008F45;
+	box-shadow: 0 2px 8px rgba(0, 143, 69, 0.12);
 }
 
 html[data-theme="light"] .btn-primary:hover,
@@ -476,11 +476,23 @@ html[data-theme="light"] .btn-iris:hover,
 html.theme-light .btn-primary:hover,
 html.theme-light .btn-aurora:hover,
 html.theme-light .btn-iris:hover {
-	background: #151f20;
-	border-color: #151f20;
-	color: #cef79e;
-	box-shadow: none;
+	background: #008F45;
+	border-color: #008F45;
+	color: #ffffff;
+	box-shadow: 0 8px 20px rgba(0, 143, 69, 0.28);
 	transform: translateY(-2px);
+}
+
+html[data-theme="light"] .btn-primary:active,
+html[data-theme="light"] .btn-aurora:active,
+html[data-theme="light"] .btn-iris:active,
+html.theme-light .btn-primary:active,
+html.theme-light .btn-aurora:active,
+html.theme-light .btn-iris:active {
+	background: #007036;
+	border-color: #007036;
+	color: #ffffff;
+	transform: translateY(0);
 }
 
 /* Ghost / Secondary Button from Design_2.md */

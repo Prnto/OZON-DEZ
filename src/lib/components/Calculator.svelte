@@ -474,24 +474,24 @@
 
 	.radio-card input {
 		margin-right: 10px;
-		accent-color: #0284c7;
+		accent-color: #00E640;
 	}
 
 	.radio-card.checked {
-		border-color: #0284c7;
-		background: rgba(2, 132, 199, 0.15);
+		border-color: #00E640;
+		background: rgba(0, 230, 64, 0.15);
 		color: var(--color-bone-white);
 	}
 
 	:global(html[data-theme="light"]) .radio-card.checked {
-		border-color: #222f30;
-		background: #eafadb;
+		border-color: #008F45;
+		background: rgba(0, 143, 69, 0.1);
 		color: #222f30;
 	}
 
 	.calc-range {
 		width: 100%;
-		accent-color: #0284c7;
+		accent-color: #00E640;
 		cursor: pointer;
 	}
 
@@ -652,18 +652,20 @@
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
-		background: #0284c7;
+		background: #008F45;
 		color: #ffffff;
 		font-weight: 700;
 		padding: 14px;
 		border-radius: 10px;
 		text-decoration: none;
-		transition: background 0.2s;
+		transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 		font-size: 1rem;
+		border: 1.5px solid #00E640;
 	}
 
 	.btn-calc-submit:hover {
-		background: #0369a1;
+		background: #007036;
+		box-shadow: 0 6px 20px rgba(0, 230, 64, 0.35);
 	}
 
 	.btn-calc-tg {
@@ -684,13 +686,14 @@
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-submit {
-		background: #222f30;
+		background: #008F45;
+		border-color: #008F45;
 		color: #ffffff;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-submit:hover {
-		background: #151f20;
-		color: #cef79e;
+		background: #007036;
+		color: #ffffff;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg {
@@ -700,15 +703,15 @@
 	}
 
 	.btn-calc-tg:hover {
-		background: rgba(2, 132, 199, 0.12);
-		border-color: rgba(2, 132, 199, 0.4);
-		color: #38bdf8;
+		background: rgba(0, 230, 64, 0.12);
+		border-color: rgba(0, 230, 64, 0.4);
+		color: #00E640;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg:hover {
 		background: #e7e8e1;
-		border-color: #222f30;
-		color: #222f30;
+		border-color: #008F45;
+		color: #008F45;
 	}
 
 	.calc-lead-section {
@@ -757,19 +760,19 @@
 	}
 
 	.lead-btn:hover {
-		background: #0284c7;
+		background: #008F45;
 		color: #ffffff;
 	}
 
 	:global(html[data-theme="light"]) .lead-btn {
-		background: #0284c7;
+		background: #008F45;
 		color: #ffffff;
-		border-color: #0284c7;
+		border-color: #008F45;
 	}
 
 	:global(html[data-theme="light"]) .lead-btn:hover {
-		background: #0369a1;
-		border-color: #0369a1;
+		background: #007036;
+		border-color: #007036;
 		color: #ffffff;
 	}
 
