@@ -17,7 +17,7 @@
 		<picture>
 			<source srcset="{asset('images/ozon_dez_logo_transparent.webp')}" type="image/webp" />
 			<img
-				src="{asset('images/ozon_dez_logo_transparent.png')}"
+				src="{asset('images/ozon_dez_logo_transparent.webp')}"
 				alt="{currentContent.companyName}"
 				height="48"
 				class="logo-graphic"

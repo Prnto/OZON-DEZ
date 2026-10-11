@@ -42,8 +42,8 @@
 	.hero-banner-full {
 		position: relative;
 		width: 100%;
-		min-height: clamp(340px, 46vh, 520px);
-		max-height: 560px;
+		min-height: clamp(400px, 54vh, 660px);
+		max-height: 720px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -66,10 +66,10 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 50%;
+		object-position: center 66%;
 		display: block;
 		opacity: 1;
-		filter: contrast(1.05) saturate(1.06);
+		filter: contrast(1.05) saturate(1.08);
 		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
@@ -79,7 +79,11 @@
 
 	@media (max-width: 640px) {
 		.hero-banner-full {
-			min-height: 280px;
+			min-height: 320px;
+			max-height: 440px;
+		}
+		.hero-banner-img {
+			object-position: 20% 64%;
 		}
 	}
 </style>
