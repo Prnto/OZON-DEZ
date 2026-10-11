@@ -355,6 +355,50 @@
 		font-size: 0.82rem;
 		padding: 0.45rem 1.15rem;
 		white-space: nowrap;
+		background: transparent;
+		border: 1.5px solid #008F45;
+		color: #ffffff;
+		border-radius: var(--radius-buttons);
+		transition: all 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
+		box-shadow: none;
+	}
+
+	.main-cta-btn:hover {
+		background: rgba(0, 230, 64, 0.08);
+		border-color: #00E640;
+		color: #ffffff;
+		box-shadow: 0 0 16px rgba(0, 230, 64, 0.55), 0 0 6px rgba(0, 230, 64, 0.35);
+		transform: translateY(-1px);
+	}
+
+	.main-cta-btn:active {
+		background: rgba(0, 230, 64, 0.16);
+		border-color: #00E640;
+		color: #ffffff;
+		box-shadow: 0 0 20px rgba(0, 230, 64, 0.7);
+		transform: translateY(0);
+	}
+
+	:global(html[data-theme="light"]) .main-cta-btn,
+	:global(html.theme-light) .main-cta-btn,
+	:global(body[data-theme="light"]) .main-cta-btn,
+	:global([data-theme="light"]) .main-cta-btn {
+		background: #cef79e !important;
+		color: #151f20 !important;
+		border: 1.5px solid #b8eb83 !important;
+		font-weight: 700;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06) !important;
+	}
+
+	:global(html[data-theme="light"]) .main-cta-btn:hover,
+	:global(html.theme-light) .main-cta-btn:hover,
+	:global(body[data-theme="light"]) .main-cta-btn:hover,
+	:global([data-theme="light"]) .main-cta-btn:hover {
+		background: #b8eb83 !important;
+		border-color: #8ec94b !important;
+		color: #151f20 !important;
+		box-shadow: 0 6px 18px rgba(184, 235, 131, 0.45) !important;
+		transform: translateY(-1px);
 	}
 
 	.cta-short-label {
@@ -419,8 +463,8 @@
 	.tapbar-btn:hover {
 		color: #ffffff;
 		background: transparent;
-		border-color: #00E640;
-		box-shadow: 0 0 10px rgba(0, 230, 64, 0.35);
+		border-color: rgba(118, 206, 154, 0.65);
+		box-shadow: 0 0 10px rgba(90, 180, 126, 0.2);
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn:hover {
@@ -431,16 +475,16 @@
 
 	.tapbar-btn.active {
 		color: #ffffff;
-		background: #008F45;
-		border-color: #00E640;
-		box-shadow: 0 0 16px rgba(0, 230, 64, 0.45);
+		background: rgba(72, 160, 110, 0.24);
+		border-color: rgba(118, 206, 154, 0.65);
+		box-shadow: 0 2px 12px rgba(90, 180, 126, 0.22);
 		font-weight: 600;
 	}
 
 	.tapbar-btn:active {
 		color: #ffffff;
-		background: #008F45;
-		border-color: #00E640;
+		background: rgba(72, 160, 110, 0.34);
+		border-color: rgba(118, 206, 154, 0.8);
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn.active,

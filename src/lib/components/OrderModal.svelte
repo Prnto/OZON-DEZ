@@ -246,7 +246,7 @@
 	@keyframes popIn {
 		from {
 			opacity: 0;
-			transform: scale(0.96) translateY(8px);
+			transform: scale(0.97) translateY(4px);
 		}
 		to {
 			opacity: 1;
@@ -428,24 +428,24 @@
 		border-radius: var(--radius-buttons);
 		transition: all var(--transition-fast);
 		background: transparent;
-		border: 1.5px solid rgba(0, 230, 64, 0.45);
+		border: 1.5px solid #008F45;
 		color: #ffffff;
 	}
 
 	.modal-submit-btn:hover:not(:disabled) {
-		background: transparent;
+		background: rgba(0, 230, 64, 0.08);
 		border-color: #00E640;
 		color: #ffffff;
-		box-shadow: 0 0 18px rgba(0, 230, 64, 0.38);
-		transform: translateY(-2px);
+		box-shadow: 0 0 18px rgba(0, 230, 64, 0.55), 0 0 6px rgba(0, 230, 64, 0.35);
+		transform: translateY(-1px);
 	}
 
 	.modal-submit-btn:active:not(:disabled) {
-		background: #008F45;
+		background: rgba(0, 230, 64, 0.16);
 		border-color: #00E640;
 		color: #ffffff;
 		transform: translateY(0);
-		box-shadow: 0 0 20px rgba(0, 230, 64, 0.45);
+		box-shadow: 0 0 22px rgba(0, 230, 64, 0.7);
 	}
 
 	.modal-submit-text {

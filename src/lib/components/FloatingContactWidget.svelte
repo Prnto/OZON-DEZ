@@ -446,15 +446,14 @@
 		color: var(--color-bone-white);
 		text-align: left;
 		cursor: pointer;
-		transition: all 0.18s ease;
+		transition: all 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
 		width: 100%;
 		outline: none;
 		text-decoration: none;
 	}
 
 	.menu-item:hover {
-		border-color: var(--color-electric-iris);
-		transform: translateX(-2px);
+		transform: translateX(-3px);
 	}
 
 	.item-icon-wrap {
@@ -468,6 +467,11 @@
 		font-size: 1.1rem;
 		background: rgba(255, 255, 255, 0.04);
 		border: 1px solid var(--border-subtle);
+		transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
+	}
+
+	.menu-item:hover .item-icon-wrap {
+		transform: scale(1.08);
 	}
 
 	.item-content {
@@ -497,68 +501,108 @@
 	.item-arrow {
 		color: var(--color-ash-gray);
 		font-size: 0.82rem;
-		transition: transform 0.15s ease, color 0.15s ease;
+		transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1), color 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
 	}
 
 	.menu-item:hover .item-arrow {
-		color: var(--color-electric-iris);
-		transform: translateX(2px);
+		transform: translateX(3px);
 	}
 
-
-
-	.tg-icon {
-		color: #29b6f6;
-		background: rgba(0, 136, 204, 0.14);
+	/* Dark theme: individual icon badges & individual hover styles */
+	.office-icon {
+		color: #fbbf24;
+		background: rgba(245, 158, 11, 0.14);
+		border-color: rgba(245, 158, 11, 0.3);
 	}
 
-	.tg-action:hover {
-		border-color: #0088cc;
+	.office-action:hover {
+		border-color: #fbbf24;
+		background: rgba(245, 158, 11, 0.12);
+		box-shadow: 0 4px 20px rgba(245, 158, 11, 0.18);
 	}
 
-	.insta-icon {
-		color: #ffffff;
-		background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-	}
-
-	.insta-action:hover {
-		border-color: #e1306c;
-	}
-
-	.viber-icon {
-		color: #a797ff;
-		background: rgba(115, 96, 242, 0.16);
-	}
-
-	.viber-action:hover {
-		border-color: #7360f2;
+	.office-action:hover .item-arrow {
+		color: #fbbf24;
 	}
 
 	.phone-icon {
 		color: #34d399;
 		background: rgba(16, 185, 129, 0.14);
+		border-color: rgba(16, 185, 129, 0.3);
 	}
 
 	.phone-action:hover {
-		border-color: #10b981;
+		border-color: #34d399;
+		background: rgba(16, 185, 129, 0.12);
+		box-shadow: 0 4px 20px rgba(16, 185, 129, 0.18);
 	}
 
-	.office-icon {
-		color: #fbbf24;
-		background: rgba(245, 158, 11, 0.14);
+	.phone-action:hover .item-arrow {
+		color: #34d399;
 	}
 
-	.office-action:hover {
-		border-color: #f59e0b;
+	.viber-icon {
+		color: #a797ff;
+		background: rgba(115, 96, 242, 0.16);
+		border-color: rgba(115, 96, 242, 0.3);
+	}
+
+	.viber-action:hover {
+		border-color: #8b5cf6;
+		background: rgba(115, 96, 242, 0.14);
+		box-shadow: 0 4px 20px rgba(115, 96, 242, 0.18);
+	}
+
+	.viber-action:hover .item-arrow {
+		color: #8b5cf6;
+	}
+
+	.tg-icon {
+		color: #29b6f6;
+		background: rgba(0, 136, 204, 0.14);
+		border-color: rgba(0, 136, 204, 0.3);
+	}
+
+	.tg-action:hover {
+		border-color: #29b6f6;
+		background: rgba(0, 136, 204, 0.14);
+		box-shadow: 0 4px 20px rgba(0, 136, 204, 0.18);
+	}
+
+	.tg-action:hover .item-arrow {
+		color: #29b6f6;
+	}
+
+	.insta-icon {
+		color: #f43f5e;
+		background: rgba(225, 48, 108, 0.18);
+		border-color: rgba(225, 48, 108, 0.35);
+	}
+
+	.insta-action:hover {
+		border-color: #f43f5e;
+		background: rgba(225, 48, 108, 0.14);
+		box-shadow: 0 4px 20px rgba(225, 48, 108, 0.18);
+	}
+
+	.insta-action:hover .item-arrow {
+		color: #f43f5e;
 	}
 
 	.email-icon {
 		color: #38bdf8;
 		background: rgba(2, 132, 199, 0.16);
+		border-color: rgba(2, 132, 199, 0.3);
 	}
 
 	.email-action:hover {
-		border-color: #0284c7;
+		border-color: #38bdf8;
+		background: rgba(2, 132, 199, 0.14);
+		box-shadow: 0 4px 20px rgba(2, 132, 199, 0.18);
+	}
+
+	.email-action:hover .item-arrow {
+		color: #38bdf8;
 	}
 
 	.brand-svg,
@@ -567,6 +611,7 @@
 		flex-shrink: 0;
 	}
 
+	/* Light theme styles */
 	:global(html[data-theme="light"]) .widget-menu {
 		background: #ffffff;
 		border-color: rgba(15, 23, 42, 0.12);
@@ -579,11 +624,6 @@
 		color: #0f172a;
 	}
 
-	:global(html[data-theme="light"]) .menu-item:hover {
-		background: #f1f5f9;
-		border-color: #8ec94b;
-	}
-
 	:global(html[data-theme="light"]) .item-title {
 		color: #0f172a;
 	}
@@ -593,23 +633,105 @@
 	}
 
 	:global(html[data-theme="light"]) .item-icon-wrap {
-		background: #ffffff;
-		border-color: #cbd5e1;
+		border-color: transparent;
+	}
+
+	/* Light theme: distinct pastel icon backgrounds & high-contrast icon colors */
+	:global(html[data-theme="light"]) .office-icon {
+		color: #b45309;
+		background: #fffbeb;
+		border: 1px solid #fde68a;
 	}
 
 	:global(html[data-theme="light"]) .phone-icon {
 		color: #059669;
 		background: #ecfdf5;
+		border: 1px solid #a7f3d0;
 	}
 
-	:global(html[data-theme="light"]) .office-icon {
-		color: #b45309;
-		background: #fffbeb;
+	:global(html[data-theme="light"]) .viber-icon {
+		color: #7c3aed;
+		background: #f5f3ff;
+		border: 1px solid #ddd6fe;
+	}
+
+	:global(html[data-theme="light"]) .tg-icon {
+		color: #0284c7;
+		background: #f0f9ff;
+		border: 1px solid #bae6fd;
+	}
+
+	:global(html[data-theme="light"]) .insta-icon {
+		color: #e1306c !important;
+		background: #fdf2f8 !important;
+		border: 1px solid #fbcfe8 !important;
 	}
 
 	:global(html[data-theme="light"]) .email-icon {
 		color: #0284c7;
 		background: #f0f9ff;
+		border: 1px solid #bae6fd;
+	}
+
+	/* Light theme: individual hover borders, tinted backgrounds & glowing shadows */
+	:global(html[data-theme="light"]) .office-action:hover {
+		border-color: #f59e0b !important;
+		background: rgba(245, 158, 11, 0.08) !important;
+		box-shadow: 0 4px 16px rgba(245, 158, 11, 0.14) !important;
+	}
+
+	:global(html[data-theme="light"]) .office-action:hover .item-arrow {
+		color: #f59e0b !important;
+	}
+
+	:global(html[data-theme="light"]) .phone-action:hover {
+		border-color: #059669 !important;
+		background: rgba(16, 185, 129, 0.08) !important;
+		box-shadow: 0 4px 16px rgba(16, 185, 129, 0.14) !important;
+	}
+
+	:global(html[data-theme="light"]) .phone-action:hover .item-arrow {
+		color: #059669 !important;
+	}
+
+	:global(html[data-theme="light"]) .viber-action:hover {
+		border-color: #7360f2 !important;
+		background: rgba(115, 96, 242, 0.08) !important;
+		box-shadow: 0 4px 16px rgba(115, 96, 242, 0.14) !important;
+	}
+
+	:global(html[data-theme="light"]) .viber-action:hover .item-arrow {
+		color: #7360f2 !important;
+	}
+
+	:global(html[data-theme="light"]) .tg-action:hover {
+		border-color: #0088cc !important;
+		background: rgba(0, 136, 204, 0.08) !important;
+		box-shadow: 0 4px 16px rgba(0, 136, 204, 0.14) !important;
+	}
+
+	:global(html[data-theme="light"]) .tg-action:hover .item-arrow {
+		color: #0088cc !important;
+	}
+
+	:global(html[data-theme="light"]) .insta-action:hover {
+		border-color: #e1306c !important;
+		background: rgba(225, 48, 108, 0.08) !important;
+		box-shadow: 0 4px 16px rgba(225, 48, 108, 0.14) !important;
+	}
+
+	:global(html[data-theme="light"]) .insta-action:hover .item-arrow {
+		color: #e1306c !important;
+	}
+
+	:global(html[data-theme="light"]) .email-action:hover {
+		border-color: #0284c7 !important;
+		background: rgba(2, 132, 199, 0.08) !important;
+		box-shadow: 0 4px 16px rgba(2, 132, 199, 0.14) !important;
+	}
+
+	:global(html[data-theme="light"]) .email-action:hover .item-arrow {
+		color: #0284c7 !important;
 	}
 
 	@media (max-width: 480px) {

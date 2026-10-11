@@ -145,14 +145,14 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		animation: pageFadeSlide 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
+		animation: pageFadeSlide 0.22s cubic-bezier(0.2, 0.9, 0.3, 1) both;
 		will-change: opacity, transform;
 	}
 
 	@keyframes pageFadeSlide {
 		0% {
 			opacity: 0;
-			transform: translateY(14px);
+			transform: translateY(4px);
 		}
 		100% {
 			opacity: 1;
