@@ -186,7 +186,8 @@
 
 	.t-card:hover {
 		transform: translateY(-2px);
-		border-color: var(--color-electric-iris);
+		border-color: #cef79e;
+		box-shadow: 0 0 18px rgba(206, 247, 158, 0.25);
 	}
 
 	.t-icon {
@@ -216,8 +217,8 @@
 	}
 
 	:global(html[data-theme="light"]) .t-card:hover {
-		border-color: #222f30;
-		box-shadow: none !important;
+		border-color: #8ec94b !important;
+		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.2) !important;
 	}
 
 	:global(html[data-theme="light"]) .t-card h4 {

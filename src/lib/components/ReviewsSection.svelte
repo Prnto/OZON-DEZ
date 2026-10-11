@@ -266,7 +266,8 @@
 
 	.review-card:hover {
 		transform: translateY(-3px);
-		border-color: rgba(255, 255, 255, 0.2);
+		border-color: #cef79e;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 18px rgba(206, 247, 158, 0.25);
 	}
 
 	.review-card-top {
@@ -366,8 +367,8 @@
 	}
 
 	:global(html[data-theme="light"]) .review-card:hover {
-		border-color: #222f30;
-		box-shadow: none !important;
+		border-color: #8ec94b !important;
+		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.25) !important;
 	}
 
 	:global(html[data-theme="light"]) .verified-tag {

@@ -445,6 +445,20 @@
 		transform: translateY(0);
 	}
 
+	:global(html[data-theme="light"]) .modal-submit-btn {
+		background: #cef79e !important;
+		color: #151f20 !important;
+		border-color: #b8eb83 !important;
+		font-weight: 700;
+	}
+
+	:global(html[data-theme="light"]) .modal-submit-btn:hover:not(:disabled) {
+		background: #b8eb83 !important;
+		border-color: #8ec94b !important;
+		color: #151f20 !important;
+		box-shadow: 0 6px 20px rgba(184, 235, 131, 0.45);
+	}
+
 	@media (max-width: 480px) {
 		.modal-submit-btn {
 			font-size: 0.84rem;

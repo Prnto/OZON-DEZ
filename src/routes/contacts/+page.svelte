@@ -360,9 +360,9 @@
 
 	.geo-city-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(128, 82, 255, 0.55);
+		border-color: #cef79e;
 		background: var(--color-surface-hover);
-		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 24px rgba(128, 82, 255, 0.2);
+		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 24px rgba(206, 247, 158, 0.25);
 	}
 
 	.city-link-pill {
@@ -392,8 +392,8 @@
 
 	.geo-city-card:hover .city-link-pill {
 		color: #ffffff;
-		background: rgba(128, 82, 255, 0.3);
-		border-color: rgba(128, 82, 255, 0.6);
+		background: rgba(206, 247, 158, 0.15);
+		border-color: #cef79e;
 		transform: translateY(-1px);
 	}
 
@@ -494,14 +494,18 @@
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card:hover {
-		border-color: #222f30;
-		box-shadow: none !important;
+		border-color: #8ec94b !important;
+		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.2) !important;
 	}
 
 	:global(html[data-theme="light"]) .city-crest-badge {
 		background: #e7e8e1;
 		border-color: #c9cbbe;
 		box-shadow: none;
+	}
+
+	:global(html[data-theme="light"]) .geo-city-card:hover .city-crest-badge {
+		border-color: #8ec94b;
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card h4 {
@@ -519,9 +523,9 @@
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card:hover .city-link-pill {
-		color: #ffffff;
-		background: #222f30;
-		border-color: #222f30;
+		color: #151f20;
+		background: #eafadb;
+		border-color: #8ec94b;
 	}
 
 	:global(html[data-theme="light"]) .city-link-pill-map {

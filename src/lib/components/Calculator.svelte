@@ -465,11 +465,13 @@
 	}
 
 	.radio-card:hover {
-		border-color: #38bdf8;
+		border-color: #cef79e;
+		box-shadow: 0 0 12px rgba(206, 247, 158, 0.25);
 	}
 
 	:global(html[data-theme="light"]) .radio-card:hover {
-		border-color: #222f30;
+		border-color: #8ec94b !important;
+		box-shadow: 0 0 10px rgba(184, 235, 131, 0.3) !important;
 	}
 
 	.radio-card input {

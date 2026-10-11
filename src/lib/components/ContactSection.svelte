@@ -787,4 +787,18 @@
 		border-color: #cbd5e1;
 		color: #0f172a;
 	}
+
+	:global(html[data-theme="light"]) .form-card button[type="submit"] {
+		background: #cef79e !important;
+		color: #151f20 !important;
+		border-color: #b8eb83 !important;
+		font-weight: 700 !important;
+	}
+
+	:global(html[data-theme="light"]) .form-card button[type="submit"]:hover {
+		background: #b8eb83 !important;
+		border-color: #8ec94b !important;
+		color: #151f20 !important;
+		box-shadow: 0 6px 20px rgba(184, 235, 131, 0.45) !important;
+	}
 </style>
