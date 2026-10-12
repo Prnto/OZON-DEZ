@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Subtle circular backdrop -->
+  <circle cx="32" cy="32" r="28" fill="rgba(255, 255, 255, 0.04)"/>
+  
+  <!-- Outer Red Prohibition Ring -->
+  <circle cx="32" cy="32" r="27" stroke="#dc2626" stroke-width="4.5"/>
+
+  <!-- Microbes, Viruses, Bacteria Inside (Light Slate) -->
+  <g fill="#e2e8f0" stroke="#e2e8f0">
+    <!-- 1. Central Spiked Virus Virion -->
+    <circle cx="25" cy="27" r="5.5"/>
+    <!-- Spikes radiating around virus -->
+    <path d="M25 19.5 L25 21.5 M25 32.5 L25 34.5 M17.5 27 L19.5 27 M30.5 27 L32.5 27 M20 22 L21.5 23.5 M28.5 30.5 L30 32 M20 32 L21.5 30.5 M28.5 23.5 L30 22" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="25" cy="19.5" r="1.1"/>
+    <circle cx="25" cy="34.5" r="1.1"/>
+    <circle cx="17.5" cy="27" r="1.1"/>
+    <circle cx="32.5" cy="27" r="1.1"/>
+    <circle cx="20" cy="22" r="1.1"/>
+    <circle cx="30" cy="32" r="1.1"/>
+
+    <!-- 2. Rod-shaped Bacterium (Bacillus) (Bottom Right) -->
+    <rect x="36" y="36" width="12" height="6.5" rx="3.2" transform="rotate(-30 42 39)"/>
+    <!-- Flagella on bacterium -->
+    <path d="M37 44 C34 46, 33 49, 31 49" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+    <path d="M47 34 C50 32, 53 33, 54 31" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+
+    <!-- 3. Small Microbes (Top Right & Bottom Left) -->
+    <circle cx="43" cy="20" r="3.2"/>
+    <path d="M43 15.5 L43 17 M43 23 L43 24.5 M38.5 20 L40 20 M46 20 L47.5 20" stroke-width="1.2" stroke-linecap="round"/>
+    
+    <circle cx="19" cy="45" r="2.5"/>
+    <circle cx="25" cy="48" r="1.8"/>
+  </g>
+
+  <!-- Diagonal Red Prohibition Slash -->
+  <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="#dc2626" stroke-width="4.5" stroke-linecap="round"/>
+</svg>
