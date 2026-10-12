@@ -201,7 +201,7 @@
 					</a>
 				</div>
 				<div class="mobile-hours">
-					<Clock size={15} weight="bold" /> {currentContent.workingHours.days}: {currentContent.workingHours.hours}
+					<Clock size={15} weight="bold" /> {currentContent.workingHours.hours}
 				</div>
 				<button
 					type="button"

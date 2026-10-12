@@ -275,10 +275,10 @@ export const contentMap: Record<Lang, ContentData> = {
 		address: {
 			actual: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
 			legal: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
-			city: 'м. Чорноморськ, м. Одеса та Одеська область'
+			city: 'м. Чорноморськ та Одеська область'
 		},
 		workingHours: {
-			days: 'Щодня',
+			days: '',
 			hours: '08:00 – 20:00',
 			status: 'Прийом дзвінків: 08:00 – 20:00'
 		},
@@ -791,10 +791,10 @@ export const contentMap: Record<Lang, ContentData> = {
 		address: {
 			actual: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
 			legal: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
-			city: 'г. Черноморск, г. Одесса и Одесская область'
+			city: 'г. Черноморск и Одесская область'
 		},
 		workingHours: {
-			days: 'Ежедневно',
+			days: '',
 			hours: '08:00 – 20:00',
 			status: 'Прием звонков: 08:00 – 20:00'
 		},
@@ -1307,10 +1307,10 @@ export const contentMap: Record<Lang, ContentData> = {
 		address: {
 			actual: 'Odesa region, Chornomorsk, 8-A Myru Ave.',
 			legal: 'Odesa region, Chornomorsk, 8-A Myru Ave.',
-			city: 'Chornomorsk, Odesa and Odesa region'
+			city: 'Chornomorsk and Odesa region'
 		},
 		workingHours: {
-			days: 'Daily',
+			days: '',
 			hours: '08:00 – 20:00',
 			status: 'Call reception: 08:00 – 20:00'
 		},

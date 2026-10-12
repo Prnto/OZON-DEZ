@@ -33,78 +33,47 @@
 		background: #000000;
 		padding: 0;
 		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
 	:global(html[data-theme="light"]) .hero-section {
-		background: transparent;
+		background: #000000;
 	}
 
-	/* Edge-to-edge banner with balanced cinematic height */
+	/* Responsive edge-to-edge banner that preserves the full image on all screen sizes */
 	.hero-banner-full {
 		position: relative;
 		width: 100%;
-		min-height: clamp(440px, 58vh, 760px);
-		max-height: 820px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		overflow: hidden;
-		border-bottom: 1px solid var(--border-subtle);
 		background: #000000;
 	}
 
 	.hero-banner-media {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
+		position: relative;
 		width: 100%;
-		height: 100%;
-		overflow: hidden;
+		max-width: 1920px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		background: #000000;
 	}
 
 	.hero-banner-img {
 		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center 22%;
+		max-width: 100%;
+		height: auto;
 		display: block;
-		opacity: 1;
+		object-fit: contain;
 		filter: contrast(1.05) saturate(1.08);
 		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.hero-banner-full:hover .hero-banner-img {
-		transform: scale(1.015);
-	}
-
-	@media (min-width: 1600px) {
-		.hero-banner-full {
-			min-height: clamp(520px, 64vh, 880px);
-			max-height: 920px;
-		}
-		.hero-banner-img {
-			object-position: center 20%;
-		}
-	}
-
-	@media (max-width: 1024px) {
-		.hero-banner-full {
-			min-height: clamp(380px, 50vh, 600px);
-			max-height: 640px;
-		}
-		.hero-banner-img {
-			object-position: center 26%;
-		}
-	}
-
-	@media (max-width: 640px) {
-		.hero-banner-full {
-			min-height: 320px;
-			max-height: 440px;
-		}
-		.hero-banner-img {
-			object-position: 20% 32%;
-		}
+		transform: scale(1.01);
 	}
 </style>

@@ -133,7 +133,7 @@
 							<div>
 								<span class="detail-label">{contacts.labels.schedule}</span>
 								<div class="detail-val">
-									<strong>{currentContent.workingHours.days}:</strong> {currentContent.workingHours.hours}
+									<strong>{currentContent.workingHours.hours}</strong>
 								</div>
 								<div class="schedule-status-sub">
 									<Lightning size={14} weight="fill" />

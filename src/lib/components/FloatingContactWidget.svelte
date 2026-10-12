@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { X, ArrowRight, EnvelopeSimple } from 'phosphor-svelte';
+	import { X, EnvelopeSimple } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -34,10 +34,6 @@
 	{#if isOpen}
 		<div class="widget-menu glass-card-dark" role="menu" data-testid="floating-widget-menu">
 			<div class="menu-header">
-				<div class="status-indicator">
-					<span class="live-pulse"></span>
-					<span class="widget-title">OZON-DEZ</span>
-				</div>
 				<button
 					type="button"
 					class="menu-close-btn"
@@ -76,7 +72,6 @@
 						</span>
 						<span class="item-detail">{currentContent.phones.landlineDisplay}</span>
 					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- 2. Lifecell Mobile Call -->
@@ -96,7 +91,6 @@
 						<span class="item-title">Lifecell</span>
 						<span class="item-detail">{currentContent.phones.mobileDisplay}</span>
 					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- 3. Viber -->
@@ -126,7 +120,6 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- 4. Telegram Chat named OZON-DEZ with 'Телеграм чат-бот' description -->
@@ -156,7 +149,6 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 
 				<!-- 5. Instagram -->
@@ -193,7 +185,6 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</button>
 
 				<!-- 6. Official Email -->
@@ -219,7 +210,6 @@
 							{/if}
 						</span>
 					</div>
-					<span class="item-arrow" style="display: inline-flex; align-items: center;"><ArrowRight size={14} weight="bold" /></span>
 				</a>
 			</div>
 		</div>
@@ -379,41 +369,10 @@
 	.menu-header {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		padding-bottom: 0.8rem;
+		justify-content: flex-end;
+		padding-bottom: 0.6rem;
 		border-bottom: 1px solid var(--border-subtle);
 		margin-bottom: 0.85rem;
-	}
-
-	.status-indicator {
-		display: flex;
-		align-items: center;
-		gap: 0.45rem;
-	}
-
-	.live-pulse {
-		width: 7px;
-		height: 7px;
-		border-radius: 50%;
-		background: var(--color-electric-iris);
-		box-shadow: 0 0 6px var(--color-electric-iris);
-		animation: blink 1.5s infinite;
-	}
-
-	.widget-title {
-		font-size: 0.95rem;
-		font-weight: 700;
-		color: var(--color-bone-white);
-		letter-spacing: 0.04em;
-	}
-
-	:global(html[data-theme="light"]) .widget-title {
-		color: #1a202c;
-	}
-
-	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.4; }
 	}
 
 
@@ -510,16 +469,6 @@
 		text-overflow: ellipsis;
 	}
 
-	.item-arrow {
-		color: var(--color-ash-gray);
-		font-size: 0.82rem;
-		transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1), color 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
-	}
-
-	.menu-item:hover .item-arrow {
-		transform: translateX(3px);
-	}
-
 	/* Dark theme: individual icon badges & individual hover styles */
 	.office-icon {
 		color: #fbbf24;
@@ -531,10 +480,6 @@
 		border-color: #fbbf24;
 		background: rgba(245, 158, 11, 0.12);
 		box-shadow: 0 4px 20px rgba(245, 158, 11, 0.18);
-	}
-
-	.office-action:hover .item-arrow {
-		color: #fbbf24;
 	}
 
 	.phone-icon {
@@ -549,10 +494,6 @@
 		box-shadow: 0 4px 20px rgba(16, 185, 129, 0.18);
 	}
 
-	.phone-action:hover .item-arrow {
-		color: #34d399;
-	}
-
 	.viber-icon {
 		color: #a797ff;
 		background: rgba(115, 96, 242, 0.16);
@@ -563,10 +504,6 @@
 		border-color: #8b5cf6;
 		background: rgba(115, 96, 242, 0.14);
 		box-shadow: 0 4px 20px rgba(115, 96, 242, 0.18);
-	}
-
-	.viber-action:hover .item-arrow {
-		color: #8b5cf6;
 	}
 
 	.tg-icon {
@@ -581,10 +518,6 @@
 		box-shadow: 0 4px 20px rgba(0, 136, 204, 0.18);
 	}
 
-	.tg-action:hover .item-arrow {
-		color: #29b6f6;
-	}
-
 	.insta-icon {
 		color: #f43f5e;
 		background: rgba(225, 48, 108, 0.18);
@@ -597,10 +530,6 @@
 		box-shadow: 0 4px 20px rgba(225, 48, 108, 0.18);
 	}
 
-	.insta-action:hover .item-arrow {
-		color: #f43f5e;
-	}
-
 	.email-icon {
 		color: #38bdf8;
 		background: rgba(2, 132, 199, 0.16);
@@ -611,10 +540,6 @@
 		border-color: #38bdf8;
 		background: rgba(2, 132, 199, 0.14);
 		box-shadow: 0 4px 20px rgba(2, 132, 199, 0.18);
-	}
-
-	.email-action:hover .item-arrow {
-		color: #38bdf8;
 	}
 
 	.brand-svg,
@@ -692,18 +617,10 @@
 		box-shadow: 0 4px 16px rgba(245, 158, 11, 0.14) !important;
 	}
 
-	:global(html[data-theme="light"]) .office-action:hover .item-arrow {
-		color: #f59e0b !important;
-	}
-
 	:global(html[data-theme="light"]) .phone-action:hover {
 		border-color: #059669 !important;
 		background: rgba(16, 185, 129, 0.08) !important;
 		box-shadow: 0 4px 16px rgba(16, 185, 129, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .phone-action:hover .item-arrow {
-		color: #059669 !important;
 	}
 
 	:global(html[data-theme="light"]) .viber-action:hover {
@@ -712,18 +629,10 @@
 		box-shadow: 0 4px 16px rgba(115, 96, 242, 0.14) !important;
 	}
 
-	:global(html[data-theme="light"]) .viber-action:hover .item-arrow {
-		color: #7360f2 !important;
-	}
-
 	:global(html[data-theme="light"]) .tg-action:hover {
 		border-color: #0088cc !important;
 		background: rgba(0, 136, 204, 0.08) !important;
 		box-shadow: 0 4px 16px rgba(0, 136, 204, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .tg-action:hover .item-arrow {
-		color: #0088cc !important;
 	}
 
 	:global(html[data-theme="light"]) .insta-action:hover {
@@ -732,18 +641,10 @@
 		box-shadow: 0 4px 16px rgba(225, 48, 108, 0.14) !important;
 	}
 
-	:global(html[data-theme="light"]) .insta-action:hover .item-arrow {
-		color: #e1306c !important;
-	}
-
 	:global(html[data-theme="light"]) .email-action:hover {
 		border-color: #0284c7 !important;
 		background: rgba(2, 132, 199, 0.08) !important;
 		box-shadow: 0 4px 16px rgba(2, 132, 199, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .email-action:hover .item-arrow {
-		color: #0284c7 !important;
 	}
 
 	@media (max-width: 480px) {
