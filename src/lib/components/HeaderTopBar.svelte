@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { MapPin, Clock, Phone, Moon, Sun, EnvelopeSimple } from 'phosphor-svelte';
+	import { MapPin, Clock, Phone, Moon, Sun } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { themeState } from '../state/theme.svelte';
 	import { contentMap } from '../data/content';
@@ -19,11 +19,6 @@
 				<span class="top-icon"><Clock size={13} weight="bold" /></span>
 				<span class="top-text">{currentContent.workingHours.days}: {currentContent.workingHours.hours}</span>
 			</span>
-			<span class="top-bar-divider top-email-divider">|</span>
-			<a href="mailto:{currentContent.email}" class="top-info-item top-email-link" title="Email: {currentContent.email}" data-testid="topbar-email-link">
-				<span class="top-icon"><EnvelopeSimple size={13} weight="bold" /></span>
-				<span class="top-text">{currentContent.email}</span>
-			</a>
 		</div>
 
 		<div class="top-bar-right">
@@ -183,13 +178,6 @@
 	}
 
 	/* Tablet & Laptop Adaptive Rules (preventing right-side overflow on smaller/laptop screens) */
-	@media (max-width: 1400px) {
-		.top-email-divider,
-		.top-email-link {
-			display: none !important;
-		}
-	}
-
 	@media (max-width: 1250px) {
 		.top-hours-divider,
 		.top-hours-item {
@@ -271,21 +259,6 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-	}
-
-	.top-email-link {
-		color: inherit;
-		text-decoration: none;
-		transition: color var(--transition-fast);
-	}
-
-	.top-email-link:hover {
-		color: #38bdf8;
-		text-decoration: underline;
-	}
-
-	:global(html[data-theme="light"]) .top-email-link:hover {
-		color: #0284c7;
 	}
 
 	.top-icon {
