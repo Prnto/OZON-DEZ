@@ -193,7 +193,7 @@ async function sendLeadToAdmin(chatId, fromUser, userPhone, serviceTitle = 'Ко
 			`Номер зв'язку: <code>${escapeHtml(userPhone)}</code>\n\n` +
 			`Черговий фахівець уже обробляє запит і зателефонує вам найближчим часом.\n\n` +
 			`📞 Якщо виклик екстрений, телефонуйте напряму:\n` +
-			`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b> (цілодобово 24/7).`,
+			`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>.`,
 		parse_mode: 'HTML',
 		reply_markup: { remove_keyboard: true }
 	});
@@ -503,7 +503,7 @@ export default {
 							`Ваше повідомлення передано черговому спеціалісту ТОВ «ОЗОН-ДЕЗ».\n` +
 							`Ми зв'яжемося з вами найближчим часом.\n\n` +
 							`📞 Для термінового виклику або консультації телефонуйте:\n` +
-							`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b> (цілодобово 24/7).`,
+							`👉 <b><a href="tel:${TEMP_PHONE}">${TEMP_PHONE_DISPLAY}</a></b>.`,
 						parse_mode: 'HTML'
 					});
 

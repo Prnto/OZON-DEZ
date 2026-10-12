@@ -50,7 +50,6 @@
 								{#if langState.current === 'ua'}ТОВ{:else if langState.current === 'ru'}ООО{:else}LLC{/if}
 								«<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>»
 							</h3>
-							<div class="info-company-sub">{currentContent.companyNameAlt}</div>
 						</div>
 					</div>
 
@@ -416,12 +415,6 @@
 
 	:global(html[data-theme="light"]) .phone-carrier-label {
 		color: #64748b;
-	}
-
-	.info-company-sub {
-		font-size: 0.82rem;
-		color: var(--color-ash-gray);
-		font-weight: 300;
 	}
 
 	.details-list {

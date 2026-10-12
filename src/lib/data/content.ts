@@ -262,7 +262,7 @@ export interface ContentData {
 export const contentMap: Record<Lang, ContentData> = {
 	ua: {
 		companyName: 'ТОВ «ОЗОН-ДЕЗ»',
-		companyNameAlt: 'ТОВ "ОЗОН-ДЕЗ"',
+		companyNameAlt: '',
 		tagline: '15 років досвіду в сфері санітарно-епідеміологічної безпеки',
 		taglineShort: 'САНІТАРНА БЕЗПЕКА • 15 РОКІВ',
 		phones: {
@@ -279,8 +279,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		workingHours: {
 			days: 'Щодня',
-			hours: '08:00 – 20:00 (виїзди 24/7)',
-			status: 'Прийом дзвінків: 08:00 – 20:00 • Виїзди: 24/7'
+			hours: '08:00 – 20:00',
+			status: 'Прийом дзвінків: 08:00 – 20:00'
 		},
 		aboutCompany: {
 			badge: 'ТОВ «ОЗОН-ДЕЗ» • 15 років досвіду',
@@ -322,7 +322,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				}
 			],
 			audienceTitle: 'Фізичним та юридичним особам',
-			audienceDesc: 'Працюємо з приватними будинками, квартирами, закладами HoReCa (ресторани, готелі), складами, агрокомплексами та промисловими підприємствами. Виїзди по всій Одеській області без доплат, для бізнесу — 24/7 (нічні зміни). Надаємо повний пакет актів, договорів та висновків державної реєстрації деззасобів.',
+			audienceDesc: 'Працюємо з приватними будинками, квартирами, закладами HoReCa (ресторани, готелі), складами, агрокомплексами та промисловими підприємствами. Виїзди по всій Одеській області без доплат, для бізнесу можливі виїзди в нічні зміни. Надаємо повний пакет актів, договорів та висновків державної реєстрації деззасобів.',
 			equipmentTitle: 'Сучасне обладнання та препарати',
 			equipmentDesc: 'Використовуємо виключно зареєстровані в Україні препарати 4-го класу безпеки (Висновки на державну реєстрацію деззасобів) та передове оснащення: потужні озонатори, генератори холодного й гарячого туману, акумуляторні обприскувачі.',
 			teamTitle: 'Кваліфіковані спеціалісти',
@@ -352,7 +352,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Фізичним і юрособам',
-					desc: 'Вся Одеська область без доплат, виїзди 24/7 для бізнесу, гарантія 6–12 міс.'
+					desc: 'Вся Одеська область без доплат, нічні зміни для бізнесу, гарантія 6–12 міс.'
 				}
 			],
 			quickPainsLabel: 'Основні послуги санітарної безпеки:',
@@ -386,7 +386,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		servicesSection: {
 			badge: 'Каталог послуг компанії',
 			title: '5 ключових напрямків санітарної безпеки',
-			subtitle: 'Комплексний захист житлових, комерційних та аграрних об’єктів у Чорноморську та по всій Одеській області (виїзди без доплат, 24/7 для бізнесу) за офіційними нормами та системою HACCP.',
+			subtitle: 'Комплексний захист житлових, комерційних та аграрних об’єктів у Чорноморську та по всій Одеській області (виїзди без доплат) за офіційними нормами та системою HACCP.',
 			allTab: 'Всі послуги',
 			priceLabel: 'Вартість:',
 			orderBtn: 'Замовити послугу',
@@ -604,7 +604,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{
 					step: 4,
 					title: 'Швидка та безпечна обробка',
-					desc: 'Оперативний виїзд спеціаліста по всій Одеській області без доплат. Для бізнесу доступні нічні зміни 24/7.'
+					desc: 'Оперативний виїзд спеціаліста по всій Одеській області без доплат. Для бізнесу доступні нічні зміни.'
 				},
 				{
 					step: 5,
@@ -634,7 +634,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{ code: '85.32', title: 'Професійно-технічна освіта', desc: 'Інструктажі та підготовка персоналу підприємств за нормами санітарії' }
 			],
 			guaranteeTitle: 'Офіційний юридичний статус:',
-			guaranteeText: 'ТОВ «ОЗОН-ДЕЗ» використовує зареєстровані в Україні препарати (Висновки на державну реєстрацію деззасобів 4-го класу безпеки). Гарантія 6–12 міс. та знижка 10–15% на повторну обробку. Виїзди по всій Одеській області без доплат, для бізнесу — виїзди 24/7 (нічні зміни).'
+			guaranteeText: 'ТОВ «ОЗОН-ДЕЗ» використовує зареєстровані в Україні препарати (Висновки на державну реєстрацію деззасобів 4-го класу безпеки). Гарантія 6–12 міс. та знижка 10–15% на повторну обробку. Виїзди по всій Одеській області без доплат, для бізнесу — виїзди в нічні зміни.'
 		},
 		calculator: {
 			title: 'Онлайн-калькулятор вартості',
@@ -709,7 +709,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					q: 'Чи є доплата за виїзд по Одеській області та чи можлива обробка вночі?',
-					a: 'Виїзди здійснюються по всій Одеській області БЕЗ жодних доплат за дорогу (м. Чорноморськ, Одеса та всі райони області). Для підприємств та закладів HoReCa можливі виїзди 24/7 (нічні зміни без зупинки вашого бізнес-процесу).'
+					a: 'Виїзди здійснюються по всій Одеській області БЕЗ жодних доплат за дорогу (м. Чорноморськ, Одеса та всі райони області). Для підприємств та закладів HoReCa можливі виїзди в нічні зміни без зупинки вашого бізнес-процесу.'
 				}
 			]
 		},
@@ -778,7 +778,7 @@ export const contentMap: Record<Lang, ContentData> = {
 
 	ru: {
 		companyName: 'ООО «ОЗОН-ДЕЗ»',
-		companyNameAlt: 'ТОВ "ОЗОН-ДЕЗ"',
+		companyNameAlt: '',
 		tagline: '15 лет опыта в сфере санитарно-эпидемиологической безопасности',
 		taglineShort: 'САНИТАРНАЯ БЕЗОПАСНОСТЬ • 15 ЛЕТ',
 		phones: {
@@ -795,8 +795,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		workingHours: {
 			days: 'Ежедневно',
-			hours: '08:00 – 20:00 (выезды 24/7)',
-			status: 'Прием звонков: 08:00 – 20:00 • Выезды: 24/7'
+			hours: '08:00 – 20:00',
+			status: 'Прием звонков: 08:00 – 20:00'
 		},
 		aboutCompany: {
 			badge: 'ООО «ОЗОН-ДЕЗ» • 15 лет опыта',
@@ -838,7 +838,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				}
 			],
 			audienceTitle: 'Физическим и юридическим лицам',
-			audienceDesc: 'Обслуживаем частные дома, квартиры, заведения HoReCa (рестораны, отели), склады, агропредприятия и производства. Выезды по всей Одесской области без доплат, для бизнеса — 24/7 (ночные смены). Предоставляем полный пакет официальных актов, договоров и заключений государственной регистрации дезсредств.',
+			audienceDesc: 'Обслуживаем частные дома, квартиры, заведения HoReCa (рестораны, отели), склады, агропредприятия и производства. Выезды по всей Одесской области без доплат, для бизнеса возможны выезды в ночные смены. Предоставляем полный пакет официальных актов, договоров и заключений государственной регистрации дезсредств.',
 			equipmentTitle: 'Современное оборудование и препараты',
 			equipmentDesc: 'Применяем исключительно зарегистрированные в Украине препараты 4-го класса безопасности (Заключения государственной регистрации дезсредств) и передовое оснащение: промышленные озонаторы, генераторы холодного и горячего тумана, аккумуляторные опрыскиватели.',
 			teamTitle: 'Квалифицированные специалисты',
@@ -868,7 +868,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Физическим и юрлицам',
-					desc: 'Вся Одесская область без доплат, выезды 24/7 для бизнеса, гарантия 6–12 мес.'
+					desc: 'Вся Одесская область без доплат, ночные смены для бизнеса, гарантия 6–12 мес.'
 				}
 			],
 			quickPainsLabel: 'Основные услуги санитарной безопасности:',
@@ -902,7 +902,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		servicesSection: {
 			badge: 'Каталог услуг компании',
 			title: '5 ключевых направлений санитарной безопасности',
-			subtitle: 'Комплексная защита жилых, коммерческих и аграрных объектов в Черноморске и по всей Одесской области (выезды без доплат, 24/7 для бизнеса) по официальным стандартам и системе HACCP.',
+			subtitle: 'Комплексная защита жилых, коммерческих и аграрных объектов в Черноморске и по всей Одесской области (выезды без доплат) по официальным стандартам и системе HACCP.',
 			allTab: 'Все услуги',
 			priceLabel: 'Стоимость:',
 			orderBtn: 'Заказать услугу',
@@ -1120,7 +1120,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{
 					step: 4,
 					title: 'Безопасная обработка',
-					desc: 'Оперативный выезд специалиста по всей Одесской области без доплат. Для бизнеса доступны ночные смены 24/7.'
+					desc: 'Оперативный выезд специалиста по всей Одесской области без доплат. Для бизнеса доступны ночные смены.'
 				},
 				{
 					step: 5,
@@ -1150,7 +1150,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{ code: '85.32', title: 'Профессионально-техническое образование', desc: 'Обучение и санитарные инструктажи персонала предприятий' }
 			],
 			guaranteeTitle: 'Официальный юридический статус:',
-			guaranteeText: 'ООО «ОЗОН-ДЕЗ» использует зарегистрированные в Украине препараты (Заключения государственной регистрации дезсредств 4-го класса безопасности). Гарантия 6–12 мес. и скидка 10–15% на повторную обработку. Выезды по всей Одесской области без доплат, для бизнеса — выезды 24/7 (ночные смены).'
+			guaranteeText: 'ООО «ОЗОН-ДЕЗ» использует зарегистрированные в Украине препараты (Заключения государственной регистрации дезсредств 4-го класса безопасности). Гарантия 6–12 мес. и скидка 10–15% на повторную обработку. Выезды по всей Одесской области без доплат, для бизнеса — выезды в ночные смены.'
 		},
 		calculator: {
 			title: 'Онлайн-калькулятор стоимости',
@@ -1225,7 +1225,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					q: 'Есть ли доплата за выезд по Одесской области и возможна ли ночная обработка?',
-					a: 'Выезды осуществляются по всей Одесской области БЕЗ каких-либо доплат за дорогу (г. Черноморск, Одесса и все районы области). Для бизнеса и заведений HoReCa возможны выезды 24/7 (ночные смены без остановки вашего бизнеса).'
+					a: 'Выезды осуществляются по всей Одесской области БЕЗ каких-либо доплат за дорогу (г. Черноморск, Одесса и все районы области). Для бизнеса и заведений HoReCa возможны выезды в ночные смены без остановки вашего бизнеса.'
 				}
 			]
 		},
@@ -1311,8 +1311,8 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		workingHours: {
 			days: 'Daily',
-			hours: '08:00 – 20:00 (dispatches 24/7)',
-			status: 'Call reception: 08:00 – 20:00 • Dispatches: 24/7'
+			hours: '08:00 – 20:00',
+			status: 'Call reception: 08:00 – 20:00'
 		},
 		aboutCompany: {
 			badge: 'LLC "OZON-DEZ" • 15 Years of Experience',
@@ -1354,7 +1354,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				}
 			],
 			audienceTitle: 'For Private Individuals & Commercial Entities',
-			audienceDesc: 'Serving residences, cottages, restaurants, hotels (HoReCa), warehouses, agricultural hubs, and food processing plants. Dispatches across entire Odesa region with zero travel surcharges, 24/7 for business. Complete documentation, acts, contracts, and state registration conclusions provided.',
+			audienceDesc: 'Serving residences, cottages, restaurants, hotels (HoReCa), warehouses, agricultural hubs, and food processing plants. Dispatches across entire Odesa region with zero travel surcharges. Complete documentation, acts, contracts, and state registration conclusions provided.',
 			equipmentTitle: 'Modern Equipment & Certified Formulations',
 			equipmentDesc: 'We exclusively apply Ukrainian state-registered formulations (class 4 safety with official registration conclusions) alongside industrial ozonators, cold and thermal fog generators, and precision battery sprayers.',
 			teamTitle: 'Qualified Specialists',
@@ -1384,7 +1384,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'B2C & B2B Solutions',
-					desc: 'Entire Odesa region without travel surcharges, 24/7 for business, 6–12 mos. warranty'
+					desc: 'Entire Odesa region without travel surcharges, 6–12 mos. warranty'
 				}
 			],
 			quickPainsLabel: 'Core sanitary safety services:',
@@ -1418,7 +1418,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		servicesSection: {
 			badge: 'Company Service Catalog',
 			title: '5 Core Pillars of Sanitary Security',
-			subtitle: 'Comprehensive protection of residential, commercial, and agricultural facilities in Chornomorsk and across Odesa region (no travel fees, 24/7 for business) under official standards and HACCP.',
+			subtitle: 'Comprehensive protection of residential, commercial, and agricultural facilities in Chornomorsk and across Odesa region (no travel fees) under official standards and HACCP.',
 			allTab: 'All Services',
 			priceLabel: 'Price:',
 			orderBtn: 'Order Service',
@@ -1636,7 +1636,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{
 					step: 4,
 					title: 'Fast & Safe Treatment',
-					desc: 'Prompt specialist arrival across entire Odesa region without extra fees. 24/7 night shifts available for business.'
+					desc: 'Prompt specialist arrival across entire Odesa region without extra fees. Flexible scheduling including night shifts for business.'
 				},
 				{
 					step: 5,
@@ -1666,7 +1666,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{ code: '85.32', title: 'Technical and vocational secondary education', desc: 'Sanitary safety training for enterprise staff' }
 			],
 			guaranteeTitle: 'Official Legal Status:',
-			guaranteeText: 'LLC "OZON-DEZ" exclusively applies preparations registered in Ukraine (official state registration conclusions for class 4 disinfectants). Warranty of 6–12 months with a 10–15% re-treatment discount. Dispatches across Odesa region without extra fees, 24/7 for business.'
+			guaranteeText: 'LLC "OZON-DEZ" exclusively applies preparations registered in Ukraine (official state registration conclusions for class 4 disinfectants). Warranty of 6–12 months with a 10–15% re-treatment discount. Dispatches across Odesa region without extra fees.'
 		},
 		calculator: {
 			title: 'Online Price Calculator',
@@ -1741,7 +1741,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					q: 'Are there additional travel charges across Odesa region, and are night treatments possible?',
-					a: 'Dispatches are carried out throughout the entire Odesa region with ZERO travel surcharges (Chornomorsk, Odesa, and all regional districts). For commercial entities and HoReCa venues, 24/7 night shifts are available without interrupting business operations.'
+					a: 'Dispatches are carried out throughout the entire Odesa region with ZERO travel surcharges (Chornomorsk, Odesa, and all regional districts). For commercial entities and HoReCa venues, night shifts can be scheduled without interrupting business operations.'
 				}
 			]
 		},

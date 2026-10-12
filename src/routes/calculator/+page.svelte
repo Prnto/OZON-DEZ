@@ -72,11 +72,11 @@
 					</h4>
 					<p>
 						{#if langState.current === 'ua'}
-							Виїзди здійснюються по всій Одеській області без доплат за виїзд. Для бізнесу можливі виїзди 24/7 (нічні зміни).
+							Виїзди здійснюються по всій Одеській області без доплат за виїзд. Для бізнесу можливі виїзди в зручний час (включаючи нічні зміни).
 						{:else if langState.current === 'ru'}
-							Выезды осуществляются по всей Одесской области без доплат за выезд. Для бизнеса возможны выезды 24/7 (ночные смены).
+							Выезды осуществляются по всей Одесской области без доплат за выезд. Для бизнеса возможны выезды в удобное время (включая ночные смены).
 						{:else}
-							Dispatches across the entire Odesa region without extra travel fees. 24/7 night visits available for businesses.
+							Dispatches across the entire Odesa region without extra travel fees. Flexible scheduling for businesses including night shifts.
 						{/if}
 					</p>
 				</div>

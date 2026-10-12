@@ -150,11 +150,11 @@
 					<span class="label">{#if langState.current === 'ua'}Графік:{:else if langState.current === 'ru'}График:{:else}Schedule:{/if}</span>
 					<span class="val-time">
 						{#if langState.current === 'ua'}
-							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (виїзди по всій Одеській області 24/7)
+							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (виїзди по всій Одеській області)
 						{:else if langState.current === 'ru'}
-							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (выезды по всей Одесской области 24/7)
+							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (выезды по всей Одесской области)
 						{:else}
-							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (dispatches across Odesa region 24/7)
+							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (dispatches across Odesa region)
 						{/if}
 					</span>
 				</div>

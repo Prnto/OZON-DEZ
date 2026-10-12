@@ -270,7 +270,7 @@
 							</li>
 							<li>
 								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><MapPin size={16} weight="duotone" /> {#if langState.current === 'ua'}Виїзд:{:else if langState.current === 'ru'}Выезд:{:else}Dispatch:{/if}</span>
-								<strong>{#if langState.current === 'ua'}Вся Одеська обл. БЕЗ доплат • 24/7{:else if langState.current === 'ru'}Вся Одесская обл. БЕЗ доплат • 24/7{:else}Odesa region NO extra fee • 24/7{/if}</strong>
+								<strong>{#if langState.current === 'ua'}Вся Одеська обл. БЕЗ доплат{:else if langState.current === 'ru'}Вся Одесская обл. БЕЗ доплат{:else}Odesa region NO extra fee{/if}</strong>
 							</li>
 						</ul>
 
