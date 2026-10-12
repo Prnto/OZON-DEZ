@@ -33,61 +33,61 @@
 						</div>
 					</div>
 				</a>
-				<div class="top-mobile-group">
-					<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill phone-pill-blue" title="lifecell Мобільний зв'язок" data-testid="topbar-mobile-link">
-						<div class="pill-inner">
-							<span class="pill-top-label lifecell-label">
-								<svg class="lifecell-svg-mark" viewBox="0 0 160 45" width="46" height="12" fill="currentColor" aria-label="lifecell">
-									<path d="M8.8,0.6C8.8,0.2,8.6,0,8.2,0H0.6C0.2,0,0,0.2,0,0.7l0.1,36.6c0,6.6,2.5,7.7,8.3,7.7c0.2,0,0.3,0,0.5-0.2C9,44.7,9,44.3,9,44.3L8.8,0.6z"/>
-									<path d="M15.4,7c-0.4,0-0.6-0.2-0.6-0.6V0.7C14.8,0.2,15,0,15.4,0H23c0.4,0,0.6,0.2,0.6,0.6v5.7C23.7,6.8,23.5,7,23,7H15.4z M15.5,45c-0.4,0-0.6-0.2-0.6-0.6V14c0-0.4,0.2-0.6,0.6-0.6h7.6c0.4,0,0.6,0.2,0.6,0.6v30.4c0,0.5-0.2,0.6-0.6,0.6H15.5z"/>
-									<path d="M31.9,45c-0.5,0-0.6-0.2-0.6-0.6v-24c0-0.3-0.1-0.4-0.4-0.4L29,20c-0.4,0-0.6-0.2-0.6-0.6v-5.3c0-0.4,0.2-0.6,0.6-0.6h1.9c0.2,0,0.4-0.1,0.4-0.4v-2.2C31.2,3.2,34.7,0,42,0h4.8c0.4,0,0.6,0.2,0.6,0.6v5.8c0,0.5-0.2,0.6-0.6,0.6h-3.3C40.7,7,40,7.7,40,10.3v2.5c0,0.3,0.1,0.4,0.4,0.4h4c0.4,0,0.6,0.2,0.6,0.6v5.3c0,0.5-0.2,0.6-0.6,0.6h-4c-0.3,0-0.4,0.1-0.4,0.4v24c0,0.4-0.2,0.6-0.6,0.6L31.9,45z"/>
-									<path d="M48.6,36.3c-0.7-2.2-1-4.6-1-7.3c0-2.9,0.2-5.3,0.9-7.4c1.8-5.5,6.6-8.7,13.2-8.7c6.7,0,11.5,3.2,13.3,8.6c0.7,2.2,0.8,5.3,0.8,9.4c0,0.4-0.3,0.6-0.7,0.6H56.9c-0.3,0-0.4,0.1-0.4,0.4c0.1,0.6,0,1.2,0.2,1.7c0.8,2.7,3,4.1,6.3,4.1c2.5,0,4.4-0.8,5.6-1.6c1.1-0.8,1.1-1.1,1.7-0.6l4.7,3.4c0.4,0.3,0.4,0.6,0.1,0.9c-3.2,3.4-7.5,5.2-13,5.2C55.3,45,50.4,41.8,48.6,36.3z M66.8,25.7c0.3,0,0.4-0.1,0.4-0.4c0-0.8-0.1-1.6-0.3-2.3c-0.8-2.2-2.3-3.4-5-3.4c-2.4,0-4.5,1.2-5.3,3.4c-0.2,0.7-0.3,1.5-0.3,2.3c0,0.3,0.1,0.4,0.4,0.4H66.8z"/>
-									<path d="M79.9,36.3C79.2,34.5,79,32,79,29s0.2-5.5,0.9-7.4c1.8-5.7,6.6-8.7,13.2-8.7c5.1,0,9.3,2.3,11.6,5.8c0.2,0.3,0.2,0.6-0.1,0.9L99,23.2c-0.4,0.3-0.7,0.2-0.9-0.1c-1.3-1.8-2.9-2.7-4.9-2.7c-2.5,0-4.1,1.1-4.8,3.3c-0.4,1.1-0.6,2.9-0.6,5.3s0.2,4.2,0.6,5.3c0.7,2.2,2.3,3.3,4.8,3.3c2,0,3.6-0.9,4.9-2.7c0.2-0.3,0.6-0.4,0.9-0.1l5.5,3.6c0.3,0.2,0.3,0.6,0.1,0.9c-2.3,3.5-6.5,5.8-11.6,5.8C86.5,45,81.7,42,79.9,36.3z"/>
-									<path d="M106.6,36.3c-0.7-2.2-1-4.6-1-7.3c0-2.9,0.2-5.3,0.9-7.4c1.8-5.5,6.6-8.7,13.2-8.7c6.7,0,11.5,3.2,13.3,8.6c0.7,2.2,0.8,5.3,0.8,9.4c0,0.4-0.3,0.6-0.7,0.6h-18.2c-0.3,0-0.4,0.1-0.4,0.4c0.1,0.6,0,1.2,0.2,1.7c0.8,2.7,3,4.1,6.3,4.1c2.5,0,4.4-0.8,5.6-1.6c1.1-0.8,1.1-1.1,1.7-0.6l4.7,3.4c0.4,0.3,0.4,0.6,0.1,0.9c-3.2,3.4-7.5,5.2-13,5.2C113.3,45,108.4,41.8,106.6,36.3z M124.8,25.7c0.3,0,0.4-0.1,0.4-0.4c0-0.8-0.1-1.6-0.3-2.3c-0.8-2.2-2.3-3.4-5-3.4c-2.4,0-4.5,1.2-5.3,3.4c-0.2,0.7-0.3,1.5-0.3,2.3c0,0.3,0.1,0.4,0.4,0.4H124.8z"/>
-									<path d="M146.8,0.6c0-0.4-0.2-0.6-0.6-0.6h-7.6c-0.4,0-0.6,0.2-0.6,0.7l0.1,36.6c0,6.6,2.5,7.7,8.3,7.7c0.2,0,0.3,0,0.5-0.2c0.1-0.1,0.1-0.5,0.1-0.5L146.8,0.6z"/>
-									<path d="M159.8,0.6c0-0.4-0.2-0.6-0.6-0.6h-7.6c-0.4,0-0.6,0.2-0.6,0.7l0.1,36.6c0,6.6,2.5,7.7,8.3,7.7c0.2,0,0.3,0,0.5-0.2c0.1-0.1,0.1-0.5,0.1-0.5L159.8,0.6z"/>
-								</svg>
-							</span>
-							<div class="pill-num-line">
-								<span class="phone-pulse-dot"></span>
-								<span class="phone-number-text">{currentContent.phones.mobileDisplay}</span>
-							</div>
+				<a href="tel:{currentContent.phones.mobile}" class="top-phone-pill phone-pill-blue" title="lifecell Мобільний зв'язок" data-testid="topbar-mobile-link">
+					<div class="pill-inner">
+						<span class="pill-top-label lifecell-label">
+							<svg class="lifecell-svg-mark" viewBox="0 0 160 45" width="46" height="12" fill="currentColor" aria-label="lifecell">
+								<path d="M8.8,0.6C8.8,0.2,8.6,0,8.2,0H0.6C0.2,0,0,0.2,0,0.7l0.1,36.6c0,6.6,2.5,7.7,8.3,7.7c0.2,0,0.3,0,0.5-0.2C9,44.7,9,44.3,9,44.3L8.8,0.6z"/>
+								<path d="M15.4,7c-0.4,0-0.6-0.2-0.6-0.6V0.7C14.8,0.2,15,0,15.4,0H23c0.4,0,0.6,0.2,0.6,0.6v5.7C23.7,6.8,23.5,7,23,7H15.4z M15.5,45c-0.4,0-0.6-0.2-0.6-0.6V14c0-0.4,0.2-0.6,0.6-0.6h7.6c0.4,0,0.6,0.2,0.6,0.6v30.4c0,0.5-0.2,0.6-0.6,0.6H15.5z"/>
+								<path d="M31.9,45c-0.5,0-0.6-0.2-0.6-0.6v-24c0-0.3-0.1-0.4-0.4-0.4L29,20c-0.4,0-0.6-0.2-0.6-0.6v-5.3c0-0.4,0.2-0.6,0.6-0.6h1.9c0.2,0,0.4-0.1,0.4-0.4v-2.2C31.2,3.2,34.7,0,42,0h4.8c0.4,0,0.6,0.2,0.6,0.6v5.8c0,0.5-0.2,0.6-0.6,0.6h-3.3C40.7,7,40,7.7,40,10.3v2.5c0,0.3,0.1,0.4,0.4,0.4h4c0.4,0,0.6,0.2,0.6,0.6v5.3c0,0.5-0.2,0.6-0.6,0.6h-4c-0.3,0-0.4,0.1-0.4,0.4v24c0,0.4-0.2,0.6-0.6,0.6L31.9,45z"/>
+								<path d="M48.6,36.3c-0.7-2.2-1-4.6-1-7.3c0-2.9,0.2-5.3,0.9-7.4c1.8-5.5,6.6-8.7,13.2-8.7c6.7,0,11.5,3.2,13.3,8.6c0.7,2.2,0.8,5.3,0.8,9.4c0,0.4-0.3,0.6-0.7,0.6H56.9c-0.3,0-0.4,0.1-0.4,0.4c0.1,0.6,0,1.2,0.2,1.7c0.8,2.7,3,4.1,6.3,4.1c2.5,0,4.4-0.8,5.6-1.6c1.1-0.8,1.1-1.1,1.7-0.6l4.7,3.4c0.4,0.3,0.4,0.6,0.1,0.9c-3.2,3.4-7.5,5.2-13,5.2C55.3,45,50.4,41.8,48.6,36.3z M66.8,25.7c0.3,0,0.4-0.1,0.4-0.4c0-0.8-0.1-1.6-0.3-2.3c-0.8-2.2-2.3-3.4-5-3.4c-2.4,0-4.5,1.2-5.3,3.4c-0.2,0.7-0.3,1.5-0.3,2.3c0,0.3,0.1,0.4,0.4,0.4H66.8z"/>
+								<path d="M79.9,36.3C79.2,34.5,79,32,79,29s0.2-5.5,0.9-7.4c1.8-5.7,6.6-8.7,13.2-8.7c5.1,0,9.3,2.3,11.6,5.8c0.2,0.3,0.2,0.6-0.1,0.9L99,23.2c-0.4,0.3-0.7,0.2-0.9-0.1c-1.3-1.8-2.9-2.7-4.9-2.7c-2.5,0-4.1,1.1-4.8,3.3c-0.4,1.1-0.6,2.9-0.6,5.3s0.2,4.2,0.6,5.3c0.7,2.2,2.3,3.3,4.8,3.3c2,0,3.6-0.9,4.9-2.7c0.2-0.3,0.6-0.4,0.9-0.1l5.5,3.6c0.3,0.2,0.3,0.6,0.1,0.9c-2.3,3.5-6.5,5.8-11.6,5.8C86.5,45,81.7,42,79.9,36.3z"/>
+								<path d="M106.6,36.3c-0.7-2.2-1-4.6-1-7.3c0-2.9,0.2-5.3,0.9-7.4c1.8-5.5,6.6-8.7,13.2-8.7c6.7,0,11.5,3.2,13.3,8.6c0.7,2.2,0.8,5.3,0.8,9.4c0,0.4-0.3,0.6-0.7,0.6h-18.2c-0.3,0-0.4,0.1-0.4,0.4c0.1,0.6,0,1.2,0.2,1.7c0.8,2.7,3,4.1,6.3,4.1c2.5,0,4.4-0.8,5.6-1.6c1.1-0.8,1.1-1.1,1.7-0.6l4.7,3.4c0.4,0.3,0.4,0.6,0.1,0.9c-3.2,3.4-7.5,5.2-13,5.2C113.3,45,108.4,41.8,106.6,36.3z M124.8,25.7c0.3,0,0.4-0.1,0.4-0.4c0-0.8-0.1-1.6-0.3-2.3c-0.8-2.2-2.3-3.4-5-3.4c-2.4,0-4.5,1.2-5.3,3.4c-0.2,0.7-0.3,1.5-0.3,2.3c0,0.3,0.1,0.4,0.4,0.4H124.8z"/>
+								<path d="M146.8,0.6c0-0.4-0.2-0.6-0.6-0.6h-7.6c-0.4,0-0.6,0.2-0.6,0.7l0.1,36.6c0,6.6,2.5,7.7,8.3,7.7c0.2,0,0.3,0,0.5-0.2c0.1-0.1,0.1-0.5,0.1-0.5L146.8,0.6z"/>
+								<path d="M159.8,0.6c0-0.4-0.2-0.6-0.6-0.6h-7.6c-0.4,0-0.6,0.2-0.6,0.7l0.1,36.6c0,6.6,2.5,7.7,8.3,7.7c0.2,0,0.3,0,0.5-0.2c0.1-0.1,0.1-0.5,0.1-0.5L159.8,0.6z"/>
+							</svg>
+						</span>
+						<div class="pill-num-line">
+							<span class="top-icon"><Phone size={11} weight="bold" /></span>
+							<span class="phone-number-text">{currentContent.phones.mobileDisplay}</span>
 						</div>
-					</a>
-					<div class="top-messengers">
-						<a
-							href="https://t.me/+380636672653"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="top-msg-btn top-tg-btn"
-							title="Telegram чат"
-							aria-label="Telegram"
-							data-testid="topbar-telegram-btn"
-						>
-							<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-								<path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.673c.458 0 .661-.21.916-.457l2.199-2.138 4.574 3.38c.843.464 1.448.225 1.658-.783l2.997-14.127c.307-1.232-.47-1.79-1.207-1.516z"/>
-							</svg>
-						</a>
-						<a
-							href="viber://chat?number=%2B380636672653"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="top-msg-btn top-viber-btn"
-							title="Viber чат"
-							aria-label="Viber"
-							data-testid="topbar-viber-btn"
-						>
-							<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-								<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
-							</svg>
-						</a>
 					</div>
-				</div>
+				</a>
 			</div>
 
-			<!-- Switchers Cluster: Theme & Language (spreads evenly on mobile) -->
+			<!-- Switchers & Messengers Cluster (spreads evenly on mobile) -->
 			<div class="top-switchers-cluster">
 				<span class="top-bar-divider top-divider-desktop">|</span>
+
+				<!-- Messengers: Telegram & Viber -->
+				<div class="top-messengers" aria-label="Месенджери">
+					<a
+						href="https://t.me/+380636672653"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="top-msg-btn top-tg-btn"
+						title="Telegram чат"
+						aria-label="Telegram"
+						data-testid="topbar-telegram-btn"
+					>
+						<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+							<path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.673c.458 0 .661-.21.916-.457l2.199-2.138 4.574 3.38c.843.464 1.448.225 1.658-.783l2.997-14.127c.307-1.232-.47-1.79-1.207-1.516z"/>
+						</svg>
+					</a>
+					<a
+						href="viber://chat?number=%2B380636672653"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="top-msg-btn top-viber-btn"
+						title="Viber чат"
+						aria-label="Viber"
+						data-testid="topbar-viber-btn"
+					>
+						<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+							<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
+						</svg>
+					</a>
+				</div>
 
 				<!-- Explicit Dual Theme Switcher (Dark / Light) -->
 				<div class="theme-segmented-ctrl" role="group" aria-label="Тема сайту">
@@ -262,37 +262,31 @@
 			grid-template-columns: 1fr 1fr;
 			gap: 6px;
 		}
-		.top-mobile-group {
-			display: flex;
-			align-items: center;
-			gap: 4px;
-			min-width: 0;
-		}
-		.top-mobile-group .top-phone-pill {
-			flex: 1;
-			min-width: 0;
-		}
 		.top-messengers {
 			display: flex;
-			flex-direction: column;
-			gap: 3px;
+			align-items: center;
+			justify-content: center;
+			gap: 6px;
 			flex-shrink: 0;
 		}
 		.top-msg-btn {
-			width: 18px;
-			height: 18px;
+			width: 24px;
+			height: 24px;
 		}
 		.top-phone-pill {
 			width: 100%;
 			box-sizing: border-box;
-			min-height: 42px;
-			padding: 0.25rem 0.35rem;
+			min-height: 40px;
+			padding: 0.22rem 0.35rem;
+			overflow: hidden;
 		}
 		.pill-num-line {
-			font-size: clamp(10.5px, 2.7vw, 12px);
+			font-size: clamp(9.5px, 2.5vw, 11.5px);
 			letter-spacing: -0.01em;
 			justify-content: center;
 			white-space: nowrap;
+			gap: 0.25rem;
+			max-width: 100%;
 		}
 		.theme-segment-btn .theme-label {
 			display: inline;
@@ -327,7 +321,7 @@
 	.top-switchers-cluster {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.8rem;
+		gap: 0.65rem;
 	}
 
 	.top-phones-cluster {
@@ -336,16 +330,10 @@
 		gap: 0.45rem;
 	}
 
-	.top-mobile-group {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-	}
-
 	.top-messengers {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: 0.35rem;
 	}
 
 	.top-msg-btn {
@@ -383,8 +371,10 @@
 		border-radius: var(--radius-full);
 		font-weight: 600;
 		text-decoration: none;
-		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+		transition: box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
 		white-space: nowrap;
+		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.top-phone-pill * {
@@ -400,6 +390,8 @@
 		gap: 1px;
 		line-height: 1.1;
 		width: 100%;
+		max-width: 100%;
+		overflow: hidden;
 	}
 
 	.pill-top-label {
@@ -517,28 +509,6 @@
 		opacity: 1;
 	}
 
-	/* Blue pulse dot inside mobile pill */
-	.phone-pill-blue .phone-pulse-dot {
-		background-color: #38bdf8;
-		box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
-		animation: pulseDotBlue 2s infinite;
-	}
-
-	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue .phone-pulse-dot {
-		background-color: #0284c7;
-		box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
-	}
-
-	.phone-pulse-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background-color: #38bdf8;
-		box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
-		animation: pulseDotBlue 2s infinite;
-		flex-shrink: 0;
-	}
-
 	/* Police Strobe Keyframes - Dark Mode: 3 cycles total on load/refresh, then stops */
 	@keyframes policeStrobeRedDark {
 		0%,
@@ -547,8 +517,7 @@
 			background: #ef4444;
 			border-color: #ffffff;
 			color: #ffffff;
-			box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.95), 0 0 32px 8px rgba(255, 68, 68, 0.6);
-			transform: scale(1.02);
+			box-shadow: 0 0 16px 2px rgba(239, 68, 68, 0.95), 0 0 24px 4px rgba(255, 68, 68, 0.5);
 		}
 		4%,
 		12%,
@@ -557,15 +526,13 @@
 			border-color: rgba(239, 68, 68, 0.3);
 			color: #fecaca;
 			box-shadow: none;
-			transform: scale(1);
 		}
 		24%,
 		100% {
 			background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
 			border-color: rgba(239, 68, 68, 0.55);
 			color: #fee2e2;
-			box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
-			transform: scale(1);
+			box-shadow: 0 0 8px rgba(239, 68, 68, 0.25);
 		}
 	}
 
@@ -575,8 +542,7 @@
 			background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 			border-color: rgba(56, 189, 248, 0.55);
 			color: #e0f2fe;
-			box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
-			transform: scale(1);
+			box-shadow: 0 0 8px rgba(56, 189, 248, 0.25);
 		}
 		28%,
 		36%,
@@ -584,8 +550,7 @@
 			background: #0284c7;
 			border-color: #ffffff;
 			color: #ffffff;
-			box-shadow: 0 0 18px 4px rgba(2, 132, 199, 0.95), 0 0 32px 8px rgba(56, 189, 248, 0.6);
-			transform: scale(1.02);
+			box-shadow: 0 0 16px 2px rgba(2, 132, 199, 0.95), 0 0 24px 4px rgba(56, 189, 248, 0.5);
 		}
 		32%,
 		40%,
@@ -594,15 +559,13 @@
 			border-color: rgba(56, 189, 248, 0.3);
 			color: #bae6fd;
 			box-shadow: none;
-			transform: scale(1);
 		}
 		52%,
 		100% {
 			background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
 			border-color: rgba(56, 189, 248, 0.55);
 			color: #e0f2fe;
-			box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
-			transform: scale(1);
+			box-shadow: 0 0 8px rgba(56, 189, 248, 0.25);
 		}
 	}
 
@@ -614,8 +577,7 @@
 			background: #ef4444;
 			border-color: #ffffff;
 			color: #ffffff;
-			box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.95), 0 0 32px 8px rgba(255, 68, 68, 0.6);
-			transform: scale(1.03);
+			box-shadow: 0 0 16px 2px rgba(239, 68, 68, 0.95), 0 0 24px 4px rgba(255, 68, 68, 0.5);
 		}
 		4%,
 		12%,
@@ -624,7 +586,6 @@
 			border-color: #ef4444;
 			color: #991b1b;
 			box-shadow: none;
-			transform: scale(1);
 		}
 		24%,
 		100% {
@@ -632,7 +593,6 @@
 			border-color: #dc2626;
 			color: #991b1b;
 			box-shadow: 0 1px 4px rgba(220, 38, 38, 0.12);
-			transform: scale(1);
 		}
 	}
 
@@ -643,7 +603,6 @@
 			border-color: #0284c7;
 			color: #0369a1;
 			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12);
-			transform: scale(1);
 		}
 		28%,
 		36%,
@@ -651,8 +610,7 @@
 			background: #0284c7;
 			border-color: #ffffff;
 			color: #ffffff;
-			box-shadow: 0 0 18px 4px rgba(2, 132, 199, 0.95), 0 0 32px 8px rgba(56, 189, 248, 0.6);
-			transform: scale(1.03);
+			box-shadow: 0 0 16px 2px rgba(2, 132, 199, 0.95), 0 0 24px 4px rgba(56, 189, 248, 0.5);
 		}
 		32%,
 		40%,
@@ -661,7 +619,6 @@
 			border-color: #38bdf8;
 			color: #0369a1;
 			box-shadow: none;
-			transform: scale(1);
 		}
 		52%,
 		100% {
@@ -669,7 +626,6 @@
 			border-color: #0284c7;
 			color: #0369a1;
 			box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12);
-			transform: scale(1);
 		}
 	}
 
