@@ -36,7 +36,7 @@
 			</p>
 			<div class="footer-badges">
 				<span class="badge">
-					{#if langState.current === 'ua'}Препарати, зареєстровані в Україні{:else if langState.current === 'ru'}Препараты, зарегистрированные в Украине{:else}Preparations registered in Ukraine{/if}
+					{#if langState.current === 'ua'}Висновки на держреєстрацію деззасобів{:else if langState.current === 'ru'}Заключения на госрегистрацию дезсредств{:else}State registration conclusions{/if}
 				</span>
 				<span class="badge">
 					{#if langState.current === 'ua'}Кваліфіковані спеціалісти{:else if langState.current === 'ru'}Квалифицированные специалисты{:else}Qualified specialists{/if}
@@ -104,7 +104,35 @@
 			<div class="contact-details">
 				<div class="contact-row">
 					<span class="label">{#if langState.current === 'ua'}Мобільний:{:else if langState.current === 'ru'}Мобильный:{:else}Mobile:{/if}</span>
-					<a href="tel:{currentContent.phones.mobile}" class="val-phone">{currentContent.phones.mobileDisplay}</a>
+					<div class="phone-with-messengers">
+						<a href="tel:{currentContent.phones.mobile}" class="val-phone">{currentContent.phones.mobileDisplay}</a>
+						<div class="footer-msg-links">
+							<a
+								href="https://t.me/+380636672653"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="footer-msg-btn footer-tg-btn"
+								title="Telegram"
+								aria-label="Telegram"
+							>
+								<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">
+									<path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.673c.458 0 .661-.21.916-.457l2.199-2.138 4.574 3.38c.843.464 1.448.225 1.658-.783l2.997-14.127c.307-1.232-.47-1.79-1.207-1.516z"/>
+								</svg>
+							</a>
+							<a
+								href="viber://chat?number=%2B380636672653"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="footer-msg-btn footer-viber-btn"
+								title="Viber"
+								aria-label="Viber"
+							>
+								<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">
+									<path d="M19.78 3.23C17.65 1.51 14.89.8 11.96.8c-.37 0-.74.02-1.11.05-5.36.46-9.61 4.7-10.07 10.06-.2 2.37.4 4.7 1.7 6.64L.94 21.6c-.34 1.13.72 2.19 1.85 1.85l4.05-1.54c1.64.91 3.5 1.39 5.41 1.39.29 0 .58-.01.87-.04 5.36-.46 9.61-4.7 10.07-10.06.53-6.17-3.41-9.97-3.41-9.97zm-1.84 13.9c-.33.91-1.74 1.72-2.58 1.84-.71.1-1.63.15-4.73-1.14-3.72-1.55-6.15-5.32-6.33-5.57-.19-.25-1.5-2-1.5-3.81 0-1.82.95-2.72 1.29-3.08.34-.37.75-.46 1-.46.25 0 .5.01.71.02.23.01.53-.09.83.63.31.75 1.05 2.58 1.15 2.77.09.19.16.42.03.67-.12.26-.19.42-.37.64-.19.21-.4.47-.57.63-.19.19-.39.4-.17.78.22.37.99 1.63 2.12 2.64 1.45 1.3 2.68 1.7 3.06 1.89.38.18.6-.01.82-.24.23-.23.97-1.13 1.23-1.52.26-.38.52-.32.88-.19.36.13 2.27 1.07 2.66 1.26.39.2.65.29.74.45.1.18.1 1.05-.23 1.96z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
 				</div>
 				<div class="contact-row">
 					<span class="label">{#if langState.current === 'ua'}Міський / офіс:{:else if langState.current === 'ru'}Городской / офис:{:else}Office / landline:{/if}</span>
@@ -122,11 +150,11 @@
 					<span class="label">{#if langState.current === 'ua'}Графік:{:else if langState.current === 'ru'}График:{:else}Schedule:{/if}</span>
 					<span class="val-time">
 						{#if langState.current === 'ua'}
-							Пн – Пт: 09:00 – 15:00 (виїзди за домовленістю)
+							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (виїзди по всій Одеській області 24/7)
 						{:else if langState.current === 'ru'}
-							Пн – Пт: 09:00 – 15:00 (выезды по договоренности)
+							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (выезды по всей Одесской области 24/7)
 						{:else}
-							Mon – Fri: 09:00 – 15:00 (visits by appointment)
+							{currentContent.workingHours.days}: {currentContent.workingHours.hours} (dispatches across Odesa region 24/7)
 						{/if}
 					</span>
 				</div>
@@ -333,6 +361,43 @@
 
 	:global(html[data-theme="light"]) .label {
 		color: #cef79e;
+	}
+
+	.phone-with-messengers {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+	}
+
+	.footer-msg-links {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.footer-msg-btn {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: #ffffff;
+		text-decoration: none;
+		transition: transform var(--transition-fast), opacity var(--transition-fast);
+	}
+
+	.footer-msg-btn:hover {
+		transform: scale(1.15);
+	}
+
+	.footer-tg-btn {
+		background: #229ED9;
+	}
+
+	.footer-viber-btn {
+		background: #7360f2;
 	}
 
 	.val-phone {

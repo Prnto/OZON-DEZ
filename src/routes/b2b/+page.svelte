@@ -56,7 +56,7 @@
 				<!-- 1. HoReCa -->
 				<div class="ind-card glass-card">
 					<div class="ind-card-media">
-						<img src="{asset('images/b2b-horeca.webp')}" alt="Ресторани, бари та готелі HoReCa" class="ind-img" loading="lazy" />
+						<img src="{asset('images/b2b-horeca.webp')}" alt="Ресторани, бари та готелі HoReCa" class="ind-img" width="600" height="220" loading="lazy" decoding="async" />
 						<div class="ind-media-overlay"></div>
 						<div class="ind-icon-floating"><CookingPot size={22} weight="duotone" /></div>
 					</div>
@@ -83,7 +83,7 @@
 				<!-- 2. Супермаркети -->
 				<div class="ind-card glass-card">
 					<div class="ind-card-media">
-						<img src="{asset('images/b2b-supermarket.webp')}" alt="Супермаркети та торгові мережі" class="ind-img" loading="lazy" />
+						<img src="{asset('images/b2b-supermarket.webp')}" alt="Супермаркети та торгові мережі" class="ind-img" width="600" height="220" loading="lazy" decoding="async" />
 						<div class="ind-media-overlay"></div>
 						<div class="ind-icon-floating"><Storefront size={22} weight="duotone" /></div>
 					</div>
@@ -110,7 +110,7 @@
 				<!-- 3. Логістичні центри -->
 				<div class="ind-card glass-card">
 					<div class="ind-card-media">
-						<img src="{asset('images/b2b-warehouse.webp')}" alt="Логістичні центри та склади" class="ind-img" loading="lazy" />
+						<img src="{asset('images/b2b-warehouse.webp')}" alt="Логістичні центри та склади" class="ind-img" width="600" height="220" loading="lazy" decoding="async" />
 						<div class="ind-media-overlay"></div>
 						<div class="ind-icon-floating"><Package size={22} weight="duotone" /></div>
 					</div>
@@ -137,7 +137,7 @@
 				<!-- 4. Харчові виробництва -->
 				<div class="ind-card glass-card">
 					<div class="ind-card-media">
-						<img src="{asset('images/b2b-food-factory.webp')}" alt="Харчові виробництва та фабрики" class="ind-img" loading="lazy" />
+						<img src="{asset('images/b2b-food-factory.webp')}" alt="Харчові виробництва та фабрики" class="ind-img" width="600" height="220" loading="lazy" decoding="async" />
 						<div class="ind-media-overlay"></div>
 						<div class="ind-icon-floating"><Bread size={22} weight="duotone" /></div>
 					</div>
@@ -178,11 +178,11 @@
 					</h3>
 					<p>
 						{#if langState.current === 'ua'}
-							Офіційний договір із ТОВ «ОЗОН-ДЕЗ», програма пест-контролю HACCP, карти розміщення пасток, сертифікати якості на препарати та акти виконаних робіт із мокрими печатками для 100% захисту перед інспекціями.
+							Офіційний договір із ТОВ «ОЗОН-ДЕЗ», програма пест-контролю HACCP, карти розміщення пасток, Висновки на державну реєстрацію деззасобів та акти виконаних робіт із мокрими печатками для 100% захисту перед інспекціями.
 						{:else if langState.current === 'ru'}
-							Официальный договор с ООО «ОЗОН-ДЕЗ», программа пест-контроля HACCP, схемы расстановки ловушек, сертификаты на препараты и акты с мокрыми печатями для 100% защиты перед инспекциями.
+							Официальный договор с ООО «ОЗОН-ДЕЗ», программа пест-контроля HACCP, схемы расстановки ловушек, Заключения на государственную регистрацию дезсредств и акты с мокрыми печатями для 100% защиты перед инспекциями.
 						{:else}
-							Official contract with LLC "OZON-DEZ", HACCP pest control program, trap layout maps, certificates of quality, and stamped acts for complete inspection readiness.
+							Official contract with LLC "OZON-DEZ", HACCP pest control program, trap layout maps, state registration conclusions for preparations, and stamped acts for complete inspection readiness.
 						{/if}
 					</p>
 				</div>

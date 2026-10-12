@@ -36,6 +36,7 @@
 			<div class="menu-header">
 				<div class="status-indicator">
 					<span class="live-pulse"></span>
+					<span class="widget-title">OZON-DEZ</span>
 				</div>
 				<button
 					type="button"
@@ -397,6 +398,17 @@
 		background: var(--color-electric-iris);
 		box-shadow: 0 0 6px var(--color-electric-iris);
 		animation: blink 1.5s infinite;
+	}
+
+	.widget-title {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--color-bone-white);
+		letter-spacing: 0.04em;
+	}
+
+	:global(html[data-theme="light"]) .widget-title {
+		color: #1a202c;
 	}
 
 	@keyframes blink {

@@ -67,7 +67,10 @@
 							src={asset('images/pest-cockroaches.webp')}
 							alt="Дезінсекція тарганів, клопів, бліх холодним туманом ULV"
 							class="service-img"
+							width="600"
+							height="200"
 							loading="lazy"
+							decoding="async"
 						/>
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
@@ -126,7 +129,10 @@
 							src={asset('images/deratization-rodents.webp')}
 							alt="Дератизація: знищення щурів, мишей, встановлення принадних станцій"
 							class="service-img"
+							width="600"
+							height="200"
 							loading="lazy"
+							decoding="async"
 						/>
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
@@ -185,7 +191,10 @@
 							src={asset('images/restaurant-kitchen-dez.webp')}
 							alt="Дезінфекція поверхонь, ємностей та питної води"
 							class="service-img"
+							width="600"
+							height="200"
 							loading="lazy"
+							decoding="async"
 						/>
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
@@ -244,7 +253,10 @@
 							src={asset('images/ozone-bg.webp')}
 							alt="Озонування приміщень, ємностей та видалення стійких запахів"
 							class="service-img"
+							width="600"
+							height="200"
 							loading="lazy"
+							decoding="async"
 						/>
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">
@@ -304,7 +316,10 @@
 							src={asset('images/warehouse-logistics-dez.webp')}
 							alt="Пест-контроль для бізнесу за системою HACCP: склади, виробництва, HoReCa"
 							class="service-img"
+							width="600"
+							height="200"
 							loading="lazy"
+							decoding="async"
 						/>
 						<div class="service-media-overlay"></div>
 						<div class="service-media-badge-row">

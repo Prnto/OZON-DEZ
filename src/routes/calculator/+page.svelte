@@ -68,15 +68,15 @@
 				<div class="t-card glass-card">
 					<div class="t-icon"><Car size={26} weight="duotone" /></div>
 					<h4>
-						{#if langState.current === 'ua'}Виїзд спеціаліста з обладнанням{:else if langState.current === 'ru'}Выезд специалиста с оборудованием{:else}Specialist arrival with equipment{/if}
+						{#if langState.current === 'ua'}Виїзд по всій Одеській області{:else if langState.current === 'ru'}Выезд по всей Одесской области{:else}Dispatch Across Odesa Region{/if}
 					</h4>
 					<p>
 						{#if langState.current === 'ua'}
-							Виїзд спеціаліста в межах Чорноморська та прилеглих районів уже врахований у базовий тариф.
+							Виїзди здійснюються по всій Одеській області без доплат за виїзд. Для бізнесу можливі виїзди 24/7 (нічні зміни).
 						{:else if langState.current === 'ru'}
-							Выезд специалиста в пределах Черноморска и прилегающих районов уже включен в базовый тариф.
+							Выезды осуществляются по всей Одесской области без доплат за выезд. Для бизнеса возможны выезды 24/7 (ночные смены).
 						{:else}
-							Specialist arrival within Chornomorsk and adjacent districts is already included in the base rate.
+							Dispatches across the entire Odesa region without extra travel fees. 24/7 night visits available for businesses.
 						{/if}
 					</p>
 				</div>
@@ -84,15 +84,15 @@
 				<div class="t-card glass-card">
 					<div class="t-icon"><Flask size={26} weight="duotone" /></div>
 					<h4>
-						{#if langState.current === 'ua'}Сертифіковані препарати МОЗ{:else if langState.current === 'ru'}Сертифицированные препараты Минздрава{:else}Certified Ministry of Health Preparations{/if}
+						{#if langState.current === 'ua'}Висновки на держреєстрацію{:else if langState.current === 'ru'}Заключения на госрегистрацию{:else}State Registration Conclusions{/if}
 					</h4>
 					<p>
 						{#if langState.current === 'ua'}
-							Використовуємо виключно ліцензовані препарати 4 класу безпеки (малонебезпечні, без їдкого запаху).
+							Використовуємо виключно препарати з Висновками на державну реєстрацію деззасобів (4 клас — малонебезпечні, без їдкого запаху).
 						{:else if langState.current === 'ru'}
-							Используем сертифицированные препараты 4 класса безопасности (малоопасные, без едкого запаха).
+							Используем исключительно препараты с Заключениями на государственную регистрацию дезсредств (4 класс — малоопасные).
 						{:else}
-							We use exclusively registered class 4 safety products (low hazard, without pungent odors).
+							Exclusively using preparations with State Registration Conclusions (Class 4 safety — low hazard, odorless).
 						{/if}
 					</p>
 				</div>
@@ -100,15 +100,15 @@
 				<div class="t-card glass-card">
 					<div class="t-icon"><FileText size={26} weight="duotone" /></div>
 					<h4>
-						{#if langState.current === 'ua'}Акти та гарантійний договір{:else if langState.current === 'ru'}Акты и гарантийный договор{:else}Official Acts & Warranty Contract{/if}
+						{#if langState.current === 'ua'}Офіційний договір та акти{:else if langState.current === 'ru'}Официальный договор и акты{:else}Official Contract & Acts{/if}
 					</h4>
 					<p>
 						{#if langState.current === 'ua'}
-							Офіційний акт виконаних санітарних робіт та гарантійні зобов'язання від 6 до 12 місяців.
+							Офіційний акт виконаних санітарних робіт, повний пакет документів для перевірок та відповідність нормам HACCP.
 						{:else if langState.current === 'ru'}
-							Официальный акт выполненных санитарных работ и гарантийные обязательства от 6 до 12 месяцев.
+							Официальный акт выполненных санитарных работ, полный пакет документов для проверок и соответствие нормам HACCP.
 						{:else}
-							Official acts of completed sanitation work and warranty obligations from 6 to 12 months.
+							Official acts of completed sanitation work, full documentation package for inspections and HACCP compliance.
 						{/if}
 					</p>
 				</div>
@@ -116,15 +116,15 @@
 				<div class="t-card glass-card">
 					<div class="t-icon"><ArrowsClockwise size={26} weight="duotone" /></div>
 					<h4>
-						{#if langState.current === 'ua'}Безкоштовний контрольний виїзд{:else if langState.current === 'ru'}Бесплатный контрольный выезд{:else}Free Follow-Up Inspection{/if}
+						{#if langState.current === 'ua'}Гарантія 6–12 місяців{:else if langState.current === 'ru'}Гарантия 6–12 месяцев{:else}6–12 Months Warranty{/if}
 					</h4>
 					<p>
 						{#if langState.current === 'ua'}
-							У разі збереження ознак шкідників під час гарантійного періоду повторна обробка проводиться безкоштовно.
+							Гарантія 6–12 міс. та знижка 10–15% на повторну обробку при необхідності довготривалого захисту.
 						{:else if langState.current === 'ru'}
-							В случае сохранения активности вредителей в гарантийный период повторный выезд бесплатный.
+							Гарантия 6–12 мес. и скидка 10–15% на повторную обработку при необходимости долговременной защиты.
 						{:else}
-							If any signs of pests persist during the warranty period, repeat treatment is free of charge.
+							6–12 months warranty and 10–15% discount on repeated treatment if long-term barrier protection is required.
 						{/if}
 					</p>
 				</div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Buildings, House, Coffee, Package, Drop, Clock, ShieldCheck, Flask, MapPin, PhoneCall, CheckCircle, Lightning } from 'phosphor-svelte';
+	import { Buildings, House, Coffee, Package, Drop, ShieldCheck, Flask, MapPin, PhoneCall, CheckCircle, Lightning } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 	import { sendTelegramLead } from '../services/telegram';
@@ -22,12 +22,12 @@
 	let isSubmitting = $state(false);
 	let isSuccess = $state(false);
 
-	const serviceRates: Record<ServiceKey, { base: number; perSqm: number; timeBase: { ua: string; ru: string; en: string } }> = {
-		disinsection: { base: 900, perSqm: 4.5, timeBase: { ua: '40–60 хв', ru: '40–60 мин', en: '40–60 min' } },
-		deratization: { base: 950, perSqm: 4.0, timeBase: { ua: '30–50 хв', ru: '30–50 мин', en: '30–50 min' } },
-		disinfection: { base: 850, perSqm: 5.0, timeBase: { ua: '45–60 хв', ru: '45–60 мин', en: '45–60 min' } },
-		ozonation:    { base: 1100, perSqm: 6.0, timeBase: { ua: '1–2 год', ru: '1–2 часа', en: '1–2 hrs' } },
-		pest_control: { base: 1600, perSqm: 3.5, timeBase: { ua: 'плановий аудит', ru: 'плановый аудит', en: 'scheduled audit' } }
+	const serviceRates: Record<ServiceKey, { base: number; perSqm: number }> = {
+		disinsection: { base: 900, perSqm: 4.5 },
+		deratization: { base: 950, perSqm: 4.0 },
+		disinfection: { base: 850, perSqm: 5.0 },
+		ozonation:    { base: 1100, perSqm: 6.0 },
+		pest_control: { base: 1600, perSqm: 3.5 }
 	};
 
 	const objectMultipliers: Record<ObjectKey, number> = {
@@ -57,13 +57,6 @@
 		if (optBarrier) price += 200;
 
 		return Math.round(price / 50) * 50;
-	});
-
-	let timeDisplay = $derived.by(() => {
-		if (area > 150) {
-			return langState.current === 'ua' ? 'від 1.5–2.5 год' : langState.current === 'ru' ? 'от 1.5–2.5 часа' : 'from 1.5–2.5 hrs';
-		}
-		return serviceRates[selectedService].timeBase[langState.current];
 	});
 
 	function getServiceName(key: ServiceKey, lang: string): string {
@@ -258,7 +251,7 @@
 				<div class="calc-summary">
 					<div class="summary-box">
 						<span class="summary-caption">
-							{#if langState.current === 'ua'}Попередній розрахунок:{:else if langState.current === 'ru'}Предварительный расчет:{:else}Estimated Quote:{/if}
+							{#if langState.current === 'ua'}Орієнтовний розрахунок вартості:{:else if langState.current === 'ru'}Ориентировочный расчет стоимости:{:else}Estimated Cost Calculation:{/if}
 						</span>
 						<div class="summary-price">
 							<span class="price-from">{#if langState.current === 'ua'}від{:else if langState.current === 'ru'}от{:else}from{/if}</span>
@@ -268,20 +261,16 @@
 
 						<ul class="summary-list">
 							<li>
-								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><Clock size={16} weight="duotone" /> {#if langState.current === 'ua'}Орієнтовний час обробки:{:else if langState.current === 'ru'}Ориентировочное время обработки:{:else}Estimated duration:{/if}</span>
-								<strong>{timeDisplay}</strong>
-							</li>
-							<li>
 								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><ShieldCheck size={16} weight="duotone" /> {#if langState.current === 'ua'}Гарантія:{:else if langState.current === 'ru'}Гарантия:{:else}Warranty:{/if}</span>
-								<strong>{#if langState.current === 'ua'}Офіційний договір{:else if langState.current === 'ru'}Официальный договор{:else}Official contract{/if}</strong>
+								<strong>{#if langState.current === 'ua'}6–12 міс. + знижка 10–15% на повторну{:else if langState.current === 'ru'}6–12 мес. + скидка 10–15% на повторную{:else}6–12 mos + 10–15% repeat discount{/if}</strong>
 							</li>
 							<li>
 								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><Flask size={16} weight="duotone" /> {#if langState.current === 'ua'}Препарати:{:else if langState.current === 'ru'}Препараты:{:else}Preparations:{/if}</span>
-								<strong>{#if langState.current === 'ua'}Сертифіковані МОЗ України{:else if langState.current === 'ru'}Сертифицированные МОЗ Украины{:else}Ministry of Health certified{/if}</strong>
+								<strong>{#if langState.current === 'ua'}Висновки на держреєстрацію деззасобів{:else if langState.current === 'ru'}Заключения на госрегистрацию дезсредств{:else}State registration conclusions{/if}</strong>
 							</li>
 							<li>
-								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><MapPin size={16} weight="duotone" /> {#if langState.current === 'ua'}Виїзд:{:else if langState.current === 'ru'}Выезд:{:else}Dispatch area:{/if}</span>
-								<strong>{#if langState.current === 'ua'}Чорноморськ, Одеса та область{:else if langState.current === 'ru'}Черноморск, Одесса и область{:else}Chornomorsk, Odesa & region{/if}</strong>
+								<span style="display: inline-flex; align-items: center; gap: 0.35rem;"><MapPin size={16} weight="duotone" /> {#if langState.current === 'ua'}Виїзд:{:else if langState.current === 'ru'}Выезд:{:else}Dispatch:{/if}</span>
+								<strong>{#if langState.current === 'ua'}Вся Одеська обл. БЕЗ доплат • 24/7{:else if langState.current === 'ru'}Вся Одесская обл. БЕЗ доплат • 24/7{:else}Odesa region NO extra fee • 24/7{/if}</strong>
 							</li>
 						</ul>
 
@@ -324,7 +313,7 @@
 											data-testid="calc-lead-phone-input"
 										/>
 										<button type="submit" class="lead-btn" data-testid="calc-lead-submit-btn" disabled={isSubmitting} style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
-											{#if isSubmitting}...{:else}<Lightning size={16} weight="fill" /> {#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}{/if}
+											{#if isSubmitting}...{:else}<Lightning size={16} weight="fill" /> {#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call specialist{/if}{/if}
 										</button>
 									</div>
 								</form>

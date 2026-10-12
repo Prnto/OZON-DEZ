@@ -20,6 +20,7 @@
 				height="768"
 				loading="eager"
 				fetchpriority="high"
+				decoding="async"
 			/>
 		</div>
 	</div>

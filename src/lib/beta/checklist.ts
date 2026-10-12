@@ -164,8 +164,8 @@ export const BETA_TABS: BetaTab[] = [
 				id: 'b2b_1',
 				category: { uk: 'HACCP стандарти', en: 'HACCP Compliance' },
 				text: {
-					uk: 'Перевірте блок санітарної документації для бізнесу: журнали обліку, акти виконаних робіт, сертифікати препаратів',
-					en: 'Inspect business sanitary documentation section: logbooks, completion acts, and chemical certificates'
+					uk: 'Перевірте блок санітарної документації для бізнесу: журнали обліку, акти виконаних робіт, висновки на держреєстрацію деззасобів',
+					en: 'Inspect business sanitary documentation section: logbooks, completion acts, and state registration conclusions'
 				},
 				coverage: 'manual'
 			},

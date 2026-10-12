@@ -105,6 +105,7 @@
 										width="104"
 										height="104"
 										loading="lazy"
+										decoding="async"
 									/>
 								{:else}
 									<span class="srv-icon-bubble">{srv.icon}</span>

@@ -16,7 +16,7 @@
 <div class="page-header-banner" class:has-bg={!!imageSrc}>
 	{#if imageSrc}
 		<div class="header-bg-image">
-			<img src={imageSrc} alt="" aria-hidden="true" class="bg-img" loading="eager" />
+			<img src={imageSrc} alt="" aria-hidden="true" class="bg-img" loading="eager" fetchpriority="high" decoding="async" />
 		</div>
 		<div class="header-bg-overlay" aria-hidden="true"></div>
 	{/if}

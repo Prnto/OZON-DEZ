@@ -97,14 +97,14 @@ export interface ContentData {
 	};
 	nav: {
 		services: string;
-		ozone: string;
 		b2b: string;
-		agro: string;
-		water: string;
 		howWeWork: string;
 		calculator: string;
 		contacts: string;
 		callBtn: string;
+		ozone?: string;
+		agro?: string;
+		water?: string;
 	};
 	servicesSection: {
 		badge: string;
@@ -278,16 +278,16 @@ export const contentMap: Record<Lang, ContentData> = {
 			city: 'м. Чорноморськ, м. Одеса та Одеська область'
 		},
 		workingHours: {
-			days: 'Пн – Пт',
-			hours: '09:00 – 15:00',
-			status: 'Виїзди за домовленістю (Пн – Пт: 09:00 – 15:00)'
+			days: 'Щодня',
+			hours: '08:00 – 20:00 (виїзди 24/7)',
+			status: 'Прийом дзвінків: 08:00 – 20:00 • Виїзди: 24/7'
 		},
 		aboutCompany: {
 			badge: 'ТОВ «ОЗОН-ДЕЗ» • 15 років досвіду',
 			title: 'Професійна санітарно-епідеміологічна безпека',
 			subtitle: 'Повний комплекс дезінфекційних робіт та пест-контролю для населення і підприємств Одещини: професійне знищення комах, гризунів, вірусів та неприємних запахів за договором із гарантією результату.',
 			welcome: 'Вас вітає ТОВ «ОЗОН-ДЕЗ»!',
-			intro: 'Надаємо комплексні санітарно-профілактичні та винищувальні послуги фізичним і юридичним особам. За 15 років успішної діяльності сформовано команду атестованих фахівців, впроваджено передові методики, препарати 4-го класу безпеки, регламенти МОЗ України та системи HACCP.',
+			intro: 'Надаємо комплексні санітарно-профілактичні та винищувальні послуги фізичним і юридичним особам. За 15 років успішної діяльності сформовано команду кваліфікованих фахівців, впроваджено передові методики, препарати 4-го класу безпеки, висновки на державну реєстрацію деззасобів та системи HACCP.',
 			servicesTitle: 'Наші ключові послуги:',
 			services: [
 				{
@@ -322,9 +322,9 @@ export const contentMap: Record<Lang, ContentData> = {
 				}
 			],
 			audienceTitle: 'Фізичним та юридичним особам',
-			audienceDesc: 'Працюємо з приватними будинками, квартирами, закладами HoReCa (ресторани, готелі), складами, агрокомплексами та промисловими підприємствами. Надаємо повний пакет актів, договорів та сертифікатів.',
+			audienceDesc: 'Працюємо з приватними будинками, квартирами, закладами HoReCa (ресторани, готелі), складами, агрокомплексами та промисловими підприємствами. Виїзди по всій Одеській області без доплат, для бізнесу — 24/7 (нічні зміни). Надаємо повний пакет актів, договорів та висновків державної реєстрації деззасобів.',
 			equipmentTitle: 'Сучасне обладнання та препарати',
-			equipmentDesc: 'Використовуємо виключно зареєстровані в Україні препарати 4-го класу безпеки та передове оснащення: потужні озонатори, генератори холодного й гарячого туману, акумуляторні обприскувачі.',
+			equipmentDesc: 'Використовуємо виключно зареєстровані в Україні препарати 4-го класу безпеки (Висновки на державну реєстрацію деззасобів) та передове оснащення: потужні озонатори, генератори холодного й гарячого туману, акумуляторні обприскувачі.',
 			teamTitle: 'Кваліфіковані спеціалісти',
 			teamDesc: 'Роботи виконують досвідчені фахівці з багаторічним практичним стажем, що гарантує безпеку та максимальну ефективність обробки.',
 			experienceTitle: '15 років практичного досвіду',
@@ -333,7 +333,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			officeAddress: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
 			phonesTitle: 'Наші контакти:',
 			phones: '+38 (063) 667-26-53 (мобільний), +38 (04868) 6-03-08 (міський / офіс)',
-			ctaSpecialist: 'Виклик спеціаліста',
+			ctaSpecialist: 'Викликати спеціаліста',
 			ctaConsult: 'Отримати консультацію'
 		},
 		hero: {
@@ -343,8 +343,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			subtitle: 'ТОВ «ОЗОН-ДЕЗ» — ліцензована служба санітарної безпеки. Послуги з дезінсекції, дератизації, дезінфекції, озонування та пест-контролю для приватних осіб і бізнесу. 15 років досвіду, зареєстровані в Україні препарати, генератори туману та озонатори.',
 			triggers: [
 				{
-					title: 'Зареєстровані препарати',
-					desc: 'Сертифіковані в Україні засоби 4-го класу безпеки та регламенти HACCP'
+					title: 'Зареєстровані деззасоби',
+					desc: 'Висновки на державну реєстрацію деззасобів 4-го класу безпеки та регламенти HACCP'
 				},
 				{
 					title: '15 років досвіду',
@@ -352,7 +352,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Фізичним і юрособам',
-					desc: 'Повний пакет офіційної документації, актів, договорів та гарантій'
+					desc: 'Вся Одеська область без доплат, виїзди 24/7 для бізнесу, гарантія 6–12 міс.'
 				}
 			],
 			quickPainsLabel: 'Основні послуги санітарної безпеки:',
@@ -364,32 +364,29 @@ export const contentMap: Record<Lang, ContentData> = {
 				'Пест-контроль (HACCP)'
 			],
 			ctaPrimary: 'Розрахувати вартість',
-			ctaSecondary: 'Виклик спеціаліста',
+			ctaSecondary: 'Викликати спеціаліста',
 			experienceBadge: '15 років бездоганного досвіду',
 			stats: {
 				stat1Val: '15+',
 				stat1Label: 'років досвіду безпеки',
 				stat2Val: '100%',
 				stat2Sub: 'гарантія за договором',
-				stat3Val: 'МОЗ & HACCP',
+				stat3Val: 'Держреєстрація & HACCP',
 				stat3Sub: 'зареєстровані препарати'
 			}
 		},
 		nav: {
 			services: 'Послуги',
-			ozone: 'Озонування O₃',
 			b2b: 'Для бізнесу',
-			agro: 'Агросектор',
-			water: 'Очистка води',
 			howWeWork: 'Як працюємо',
 			calculator: 'Калькулятор',
 			contacts: 'Контакти',
-			callBtn: 'Замовити дзвінок'
+			callBtn: 'Викликати спеціаліста'
 		},
 		servicesSection: {
 			badge: 'Каталог послуг компанії',
 			title: '5 ключових напрямків санітарної безпеки',
-			subtitle: 'Комплексний захист житлових, комерційних та аграрних об’єктів у Чорноморську та Одеській області за офіційними стандартами МОЗ України та HACCP.',
+			subtitle: 'Комплексний захист житлових, комерційних та аграрних об’єктів у Чорноморську та по всій Одеській області (виїзди без доплат, 24/7 для бізнесу) за офіційними нормами та системою HACCP.',
 			allTab: 'Всі послуги',
 			priceLabel: 'Вартість:',
 			orderBtn: 'Замовити послугу',
@@ -439,7 +436,7 @@ export const contentMap: Record<Lang, ContentData> = {
 						shortDesc: 'Знезараження поверхонь, ємностей та питної води від бактерій і вірусів.',
 						fullDesc: 'Комплексна антимікробна обробка приміщень, дезінфекція технологічних резервуарів та систем водопостачання сертифікованими розчинами IV класу безпеки.',
 						target: 'Житло, офіси, медичні центри, ємності води',
-						features: ['Знищує 99.9% вірусів і патогенів', 'Безпечно для людей та тварин', 'Сертифіковані препарати МОЗ'],
+						features: ['Знищує 99.9% вірусів і патогенів', 'Безпечно для людей та тварин', 'Висновки на держреєстрацію деззасобів'],
 						priceFrom: 'від 850 грн'
 					}
 				]
@@ -478,16 +475,6 @@ export const contentMap: Record<Lang, ContentData> = {
 						target: 'Ванні, підвали, кутові кімнати, склади',
 						features: ['Знищує корінь цвілі', 'Антигрибковий бар’єр', 'Здоровий мікроклімат'],
 						priceFrom: 'від 950 грн'
-					},
-					{
-						id: 'demercurization',
-						title: 'Демеркуризація (Нейтралізація ртуті)',
-						shortDesc: 'Нейтралізація небезпечних випарів ртуті у разі пошкодження термометрів чи ламп.',
-						fullDesc: 'Оперативний виїзд спеціаліста з вимірювальним обладнанням, фізичний збір кульок ртуті та хімічне зв’язування парів.',
-						target: 'Квартири, офіси, медичні кабінети',
-						features: ['Виїзд від 30-45 хвилин', 'Хімічна дезактивація', 'Замір концентрації парів'],
-						badge: 'Екстрено',
-						priceFrom: 'від 1 200 грн'
 					}
 				]
 			},
@@ -563,7 +550,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Повний пакет документів для перевірок',
-					desc: 'Журнали пест-контролю, схеми розстановки станцій моніторингу, сертифікати на препарати та акти.'
+					desc: 'Журнали пест-контролю, схеми розстановки станцій моніторингу, висновки на державну реєстрацію деззасобів та акти.'
 				},
 				{
 					title: 'Стандарти HACCP (ХАССП)',
@@ -617,12 +604,12 @@ export const contentMap: Record<Lang, ContentData> = {
 				{
 					step: 4,
 					title: 'Швидка та безпечна обробка',
-					desc: 'Виїзд спеціаліста у зручний для вас час. Проведення робіт займає в середньому від 30 до 90 хвилин.'
+					desc: 'Оперативний виїзд спеціаліста по всій Одеській області без доплат. Для бізнесу доступні нічні зміни 24/7.'
 				},
 				{
 					step: 5,
 					title: 'Результат та гарантія',
-					desc: 'Чистий, безпечний об’єкт, оформлення офіційного акту робіт, гарантійний супровід та рекомендації.'
+					desc: 'Чистий, безпечний об’єкт, оформлення офіційного акту робіт, гарантія 6–12 міс. та знижка 10–15% на повторну обробку.'
 				}
 			],
 			prepBanner: {
@@ -647,7 +634,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{ code: '85.32', title: 'Професійно-технічна освіта', desc: 'Інструктажі та підготовка персоналу підприємств за нормами санітарії' }
 			],
 			guaranteeTitle: 'Офіційний юридичний статус:',
-			guaranteeText: 'ТОВ «ОЗОН-ДЕЗ» використовує зареєстровані в Україні препарати, діє власна служба технологічного контролю згідно з вимогами Держпродспоживслужби та регламентів МОЗ України.'
+			guaranteeText: 'ТОВ «ОЗОН-ДЕЗ» використовує зареєстровані в Україні препарати (Висновки на державну реєстрацію деззасобів 4-го класу безпеки). Гарантія 6–12 міс. та знижка 10–15% на повторну обробку. Виїзди по всій Одеській області без доплат, для бізнесу — виїзди 24/7 (нічні зміни).'
 		},
 		calculator: {
 			title: 'Онлайн-калькулятор вартості',
@@ -657,8 +644,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			step3: 'Площа обробки (м²):',
 			step4: 'Додаткові опції:',
 			estimateBadge: 'Попередній кошторис',
-			estimateTitle: 'Орієнтовна вартість:',
-			estimateNote: '* Включає вартість сертифікованих препаратів, роботу спеціаліста та гарантійне обслуговування.',
+			estimateTitle: 'Орієнтовний розрахунок вартості:',
+			estimateNote: '* Включає роботу спеціаліста, препарати з державною реєстрацією, виїзд по всій Одеській області без доплат та гарантію 6–12 міс. (знижка 10–15% на повторну обробку).',
 			labels: {
 				object: 'Об’єкт:',
 				service: 'Послуга:',
@@ -689,7 +676,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Зафіксувати ціну та отримати знижку 10%',
 				namePlaceholder: 'Ваше ім’я',
 				phonePlaceholder: 'Номер телефону (напр. 063 667-26-53)',
-				submitBtn: 'Замовити виїзд спеціаліста за',
+				submitBtn: 'Викликати спеціаліста',
 				privacy: 'Ваші дані конфіденційні та не передаються третім особам.',
 				successTitle: 'Повідомлення прийнято!',
 				successDesc: 'Ми зафіксували для вас ціну. Черговий спеціаліст зателефонує вам протягом 5 хвилин.',
@@ -702,7 +689,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			items: [
 				{
 					q: 'Чи безпечні препарати для дітей та домашніх тварин?',
-					a: 'Так. Ми використовуємо зареєстровані в Україні препарати IV класу безпеки (малонебезпечні). На час обробки та провітрювання (1.5–3 години) приміщення слід залишити, після чого воно абсолютно безпечне для проживання.'
+					a: 'Так. Ми використовуємо зареєстровані в Україні препарати IV класу безпеки (малонебезпечні) з офіційними Висновками на державну реєстрацію деззасобів. При аерозольній обробці приміщення залишають на 2–3 години з наступним провітрюванням 30–40 хв. При гелевій обробці від тарганів виходити з приміщення взагалі не потрібно!'
 				},
 				{
 					q: 'Як підготувати приміщення перед приїздом спеціаліста?',
@@ -714,18 +701,22 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					q: 'Чи надаєте ви документи для перевірок Держпродспоживслужби?',
-					a: 'Так! ТОВ «ОЗОН-ДЕЗ» — офіційна юридична особа з 15-річним досвідом. Ми надаємо договори, акти виконаних робіт, сертифікати на препарати та оформлюємо журнал за нормами HACCP.'
+					a: 'Так! ТОВ «ОЗОН-ДЕЗ» — офіційна юридична особа з 15-річним досвідом. Ми надаємо договори, акти виконаних робіт, висновки на державну реєстрацію деззасобів, гарантію 6–12 міс. (+ знижка 10–15% на повторну обробку) та оформлюємо журнал за нормами HACCP.'
 				},
 				{
 					q: 'З якого разу гинуть комахи (таргани, клопи)?',
-					a: 'У 85-90% випадків популяція повністю гине з першої обробки завдяки генераторам туману та мікрокапсульованим інсектицидам тривалої залишкової дії. За потреби здійснюється гарантійний контрольний виїзд.'
+					a: 'У 85-90% випадків популяція повністю гине з першої обробки завдяки генераторам туману та мікрокапсульованим інсектицидам тривалої залишкової дії. Діє гарантія 6–12 міс. та знижка 10–15% на повторну обробку.'
+				},
+				{
+					q: 'Чи є доплата за виїзд по Одеській області та чи можлива обробка вночі?',
+					a: 'Виїзди здійснюються по всій Одеській області БЕЗ жодних доплат за дорогу (м. Чорноморськ, Одеса та всі райони області). Для підприємств та закладів HoReCa можливі виїзди 24/7 (нічні зміни без зупинки вашого бізнес-процесу).'
 				}
 			]
 		},
 		contacts: {
 			badge: 'Зв’яжіться з нами',
 			title: 'Контакти',
-			subtitle: 'м. Чорноморськ та Одеська область. Оперативний виїзд спеціаліста в день звернення.',
+			subtitle: 'м. Чорноморськ та вся Одеська область. Оперативний виїзд спеціаліста в день звернення без доплат.',
 			formTitle: 'Швидкий зв’язок зі спеціалістом',
 			formSubtitle: 'Залиште номер телефону, і черговий спеціаліст зв’яжеться з вами протягом 5 хвилин для консультації.',
 			labels: {
@@ -759,7 +750,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		modal: {
 			topTag: 'OZON-DEZ',
-			defaultTitle: 'Виклик спеціаліста',
+			defaultTitle: 'Викликати спеціаліста',
 			sub: 'Залиште ваш контакт — черговий спеціаліст розрахує точну вартість і запропонує найближчий зручний час виїзду.',
 			nameLbl: 'Ваше ім’я:',
 			namePlaceholder: 'Як до вас звертатися?',
@@ -803,16 +794,16 @@ export const contentMap: Record<Lang, ContentData> = {
 			city: 'г. Черноморск, г. Одесса и Одесская область'
 		},
 		workingHours: {
-			days: 'Пн – Пт',
-			hours: '09:00 – 15:00',
-			status: 'Выезды по договоренности (Пн – Пт: 09:00 – 15:00)'
+			days: 'Ежедневно',
+			hours: '08:00 – 20:00 (выезды 24/7)',
+			status: 'Прием звонков: 08:00 – 20:00 • Выезды: 24/7'
 		},
 		aboutCompany: {
 			badge: 'ООО «ОЗОН-ДЕЗ» • 15 лет опыта',
 			title: 'Профессиональная санитарно-эпидемиологическая безопасность',
 			subtitle: 'Полный комплекс дезинфекционных услуг и пест-контроля для населения и предприятий Одесского региона: профессиональное уничтожение насекомых, грызунов, вирусов и неприятных запахов по договору с гарантией результата.',
 			welcome: 'Вас приветствует ООО «ОЗОН-ДЕЗ»!',
-			intro: 'Предоставляем комплексные санитарно-профилактические и истребительные услуги физическим и юридическим лицам. За 15 лет успешной деятельности сформирована команда аттестованных специалистов, внедрены передовые методики, препараты 4-го класса безопасности, регламенты Минздрава Украины и системы HACCP.',
+			intro: 'Предоставляем комплексные санитарно-профилактические и истребительные услуги физическим и юридическим лицам. За 15 лет успешной деятельности сформирована команда квалифицированных специалистов, внедрены передовые методики, препараты 4-го класса безопасности, заключения государственной регистрации дезсредств и системы HACCP.',
 			servicesTitle: 'Наши ключевые услуги:',
 			services: [
 				{
@@ -847,9 +838,9 @@ export const contentMap: Record<Lang, ContentData> = {
 				}
 			],
 			audienceTitle: 'Физическим и юридическим лицам',
-			audienceDesc: 'Обслуживаем частные дома, квартиры, заведения HoReCa (рестораны, отели), склады, агропредприятия и производства. Предоставляем полный пакет официальных актов, договоров и сертификатов.',
+			audienceDesc: 'Обслуживаем частные дома, квартиры, заведения HoReCa (рестораны, отели), склады, агропредприятия и производства. Выезды по всей Одесской области без доплат, для бизнеса — 24/7 (ночные смены). Предоставляем полный пакет официальных актов, договоров и заключений государственной регистрации дезсредств.',
 			equipmentTitle: 'Современное оборудование и препараты',
-			equipmentDesc: 'Применяем исключительно зарегистрированные в Украине препараты 4-го класса безопасности и передовое оснащение: промышленные озонаторы, генераторы холодного и горячего тумана, аккумуляторные опрыскиватели.',
+			equipmentDesc: 'Применяем исключительно зарегистрированные в Украине препараты 4-го класса безопасности (Заключения государственной регистрации дезсредств) и передовое оснащение: промышленные озонаторы, генераторы холодного и горячего тумана, аккумуляторные опрыскиватели.',
 			teamTitle: 'Квалифицированные специалисты',
 			teamDesc: 'Работы выполняют опытные аттестованные специалисты с большим практическим стажем, гарантируя безопасность и максимальный результат.',
 			experienceTitle: '15 лет практического опыта',
@@ -858,7 +849,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			officeAddress: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
 			phonesTitle: 'Наши контакты:',
 			phones: '+38 (063) 667-26-53 (мобильный), +38 (04868) 6-03-08 (городской / офис)',
-			ctaSpecialist: 'Вызов специалиста',
+			ctaSpecialist: 'Вызвать специалиста',
 			ctaConsult: 'Получить консультацию'
 		},
 		hero: {
@@ -868,8 +859,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			subtitle: 'ООО «ОЗОН-ДЕЗ» — лицензированная служба санитарной безопасности. Услуги дезинсекции, дератизации, дезинфекции, озонирования и пест-контроля для населения и бизнеса. 15 лет опыта, зарегистрированные в Украине препараты, генераторы тумана и озонаторы.',
 			triggers: [
 				{
-					title: 'Зарегистрированные препараты',
-					desc: 'Сертифицированные в Украине средства 4-го класса безопасности и нормы HACCP'
+					title: 'Зарегистрированные дезсредства',
+					desc: 'Заключения государственной регистрации дезсредств 4-го класса безопасности и нормы HACCP'
 				},
 				{
 					title: '15 лет опыта',
@@ -877,7 +868,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Физическим и юрлицам',
-					desc: 'Полный пакет официальной документации, актов, договоров и гарантий'
+					desc: 'Вся Одесская область без доплат, выезды 24/7 для бизнеса, гарантия 6–12 мес.'
 				}
 			],
 			quickPainsLabel: 'Основные услуги санитарной безопасности:',
@@ -889,32 +880,29 @@ export const contentMap: Record<Lang, ContentData> = {
 				'Пест-контроль (HACCP)'
 			],
 			ctaPrimary: 'Рассчитать стоимость',
-			ctaSecondary: 'Вызов специалиста',
+			ctaSecondary: 'Вызвать специалиста',
 			experienceBadge: '15 лет безупречного опыта',
 			stats: {
 				stat1Val: '15+',
 				stat1Label: 'лет опыта безопасности',
 				stat2Val: '100%',
 				stat2Sub: 'гарантия по договору',
-				stat3Val: 'Минздрав & HACCP',
+				stat3Val: 'Госрегистрация & HACCP',
 				stat3Sub: 'зарегистрированные препараты'
 			}
 		},
 		nav: {
 			services: 'Услуги',
-			ozone: 'Озонирование O₃',
 			b2b: 'Для бизнеса',
-			agro: 'Агросектор',
-			water: 'Очистка воды',
 			howWeWork: 'Как работаем',
 			calculator: 'Калькулятор',
 			contacts: 'Контакты',
-			callBtn: 'Заказать звонок'
+			callBtn: 'Вызвать специалиста'
 		},
 		servicesSection: {
 			badge: 'Каталог услуг компании',
 			title: '5 ключевых направлений санитарной безопасности',
-			subtitle: 'Комплексная защита жилых, коммерческих и аграрных объектов в Черноморске и Одесской области по официальным стандартам Минздрава Украины и HACCP.',
+			subtitle: 'Комплексная защита жилых, коммерческих и аграрных объектов в Черноморске и по всей Одесской области (выезды без доплат, 24/7 для бизнеса) по официальным стандартам и системе HACCP.',
 			allTab: 'Все услуги',
 			priceLabel: 'Стоимость:',
 			orderBtn: 'Заказать услугу',
@@ -964,7 +952,7 @@ export const contentMap: Record<Lang, ContentData> = {
 						shortDesc: 'Обеззараживание поверхностей, емкостей и питьевой воды от вирусов и бактерий.',
 						fullDesc: 'Комплексная антимикробная обработка помещений, дезинфекция технологических резервуаров и систем водоснабжения сертифицированными составами IV класса безопасности.',
 						target: 'Жилье, офисы, медицинские учреждения, емкости воды',
-						features: ['Уничтожает 99.9% патогенов', 'Безопасно для людей и животных', 'Сертифицированные препараты МОЗ'],
+						features: ['Уничтожает 99.9% патогенов', 'Безопасно для людей и животных', 'Заключения госрегистрации дезсредств'],
 						priceFrom: 'от 850 грн'
 					}
 				]
@@ -1003,16 +991,6 @@ export const contentMap: Record<Lang, ContentData> = {
 						target: 'Ванные, подвалы, угловые квартиры, склады',
 						features: ['Уничтожает мицелий и споры', 'Противогрибковая барьерная защита', 'Оздоравливает микроклимат'],
 						priceFrom: 'от 950 грн'
-					},
-					{
-						id: 'demercurization',
-						title: 'Демеркуризация (Устранение ртути)',
-						shortDesc: 'Нейтрализация опасных паров ртути при повреждении ламп или медицинских градусников.',
-						fullDesc: 'Оперативный выезд специалиста для поиска источников паров ртути. Химическая демеркуризация сертифицированными составами с полной нейтрализацией паров.',
-						target: 'Квартиры, офисы, медицинские кабинеты',
-						features: ['Выезд за 30-45 мин', 'Химическое связывавание ртути', 'Контрольный замер чистоты'],
-						badge: 'Экстренно',
-						priceFrom: 'от 1 200 грн'
 					}
 				]
 			},
@@ -1088,7 +1066,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Полный пакет документов для проверок',
-					desc: 'Журналы пест-контроля, схемы расстановки станций мониторинга, сертификаты на препараты и акты.'
+					desc: 'Журналы пест-контроля, схемы расстановки станций мониторинга, заключения государственной регистрации дезсредств и акты.'
 				},
 				{
 					title: 'Стандарты HACCP (ХАССП)',
@@ -1122,7 +1100,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		howWeWork: {
 			badge: 'Прозрачная и надежная схема',
 			title: 'Как мы работаем: 5 простых шагов',
-			subtitle: 'Прозрачный процесс от звонка до защищенного объекта: подбор сертифицированных препаратов 4-го класса, выезд специалиста, обработка и официальный гарантийный акт.',
+			subtitle: 'Прозрачный процесс от звонка до защищенного объекта: подбор зарегистрированных препаратов 4-го класса, выезд специалиста, обработка и официальный гарантийный акт.',
 			steps: [
 				{
 					step: 1,
@@ -1142,12 +1120,12 @@ export const contentMap: Record<Lang, ContentData> = {
 				{
 					step: 4,
 					title: 'Безопасная обработка',
-					desc: 'Быстрый выезд и проведение работ в удобное для вас время. Процедура занимает от 30 до 90 минут.'
+					desc: 'Оперативный выезд специалиста по всей Одесской области без доплат. Для бизнеса доступны ночные смены 24/7.'
 				},
 				{
 					step: 5,
 					title: 'Результат и гарантия',
-					desc: 'Чистый и безопасный объект с гарантией качества. Предоставление актов и рекомендаций по профилактике.'
+					desc: 'Чистый и безопасный объект с гарантией 6–12 мес. и скидкой 10–15% на повторную обработку.'
 				}
 			],
 			prepBanner: {
@@ -1172,7 +1150,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{ code: '85.32', title: 'Профессионально-техническое образование', desc: 'Обучение и санитарные инструктажи персонала предприятий' }
 			],
 			guaranteeTitle: 'Официальный юридический статус:',
-			guaranteeText: 'ООО «ОЗОН-ДЕЗ» использует зарегистрированные в Украине препараты, действует собственная служба технологического контроля по требованиям Госпродпотребслужбы и регламентам МОЗ Украины.'
+			guaranteeText: 'ООО «ОЗОН-ДЕЗ» использует зарегистрированные в Украине препараты (Заключения государственной регистрации дезсредств 4-го класса безопасности). Гарантия 6–12 мес. и скидка 10–15% на повторную обработку. Выезды по всей Одесской области без доплат, для бизнеса — выезды 24/7 (ночные смены).'
 		},
 		calculator: {
 			title: 'Онлайн-калькулятор стоимости',
@@ -1182,8 +1160,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			step3: 'Площадь обработки (м²):',
 			step4: 'Дополнительные опции:',
 			estimateBadge: 'Предварительная смета',
-			estimateTitle: 'Ориентировочная стоимость:',
-			estimateNote: '* Включает стоимость сертифицированных препаратов, работу специалиста и гарантийное обслуживание.',
+			estimateTitle: 'Ориентировочный расчет стоимости:',
+			estimateNote: '* Включает работу специалиста, препараты с государственной регистрацией, выезд по всей Одесской области без доплат и гарантию 6–12 мес. (скидка 10–15% на повторную обработку).',
 			labels: {
 				object: 'Объект:',
 				service: 'Услуга:',
@@ -1214,7 +1192,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Зафиксировать цену и получить скидку 10%',
 				namePlaceholder: 'Ваше имя',
 				phonePlaceholder: 'Номер телефона (напр. 063 667-26-53)',
-				submitBtn: 'Заказать выезд специалиста за',
+				submitBtn: 'Вызвать специалиста',
 				privacy: 'Ваши данные конфиденциальны и не передаются третьим лицам.',
 				successTitle: 'Обращение принято!',
 				successDesc: 'Мы зафиксировали для вас цену. Дежурный специалист перезвонит вам в течение 5 минут.',
@@ -1227,7 +1205,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			items: [
 				{
 					q: 'Опасны ли препараты для детей и домашних питомцев?',
-					a: 'Нет. Мы используем препараты IV класса безопасности (малоопасные), одобренные МОЗ Украины. На время обработки и проветривания (1.5–3 часа) помещение необходимо освободить, после чего находиться в нем полностью безопасно.'
+					a: 'Нет. Мы используем препараты IV класса безопасности (малоопасные) с официальными Заключениями государственной регистрации дезсредств. При аэрозольной обработке помещение освобождают на 2–3 часа с последующим проветриванием 30–40 мин. При гелевой обработке от тараканов покидать помещение вообще не требуется!'
 				},
 				{
 					q: 'Как подготовить квартиру к обработке от насекомых?',
@@ -1239,18 +1217,22 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					q: 'Предоставляете ли вы документы для проверок Госпродпотребслужбы?',
-					a: 'Да! ООО «ОЗОН-ДЕЗ» — официальное юридическое лицо с 15-летним опытом. Мы предоставляем договор, акты выполненных работ, паспорта на препараты и формируем журнал учета по стандарту HACCP.'
+					a: 'Да! ООО «ОЗОН-ДЕЗ» — официальное юридическое лицо с 15-летним опытом. Мы предоставляем договор, акты выполненных работ, заключения государственной регистрации дезсредств, гарантию 6–12 мес. (+ скидка 10–15% на повторную обработку) и формируем журнал учета по стандарту HACCP.'
 				},
 				{
 					q: 'С какого раза погибают тараканы и клопы?',
-					a: 'В 85-90% случаев популяция полностью уничтожается за 1 процедуру благодаря генераторам тумана и микрокапсулированным инсектицидам длительного действия. При необходимости проводится гарантийный контрольный выезд.'
+					a: 'В 85-90% случаев популяция полностью уничтожается за 1 процедуру благодаря генераторам тумана и микрокапсулированным инсектицидам длительного действия. Действует гарантия 6–12 мес. и скидка 10–15% на повторную обработку.'
+				},
+				{
+					q: 'Есть ли доплата за выезд по Одесской области и возможна ли ночная обработка?',
+					a: 'Выезды осуществляются по всей Одесской области БЕЗ каких-либо доплат за дорогу (г. Черноморск, Одесса и все районы области). Для бизнеса и заведений HoReCa возможны выезды 24/7 (ночные смены без остановки вашего бизнеса).'
 				}
 			]
 		},
 		contacts: {
 			badge: 'Свяжитесь с нами',
 			title: 'Контакты',
-			subtitle: 'г. Черноморск и Одесская область. Оперативный выезд специалиста в день обращения.',
+			subtitle: 'г. Черноморск и вся Одесская область. Оперативный выезд специалиста в день обращения без доплат.',
 			formTitle: 'Быстрая связь со специалистом',
 			formSubtitle: 'Оставьте номер телефона, и дежурный специалист перезвонит вам в течение 5 минут для консультации.',
 			labels: {
@@ -1284,7 +1266,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		modal: {
 			topTag: 'OZON-DEZ',
-			defaultTitle: 'Вызов специалиста',
+			defaultTitle: 'Вызвать специалиста',
 			sub: 'Оставьте контакт — дежурный специалист рассчитает точную стоимость и предложит ближайшее удобное время выезда.',
 			nameLbl: 'Ваше имя:',
 			namePlaceholder: 'Как к вам обращаться?',
@@ -1328,16 +1310,16 @@ export const contentMap: Record<Lang, ContentData> = {
 			city: 'Chornomorsk, Odesa and Odesa region'
 		},
 		workingHours: {
-			days: 'Mon – Fri',
-			hours: '09:00 – 15:00',
-			status: 'Visits by appointment (Mon – Fri: 09:00 – 15:00)'
+			days: 'Daily',
+			hours: '08:00 – 20:00 (dispatches 24/7)',
+			status: 'Call reception: 08:00 – 20:00 • Dispatches: 24/7'
 		},
 		aboutCompany: {
 			badge: 'LLC "OZON-DEZ" • 15 Years of Experience',
 			title: 'Professional Sanitary & Epidemiological Safety',
 			subtitle: 'Comprehensive disinfection and pest-control services across Chornomorsk, Odesa, and region: professional extermination of insects, rodents, viruses, and odors under contract with guaranteed results.',
 			welcome: 'Welcome to LLC "OZON-DEZ"!',
-			intro: 'Providing complete preventive and extermination services for residential and commercial clients. Backed by 15 years of continuous experience with certified specialists, advanced methodologies, safety class 4 approved compounds, Ministry of Health regulations, and HACCP standards.',
+			intro: 'Providing complete preventive and extermination services for residential and commercial clients. Backed by 15 years of continuous experience with certified specialists, advanced methodologies, safety class 4 approved compounds, official state registration conclusions, and HACCP standards.',
 			servicesTitle: 'Our Core Services:',
 			services: [
 				{
@@ -1372,9 +1354,9 @@ export const contentMap: Record<Lang, ContentData> = {
 				}
 			],
 			audienceTitle: 'For Private Individuals & Commercial Entities',
-			audienceDesc: 'Serving residences, cottages, restaurants, hotels (HoReCa), warehouses, agricultural hubs, and food processing plants. Complete documentation, acts, contracts, and certifications provided.',
+			audienceDesc: 'Serving residences, cottages, restaurants, hotels (HoReCa), warehouses, agricultural hubs, and food processing plants. Dispatches across entire Odesa region with zero travel surcharges, 24/7 for business. Complete documentation, acts, contracts, and state registration conclusions provided.',
 			equipmentTitle: 'Modern Equipment & Certified Formulations',
-			equipmentDesc: 'We exclusively apply Ukrainian state-registered formulations (class 4 safety) that are safe for humans and pets, alongside industrial ozonators, cold and thermal fog generators, and precision battery sprayers.',
+			equipmentDesc: 'We exclusively apply Ukrainian state-registered formulations (class 4 safety with official registration conclusions) alongside industrial ozonators, cold and thermal fog generators, and precision battery sprayers.',
 			teamTitle: 'Qualified Specialists',
 			teamDesc: 'Our operations are carried out by certified disinfection professionals with years of hands-on expertise, ensuring safety and optimal results.',
 			experienceTitle: '15 Years of Practical Experience',
@@ -1383,7 +1365,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			officeAddress: 'Odesa region, Chornomorsk, 8-A Myru Ave.',
 			phonesTitle: 'Our Contacts:',
 			phones: '+38 (063) 667-26-53 (mobile), +38 (04868) 6-03-08 (office / landline)',
-			ctaSpecialist: 'Call a specialist',
+			ctaSpecialist: 'Call specialist',
 			ctaConsult: 'Get consultation'
 		},
 		hero: {
@@ -1393,8 +1375,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			subtitle: 'LLC "OZON-DEZ" is a certified sanitary safety service. Providing disinsection, deratization, disinfection, ozonation, and pest control for residential and corporate clients. 15 years of experience, Ukrainian-registered preparations, fog generators, and ozonators.',
 			triggers: [
 				{
-					title: 'Registered Preparations',
-					desc: 'Certified in Ukraine, class 4 safety preparations and HACCP protocols'
+					title: 'State-Registered Formulations',
+					desc: 'Official state registration conclusions for class 4 disinfectants and HACCP standards'
 				},
 				{
 					title: '15 Years Experience',
@@ -1402,7 +1384,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'B2C & B2B Solutions',
-					desc: 'Full package of official documentation, work acts, contracts, and warranties'
+					desc: 'Entire Odesa region without travel surcharges, 24/7 for business, 6–12 mos. warranty'
 				}
 			],
 			quickPainsLabel: 'Core sanitary safety services:',
@@ -1414,32 +1396,29 @@ export const contentMap: Record<Lang, ContentData> = {
 				'Pest Control (HACCP)'
 			],
 			ctaPrimary: 'Calculate Cost',
-			ctaSecondary: 'Call a specialist',
+			ctaSecondary: 'Call specialist',
 			experienceBadge: '15 years of proven excellence',
 			stats: {
 				stat1Val: '15+',
 				stat1Label: 'years of safety experience',
 				stat2Val: '100%',
 				stat2Sub: 'contract warranty',
-				stat3Val: 'MoH & HACCP',
+				stat3Val: 'State Registered & HACCP',
 				stat3Sub: 'certified formulations'
 			}
 		},
 		nav: {
 			services: 'Services',
-			ozone: 'Ozonation O₃',
 			b2b: 'For Business',
-			agro: 'Agri-sector',
-			water: 'Water Treatment',
 			howWeWork: 'How We Work',
 			calculator: 'Calculator',
 			contacts: 'Contacts',
-			callBtn: 'Request a call'
+			callBtn: 'Call specialist'
 		},
 		servicesSection: {
 			badge: 'Company Service Catalog',
 			title: '5 Core Pillars of Sanitary Security',
-			subtitle: 'Comprehensive protection of residential, commercial, and agricultural facilities in Chornomorsk and Odesa region under official MoH and HACCP standards.',
+			subtitle: 'Comprehensive protection of residential, commercial, and agricultural facilities in Chornomorsk and across Odesa region (no travel fees, 24/7 for business) under official standards and HACCP.',
 			allTab: 'All Services',
 			priceLabel: 'Price:',
 			orderBtn: 'Order Service',
@@ -1489,7 +1468,7 @@ export const contentMap: Record<Lang, ContentData> = {
 						shortDesc: 'Sanitization of surfaces, storage tanks, and drinking water from bacteria and viruses.',
 						fullDesc: 'Comprehensive antimicrobial sanitization of rooms, water storage tanks, and pipe infrastructure using class-4 safe formulations.',
 						target: 'Residences, offices, medical clinics, water tanks',
-						features: ['Kills 99.9% viruses and microbes', 'Safe for humans and pets', 'Certified MoH formulations'],
+						features: ['Kills 99.9% viruses and microbes', 'Safe for humans and pets', 'State registration conclusions'],
 						priceFrom: 'from 850 UAH'
 					}
 				]
@@ -1528,16 +1507,6 @@ export const contentMap: Record<Lang, ContentData> = {
 						target: 'Bathrooms, cellars, corner apartments, warehouses',
 						features: ['Destroys mold roots', 'Antifungal barrier protection', 'Healthier indoor climate'],
 						priceFrom: 'from 950 UAH'
-					},
-					{
-						id: 'demercurization',
-						title: 'Demercurization (Mercury Neutralization)',
-						shortDesc: 'Neutralization of hazardous mercury vapors from broken thermometers or fluorescent lamps.',
-						fullDesc: 'Rapid specialist arrival with vapor detection instruments, mechanical containment, and chemical deactivation.',
-						target: 'Apartments, offices, medical offices',
-						features: ['Arrival within 30-45 minutes', 'Chemical binding of mercury', 'Vapor verification test'],
-						badge: 'Emergency',
-						priceFrom: 'from 1 200 UAH'
 					}
 				]
 			},
@@ -1613,7 +1582,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					title: 'Full Package of Inspection Documentation',
-					desc: 'Pest control logs, monitoring point layouts, chemical safety sheets, and work completion acts.'
+					desc: 'Pest control logs, monitoring point layouts, state registration conclusions, and work completion acts.'
 				},
 				{
 					title: 'HACCP Standard Compliance',
@@ -1647,7 +1616,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		howWeWork: {
 			badge: 'Transparent and Reliable Workflow',
 			title: 'How We Work: 5 Simple Steps',
-			subtitle: 'Transparent protocol from call to secured facility: certified Class 4 compounds, precision on-site treatment, and official warranty certificate.',
+			subtitle: 'Transparent protocol from call to secured facility: state-registered Class 4 compounds, precision on-site treatment, and official warranty certificate.',
 			steps: [
 				{
 					step: 1,
@@ -1667,12 +1636,12 @@ export const contentMap: Record<Lang, ContentData> = {
 				{
 					step: 4,
 					title: 'Fast & Safe Treatment',
-					desc: 'Specialist arrival at your preferred time. The procedure takes between 30 and 90 minutes on average.'
+					desc: 'Prompt specialist arrival across entire Odesa region without extra fees. 24/7 night shifts available for business.'
 				},
 				{
 					step: 5,
 					title: 'Result & Warranty',
-					desc: 'Clean, safe premises, signing of official work acts, warranty certificate issuance, and prevention advice.'
+					desc: 'Clean, safe premises, signing of official work acts, 6–12 months warranty, and a 10–15% re-treatment discount.'
 				}
 			],
 			prepBanner: {
@@ -1697,7 +1666,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				{ code: '85.32', title: 'Technical and vocational secondary education', desc: 'Sanitary safety training for enterprise staff' }
 			],
 			guaranteeTitle: 'Official Legal Status:',
-			guaranteeText: 'LLC "OZON-DEZ" exclusively applies preparations registered in Ukraine, operating our own quality control oversight aligned with State Service on Food Safety and MoH regulations.'
+			guaranteeText: 'LLC "OZON-DEZ" exclusively applies preparations registered in Ukraine (official state registration conclusions for class 4 disinfectants). Warranty of 6–12 months with a 10–15% re-treatment discount. Dispatches across Odesa region without extra fees, 24/7 for business.'
 		},
 		calculator: {
 			title: 'Online Price Calculator',
@@ -1707,8 +1676,8 @@ export const contentMap: Record<Lang, ContentData> = {
 			step3: 'Treatment area (m²):',
 			step4: 'Additional options:',
 			estimateBadge: 'Preliminary Estimate',
-			estimateTitle: 'Estimated Cost:',
-			estimateNote: '* Includes certified formulations, specialist labor, and warranty service.',
+			estimateTitle: 'Estimated Cost Calculation:',
+			estimateNote: '* Includes specialist labor, state-registered preparations, zero extra travel fees across Odesa region, and 6–12 months warranty (10–15% re-treatment discount).',
 			labels: {
 				object: 'Object:',
 				service: 'Service:',
@@ -1739,7 +1708,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Lock In Your Price & Get 10% Discount',
 				namePlaceholder: 'Your name',
 				phonePlaceholder: 'Phone number (e.g. 063 667-26-53)',
-				submitBtn: 'Book specialist visit for',
+				submitBtn: 'Call specialist',
 				privacy: 'Your data is confidential and never shared with third parties.',
 				successTitle: 'Inquiry Received!',
 				successDesc: 'We have locked in your price. An on-duty specialist will call you back within 5 minutes.',
@@ -1752,7 +1721,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			items: [
 				{
 					q: 'Are the chemical preparations dangerous for children and pets?',
-					a: 'No. We utilize formulations registered in Ukraine with Class IV safety (low toxicity). Premises should be vacated during treatment and airing (1.5–3 hours), after which they are 100% safe to inhabit.'
+					a: 'No. We utilize formulations registered in Ukraine with Class IV safety (low toxicity) and official state registration conclusions. For aerosol fogging, premises are vacated for 2–3 hours followed by 30–40 min aeration. For cockroach gel treatments, leaving the premises is completely unnecessary!'
 				},
 				{
 					q: 'How should I prepare the apartment before the specialist arrives?',
@@ -1764,18 +1733,22 @@ export const contentMap: Record<Lang, ContentData> = {
 				},
 				{
 					q: 'Do you provide official documentation for state audits?',
-					a: 'Yes! LLC "OZON-DEZ" is an officially registered legal entity with 15 years of continuous experience. We provide contracts, work completion acts, chemical data sheets, and HACCP monitoring registers.'
+					a: 'Yes! LLC "OZON-DEZ" is an officially registered legal entity with 15 years of continuous experience. We provide contracts, work completion acts, official state registration conclusions, 6–12 mos. warranty (10–15% re-treatment discount), and HACCP registers.'
 				},
 				{
 					q: 'How many sessions are required to eradicate cockroaches or bedbugs?',
-					a: 'In 85-90% of situations, the entire population is eliminated in a single procedure using our ULV fog generators and microencapsulated long-lasting residual insecticides. Follow-up warranty visits are provided if needed.'
+					a: 'In 85-90% of situations, the entire population is eliminated in a single procedure using our ULV fog generators and microencapsulated long-lasting residual insecticides. 6–12 mos. warranty and 10–15% re-treatment discount applies.'
+				},
+				{
+					q: 'Are there additional travel charges across Odesa region, and are night treatments possible?',
+					a: 'Dispatches are carried out throughout the entire Odesa region with ZERO travel surcharges (Chornomorsk, Odesa, and all regional districts). For commercial entities and HoReCa venues, 24/7 night shifts are available without interrupting business operations.'
 				}
 			]
 		},
 		contacts: {
 			badge: 'Get in Touch',
 			title: 'Contacts',
-			subtitle: 'Chornomorsk and Odesa region. Same-day specialist dispatch upon request.',
+			subtitle: 'Chornomorsk and entire Odesa region. Same-day specialist dispatch without extra fees.',
 			formTitle: 'Direct Contact with a Specialist',
 			formSubtitle: 'Leave your phone number and an on-duty specialist will call you back within 5 minutes for a free consultation.',
 			labels: {

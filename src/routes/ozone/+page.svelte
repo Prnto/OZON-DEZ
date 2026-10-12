@@ -23,10 +23,10 @@
 	<meta
 		name="description"
 		content={langState.current === 'ua'
-			? 'Глибоке озонування газом O₃ приміщень та ємностей, видалення запахів, знищення плісняви та демеркуризація ртуті в Чорноморську та Одеській області.'
+			? 'Глибоке озонування газом O₃ приміщень та ємностей, видалення запахів та знищення плісняви в Чорноморську та по всій Одеській області.'
 			: langState.current === 'ru'
-			? 'Глубокое озонирование газом O₃ помещений и емкостей, удаление запахов, уничтожение плесени и демеркуризация ртути в Черноморске и Одесской области.'
-			: 'Deep O3 gas ozonation of premises and storage containers, odor elimination, mold destruction, and mercury demercurization in Chornomorsk and Odesa region.'}
+			? 'Глубокое озонирование газом O₃ помещений и емкостей, удаление запахов и уничтожение плесени в Черноморске и по всей Одесской области.'
+			: 'Deep O3 gas ozonation of premises and storage containers, odor elimination and mold destruction in Chornomorsk and throughout Odesa region.'}
 	/>
 </svelte:head>
 
@@ -151,15 +151,15 @@
 					{#if langState.current === 'ua'}Спеціалізація озон-послуг{:else if langState.current === 'ru'}Специализация озон-услуг{:else}Ozone Services{/if}
 				</div>
 				<h2 class="section-title">
-					{#if langState.current === 'ua'}4 напрямки еко-очищення приміщень{:else if langState.current === 'ru'}4 направления эко-очистки помещений{:else}4 eco-purification directions{/if}
+					{#if langState.current === 'ua'}3 напрямки еко-очищення приміщень{:else if langState.current === 'ru'}3 направления эко-очистки помещений{:else}3 eco-purification directions{/if}
 				</h2>
 				<p class="section-subtitle">
 					{#if langState.current === 'ua'}
-						Від комплексного знезараження квартир та ємностей до ліквідації стійких запахів, плісняви та демеркуризації ртуті.
+						Від комплексного знезараження квартир та ємностей до ліквідації стійких запахів та плісняви.
 					{:else if langState.current === 'ru'}
-						От комплексного обеззараживания квартир и емкостей до ликвидации стойких запахов, плесени и демеркуризации ртути.
+						От комплексного обеззараживания квартир и емкостей до ликвидации стойких запахов и плесени.
 					{:else}
-						From comprehensive purification of rooms and storage containers to permanent odor elimination, mold remediation, and mercury demercurization.
+						From comprehensive purification of rooms and storage containers to permanent odor and mold remediation.
 					{/if}
 				</p>
 			</div>

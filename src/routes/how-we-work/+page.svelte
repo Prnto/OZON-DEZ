@@ -22,10 +22,10 @@
 	<meta
 		name="description"
 		content={langState.current === 'ua'
-			? 'Покроковий регламент проведення дезінфекції, дезінсекції, дератизації, озонування та пест-контролю від ТОВ «ОЗОН-ДЕЗ». Офіційний договір, ліцензії МОЗ та акти виконаних робіт.'
+			? 'Покроковий регламент проведення дезінфекції, дезінсекції, дератизації, озонування та пест-контролю від ТОВ «ОЗОН-ДЕЗ». Офіційний договір, висновки на державну реєстрацію деззасобів та акти виконаних робіт.'
 			: langState.current === 'ru'
-			? 'Пошаговый регламент проведения дезинфекции, дезинсекции, дератизации, озонирования и пест-контроля от ООО «ОЗОН-ДЕЗ». Официальный договор, лицензии МОЗ и акты выполненных работ.'
-			: 'Step-by-step protocol for disinfection, disinsection, deratization, ozonation, and pest control by LLC "OZON-DEZ". Official contract, certified products, and reports.'}
+			? 'Пошаговый регламент проведения дезинфекции, дезинсекции, дератизации, озонирования и пест-контроля от ООО «ОЗОН-ДЕЗ». Официальный договор, заключения на государственную регистрацию дезсредств и акты выполненных работ.'
+			: 'Step-by-step protocol for disinfection, disinsection, deratization, ozonation, and pest control by LLC "OZON-DEZ". Official contract, state registration conclusions, and acts of work.'}
 	/>
 </svelte:head>
 

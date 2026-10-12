@@ -80,6 +80,7 @@
 							width="44"
 							height="44"
 							loading="lazy"
+							decoding="async"
 						/>
 					</div>
 					<div class="city-card-body">
@@ -120,6 +121,7 @@
 							width="44"
 							height="44"
 							loading="lazy"
+							decoding="async"
 						/>
 					</div>
 					<div class="city-card-body">
@@ -160,6 +162,7 @@
 							width="44"
 							height="44"
 							loading="lazy"
+							decoding="async"
 						/>
 					</div>
 					<div class="city-card-body">
@@ -200,6 +203,7 @@
 							width="44"
 							height="44"
 							loading="lazy"
+							decoding="async"
 						/>
 					</div>
 					<div class="city-card-body">
@@ -240,6 +244,7 @@
 							width="44"
 							height="44"
 							loading="lazy"
+							decoding="async"
 						/>
 					</div>
 					<div class="city-card-body">
@@ -280,6 +285,7 @@
 							width="44"
 							height="44"
 							loading="lazy"
+							decoding="async"
 						/>
 					</div>
 					<div class="city-card-body">

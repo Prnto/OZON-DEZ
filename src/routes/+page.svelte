@@ -104,11 +104,11 @@
 						</div>
 						<div class="prev-footnote">
 							{#if langState.current === 'ua'}
-								* Всі ціни включають виїзд спеціаліста, сертифіковані препарати та гарантійний акт.
+								* Виїзди по всій Одеській області без доплат. Гарантія 6–12 міс. та знижка 10–15% на повторну обробку.
 							{:else if langState.current === 'ru'}
-								* Все цены включают выезд специалиста, сертифицированные препараты и гарантийный акт.
+								* Выезды по всей Одесской области без доплат. Гарантия 6–12 мес. и скидка 10–15% на повторную обработку.
 							{:else}
-								* All prices include specialist visit, certified preparations, and warranty certificate.
+								* Dispatches across Odesa region without extra fees. 6–12 months warranty and 10–15% retreat discount.
 							{/if}
 						</div>
 					</div>

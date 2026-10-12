@@ -57,7 +57,10 @@
 							src={asset('images/water-purification.webp')}
 							alt="Дезінфекція систем водопостачання та очищення води ОЗОН-ДЕЗ"
 							class="water-img"
+							width="640"
+							height="420"
 							loading="lazy"
+							decoding="async"
 						/>
 						<div class="water-badge-overlay">
 							<span class="shield-badge">{water.badgeOverlay.shield}</span>

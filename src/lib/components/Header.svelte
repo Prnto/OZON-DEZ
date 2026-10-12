@@ -96,6 +96,20 @@
 								Disinfection
 							{/if}
 						</a>
+						<span class="spec-dot" aria-hidden="true">•</span>
+						<a
+							href="{resolve('/services')}#ozonation"
+							class="spec-link"
+							title="{langState.current === 'ua' ? 'Озонування — переглянути опис' : langState.current === 'ru' ? 'Озонирование — смотреть описание' : 'Ozonation — view service'}"
+						>
+							{#if langState.current === 'ua'}
+								Озонування
+							{:else if langState.current === 'ru'}
+								Озонирование
+							{:else}
+								Ozonation
+							{/if}
+						</a>
 					</div>
 				</div>
 
