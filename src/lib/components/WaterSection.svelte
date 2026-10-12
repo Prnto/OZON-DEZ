@@ -82,9 +82,27 @@
 	.water-card {
 		padding: 3.5rem;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
+		transition: var(--hover-transition);
+	}
+
+	.water-card:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+	}
+
+	:global(html[data-theme="light"]) .water-card {
+		background: #ffffff;
+		border: 1.5px solid #c9cbbe;
+		box-shadow: none;
+		transition: var(--hover-transition);
+	}
+
+	:global(html[data-theme="light"]) .water-card:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	@media (max-width: 900px) {

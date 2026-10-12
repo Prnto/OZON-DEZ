@@ -486,25 +486,35 @@
 
 	.back-to-top {
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		color: var(--color-silver-mist);
 		padding: 0.45rem 1rem;
 		border-radius: var(--radius-pill);
 		font-size: 0.8rem;
 		font-weight: 600;
 		cursor: pointer;
-		transition: all var(--transition-fast);
+		transition: var(--hover-transition);
+	}
+
+	.back-to-top:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+		color: #ffffff;
+		transform: translateY(-2px);
 	}
 
 	:global(html[data-theme="light"]) .back-to-top {
 		background: #151f20;
-		border-color: #4d5757;
+		border: 1.5px solid #4d5757;
 		color: #ffffff;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .back-to-top:hover {
-		background: #cef79e;
-		border-color: #cef79e;
-		color: #222f30;
+		background: #151f20;
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+		color: #ffffff;
+		transform: translateY(-2px);
 	}
 </style>

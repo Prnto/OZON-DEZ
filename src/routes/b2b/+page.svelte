@@ -248,18 +248,19 @@
 		padding: 0;
 		overflow: hidden;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+		transition: var(--hover-transition);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
 	}
 
 	.ind-card:hover {
 		transform: translateY(-4px);
-		border-color: #cef79e;
-		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 20px rgba(206, 247, 158, 0.2);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.ind-card-media {
@@ -419,13 +420,15 @@
 
 	:global(html[data-theme="light"]) .ind-card {
 		background: #ffffff;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
 		box-shadow: none !important;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .ind-card:hover {
-		border-color: #8ec94b;
-		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.15) !important;
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow) !important;
+		transform: translateY(-4px);
 	}
 
 	:global(html[data-theme="light"]) .ind-card h3 {

@@ -273,8 +273,9 @@
 	}
 
 	.close-btn:hover {
-		border-color: var(--color-electric-iris);
+		border-color: var(--hover-border-color);
 		color: var(--color-bone-white);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.modal-top-tag {
@@ -426,26 +427,27 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: var(--radius-buttons);
-		transition: all var(--transition-fast);
+		transition: var(--hover-transition);
 		background: transparent;
-		border: 1.5px solid #008F45;
+		border: 1.5px solid rgba(16, 185, 129, 0.6);
 		color: #ffffff;
+		cursor: pointer;
 	}
 
 	.modal-submit-btn:hover:not(:disabled) {
-		background: rgba(0, 230, 64, 0.08);
-		border-color: #00E640;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
-		box-shadow: 0 0 18px rgba(0, 230, 64, 0.55), 0 0 6px rgba(0, 230, 64, 0.35);
+		box-shadow: var(--hover-shadow);
 		transform: translateY(-1px);
 	}
 
 	.modal-submit-btn:active:not(:disabled) {
-		background: rgba(0, 230, 64, 0.16);
-		border-color: #00E640;
+		background: rgba(16, 185, 129, 0.22);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
 		transform: translateY(0);
-		box-shadow: 0 0 22px rgba(0, 230, 64, 0.7);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.modal-submit-text {
@@ -453,18 +455,20 @@
 		display: inline-block;
 	}
 
-	/* Light theme: guaranteed lime green solid fill, dark high-contrast readable text */
+	/* Light theme: guaranteed solid fill, high-contrast readable text */
 	:global(html[data-theme="light"]) .modal-submit-btn,
 	:global(html.theme-light) .modal-submit-btn,
 	:global(body[data-theme="light"]) .modal-submit-btn,
 	:global(body.theme-light) .modal-submit-btn,
 	:global([data-theme="light"]) .modal-submit-btn,
 	.modal-submit-btn.theme-is-light {
-		background: #cef79e !important;
-		color: #151f20 !important;
-		border: 1.5px solid #b8eb83 !important;
+		background: #059669 !important;
+		color: #ffffff !important;
+		border: 1.5px solid #047857 !important;
 		font-weight: 700 !important;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+		box-shadow: 0 2px 10px rgba(5, 150, 105, 0.2) !important;
+		transition: var(--hover-transition) !important;
+		cursor: pointer !important;
 	}
 
 	:global(html[data-theme="light"]) .modal-submit-btn:hover:not(:disabled),
@@ -473,11 +477,11 @@
 	:global(body.theme-light) .modal-submit-btn:hover:not(:disabled),
 	:global([data-theme="light"]) .modal-submit-btn:hover:not(:disabled),
 	.modal-submit-btn.theme-is-light:hover:not(:disabled) {
-		background: #b8eb83 !important;
-		border-color: #8ec94b !important;
-		color: #151f20 !important;
-		box-shadow: 0 6px 20px rgba(184, 235, 131, 0.45) !important;
-		transform: translateY(-2px);
+		background: #047857 !important;
+		border-color: var(--hover-border-color) !important;
+		color: #ffffff !important;
+		box-shadow: var(--hover-shadow) !important;
+		transform: translateY(-1px);
 	}
 
 	:global(html[data-theme="light"]) .modal-submit-btn:active:not(:disabled),

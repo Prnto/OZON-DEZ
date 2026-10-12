@@ -93,16 +93,18 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		position: relative;
-		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		transition: var(--hover-transition);
 		box-shadow: none;
+		cursor: pointer;
 	}
 
 	.step-card:hover {
 		transform: translateY(-3px);
-		border-color: var(--color-electric-iris);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.step-badge-circle {
@@ -119,7 +121,7 @@
 	}
 
 	.step-card:hover .step-badge-circle {
-		border-color: var(--color-electric-iris);
+		border-color: var(--hover-border-color);
 	}
 
 	.step-index {
@@ -157,9 +159,15 @@
 		justify-content: space-between;
 		gap: 2rem;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		box-shadow: none;
+		transition: var(--hover-transition);
+	}
+
+	.prep-tips-box:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	@media (max-width: 800px) {
@@ -196,14 +204,27 @@
 	}
 
 	:global(html[data-theme="light"]) .step-card {
-		background: rgba(255, 255, 255, 0.8);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+		background: #ffffff;
+		border: 1.5px solid #c9cbbe;
+		box-shadow: none;
+		transition: var(--hover-transition);
+	}
+
+	:global(html[data-theme="light"]) .step-card:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+		transform: translateY(-3px);
 	}
 
 	:global(html[data-theme="light"]) .prep-tips-box {
-		background: rgba(255, 255, 255, 0.85);
-		border-color: rgba(15, 23, 42, 0.08);
-		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+		background: #ffffff;
+		border: 1.5px solid #c9cbbe;
+		box-shadow: none;
+		transition: var(--hover-transition);
+	}
+
+	:global(html[data-theme="light"]) .prep-tips-box:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 </style>

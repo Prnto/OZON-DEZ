@@ -375,15 +375,30 @@
 		flex-direction: column;
 		justify-content: space-between;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
-		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		transition: var(--hover-transition);
 		box-shadow: none;
+		cursor: pointer;
 	}
 
 	.ozone-srv-card:hover {
 		transform: translateY(-2px);
-		border-color: var(--color-electric-iris);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+	}
+
+	:global(html[data-theme="light"]) .ozone-srv-card {
+		background: #ffffff;
+		border: 1.5px solid #c9cbbe;
+		box-shadow: none;
+		transition: var(--hover-transition);
+	}
+
+	:global(html[data-theme="light"]) .ozone-srv-card:hover {
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+		transform: translateY(-2px);
 	}
 
 	.srv-top-row {

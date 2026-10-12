@@ -358,28 +358,28 @@
 		padding: clamp(0.38rem, 1vw, 0.48rem) clamp(0.7rem, 1.8vw, 1.2rem);
 		white-space: nowrap;
 		background: #000000;
-		border: 1.5px solid #00E640;
+		border: 1.5px solid rgba(16, 185, 129, 0.6);
 		color: #ffffff;
 		border-radius: var(--radius-full);
-		transition: all 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
-		box-shadow: 0 0 10px rgba(0, 230, 64, 0.2);
+		transition: var(--hover-transition);
+		box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
 		cursor: pointer;
 		flex-shrink: 0;
 	}
 
 	.main-cta-btn:hover {
-		background: rgba(0, 230, 64, 0.12);
-		border-color: #00E640;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
-		box-shadow: 0 0 18px rgba(0, 230, 64, 0.55), 0 0 6px rgba(0, 230, 64, 0.35);
+		box-shadow: var(--hover-shadow);
 		transform: translateY(-1px);
 	}
 
 	.main-cta-btn:active {
-		background: rgba(0, 230, 64, 0.22);
-		border-color: #00E640;
+		background: rgba(16, 185, 129, 0.22);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
-		box-shadow: 0 0 22px rgba(0, 230, 64, 0.7);
+		box-shadow: var(--hover-shadow);
 		transform: translateY(0);
 	}
 
@@ -387,20 +387,21 @@
 	:global(html.theme-light) .main-cta-btn,
 	:global(body[data-theme="light"]) .main-cta-btn,
 	:global([data-theme="light"]) .main-cta-btn {
-		background: #008F45 !important;
+		background: #059669 !important;
 		color: #ffffff !important;
-		border: 1.5px solid #006b33 !important;
-		box-shadow: 0 2px 10px rgba(0, 143, 69, 0.25) !important;
+		border: 1.5px solid #047857 !important;
+		box-shadow: 0 2px 10px rgba(5, 150, 105, 0.2) !important;
+		transition: var(--hover-transition) !important;
 	}
 
 	:global(html[data-theme="light"]) .main-cta-btn:hover,
 	:global(html.theme-light) .main-cta-btn:hover,
 	:global(body[data-theme="light"]) .main-cta-btn:hover,
 	:global([data-theme="light"]) .main-cta-btn:hover {
-		background: #00a852 !important;
-		border-color: #008F45 !important;
+		background: #047857 !important;
+		border-color: var(--hover-border-color) !important;
 		color: #ffffff !important;
-		box-shadow: 0 4px 14px rgba(0, 143, 69, 0.35) !important;
+		box-shadow: var(--hover-shadow) !important;
 		transform: translateY(-1px);
 	}
 
@@ -460,9 +461,10 @@
 		font-size: 0.82rem;
 		font-weight: 500;
 		white-space: nowrap;
-		transition: all var(--transition-fast);
+		cursor: pointer;
+		transition: var(--hover-transition);
 		background: transparent;
-		border: 1px solid transparent;
+		border: 1.5px solid transparent;
 		flex-shrink: 0;
 	}
 
@@ -473,14 +475,15 @@
 	.tapbar-btn:hover {
 		color: #ffffff;
 		background: transparent;
-		border-color: rgba(118, 206, 154, 0.65);
-		box-shadow: 0 0 10px rgba(90, 180, 126, 0.2);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	:global(html[data-theme="light"]) .tapbar-btn:hover {
 		color: #151f20;
 		background: transparent;
-		border-color: #8ec94b;
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.tapbar-btn.active {

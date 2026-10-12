@@ -293,7 +293,8 @@
 		border-radius: var(--radius-full);
 		font-weight: 600;
 		text-decoration: none;
-		transition: box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+		cursor: pointer;
+		transition: all 0.25s ease-in-out;
 		white-space: nowrap;
 		overflow: hidden;
 		box-sizing: border-box;
@@ -349,37 +350,37 @@
 		letter-spacing: 0.01em;
 	}
 
-	/* Left phone pill: Red (Landline) - Dark mode: 3 bursts on load/refresh, then stops */
+	/* Left phone pill: Red (Landline) - Dark mode: soft red/amber hover border */
 	.top-phone-pill.phone-pill-red {
 		background: linear-gradient(135deg, rgba(220, 38, 38, 0.28), rgba(185, 28, 28, 0.42));
-		border: 1px solid rgba(239, 68, 68, 0.55);
+		border: 1.5px solid rgba(239, 68, 68, 0.55);
 		color: #fee2e2;
 		box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
 		animation: policeStrobeRedDark 1.4s ease-in-out 3 normal forwards;
 	}
 
 	.top-phone-pill.phone-pill-red:hover {
-		background: rgba(239, 68, 68, 0.45);
-		border-color: rgba(239, 68, 68, 0.85);
+		background: rgba(239, 68, 68, 0.38);
+		border-color: rgba(239, 68, 68, 0.75);
 		color: #ffffff;
-		box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
+		box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
 		transform: translateY(-1px);
 	}
 
-	/* Right phone pill: Blue (Mobile lifecell) - Dark mode: 3 bursts on load/refresh, then stops */
+	/* Right phone pill: Blue (Mobile lifecell) - Dark mode: soft blue hover border */
 	.top-phone-pill.phone-pill-blue {
 		background: linear-gradient(135deg, rgba(2, 132, 199, 0.28), rgba(30, 64, 175, 0.42));
-		border: 1px solid rgba(56, 189, 248, 0.55);
+		border: 1.5px solid rgba(56, 189, 248, 0.55);
 		color: #e0f2fe;
 		box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
 		animation: policeStrobeBlueDark 1.4s ease-in-out 3 normal forwards;
 	}
 
 	.top-phone-pill.phone-pill-blue:hover {
-		background: rgba(2, 132, 199, 0.45);
-		border-color: rgba(56, 189, 248, 0.85);
+		background: rgba(2, 132, 199, 0.38);
+		border-color: rgba(59, 130, 246, 0.75);
 		color: #ffffff;
-		box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+		box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
 		transform: translateY(-1px);
 	}
 
@@ -389,7 +390,7 @@
 	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-red,
 	:global([data-theme="light"]) .top-phone-pill.phone-pill-red {
 		background: #fef2f2;
-		border: 1.5px solid #dc2626;
+		border: 1.5px solid rgba(239, 68, 68, 0.6);
 		color: #991b1b;
 		box-shadow: 0 1px 4px rgba(220, 38, 38, 0.12);
 		animation: policeStrobeRedLight 1.4s ease-in-out 3 normal forwards;
@@ -400,9 +401,10 @@
 	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-red:hover,
 	:global([data-theme="light"]) .top-phone-pill.phone-pill-red:hover {
 		background: #fee2e2;
-		border-color: #b91c1c;
+		border-color: #ef4444;
 		color: #7f1d1d;
-		box-shadow: 0 2px 8px rgba(220, 38, 38, 0.22);
+		box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+		transform: translateY(-1px);
 	}
 
 	:global(html[data-theme="light"]) .top-phone-pill.phone-pill-blue,
@@ -410,7 +412,7 @@
 	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-blue,
 	:global([data-theme="light"]) .top-phone-pill.phone-pill-blue {
 		background: #f0f9ff;
-		border: 1.5px solid #0284c7;
+		border: 1.5px solid rgba(59, 130, 246, 0.6);
 		color: #0369a1;
 		box-shadow: 0 1px 4px rgba(2, 132, 199, 0.12);
 		animation: policeStrobeBlueLight 1.4s ease-in-out 3 normal forwards;
@@ -421,9 +423,10 @@
 	:global(body[data-theme="light"]) .top-phone-pill.phone-pill-blue:hover,
 	:global([data-theme="light"]) .top-phone-pill.phone-pill-blue:hover {
 		background: #e0f2fe;
-		border-color: #0369a1;
+		border-color: #3b82f6;
 		color: #075985;
-		box-shadow: 0 2px 8px rgba(2, 132, 199, 0.22);
+		box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+		transform: translateY(-1px);
 	}
 
 	:global(html[data-theme="light"]) .pill-top-label,

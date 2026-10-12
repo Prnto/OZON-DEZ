@@ -269,12 +269,12 @@
 		padding: 2.2rem 1.8rem;
 		border-radius: var(--radius-cards);
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		display: flex;
 		flex-direction: column;
 		gap: 0.85rem;
 		isolation: isolate;
-		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+		transition: var(--hover-transition);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 		text-decoration: none;
 		color: inherit;
@@ -283,9 +283,9 @@
 
 	.service-pill-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(56, 189, 248, 0.6);
+		border-color: var(--hover-border-color);
 		background: var(--color-surface-hover);
-		box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(56, 189, 248, 0.2);
+		box-shadow: var(--hover-shadow);
 	}
 
 	/* Thematic photography: zooms smoothly and brightens on hover (like city cards) */
@@ -320,13 +320,14 @@
 		background: #ffffff;
 		backdrop-filter: none;
 		-webkit-backdrop-filter: none;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
 		box-shadow: none !important;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .service-pill-card:hover {
-		border-color: #222f30;
-		box-shadow: none !important;
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow) !important;
 	}
 
 	:global(html[data-theme="light"]) .service-card-overlay {
@@ -408,22 +409,22 @@
 	}
 
 	.service-pill-card:hover .srv-card-arrow {
-		background: #38bdf8;
-		color: #0b0f19;
-		border-color: #38bdf8;
+		background: var(--hover-border-color);
+		color: #ffffff;
+		border-color: var(--hover-border-color);
 		transform: translate(2px, -2px);
 	}
 
 	:global(html[data-theme="light"]) .srv-card-arrow {
-		background: #cef79e;
-		border: 1px solid #b8eb83;
+		background: #e7e8e1;
+		border: 1px solid #c9cbbe;
 		color: #222f30;
 	}
 
 	:global(html[data-theme="light"]) .service-pill-card:hover .srv-card-arrow {
-		background: #bbf47b;
-		border-color: #222f30;
-		color: #222f30;
+		background: var(--hover-border-color);
+		border-color: var(--hover-border-color);
+		color: #ffffff;
 		transform: translate(2px, -2px);
 	}
 
@@ -462,24 +463,24 @@
 		padding-top: 0.85rem;
 		font-size: 0.85rem;
 		font-weight: 600;
-		color: #38bdf8;
+		color: var(--hover-border-color);
 		display: inline-flex;
 		align-items: center;
 		gap: 5px;
-		transition: transform 0.2s ease, color 0.2s ease;
+		transition: var(--hover-transition);
 	}
 
 	.service-pill-card:hover .srv-read-more {
-		color: #7dd3fc;
+		color: #34d399;
 		transform: translateX(4px);
 	}
 
 	:global(html[data-theme="light"]) .srv-read-more {
-		color: #222f30 !important;
+		color: #059669 !important;
 	}
 
 	:global(html[data-theme="light"]) .service-pill-card:hover .srv-read-more {
-		color: #15846e !important;
+		color: #047857 !important;
 	}
 
 	.welcome-line {

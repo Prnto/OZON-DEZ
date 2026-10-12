@@ -398,28 +398,32 @@
 		flex-direction: column;
 		border-radius: 16px;
 		overflow: hidden;
-		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+		transition: var(--hover-transition);
 		background: var(--color-surface);
-		border: 1px solid var(--color-void-border);
+		border: 1.5px solid var(--color-void-border);
 		scroll-margin-top: 110px;
+		cursor: pointer;
 	}
 
 	.service-card:hover {
-		border-color: rgba(206, 247, 158, 0.45);
-		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(206, 247, 158, 0.15);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
+		transform: translateY(-3px);
 	}
 
 	:global(html[data-theme="light"]) .service-card {
 		background: #ffffff;
 		backdrop-filter: none;
 		-webkit-backdrop-filter: none;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
 		box-shadow: none !important;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .service-card:hover {
-		border-color: #8ec94b;
-		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.15) !important;
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow) !important;
+		transform: translateY(-3px);
 	}
 
 	.service-card-media {

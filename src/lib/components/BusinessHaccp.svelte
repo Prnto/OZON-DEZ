@@ -99,17 +99,19 @@
 	.point-item {
 		padding: 2.2rem 1.8rem;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		transition: var(--hover-transition);
 		box-shadow: none;
+		cursor: pointer;
 	}
 
 	.point-item:hover {
 		transform: translateY(-2px);
-		border-color: var(--color-electric-iris);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.point-icon-box {
@@ -136,13 +138,15 @@
 
 	:global(html[data-theme="light"]) .point-item {
 		background: #ffffff;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
 		box-shadow: none !important;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .point-item:hover {
-		border-color: #222f30;
-		box-shadow: none !important;
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow) !important;
+		transform: translateY(-2px);
 	}
 
 	:global(html[data-theme="light"]) .point-title {

@@ -443,7 +443,7 @@
 		border-radius: 10px;
 		cursor: pointer;
 		background: var(--color-surface);
-		transition: all 0.2s;
+		transition: var(--hover-transition);
 		color: var(--color-silver-mist);
 	}
 
@@ -451,16 +451,17 @@
 		border-color: #c9cbbe;
 		background: #ffffff;
 		color: #354243;
+		transition: var(--hover-transition);
 	}
 
 	.radio-card:hover {
-		border-color: #cef79e;
-		box-shadow: 0 0 12px rgba(206, 247, 158, 0.25);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	:global(html[data-theme="light"]) .radio-card:hover {
-		border-color: #8ec94b !important;
-		box-shadow: 0 0 10px rgba(184, 235, 131, 0.3) !important;
+		border-color: var(--hover-border-color) !important;
+		box-shadow: var(--hover-shadow) !important;
 	}
 
 	.radio-card input {
@@ -649,25 +650,26 @@
 		padding: 14px;
 		border-radius: 10px;
 		text-decoration: none;
-		transition: background 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+		transition: var(--hover-transition);
 		font-size: 1rem;
-		border: 1.5px solid rgba(0, 230, 64, 0.45);
+		border: 1.5px solid rgba(16, 185, 129, 0.6);
+		cursor: pointer;
 	}
 
 	.btn-calc-submit:hover {
-		background: transparent;
-		border-color: #00E640;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
-		box-shadow: 0 0 16px rgba(0, 230, 64, 0.35);
+		box-shadow: var(--hover-shadow);
 		transform: translateY(-2px);
 	}
 
 	.btn-calc-submit:active {
-		background: #008F45;
-		border-color: #00E640;
+		background: rgba(16, 185, 129, 0.22);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
 		transform: translateY(0);
-		box-shadow: 0 0 20px rgba(0, 230, 64, 0.45);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.btn-calc-tg {
@@ -678,13 +680,14 @@
 		text-align: center;
 		background: rgba(255, 255, 255, 0.04);
 		color: var(--color-silver-mist);
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		border: 1.5px solid rgba(255, 255, 255, 0.12);
 		font-weight: 500;
 		font-size: 0.88rem;
 		padding: 11px;
 		border-radius: 10px;
 		text-decoration: none;
-		transition: all 0.2s;
+		cursor: pointer;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-submit,
@@ -692,10 +695,13 @@
 	:global(body[data-theme="light"]) .btn-calc-submit,
 	:global(body.theme-light) .btn-calc-submit,
 	:global([data-theme="light"]) .btn-calc-submit {
-		background: #cef79e !important;
-		border: 1.5px solid #b8eb83 !important;
-		color: #222f30 !important;
+		background: #059669 !important;
+		border: 1.5px solid #047857 !important;
+		color: #ffffff !important;
 		font-weight: 700 !important;
+		box-shadow: 0 2px 10px rgba(5, 150, 105, 0.2) !important;
+		transition: var(--hover-transition) !important;
+		cursor: pointer !important;
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-submit:hover,
@@ -703,10 +709,10 @@
 	:global(body[data-theme="light"]) .btn-calc-submit:hover,
 	:global(body.theme-light) .btn-calc-submit:hover,
 	:global([data-theme="light"]) .btn-calc-submit:hover {
-		background: #b8eb83 !important;
-		border-color: #8ec94b !important;
-		color: #222f30 !important;
-		box-shadow: 0 6px 20px rgba(184, 235, 131, 0.45) !important;
+		background: #047857 !important;
+		border-color: var(--hover-border-color) !important;
+		color: #ffffff !important;
+		box-shadow: var(--hover-shadow) !important;
 		transform: translateY(-2px);
 	}
 
@@ -715,28 +721,31 @@
 	:global(body[data-theme="light"]) .btn-calc-submit:active,
 	:global(body.theme-light) .btn-calc-submit:active,
 	:global([data-theme="light"]) .btn-calc-submit:active {
-		background: #8ec94b !important;
-		border-color: #71a938 !important;
-		color: #222f30 !important;
+		background: #065f46 !important;
+		border-color: var(--hover-border-color) !important;
+		color: #ffffff !important;
 		transform: translateY(0);
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg {
 		background: #ffffff;
 		color: #222f30;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
+		transition: var(--hover-transition);
 	}
 
 	.btn-calc-tg:hover {
-		background: transparent;
-		border-color: #cef79e;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
 		color: #ffffff;
+		box-shadow: var(--hover-shadow);
 	}
 
 	:global(html[data-theme="light"]) .btn-calc-tg:hover {
-		background: transparent;
-		border-color: #8ec94b;
-		color: #222f30;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
+		color: #059669;
+		box-shadow: var(--hover-shadow);
 	}
 
 	.calc-lead-section {

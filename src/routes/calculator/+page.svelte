@@ -170,12 +170,13 @@
 	.t-card {
 		padding: 2.2rem 1.8rem;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
-		transition: border-color var(--transition-fast), transform var(--transition-fast);
+		transition: var(--hover-transition);
 		box-shadow: none;
+		cursor: pointer;
 	}
 
 	@media (max-width: 480px) {
@@ -186,8 +187,8 @@
 
 	.t-card:hover {
 		transform: translateY(-2px);
-		border-color: #cef79e;
-		box-shadow: 0 0 18px rgba(206, 247, 158, 0.25);
+		border-color: var(--hover-border-color);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.t-icon {
@@ -212,13 +213,15 @@
 
 	:global(html[data-theme="light"]) .t-card {
 		background: #ffffff;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
 		box-shadow: none !important;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .t-card:hover {
-		border-color: #8ec94b !important;
-		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.2) !important;
+		border-color: var(--hover-border-color) !important;
+		box-shadow: var(--hover-shadow) !important;
+		transform: translateY(-2px);
 	}
 
 	:global(html[data-theme="light"]) .t-card h4 {

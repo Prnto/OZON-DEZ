@@ -353,22 +353,22 @@
 		overflow: hidden;
 		padding: 2.2rem 1.8rem;
 		background: var(--color-surface);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
 		color: inherit;
 		cursor: pointer;
-		transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+		transition: var(--hover-transition);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 	}
 
 	.geo-city-card:hover {
 		transform: translateY(-4px);
-		border-color: #cef79e;
+		border-color: var(--hover-border-color);
 		background: var(--color-surface-hover);
-		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 24px rgba(206, 247, 158, 0.25);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.city-link-pill {
@@ -398,8 +398,8 @@
 
 	.geo-city-card:hover .city-link-pill {
 		color: #ffffff;
-		background: rgba(206, 247, 158, 0.15);
-		border-color: #cef79e;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
 		transform: translateY(-1px);
 	}
 
@@ -495,13 +495,15 @@
 
 	:global(html[data-theme="light"]) .geo-city-card {
 		background: #ffffff;
-		border: 1px solid #c9cbbe;
+		border: 1.5px solid #c9cbbe;
 		box-shadow: none !important;
+		transition: var(--hover-transition);
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card:hover {
-		border-color: #8ec94b !important;
-		box-shadow: 0 8px 24px rgba(142, 201, 75, 0.2) !important;
+		border-color: var(--hover-border-color) !important;
+		box-shadow: var(--hover-shadow) !important;
+		transform: translateY(-4px);
 	}
 
 	:global(html[data-theme="light"]) .city-crest-badge {
@@ -511,7 +513,7 @@
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card:hover .city-crest-badge {
-		border-color: #8ec94b;
+		border-color: var(--hover-border-color);
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card h4 {
@@ -529,9 +531,9 @@
 	}
 
 	:global(html[data-theme="light"]) .geo-city-card:hover .city-link-pill {
-		color: #151f20;
-		background: #eafadb;
-		border-color: #8ec94b;
+		color: #059669;
+		background: var(--hover-bg-tint);
+		border-color: var(--hover-border-color);
 	}
 
 	:global(html[data-theme="light"]) .city-link-pill-map {

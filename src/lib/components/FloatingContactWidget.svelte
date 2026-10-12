@@ -368,12 +368,12 @@
 		padding: 0.75rem 0.95rem;
 		min-height: 44px;
 		background: var(--color-surface-hover);
-		border: 1px solid var(--border-subtle);
+		border: 1.5px solid var(--border-subtle);
 		border-radius: 14px;
 		color: var(--color-bone-white);
 		text-align: left;
 		cursor: pointer;
-		transition: all 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
+		transition: var(--hover-transition);
 		width: 100%;
 		outline: none;
 		text-decoration: none;
@@ -381,6 +381,9 @@
 
 	.menu-item:hover {
 		transform: translateX(-3px);
+		border-color: var(--hover-border-color);
+		background: var(--hover-bg-tint);
+		box-shadow: var(--hover-shadow);
 	}
 
 	.item-icon-wrap {
@@ -425,17 +428,11 @@
 		text-overflow: ellipsis;
 	}
 
-	/* Dark theme: individual icon badges & individual hover styles */
+	/* Dark theme: individual icon badges */
 	.office-icon {
 		color: #fbbf24;
 		background: rgba(245, 158, 11, 0.14);
 		border-color: rgba(245, 158, 11, 0.3);
-	}
-
-	.office-action:hover {
-		border-color: #fbbf24;
-		background: rgba(245, 158, 11, 0.12);
-		box-shadow: 0 4px 20px rgba(245, 158, 11, 0.18);
 	}
 
 	.phone-icon {
@@ -444,22 +441,10 @@
 		border-color: rgba(16, 185, 129, 0.3);
 	}
 
-	.phone-action:hover {
-		border-color: #34d399;
-		background: rgba(16, 185, 129, 0.12);
-		box-shadow: 0 4px 20px rgba(16, 185, 129, 0.18);
-	}
-
 	.viber-icon {
 		color: #a797ff;
 		background: rgba(115, 96, 242, 0.16);
 		border-color: rgba(115, 96, 242, 0.3);
-	}
-
-	.viber-action:hover {
-		border-color: #8b5cf6;
-		background: rgba(115, 96, 242, 0.14);
-		box-shadow: 0 4px 20px rgba(115, 96, 242, 0.18);
 	}
 
 	.tg-icon {
@@ -468,34 +453,16 @@
 		border-color: rgba(0, 136, 204, 0.3);
 	}
 
-	.tg-action:hover {
-		border-color: #29b6f6;
-		background: rgba(0, 136, 204, 0.14);
-		box-shadow: 0 4px 20px rgba(0, 136, 204, 0.18);
-	}
-
 	.insta-icon {
 		color: #f43f5e;
 		background: rgba(225, 48, 108, 0.18);
 		border-color: rgba(225, 48, 108, 0.35);
 	}
 
-	.insta-action:hover {
-		border-color: #f43f5e;
-		background: rgba(225, 48, 108, 0.14);
-		box-shadow: 0 4px 20px rgba(225, 48, 108, 0.18);
-	}
-
 	.email-icon {
 		color: #38bdf8;
 		background: rgba(2, 132, 199, 0.16);
 		border-color: rgba(2, 132, 199, 0.3);
-	}
-
-	.email-action:hover {
-		border-color: #38bdf8;
-		background: rgba(2, 132, 199, 0.14);
-		box-shadow: 0 4px 20px rgba(2, 132, 199, 0.18);
 	}
 
 	.brand-svg,
@@ -513,8 +480,16 @@
 
 	:global(html[data-theme="light"]) .menu-item {
 		background: #f8fafc;
-		border-color: #e2e8f0;
+		border: 1.5px solid #e2e8f0;
 		color: #0f172a;
+		transition: var(--hover-transition);
+	}
+
+	:global(html[data-theme="light"]) .menu-item:hover {
+		transform: translateX(-3px);
+		border-color: var(--hover-border-color) !important;
+		background: var(--hover-bg-tint) !important;
+		box-shadow: var(--hover-shadow) !important;
 	}
 
 	:global(html[data-theme="light"]) .item-title {
@@ -564,43 +539,6 @@
 		color: #0284c7;
 		background: #f0f9ff;
 		border: 1px solid #bae6fd;
-	}
-
-	/* Light theme: individual hover borders, tinted backgrounds & glowing shadows */
-	:global(html[data-theme="light"]) .office-action:hover {
-		border-color: #f59e0b !important;
-		background: rgba(245, 158, 11, 0.08) !important;
-		box-shadow: 0 4px 16px rgba(245, 158, 11, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .phone-action:hover {
-		border-color: #059669 !important;
-		background: rgba(16, 185, 129, 0.08) !important;
-		box-shadow: 0 4px 16px rgba(16, 185, 129, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .viber-action:hover {
-		border-color: #7360f2 !important;
-		background: rgba(115, 96, 242, 0.08) !important;
-		box-shadow: 0 4px 16px rgba(115, 96, 242, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .tg-action:hover {
-		border-color: #0088cc !important;
-		background: rgba(0, 136, 204, 0.08) !important;
-		box-shadow: 0 4px 16px rgba(0, 136, 204, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .insta-action:hover {
-		border-color: #e1306c !important;
-		background: rgba(225, 48, 108, 0.08) !important;
-		box-shadow: 0 4px 16px rgba(225, 48, 108, 0.14) !important;
-	}
-
-	:global(html[data-theme="light"]) .email-action:hover {
-		border-color: #0284c7 !important;
-		background: rgba(2, 132, 199, 0.08) !important;
-		box-shadow: 0 4px 16px rgba(2, 132, 199, 0.14) !important;
 	}
 
 	@media (max-width: 480px) {
