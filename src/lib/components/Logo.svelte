@@ -17,11 +17,11 @@
 		{#if langState.current === 'en'}
 			<div class="logo-composite-en" aria-label="OZON-DEZ">
 				<img
-					src="{asset('images/logo-molecular-shield.webp')}"
+					src="{asset('images/logo-shield-mark.webp')}"
 					alt="OZON-DEZ"
 					class="logo-shield-mark"
 					width="40"
-					height="40"
+					height="42"
 					loading="eager"
 				/>
 				<span class="logo-text-en">
@@ -123,7 +123,7 @@
 	}
 
 	.logo-shield-mark {
-		height: 40px;
+		height: 42px;
 		width: 40px;
 		object-fit: contain;
 		display: block;

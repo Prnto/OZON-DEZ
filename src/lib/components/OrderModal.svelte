@@ -110,7 +110,7 @@
 			{:else}
 				<div class="modal-header">
 					<div class="modal-top-tag">
-						<img src="{asset('images/logo-molecular-shield.webp')}" alt="" class="modal-logo-icon" width="18" height="18" />
+						<img src="{asset('images/logo-shield-mark.webp')}" alt="" class="modal-logo-icon" width="18" height="18" />
 						<span class="modal-brand-name">
 							{#if langState.current === 'en'}
 								<span class="brand-ozon">OZON</span><span class="brand-sep">-</span><span class="brand-dez">DEZ</span>
