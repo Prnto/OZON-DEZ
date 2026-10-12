@@ -223,7 +223,7 @@
 		data-testid="floating-widget-trigger-btn"
 		onclick={toggleWidget}
 		aria-expanded={isOpen}
-		aria-label={langState.current === 'ua' ? 'Швидкий зв’язок та виклик спеціаліста' : langState.current === 'ru' ? 'Быстрая связь и вызов специалиста' : 'Quick contact & specialist call'}
+		aria-label={langState.current === 'ua' ? 'Швидкий зв’язок та замовлення дзвінка' : langState.current === 'ru' ? 'Быстрая связь и заказ звонка' : 'Quick contact & request a call'}
 	>
 		<span class="ring-pulse"></span>
 		<span class="trigger-icon" aria-hidden="true">

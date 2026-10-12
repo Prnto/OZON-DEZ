@@ -313,7 +313,7 @@
 											data-testid="calc-lead-phone-input"
 										/>
 										<button type="submit" class="lead-btn" data-testid="calc-lead-submit-btn" disabled={isSubmitting} style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;">
-											{#if isSubmitting}...{:else}<Lightning size={16} weight="fill" /> {#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call specialist{/if}{/if}
+											{#if isSubmitting}...{:else}<Lightning size={16} weight="fill" /> {#if langState.current === 'ua'}Замовити дзвінок{:else if langState.current === 'ru'}Заказать звонок{:else}Request a call{/if}{/if}
 										</button>
 									</div>
 								</form>

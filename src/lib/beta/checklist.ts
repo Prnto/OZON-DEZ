@@ -127,10 +127,10 @@ export const BETA_TABS: BetaTab[] = [
 			},
 			{
 				id: 'services_2',
-				category: { uk: 'Кнопки виклику', en: 'Call Specialist Buttons' },
+				category: { uk: 'Кнопки замовлення дзвінка', en: 'Request Call Buttons' },
 				text: {
-					uk: 'Натисніть "Викликати спеціаліста" на будь-якій послузі. Модальне вікно має відкритися з обраною послугою в заголовку',
-					en: 'Click "Call a specialist" on any service. Modal must open with selected service prepopulated'
+					uk: 'Натисніть "Замовити дзвінок" на будь-якій послузі. Модальне вікно має відкритися з обраною послугою в заголовку',
+					en: 'Click "Request a call" on any service. Modal must open with selected service prepopulated'
 				},
 				coverage: 'manual'
 			},

@@ -59,14 +59,14 @@
 								orderModal.open({
 									serviceTitle:
 										langState.current === 'ua'
-											? 'Виклик спеціаліста'
+											? 'Замовити дзвінок'
 											: langState.current === 'ru'
-											? 'Вызов специалиста'
-											: 'Call a specialist'
+											? 'Заказать звонок'
+											: 'Request a call'
 								})}
 						>
 							<PhoneCall size={18} weight="bold" />
-							<span>{#if langState.current === 'ua'}Викликати спеціаліста{:else if langState.current === 'ru'}Вызвать специалиста{:else}Call a specialist{/if}</span>
+							<span>{#if langState.current === 'ua'}Замовити дзвінок{:else if langState.current === 'ru'}Заказать звонок{:else}Request a call{/if}</span>
 						</button>
 						<a
 							href={resolve('/calculator')}

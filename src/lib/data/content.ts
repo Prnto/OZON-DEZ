@@ -333,7 +333,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			officeAddress: 'Одеська область, м. Чорноморськ, просп. Миру, 8-а',
 			phonesTitle: 'Наші контакти:',
 			phones: '+38 (063) 667-26-53 (мобільний), +38 (04868) 6-03-08 (міський / офіс)',
-			ctaSpecialist: 'Викликати спеціаліста',
+			ctaSpecialist: 'Замовити дзвінок',
 			ctaConsult: 'Отримати консультацію'
 		},
 		hero: {
@@ -364,7 +364,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				'Пест-контроль (HACCP)'
 			],
 			ctaPrimary: 'Розрахувати вартість',
-			ctaSecondary: 'Викликати спеціаліста',
+			ctaSecondary: 'Замовити дзвінок',
 			experienceBadge: '15 років бездоганного досвіду',
 			stats: {
 				stat1Val: '15+',
@@ -381,7 +381,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			howWeWork: 'Як працюємо',
 			calculator: 'Калькулятор',
 			contacts: 'Контакти',
-			callBtn: 'Викликати спеціаліста'
+			callBtn: 'Замовити дзвінок'
 		},
 		servicesSection: {
 			badge: 'Каталог послуг компанії',
@@ -676,7 +676,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Зафіксувати ціну та отримати знижку 10%',
 				namePlaceholder: 'Ваше ім’я',
 				phonePlaceholder: 'Номер телефону (напр. 063 667-26-53)',
-				submitBtn: 'Викликати спеціаліста',
+				submitBtn: 'Замовити дзвінок',
 				privacy: 'Ваші дані конфіденційні та не передаються третім особам.',
 				successTitle: 'Повідомлення прийнято!',
 				successDesc: 'Ми зафіксували для вас ціну. Черговий спеціаліст зателефонує вам протягом 5 хвилин.',
@@ -741,7 +741,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				serviceLbl: 'Необхідна послуга:',
 				commentLbl: 'Коментар або площа об’єкта:',
 				commentPlaceholder: 'Вкажіть площу, адресу або специфіку проблеми...',
-				submitBtn: 'Викликати спеціаліста',
+				submitBtn: 'Замовити дзвінок',
 				disclaimer: 'Натискаючи кнопку, ви даєте згоду на обробку персональних даних для зв’язку.',
 				successTitle: 'Повідомлення успішно відправлено!',
 				successDesc: 'Дякуємо за звернення. Наш спеціаліст зателефонує вам найближчим часом для узгодження деталей.',
@@ -750,7 +750,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		modal: {
 			topTag: 'OZON-DEZ',
-			defaultTitle: 'Викликати спеціаліста',
+			defaultTitle: 'Замовити дзвінок',
 			sub: 'Залиште ваш контакт — черговий спеціаліст розрахує точну вартість і запропонує найближчий зручний час виїзду.',
 			nameLbl: 'Ваше ім’я:',
 			namePlaceholder: 'Як до вас звертатися?',
@@ -759,7 +759,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			addressPlaceholder: 'м. Чорноморськ, просп. Миру...',
 			commentLbl: 'Опис проблеми або площа:',
 			commentPlaceholder: 'Наприклад: 2-кімнатна квартира, виявили тарганів на кухні...',
-			submitBtn: 'Викликати спеціаліста та отримати розрахунок',
+			submitBtn: 'Замовити дзвінок та отримати розрахунок',
 			privacy: 'Конфіденційно. Працюємо згідно із санітарними регламентами України.',
 			successTitle: 'Звернення прийнято!',
 			successText: 'Дякуємо! Наш спеціаліст зв’яжеться з вами протягом 5 хвилин для уточнення деталей.',
@@ -849,7 +849,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			officeAddress: 'Одесская область, г. Черноморск, просп. Мира, 8-а',
 			phonesTitle: 'Наши контакты:',
 			phones: '+38 (063) 667-26-53 (мобильный), +38 (04868) 6-03-08 (городской / офис)',
-			ctaSpecialist: 'Вызвать специалиста',
+			ctaSpecialist: 'Заказать звонок',
 			ctaConsult: 'Получить консультацию'
 		},
 		hero: {
@@ -880,7 +880,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				'Пест-контроль (HACCP)'
 			],
 			ctaPrimary: 'Рассчитать стоимость',
-			ctaSecondary: 'Вызвать специалиста',
+			ctaSecondary: 'Заказать звонок',
 			experienceBadge: '15 лет безупречного опыта',
 			stats: {
 				stat1Val: '15+',
@@ -897,7 +897,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			howWeWork: 'Как работаем',
 			calculator: 'Калькулятор',
 			contacts: 'Контакты',
-			callBtn: 'Вызвать специалиста'
+			callBtn: 'Заказать звонок'
 		},
 		servicesSection: {
 			badge: 'Каталог услуг компании',
@@ -1192,7 +1192,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Зафиксировать цену и получить скидку 10%',
 				namePlaceholder: 'Ваше имя',
 				phonePlaceholder: 'Номер телефона (напр. 063 667-26-53)',
-				submitBtn: 'Вызвать специалиста',
+				submitBtn: 'Заказать звонок',
 				privacy: 'Ваши данные конфиденциальны и не передаются третьим лицам.',
 				successTitle: 'Обращение принято!',
 				successDesc: 'Мы зафиксировали для вас цену. Дежурный специалист перезвонит вам в течение 5 минут.',
@@ -1257,7 +1257,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				serviceLbl: 'Необходимая услуга:',
 				commentLbl: 'Комментарий или площадь объекта:',
 				commentPlaceholder: 'Укажите площадь, адрес или специфику проблемы...',
-				submitBtn: 'Вызвать специалиста',
+				submitBtn: 'Заказать звонок',
 				disclaimer: 'Нажимая кнопку, вы даете согласие на обработку персональных данных для связи.',
 				successTitle: 'Обращение успешно отправлено!',
 				successDesc: 'Благодарим за обращение. Наш специалист перезвонит вам в ближайшее время для согласования деталей.',
@@ -1266,7 +1266,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		modal: {
 			topTag: 'OZON-DEZ',
-			defaultTitle: 'Вызвать специалиста',
+			defaultTitle: 'Заказать звонок',
 			sub: 'Оставьте контакт — дежурный специалист рассчитает точную стоимость и предложит ближайшее удобное время выезда.',
 			nameLbl: 'Ваше имя:',
 			namePlaceholder: 'Как к вам обращаться?',
@@ -1275,7 +1275,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			addressPlaceholder: 'г. Черноморск, просп. Мира...',
 			commentLbl: 'Описание проблемы или площадь:',
 			commentPlaceholder: 'Например: 2-комнатная квартира, обнаружили тараканов на кухне...',
-			submitBtn: 'Вызвать специалиста и получить расчет',
+			submitBtn: 'Заказать звонок и получить расчет',
 			privacy: 'Конфиденциально. Работаем по санитарным регламентам Украины.',
 			successTitle: 'Обращение принято!',
 			successText: 'Спасибо! Наш специалист свяжется с вами в течение 5 минут для уточнения деталей выезда.',
@@ -1365,7 +1365,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			officeAddress: 'Odesa region, Chornomorsk, 8-A Myru Ave.',
 			phonesTitle: 'Our Contacts:',
 			phones: '+38 (063) 667-26-53 (mobile), +38 (04868) 6-03-08 (office / landline)',
-			ctaSpecialist: 'Call specialist',
+			ctaSpecialist: 'Request a call',
 			ctaConsult: 'Get consultation'
 		},
 		hero: {
@@ -1396,7 +1396,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				'Pest Control (HACCP)'
 			],
 			ctaPrimary: 'Calculate Cost',
-			ctaSecondary: 'Call specialist',
+			ctaSecondary: 'Request a call',
 			experienceBadge: '15 years of proven excellence',
 			stats: {
 				stat1Val: '15+',
@@ -1413,7 +1413,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			howWeWork: 'How We Work',
 			calculator: 'Calculator',
 			contacts: 'Contacts',
-			callBtn: 'Call specialist'
+			callBtn: 'Request a call'
 		},
 		servicesSection: {
 			badge: 'Company Service Catalog',
@@ -1708,7 +1708,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				title: 'Lock In Your Price & Get 10% Discount',
 				namePlaceholder: 'Your name',
 				phonePlaceholder: 'Phone number (e.g. 063 667-26-53)',
-				submitBtn: 'Call specialist',
+				submitBtn: 'Request a call',
 				privacy: 'Your data is confidential and never shared with third parties.',
 				successTitle: 'Inquiry Received!',
 				successDesc: 'We have locked in your price. An on-duty specialist will call you back within 5 minutes.',
@@ -1773,7 +1773,7 @@ export const contentMap: Record<Lang, ContentData> = {
 				serviceLbl: 'Required Service:',
 				commentLbl: 'Comment or Facility Area:',
 				commentPlaceholder: 'Specify area in sq meters, address, or pest issue...',
-				submitBtn: 'Call a specialist',
+				submitBtn: 'Request a call',
 				disclaimer: 'By submitting, you agree to the processing of personal data for communication.',
 				successTitle: 'Inquiry Successfully Sent!',
 				successDesc: 'Thank you for reaching out. Our specialist will call you shortly to confirm the details.',
@@ -1782,7 +1782,7 @@ export const contentMap: Record<Lang, ContentData> = {
 		},
 		modal: {
 			topTag: 'OZON-DEZ',
-			defaultTitle: 'Call a specialist',
+			defaultTitle: 'Request a call',
 			sub: 'Leave your contact info — an on-duty specialist will calculate the exact cost and schedule the earliest convenient time.',
 			nameLbl: 'Your Name:',
 			namePlaceholder: 'How should we address you?',
@@ -1791,7 +1791,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			addressPlaceholder: 'Chornomorsk, Myru Ave...',
 			commentLbl: 'Problem description or area:',
 			commentPlaceholder: 'E.g. 2-room apartment, cockroaches detected in the kitchen...',
-			submitBtn: 'Call a specialist & get estimate',
+			submitBtn: 'Request a call & get estimate',
 			privacy: 'Confidential. Operating in full compliance with Ukrainian sanitary regulations.',
 			successTitle: 'Inquiry Received!',
 			successText: 'Thank you! Our specialist will reach out within 5 minutes to confirm dispatch details.',

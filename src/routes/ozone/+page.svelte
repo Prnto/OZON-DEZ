@@ -135,7 +135,7 @@
 							style="width: 100%; margin-top: 1.5rem;"
 							onclick={() => orderModal.open({ serviceTitle: langState.current === 'ua' ? 'Озонування приміщення' : langState.current === 'ru' ? 'Озонирование помещения' : 'Facility ozonation' })}
 						>
-							{#if langState.current === 'ua'}Виклик спеціаліста з озонування{:else if langState.current === 'ru'}Вызов специалиста по озонированию{:else}Call ozonation specialist{/if}
+							{#if langState.current === 'ua'}Замовити озонування{:else if langState.current === 'ru'}Заказать озонирование{:else}Order ozonation{/if}
 						</button>
 					</div>
 				</div>
@@ -202,7 +202,7 @@
 								class="btn btn-primary btn-sm"
 								onclick={() => orderModal.open({ serviceTitle: srv.title, serviceCategory: 'Озонування O₃' })}
 							>
-								{#if langState.current === 'ua'}Виклик спеціаліста{:else if langState.current === 'ru'}Вызов специалиста{:else}Call specialist{/if}
+								{#if langState.current === 'ua'}Замовити дзвінок{:else if langState.current === 'ru'}Заказать звонок{:else}Request a call{/if}
 							</button>
 						</div>
 					</div>
