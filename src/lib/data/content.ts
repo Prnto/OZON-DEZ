@@ -749,7 +749,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			}
 		},
 		modal: {
-			topTag: 'OZON-DEZ',
+			topTag: 'ОЗОН-ДЕЗ',
 			defaultTitle: 'Замовити дзвінок',
 			sub: 'Залиште ваш контакт — черговий спеціаліст розрахує точну вартість і запропонує найближчий зручний час виїзду.',
 			nameLbl: 'Ваше ім’я:',
@@ -1265,7 +1265,7 @@ export const contentMap: Record<Lang, ContentData> = {
 			}
 		},
 		modal: {
-			topTag: 'OZON-DEZ',
+			topTag: 'ОЗОН-ДЕЗ',
 			defaultTitle: 'Заказать звонок',
 			sub: 'Оставьте контакт — дежурный специалист рассчитает точную стоимость и предложит ближайшее удобное время выезда.',
 			nameLbl: 'Ваше имя:',

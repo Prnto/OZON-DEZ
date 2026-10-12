@@ -8,7 +8,7 @@
 </script>
 
 <section id="hero" class="hero-section">
-	<!-- Full-width Edge-to-Edge Hero Banner showcasing the emergency vehicle & specialist -->
+	<!-- Full-width Edge-to-Edge Hero Banner spanning full width like on Services -->
 	<div class="hero-banner-full">
 		<div class="hero-banner-media">
 			<img
@@ -43,37 +43,62 @@
 		background: #000000;
 	}
 
-	/* Responsive edge-to-edge banner that preserves the full image on all screen sizes */
+	/* Responsive edge-to-edge banner spanning full width like on Services */
 	.hero-banner-full {
 		position: relative;
 		width: 100%;
+		height: clamp(520px, 64vh, 740px);
+		max-height: 760px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		background: #000000;
+		overflow: hidden;
 	}
 
 	.hero-banner-media {
 		position: relative;
 		width: 100%;
-		max-width: 1920px;
+		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		background: #000000;
+		overflow: hidden;
 	}
 
 	.hero-banner-img {
 		width: 100%;
-		max-width: 100%;
-		height: auto;
+		height: 100%;
 		display: block;
-		object-fit: contain;
+		object-fit: cover;
+		object-position: center 68%;
 		filter: contrast(1.05) saturate(1.08);
 		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.hero-banner-full:hover .hero-banner-img {
-		transform: scale(1.01);
+		transform: scale(1.015);
+	}
+
+	@media (max-width: 1200px) {
+		.hero-banner-full {
+			height: clamp(420px, 52vh, 600px);
+		}
+		.hero-banner-img {
+			object-position: center 65%;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero-banner-full {
+			height: auto;
+			aspect-ratio: 16 / 9;
+			max-height: 420px;
+		}
+
+		.hero-banner-img {
+			object-position: center 60%;
+		}
 	}
 </style>

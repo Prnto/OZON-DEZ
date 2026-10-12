@@ -12,6 +12,7 @@
 
 	let isScrolled = $state(false);
 	let isMobileMenuOpen = $state(false);
+	let headerEl: HTMLElement | undefined = $state();
 
 	let currentContent = $derived(contentMap[langState.current]);
 	let currentPath = $derived(page.url.pathname);
@@ -39,11 +40,30 @@
 	function closeMobileMenu() {
 		isMobileMenuOpen = false;
 	}
+
+	$effect(() => {
+		if (typeof window === 'undefined' || !headerEl) return;
+		const updateHeight = () => {
+			if (headerEl) {
+				const h = headerEl.offsetHeight;
+				if (h > 0) {
+					document.documentElement.style.setProperty('--header-actual-height', `${h}px`);
+				}
+			}
+		};
+		updateHeight();
+		window.addEventListener('resize', updateHeight, { passive: true });
+		window.addEventListener('orientationchange', updateHeight, { passive: true });
+		return () => {
+			window.removeEventListener('resize', updateHeight);
+			window.removeEventListener('orientationchange', updateHeight);
+		};
+	});
 </script>
 
 <svelte:window onscroll={handleScroll} />
 
-<header class="header-wrapper" class:scrolled={isScrolled}>
+<header bind:this={headerEl} class="header-wrapper" class:scrolled={isScrolled}>
 	<!-- Top Utility Bar Component -->
 	<HeaderTopBar />
 
@@ -176,17 +196,19 @@
 
 <style>
 	.header-wrapper {
-		position: sticky;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 100;
+		width: 100%;
+		z-index: 1000;
 		background: rgba(0, 0, 0, 0.95);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
 		border-bottom: 1px solid var(--color-void-border);
 		transition: background var(--transition-norm), border-color var(--transition-norm);
 		padding-top: env(safe-area-inset-top, 0);
+		box-sizing: border-box;
 	}
 
 	:global(html[data-theme="light"]) .header-wrapper,
@@ -211,29 +233,40 @@
 
 	/* Main Navigation Bar */
 	.main-bar {
-		padding: 0.65rem 0 0.5rem;
+		padding: 0.5rem 0 0.45rem;
+		min-height: 48px;
+		box-sizing: border-box;
 	}
 
 	.main-bar-container {
 		max-width: var(--container-width);
 		margin: 0 auto;
+		padding: 0 0.75rem;
 		padding: 0 clamp(0.75rem, 2vw, 1.5rem);
 		display: flex;
 		flex-direction: column;
-		gap: 0.55rem;
+		gap: 0.45rem;
+		box-sizing: border-box;
+		width: 100%;
 	}
 
 	.main-bar-top-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 0.75rem;
+		min-height: 44px;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.logo-box {
 		display: flex;
 		align-items: center;
+		gap: 0.75rem;
 		gap: clamp(0.75rem, 1.6vw, 1.5rem);
+		min-width: 0;
+		flex-shrink: 1;
 	}
 
 	.header-spec-tagline {
@@ -316,21 +349,7 @@
 		text-shadow: none !important;
 	}
 
-	@media (max-width: 860px) and (min-width: 641px) {
-		.header-spec-tagline {
-			font-size: 0.82rem;
-			padding: 0.35rem 0.85rem;
-			gap: 0.45rem;
-		}
-		.spec-link {
-			font-size: 0.85rem;
-		}
-		.spec-dot {
-			font-size: 0.8rem;
-		}
-	}
-
-	@media (max-width: 640px) {
+	@media (max-width: 1024px) {
 		.header-spec-tagline {
 			display: none !important;
 		}
@@ -357,29 +376,31 @@
 		text-transform: uppercase;
 		padding: clamp(0.38rem, 1vw, 0.48rem) clamp(0.7rem, 1.8vw, 1.2rem);
 		white-space: nowrap;
-		background: #000000;
-		border: 1.5px solid rgba(16, 185, 129, 0.6);
+		background: #059669;
+		background: linear-gradient(135deg, #059669 0%, #047857 100%);
+		border: 1.5px solid #10b981;
 		color: #ffffff;
 		border-radius: var(--radius-full);
 		transition: var(--hover-transition);
-		box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+		box-shadow: 0 2px 14px rgba(5, 150, 105, 0.35);
 		cursor: pointer;
 		flex-shrink: 0;
 	}
 
 	.main-cta-btn:hover {
-		background: var(--hover-bg-tint);
-		border-color: var(--hover-border-color);
+		background: #10b981;
+		background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+		border-color: #34d399;
 		color: #ffffff;
-		box-shadow: var(--hover-shadow);
+		box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
 		transform: translateY(-1px);
 	}
 
 	.main-cta-btn:active {
-		background: rgba(16, 185, 129, 0.22);
-		border-color: var(--hover-border-color);
+		background: #047857;
+		border-color: #059669;
 		color: #ffffff;
-		box-shadow: var(--hover-shadow);
+		box-shadow: 0 2px 10px rgba(5, 150, 105, 0.3);
 		transform: translateY(0);
 	}
 
@@ -440,6 +461,7 @@
 		padding: 0.2rem 0;
 		border-top: 1px solid rgba(255, 255, 255, 0.06);
 		margin-top: 0.15rem;
+		white-space: nowrap;
 	}
 
 	:global(html[data-theme="light"]) .top-tapbar {
@@ -448,6 +470,18 @@
 
 	.top-tapbar::-webkit-scrollbar {
 		display: none;
+	}
+
+	@media (max-width: 768px) {
+		.top-tapbar {
+			display: none !important;
+		}
+		.main-bar {
+			padding: 0.35rem 0 0.4rem;
+		}
+		.main-bar-container {
+			gap: 0;
+		}
 	}
 
 	.tapbar-btn {
@@ -529,6 +563,8 @@
 		justify-content: space-around;
 		width: 38px;
 		height: 38px;
+		min-width: 38px;
+		min-height: 38px;
 		background: #0d0d0d;
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 8px;
@@ -536,6 +572,13 @@
 		padding: 8px;
 		transition: background var(--transition-fast);
 		touch-action: manipulation;
+		flex-shrink: 0;
+	}
+
+	@media (min-width: 1025px) {
+		.burger-btn {
+			display: none !important;
+		}
 	}
 
 	:global(html[data-theme="light"]) .burger-btn {

@@ -255,10 +255,14 @@
 		transition: var(--hover-transition);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 		cursor: pointer;
+		background-clip: padding-box;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		transform: translateZ(0);
 	}
 
 	.ind-card:hover {
-		transform: translateY(-4px);
+		transform: translateY(-4px) translateZ(0);
 		border-color: var(--hover-border-color);
 		box-shadow: var(--hover-shadow);
 	}
@@ -268,17 +272,22 @@
 		height: 180px;
 		width: 100%;
 		overflow: hidden;
+		margin-bottom: -2px;
+		z-index: 1;
 	}
 
 	.ind-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		display: block;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
 		transition: transform 0.45s ease;
 	}
 
 	.ind-card:hover .ind-img {
-		transform: scale(1.07);
+		transform: scale(1.07) translateZ(0);
 	}
 
 	.ind-media-overlay {
@@ -305,6 +314,9 @@
 	}
 
 	.ind-card-body {
+		position: relative;
+		z-index: 2;
+		background: var(--color-surface);
 		padding: 1.5rem 1.6rem 1.8rem;
 		display: flex;
 		flex-direction: column;
@@ -428,7 +440,11 @@
 	:global(html[data-theme="light"]) .ind-card:hover {
 		border-color: var(--hover-border-color);
 		box-shadow: var(--hover-shadow) !important;
-		transform: translateY(-4px);
+		transform: translateY(-4px) translateZ(0);
+	}
+
+	:global(html[data-theme="light"]) .ind-card-body {
+		background: #ffffff;
 	}
 
 	:global(html[data-theme="light"]) .ind-card h3 {

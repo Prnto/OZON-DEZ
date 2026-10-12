@@ -32,7 +32,7 @@
 
 <div class="floating-widget-wrapper">
 	{#if isOpen}
-		<div class="widget-menu glass-card-dark" role="menu" data-testid="floating-widget-menu">
+		<div class="widget-menu" role="menu" data-testid="floating-widget-menu">
 			<div class="menu-items">
 				<!-- 1. Landline / City Office Call -->
 				<a
@@ -230,7 +230,7 @@
 	.widget-backdrop {
 		position: fixed;
 		inset: 0;
-		background: rgba(0, 0, 0, 0.75);
+		background: rgba(0, 0, 0, 0.65);
 		backdrop-filter: blur(4px);
 		-webkit-backdrop-filter: blur(4px);
 		z-index: 998;
@@ -244,9 +244,13 @@
 
 	.floating-widget-wrapper {
 		position: fixed;
-		bottom: max(1.5rem, calc(1.5rem + env(safe-area-inset-bottom, 0px)));
-		right: max(1.5rem, calc(1.5rem + env(safe-area-inset-right, 0px)));
-		z-index: 999;
+		/* Base pixel fallbacks for Android 9 / WebKit engines lacking CSS max() */
+		bottom: 20px;
+		right: 20px;
+		/* Dynamic safe-area for notched displays */
+		bottom: max(20px, calc(20px + env(safe-area-inset-bottom, 0px)));
+		right: max(20px, calc(20px + env(safe-area-inset-right, 0px)));
+		z-index: 1000;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
@@ -331,13 +335,17 @@
 
 	/* Menu Popup */
 	.widget-menu {
+		position: relative;
+		z-index: 1001;
 		width: 320px;
 		max-width: calc(100vw - 2rem);
 		padding: 0.85rem;
-		background: var(--color-surface);
+		background: #0d0f12;
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
-		box-shadow: none;
+		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
 		animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 		transform-origin: bottom right;
 	}
@@ -476,6 +484,8 @@
 		background: #ffffff;
 		border-color: rgba(15, 23, 42, 0.12);
 		box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
 	}
 
 	:global(html[data-theme="light"]) .menu-item {
@@ -543,8 +553,10 @@
 
 	@media (max-width: 480px) {
 		.floating-widget-wrapper {
-			bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom, 0px)));
-			right: max(1rem, calc(1rem + env(safe-area-inset-right, 0px)));
+			bottom: 16px;
+			right: 16px;
+			bottom: max(16px, calc(16px + env(safe-area-inset-bottom, 0px)));
+			right: max(16px, calc(16px + env(safe-area-inset-right, 0px)));
 		}
 
 		.widget-menu {

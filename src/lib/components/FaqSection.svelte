@@ -5,7 +5,7 @@
 	let currentContent = $derived(contentMap[langState.current]);
 	let faq = $derived(currentContent.faq);
 
-	let openIndex = $state<number | null>(0);
+	let openIndex = $state<number | null>(null);
 
 	function toggleFaq(index: number) {
 		openIndex = openIndex === index ? null : index;

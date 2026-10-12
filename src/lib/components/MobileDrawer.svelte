@@ -228,7 +228,7 @@
 		background: rgba(0, 0, 0, 0.85);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
-		z-index: 98;
+		z-index: 1001;
 	}
 
 	:global(html[data-theme="light"]) .mobile-backdrop {
@@ -244,8 +244,9 @@
 		border-bottom: 1px solid var(--color-void-border);
 		padding: 1.25rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0));
 		animation: slideDown 0.25s ease-out;
-		z-index: 99;
+		z-index: 1002;
 		max-height: calc(100vh - 85px);
+		max-height: calc(100vh - var(--header-actual-height, var(--header-height, 90px)));
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 	}

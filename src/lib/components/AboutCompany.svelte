@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
-	import { ArrowRight } from 'phosphor-svelte';
 	import { langState } from '../state/language.svelte';
 	import { contentMap } from '../data/content';
 
@@ -111,11 +110,10 @@
 									<span class="srv-icon-bubble">{srv.icon}</span>
 								{/if}
 							</div>
-							<span class="srv-card-arrow" aria-hidden="true" style="display: inline-flex; align-items: center;"><ArrowRight size={16} weight="bold" /></span>
 						</div>
 						<h4 class="srv-card-title">{srv.title}</h4>
 						<p class="srv-card-desc">{srv.desc}</p>
-						<span class="srv-read-more" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+						<span class="srv-read-more">
 							<span>
 								{#if langState.current === 'ua'}
 									Детальніше
@@ -125,7 +123,6 @@
 									Learn more
 								{/if}
 							</span>
-							<ArrowRight size={14} weight="bold" />
 						</span>
 					</a>
 				{/each}
@@ -390,43 +387,6 @@
 		display: block;
 	}
 
-	.srv-card-arrow {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: var(--color-silver-mist);
-		font-size: 0.95rem;
-		transition: all 0.2s ease;
-		z-index: 2;
-	}
-
-	.service-pill-card:hover .srv-card-arrow {
-		background: var(--hover-border-color);
-		color: #ffffff;
-		border-color: var(--hover-border-color);
-		transform: translate(2px, -2px);
-	}
-
-	:global(html[data-theme="light"]) .srv-card-arrow {
-		background: #e7e8e1;
-		border: 1px solid #c9cbbe;
-		color: #222f30;
-	}
-
-	:global(html[data-theme="light"]) .service-pill-card:hover .srv-card-arrow {
-		background: var(--hover-border-color);
-		border-color: var(--hover-border-color);
-		color: #ffffff;
-		transform: translate(2px, -2px);
-	}
 
 	.srv-card-title {
 		position: relative;

@@ -138,6 +138,8 @@
 		position: relative;
 		z-index: 1;
 		background: transparent;
+		padding-top: var(--header-height, 108px);
+		padding-top: calc(var(--header-actual-height, var(--header-height, 108px)) + env(safe-area-inset-top, 0px));
 	}
 
 	.page-transition-wrapper {

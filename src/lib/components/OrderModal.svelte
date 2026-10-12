@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { X, CheckCircle, PhoneCall } from 'phosphor-svelte';
 	import { orderModal } from '../state/modal.svelte';
 	import { langState } from '../state/language.svelte';
@@ -109,7 +110,14 @@
 			{:else}
 				<div class="modal-header">
 					<div class="modal-top-tag">
-						<span>{modalData.topTag}</span>
+						<img src="{asset('images/logo-molecular-shield.webp')}" alt="" class="modal-logo-icon" width="18" height="18" />
+						<span class="modal-brand-name">
+							{#if langState.current === 'en'}
+								<span class="brand-ozon">OZON</span><span class="brand-sep">-</span><span class="brand-dez">DEZ</span>
+							{:else}
+								<span class="brand-ozon">ОЗОН</span><span class="brand-sep">-</span><span class="brand-dez">ДЕЗ</span>
+							{/if}
+						</span>
 						{#if orderModal.data.serviceCategory}
 							<span class="tag-cat">• {orderModal.data.serviceCategory.split('(')[0]}</span>
 						{/if}
@@ -281,17 +289,60 @@
 	.modal-top-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		font-size: 0.72rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		color: var(--color-saffron-spark);
-		background: rgba(255, 184, 41, 0.1);
-		padding: 0.25rem 0.65rem;
-		border-radius: var(--radius-pill);
-		border: 1px solid rgba(255, 184, 41, 0.25);
+		gap: 0.5rem;
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		color: #ffffff;
+		background: rgba(0, 230, 64, 0.08);
+		padding: 0.28rem 0.75rem;
+		border-radius: var(--radius-full);
+		border: 1px solid rgba(0, 230, 64, 0.35);
+		box-shadow: 0 0 12px rgba(0, 230, 64, 0.12);
 		margin-bottom: 0.8rem;
+	}
+
+	.modal-logo-icon {
+		width: 18px;
+		height: 18px;
+		object-fit: contain;
+		display: block;
+		flex-shrink: 0;
+	}
+
+	.modal-brand-name {
+		font-weight: 800;
+		letter-spacing: 0.01em;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.modal-brand-name .brand-ozon {
+		color: #00E640;
+	}
+
+	.modal-brand-name .brand-sep {
+		color: #f59e0b;
+		margin: 0 1px;
+	}
+
+	.modal-brand-name .brand-dez {
+		color: #008F45;
+	}
+
+	:global(html[data-theme="light"]) .modal-top-tag {
+		background: rgba(0, 143, 69, 0.08);
+		border-color: rgba(0, 143, 69, 0.35);
+		color: #1e293b;
+		box-shadow: none;
+	}
+
+	:global(html[data-theme="light"]) .modal-brand-name .brand-ozon {
+		color: #008F45;
+	}
+
+	:global(html[data-theme="light"]) .modal-brand-name .brand-dez {
+		color: #065f46;
 	}
 
 	.modal-heading {
