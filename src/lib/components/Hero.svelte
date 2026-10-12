@@ -42,8 +42,8 @@
 	.hero-banner-full {
 		position: relative;
 		width: 100%;
-		min-height: clamp(400px, 54vh, 660px);
-		max-height: 720px;
+		min-height: clamp(440px, 58vh, 760px);
+		max-height: 820px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -66,7 +66,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 66%;
+		object-position: center 22%;
 		display: block;
 		opacity: 1;
 		filter: contrast(1.05) saturate(1.08);
@@ -77,13 +77,33 @@
 		transform: scale(1.015);
 	}
 
+	@media (min-width: 1600px) {
+		.hero-banner-full {
+			min-height: clamp(520px, 64vh, 880px);
+			max-height: 920px;
+		}
+		.hero-banner-img {
+			object-position: center 20%;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.hero-banner-full {
+			min-height: clamp(380px, 50vh, 600px);
+			max-height: 640px;
+		}
+		.hero-banner-img {
+			object-position: center 26%;
+		}
+	}
+
 	@media (max-width: 640px) {
 		.hero-banner-full {
 			min-height: 320px;
 			max-height: 440px;
 		}
 		.hero-banner-img {
-			object-position: 20% 64%;
+			object-position: 20% 32%;
 		}
 	}
 </style>
