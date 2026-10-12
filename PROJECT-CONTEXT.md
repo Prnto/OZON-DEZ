@@ -37,6 +37,7 @@
 * **Іконки:** Бібліотека `phosphor-svelte` (усі піктограми виключно в SVG-форматі, жодних сирих емодзі в інтерфейсі).
 * **Локалізація (i18n):** Реактивний стан `langState.current` (`ua` | `ru` | `en`) у `src/lib/state/language.svelte.ts`. Тексти централізовані в `src/lib/data/content.ts`.
 * **Модальні вікна:** Синглтон-стан `orderModal` у `src/lib/state/modal.svelte.ts`.
+* **Плаваючий віджет зв'язку:** `FloatingContactWidget.svelte` — лаконічне меню швидкого зв'язку без верхнього заголовка «OZON-DEZ», без хрестика та без стрілок праворуч.
 * **Інтеграція лідів:** `sendTelegramLead` у `src/lib/services/telegram.ts` надсилає дані у Telegram Bot через Cloudflare Worker або прямий API.
 * **Білд та хостинг:** `@sveltejs/adapter-static` для деплою на GitHub Pages (`https://prnto.github.io/OZON-DEZ/`).
 

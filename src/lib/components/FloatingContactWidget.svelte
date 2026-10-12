@@ -33,19 +33,6 @@
 <div class="floating-widget-wrapper">
 	{#if isOpen}
 		<div class="widget-menu glass-card-dark" role="menu" data-testid="floating-widget-menu">
-			<div class="menu-header">
-				<button
-					type="button"
-					class="menu-close-btn"
-					onclick={closeWidget}
-					aria-label="Закрити меню"
-					data-testid="floating-widget-close-btn"
-					style="display: flex; align-items: center; justify-content: center;"
-				>
-					<X size={16} weight="bold" />
-				</button>
-			</div>
-
 			<div class="menu-items">
 				<!-- 1. Landline / City Office Call -->
 				<a
@@ -122,7 +109,7 @@
 					</div>
 				</a>
 
-				<!-- 4. Telegram Chat named OZON-DEZ with 'Телеграм чат-бот' description -->
+				<!-- 4. Telegram Chat -->
 				<a
 					href="https://t.me/OZON_DEZ_bot"
 					target="_blank"
@@ -138,7 +125,7 @@
 						</svg>
 					</div>
 					<div class="item-content">
-						<span class="item-title">OZON-DEZ</span>
+						<span class="item-title">Telegram</span>
 						<span class="item-detail">
 							{#if langState.current === 'ua'}
 								Телеграм чат-бот
@@ -346,7 +333,7 @@
 	.widget-menu {
 		width: 320px;
 		max-width: calc(100vw - 2rem);
-		padding: 1.4rem;
+		padding: 0.85rem;
 		background: var(--color-surface);
 		border: 1px solid var(--border-subtle);
 		border-radius: var(--radius-cards);
@@ -366,38 +353,7 @@
 		}
 	}
 
-	.menu-header {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		padding-bottom: 0.6rem;
-		border-bottom: 1px solid var(--border-subtle);
-		margin-bottom: 0.85rem;
-	}
 
-
-
-	.menu-close-btn {
-		background: transparent;
-		border: none;
-		color: var(--color-ash-gray);
-		font-size: 0.9rem;
-		cursor: pointer;
-		width: 26px;
-		height: 26px;
-		min-width: 26px;
-		min-height: 26px;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.15s ease;
-	}
-
-	.menu-close-btn:hover {
-		background: var(--color-surface-hover);
-		color: var(--color-bone-white);
-	}
 
 	.menu-items {
 		display: flex;
