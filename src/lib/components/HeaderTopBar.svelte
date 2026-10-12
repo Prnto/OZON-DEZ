@@ -205,72 +205,57 @@
 			display: none !important;
 		}
 		.top-bar-container {
-			padding: 4px 8px;
-			justify-content: space-between;
-			min-height: 36px;
-			box-sizing: border-box;
-			width: 100%;
+			padding: 0.35rem 0.65rem;
+			justify-content: stretch;
 		}
 		.top-bar-right {
 			width: 100%;
 			display: flex;
-			flex-direction: row;
+			flex-direction: column-reverse;
+			align-items: stretch;
+			gap: 0.35rem;
+			white-space: normal;
+		}
+		.top-switchers-cluster {
+			width: 100%;
+			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			gap: 6px;
-			white-space: nowrap;
-			flex-wrap: nowrap;
+			padding: 0 2px;
+		}
+		.top-switchers-cluster .top-bar-divider {
+			display: none !important;
 		}
 		.top-phones-cluster {
-			display: inline-flex;
-			align-items: center;
-			gap: 5px;
-			flex-shrink: 1;
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 6px;
 			min-width: 0;
 		}
 		.top-phone-pill {
-			min-height: 28px;
-			padding: 2px 7px;
-			border-radius: var(--radius-full);
-			flex-shrink: 0;
-			width: auto;
-		}
-		.pill-top-label {
-			display: none !important;
+			width: 100%;
+			box-sizing: border-box;
+			min-height: 40px;
+			padding: 0.22rem 0.35rem;
+			overflow: hidden;
 		}
 		.pill-num-line {
-			font-size: 11px;
-			gap: 3px;
-			line-height: 1;
-		}
-		.top-switchers-cluster {
-			display: inline-flex;
-			align-items: center;
-			gap: 5px;
-			flex-shrink: 0;
+			font-size: clamp(9.5px, 2.5vw, 11.5px);
+			letter-spacing: -0.01em;
+			justify-content: center;
+			white-space: nowrap;
+			gap: 0.25rem;
+			max-width: 100%;
 		}
 		.theme-segment-btn .theme-label {
-			display: none !important;
-		}
-		.theme-segment-btn {
-			padding: 2px 6px;
-			min-height: 26px;
-		}
-		.lang-segmented-ctrl {
-			padding: 2px 5px;
-			font-size: 11px;
+			display: inline;
 		}
 	}
 
-	@media (max-width: 420px) {
-		.phone-pill-red {
-			display: none !important;
-		}
-		.top-bar-container {
-			padding: 3px 6px;
-		}
-		.pill-num-line {
-			font-size: 10.5px;
+	@media (max-width: 380px) {
+		.theme-segment-btn .theme-label {
+			display: none;
 		}
 	}
 
